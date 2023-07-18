@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERROR404</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="bannerVideo" id="slideShow">
+            <video src="img/GLORIA.mp4" autoplay muted loop class="active">
+            </video>
+        </div>
+
+        <div class="container">
+         <div class="content"> 
+          <div class="bannerText" id="slideShowText">
+            <div class="active">
+                <h1>ERROR 404</h1>
+                <P>
+                    "Oops!¡Algo salió mal! Mientras preparamos tu página, ¿Quieres conocer sobre nuestras comidas disponibles?"
+                </P>
+
+                <p>
+                    ¡Come en Argentina Tierra de Campeones!
+                </p>
+                <a href target="_blank">VOLVER AL INICIO</a>
+
+            </div>
+            </div>
+          </div>
+        </div>
+      <ul class="controls">
+        <li onclick="prevSlide();prevSlideText"><img src="img/left.png" alt=""></li>
+        <li onclick="nextSlide ();nextSlideText()"><img src="img/right.png" alt=""></li>
+      </ul>
+    </section>
+    <script>
+        
+        const slideShow=document.getElementById ('slideShow');
+        const slides=slideShow.getElementsByTagName('video');
+        var index =0;
+
+        function nextSlide()
+        {
+            slides[index].classList.remove('active');
+            index=(index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        function prevSlide()
+        {
+            slides[index].classList.remove('active');
+            index=(index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+
+        const slideShowText=document.getElementById ('slideShowText');
+        const slidesText=slideShowText.getElementsByTagName('div');
+        var i=0;
+
+        function nextSlideText()
+        {
+            slides[i].classList.remove('active');
+            i=(i + 1) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+
+        function prevSlideText ()
+        {
+            slidesText[i].classList.remove('active');
+            i=(i - 1 + slidesText.length) % slides.length;
+            slidesText[i].classList.add('active');
+        }
+
+    </script>
+</body>
+</html>
