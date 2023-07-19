@@ -211,3 +211,9 @@ section .bannerVideo video.active
     font-weight: 600;
 
 }
+
+p
+{
+font-family: 'Montserrat', sans-serif;
+text-align: left;
+font-size: 30px;}
