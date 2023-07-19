@@ -202,3 +202,12 @@ section .bannerVideo video.active
 
 
 }
+
+.btn-primary {
+   
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+
+}
