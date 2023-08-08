@@ -3,13 +3,17 @@ import { NavDropdown } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import "../styles/header.css"
 
 function Navbarproyect() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary navbarmain" bg="dark" data-bs-theme="dark">
       <Container  >
         <Navbar.Brand href="#home">
-          RapiBurguer
+          <img src='src\assets\images\logo\logotipo.png'
+            
+            className="d-inline-block icon-burger "
+          />Rapiburgers
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
