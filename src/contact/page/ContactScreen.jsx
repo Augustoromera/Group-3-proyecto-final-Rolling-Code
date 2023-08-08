@@ -75,7 +75,7 @@ export const ContactScreen = () => {
       <h1 className="text-center">Contacto</h1>
       <p className="text-center">
         No dudes en ponerte en contacto con nosotros si tienes dudas o sugerencias. <br />
-        Nuestro equipo se pondrá en contacto contigo cuanto antes!.
+        Nuestro equipo se pondrá en contacto contigo cuanto antes!
       </p>
       <h2 className="text-center">Completa el formulario con tus datos</h2>
             <br />
@@ -118,7 +118,7 @@ export const ContactScreen = () => {
               <Form.Control as="textarea" rows={4} name="message" required minLength={5} maxLength={75} onChange={(e) => setMessage(e.target.value)} placeholder='Escribe un mensaje' />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className="mb-4" >
               Enviar
             </Button>
           </Form>
