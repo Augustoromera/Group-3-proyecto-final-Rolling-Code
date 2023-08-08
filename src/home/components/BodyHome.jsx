@@ -54,9 +54,7 @@ const foods = [
               <Card.Img variant="top" src={food.image} alt={food.description} />
               <Card.Body>
                 <Card.Title>{food.description}</Card.Title>
-                <Card.Text>
-                  Descripción del producto.
-                </Card.Text>
+              
               </Card.Body>
             </Card>
           ))}
@@ -72,7 +70,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Doble Cheddar con Bacon</Card.Title>
         <Card.Text>
-          Descripción del producto 1.
+        Una deliciosa explosión de sabor que combina la riqueza del cheddar doble con la irresistible indulgencia del bacon.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -83,7 +81,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Cheeseburger Simple</Card.Title>
         <Card.Text>
-          Descripción del producto 2.
+        Una clásica y reconfortante hamburguesa que combina a la perfección un jugoso y sabroso filete de carne con el irresistible sabor del queso. 
         </Card.Text>
       </Card.Body>
     </Card>
@@ -94,7 +92,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Triple con Cheddar</Card.Title>
         <Card.Text>
-          Descripción del producto 3.
+        Una explosión de sabor en tres capas, con jugosa carne y queso cheddar.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -105,7 +103,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Taparterias Deluxe</Card.Title>
         <Card.Text>
-          Descripción del producto 4.
+        Una hamburguesa majestuosa de 5 pisos con cheddar y bacon, cargada de sabor y energía.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -122,7 +120,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Tradicional</Card.Title>
         <Card.Text>
-          Descripción del producto 1.
+        El clásico acompañamiento dorado y crujiente, una delicia que nunca pasa de moda..
         </Card.Text>
       </Card.Body>
     </Card>
@@ -133,7 +131,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Rústicas</Card.Title>
         <Card.Text>
-          Descripción del producto 2.
+        Un toque casero con cebolla caramelizada y huevo, estas papas rústicas son una explosión de sabor y textura en cada bocado.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -144,7 +142,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Con Cheddar y Bacon</Card.Title>
         <Card.Text>
-          Descripción del producto 3.
+        El cheddar derretido, el bacon crujiente y la frescura de la cebolla verde se unen en estas papas fritas para una experiencia única y deliciosa.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -155,7 +153,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Con Crema y Verdeo</Card.Title>
         <Card.Text>
-          Descripción del producto 4.
+        Un toque de suavidad con la crema y el sabor fresco del verdeo hacen de estas papas fritas una opción indulgente y refrescante al mismo tiempo.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -171,7 +169,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Coca Cola</Card.Title>
         <Card.Text>
-          Descripción del producto 1.
+          En su versión de 1lt - 1,5lts y 2lts Con azúcar y sin azúcar.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -182,7 +180,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Fanta</Card.Title>
         <Card.Text>
-          Descripción del producto 2.
+        Fanta Naranja 1lt - 1,5lts y 2lts.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -193,7 +191,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Sprite</Card.Title>
         <Card.Text>
-          Descripción del producto 3.
+        La unténtica Sprite en 1lt - 1,5lts y 2lts.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -202,9 +200,9 @@ const foods = [
     <Card className="h-100">
       <Card.Img variant="top" src="https://superlago.com.ar/wp-content/uploads/2021/01/7791813423324.jpg" alt="Producto 4" />
       <Card.Body>
-        <Card.Title>Mirinda Manzana</Card.Title>
+        <Card.Title>Mirinda</Card.Title>
         <Card.Text>
-          Descripción del producto 4.
+        La clásica Mirinda Manzana 1lt - 1,5lts y 2lts.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -220,7 +218,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Helado</Card.Title>
         <Card.Text>
-          Descripción del producto 1.
+        Sumérgete en un mundo de dulzura con nuestro helado premium. Cremoso y lleno de sabores irresistibles que te llevarán a un viaje de placer con cada cucharada.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -231,7 +229,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Bombón Escosés</Card.Title>
         <Card.Text>
-          Descripción del producto 2.
+        Un bocado de indulgencia con un corazón suave y dulce, envuelto en un chocolate delicado.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -242,7 +240,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Flan</Card.Title>
         <Card.Text>
-          Descripción del producto 3.
+         Nuestro flan se fusiona con el rico sabor del dulce de leche, creando un postre irresistiblemente cremoso que deleitará tus sentidos en cada cucharada.
         </Card.Text>
       </Card.Body>
     </Card>
@@ -253,7 +251,7 @@ const foods = [
       <Card.Body>
         <Card.Title>Tarta</Card.Title>
         <Card.Text>
-          Descripción del producto 4.
+        Un deleite para los amantes del chocolate. Nuestra tarta está cuidadosamente elaborada con capas de bizcocho de chocolate rico y un relleno indulgente.
         </Card.Text>
       </Card.Body>
     </Card>
