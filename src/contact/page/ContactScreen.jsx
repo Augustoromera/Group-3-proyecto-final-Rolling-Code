@@ -2,7 +2,7 @@ import React, { useState, } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap';
 import contactApi from '../../api/contactApi';
-
+import Header from '../../home/components/Header';
 
 
 export const ContactScreen = () => {
@@ -68,91 +68,54 @@ export const ContactScreen = () => {
 };
  
   return (
+    <>
+    <Header />
+
     <div className="container-fluid">
       <h1 className="text-center">Contacto</h1>
       <p className="text-center">
         No dudes en ponerte en contacto con nosotros si tienes dudas o sugerencias. <br />
-        Si quieres trabajar con nosotros, postulate aquí.
+        Nuestro equipo se pondrá en contacto contigo cuanto antes!.
       </p>
       <h2 className="text-center">Completa el formulario con tus datos</h2>
-
+            <br />
       <div className="row d-flex justify-content-center ">
         <div className="col-12 col-lg-4 ">
           <Form onSubmit={handleContact}>
             <Form.Group className="mb-3 " controlId="firstName">
               <Form.Label>Nombre</Form.Label>
               <Form.Control
-                type="text"
-                name="firstName"
-                required
-                minLength={2}
-                maxLength={50}
-                onChange={(e) => setName(e.target.value)}
-              />
+                type="text" name="firstName" required minLength={2} maxLength={50} onChange={(e) => setName(e.target.value)} placeholder='Ingresa tu nombre' />
+              <hr />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="lastName">
               <Form.Label>Apellido</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                required
-                minLength={2}
-                maxLength={50}
-                onChange={(e) => setLastname(e.target.value)}
-              />
+              <Form.Control type="text" name="lastName" required minLength={2} maxLength={50} onChange={(e) => setLastname(e.target.value)} placeholder='Ingresa tu apellido' />
               <hr />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                required
-                onChange={(e) => setEmail(e.target.value)}
-                minLength={2}
-                maxLength={50}
-              />
+              <Form.Control type="email" name="email" required onChange={(e) => setEmail(e.target.value)} minLength={2} maxLength={50} placeholder='Ingresa tu email' />
               <hr />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="phone">
               <Form.Label>Teléfono (opcional)</Form.Label>
-              <Form.Control
-                type="tel"
-                name="phone"
-                minLength={5}
-                maxLength={12}
-                onChange={(e) => setPhone(e.target.value)}
-              />
+              <Form.Control type="tel" name="phone" minLength={5} maxLength={12} onChange={(e) => setPhone(e.target.value)} />
               <hr />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="subject">
               <Form.Label>Asunto</Form.Label>
-              <Form.Control
-                type="text"
-                name="subject"
-                minLength={4}
-                maxLength={20}
-                onChange={(e) => setSubject(e.target.value)}
-                required
-              />
+              <Form.Control type="text" name="subject" minLength={4} maxLength={20} onChange={(e) => setSubject(e.target.value)} required placeholder='Ingresa un asunto' />
               <hr />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="message">
               <Form.Label>Mensaje</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={4}
-                name="message"
-                required
-                minLength={5}
-                maxLength={75}
-                onChange={(e) => setMessage(e.target.value)}
-              />
+              <Form.Control as="textarea" rows={4} name="message" required minLength={5} maxLength={75} onChange={(e) => setMessage(e.target.value)} placeholder='Escribe un mensaje' />
             </Form.Group>
 
             <Button variant="primary" type="submit">
@@ -163,5 +126,6 @@ export const ContactScreen = () => {
       </div>
      
     </div>
+    </>
   );
 };
