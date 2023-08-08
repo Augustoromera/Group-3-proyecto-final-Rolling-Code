@@ -1,0 +1,26 @@
+/* Estilo para el carrusel */
+.carousel-container {
+    max-height: 600px; 
+    overflow: hidden; 
+  }
+  /* Estilo para la imagen del carrusel */
+  .carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% -350px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .carousel-item img {
+      object-position: 50% -25px; 
+    }
+  }
+  
+  
+  @media (min-width: 768px) and (max-width: 992px) {
+    .carousel-item img {
+      object-position: 50% -100px; 
+    }
+  }

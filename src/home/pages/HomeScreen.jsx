@@ -2,12 +2,14 @@
 import React from 'react'
 import './HomeScreenLogic';
 import Header from '../components/Header';
+import BodyHome from '../components/BodyHome';
 // import { Navbarproyect } from '../components/Navbarproyect'
 
 export const HomeScreen = () => {
     return (
         <div>
             <Header />
+            <BodyHome />
         </div>
     )
 }
