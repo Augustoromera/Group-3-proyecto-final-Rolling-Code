@@ -5,6 +5,7 @@ import { FaPlus } from 'react-icons/fa';
 import Table from 'react-bootstrap/Table';
 import pruebaApi from '../../api/pruebaapi';
 import '../../auth/css/adminscreen.css';
+import Header from '../../home/components/Header';
 
 
 export const AdminScreen = () => {
@@ -39,79 +40,77 @@ export const AdminScreen = () => {
 
 
     return (
-        <>
-            <h1 className="text-center p-3">Admin Page</h1>
-
-            <h3>Usuarios</h3>
-            <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                        <th>#ID</th>
-                        <th>Primer nombre</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                {cargarUsuarios.map((usuario) => {
-                    return (
-                        <tbody key={usuario._id}>
-                            <tr>
-                                <td>{usuario._id}</td>
-                                <td>{usuario.name}</td>
-                                <td>{usuario.email}</td>
-                            </tr>
-
-                        </tbody>
+        <>  
+            <Header></Header>
+            <div className="">
+                <h1 className="text-center p-3">Admin Page</h1>
+                <h3>Usuarios</h3>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Primer nombre</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    {cargarUsuarios.map((usuario) => {
+                        return (
+                            <tbody key={usuario._id}>
+                                <tr>
+                                    <td>{usuario._id}</td>
+                                    <td>{usuario.name}</td>
+                                    <td>{usuario.email}</td>
+                                </tr>
+                            </tbody>
+                        )
+                    }
                     )
-                }
-                )
-                }
-            </Table>
-            <h3>Menus</h3>
-            <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                        <th>#ID</th>
-                        <th>Nombre</th>
-                        <th>Estado</th>
-                        <th>Precio</th>
-                        <th>Detalle</th>
-                        <th>Categoria</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                {cargarProducto.map((producto) => {
-                    return (
-                        <tbody key={producto._id}>
-                            <tr>
-                                <td>{producto._id}</td>
-                                <td>{producto.nombre}</td>
-                                <td>{producto.estado}</td>
-                                <td>{producto.precio}</td>
-                                <td>{producto.detalle}</td>
-                                <td>{producto.categoria}</td>
-                                <td>
-                                    <button 
-                                    >
-                                        {/* onClick={() => editarProductoClick()} */}
-                                        <i className="fa-solid fa-pen-to-square"
-
-                                            style={{ color: '#000000' }}></i>
-                                    </button>
-                                    <button
-                                    >
-                                        <i className="fa-solid fa-trash"
-                                            style={{ color: '#000000' }}></i>
-                                    </button>
-                                </td>
-                            </tr>
-
-
-                        </tbody>
+                    }
+                </Table>
+                <h3>Menus</h3>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Precio</th>
+                            <th>Detalle</th>
+                            <th>Categoria</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    {cargarProducto.map((producto) => {
+                        return (
+                            <tbody key={producto._id}>
+                                <tr>
+                                    <td>{producto._id}</td>
+                                    <td>{producto.nombre}</td>
+                                    <td>{producto.estado}</td>
+                                    <td>{producto.precio}</td>
+                                    <td>{producto.detalle}</td>
+                                    <td>{producto.categoria}</td>
+                                    <td>
+                                        <button
+                                        >
+                                            {/* onClick={() => editarProductoClick()} */}
+                                            <i className="fa-solid fa-pen-to-square"
+                                                style={{ color: '#000000' }}></i>
+                                        </button>
+                                        <button
+                                        >
+                                            <i className="fa-solid fa-trash"
+                                                style={{ color: '#000000' }}></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        )
+                    }
                     )
-                }
-                )
-                }
-            </Table>
+                    }
+                </Table>
+            </div>
 
         </>
     );
