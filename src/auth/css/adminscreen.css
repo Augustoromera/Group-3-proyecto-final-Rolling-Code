@@ -5,7 +5,6 @@
     align-items: center;
     margin-top: 100px;
 } */
-
 form {
     display: flex;
     flex-direction: column;
@@ -36,7 +35,10 @@ form {
     background-color: black;
     color: white;
     border: none;
-    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        border 0.3s;
 }
 
 .custom-button:hover {
