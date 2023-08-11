@@ -43,8 +43,44 @@ export const AdminScreen = () => {
     }
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        console.log(e);
+        const { nombre, estado, precio, detalle, categoria } = formDate;
+
+        if (!nombre.trim() || !estado || !precio || !detalle.trim() || !categoria) {
+            return;
+        }
+
+        if (isNaN(parseFloat(precio))) {
+            return;
+        }
+
+        setFormDate({
+            nombre: '',
+            estado: '',
+            precio: '',
+            detalle: '',
+            categoria: '',
+        });
+
+        guardarProductoDb(nombre, estado, precio, detalle, categoria);
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 2000);
     };
+    const guardarProductoDb = async (nombre, estado, precio, detalle, categoria) => {
+        try {
+            const resp = await pruebaApi.post('/admin/nuevoMenu', {
+                nombre,
+                estado,
+                precio,
+                detalle, 
+                categoria
+            });
+            console.log(resp);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const cargarUserDB = async () => {
         try {
@@ -62,7 +98,7 @@ export const AdminScreen = () => {
             console.log(error);
         }
     };
-    
+
 
 
     useEffect(() => {
@@ -216,7 +252,7 @@ export const AdminScreen = () => {
                                 <Form.Check
                                     type="checkbox"
                                     name="estado"
-                                    label="Activo"
+                                    label="Disponible"
                                     checked={formDate.activo}
                                     onChange={handleChangeForm}
                                     required
