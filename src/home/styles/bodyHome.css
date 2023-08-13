@@ -1,26 +1,27 @@
-/* Estilo para el carrusel */
-.carousel-container {
-    max-height: 600px; 
-    overflow: hidden; 
-  }
-  /* Estilo para la imagen del carrusel */
-  .carousel-item img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: 50% -350px;
-  }
-  
-  
-  @media (max-width: 768px) {
-    .carousel-item img {
-      object-position: 50% -25px; 
-    }
-  }
-  
-  
-  @media (min-width: 768px) and (max-width: 992px) {
-    .carousel-item img {
-      object-position: 50% -100px; 
-    }
-  }
+.banner{
+  height: 100vh;
+	position: relative;
+	background-position: center;
+	background-image: url('../../assets/banner/hambur1.jpg');
+	background-size: cover;
+	animation: banner 15s infinite linear;
+}
+.banner-body{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	color: #FFF;
+	font-family: 'poppinsregular';
+	text-align: center;
+}
+.banner::before{
+	content    : "";
+	background : #000000; 
+	position   : absolute;
+	width      : 100%;
+	height     : 100%;
+	opacity    : 0.4; 
+}
