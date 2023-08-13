@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/bodyHome.css';
 
 export const BodyHome = () => {
   return (
@@ -14,3 +15,5 @@ export const BodyHome = () => {
     </>
   )
 }
+
+export default BodyHome;
