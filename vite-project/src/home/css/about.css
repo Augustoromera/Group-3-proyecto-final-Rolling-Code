@@ -24,7 +24,7 @@
 .cuadrado1{
     width: 250px;
     height: 250px;
-    background: linear-gradient(to left, #283e52, #77797f);
+    background: linear-gradient(to left, #283e52, #909296);
     right: 250px;
     top: 200px;
     animation: c1 5s ease infinite;
@@ -33,7 +33,7 @@
 .cuadrado2{
     width: 200px;
     height: 200px;
-    background: linear-gradient(to left, #77797f, #283e52);
+    background: linear-gradient(to left, #929398, #283e52);
     top: 350px;
     animation: c2 7s ease infinite;
 
@@ -42,7 +42,7 @@
 .cuadrado3{
     width: 300px;
     height: 300px;
-    background: linear-gradient(to left, #283e52, #77797f);
+    background: linear-gradient(to left, #283e52, #909297);
     left: 200px;
     animation: c3 6s ease infinite;
 
