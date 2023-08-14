@@ -97,3 +97,9 @@ body{
 .card:hover{
     transform: translateY(-10px);
 }
+
+img{
+    width: 100%;
+    height: 100%;
+
+}
