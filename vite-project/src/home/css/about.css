@@ -190,3 +190,65 @@ img{
     animation: c3 6s ease infinite;
 
 }
+
+.iconos li{
+    list-style-type: none;
+}
+
+.wrapper ul li{
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    transition: all 0.5s ease;
+}
+
+.wrapper ul li .fa{
+  color: #fff;
+   margin-top: 20px;
+   transition: all 0.5s ease;
+} 
+
+.wrapper ul li:hover.facebook{
+   border: 5px solid #005eff;
+   box-shadow: 0 0 15px #005eff;
+   transition: all 0.5s ease;
+
+}
+
+.wrapper ul li:hover .fa-facebook{
+    color: #005eff;
+    text-shadow: 0 0 15px #005eff;
+    transition: all 0.5s ease;
+}
+
+.wrapper ul li:hover.instagram{
+    border: 5px solid #ff00ae;
+    box-shadow: 0 0 15px #ff00ae;
+    transition: all 0.5s ease;
+ 
+ }
+ 
+ .wrapper ul li:hover .fa-instagram{
+     color: #ff00ae;
+     text-shadow: 0 0 15px #ff00ae;
+     transition: all 0.5s ease;
+ }
+
+ 
+ .wrapper ul li:hover.linkedin{
+    border: 5px solid #009dff;
+    box-shadow: 0 0 15px #009dff;
+    transition: all 0.5s ease;
+ 
+ }
+ 
+ .wrapper ul li:hover .fa-linkedin{
+     color: #ffffff;
+     text-shadow: 0 0 15px #ffffff;
+     transition: all 0.5s ease;
+ }
