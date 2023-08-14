@@ -51,7 +51,9 @@ export const AdminScreen = () => {
         })
     }
     const handleChangeFormUser = (e) => {
+
         const value = e.target.type === "checkbox" ? (e.target.checked ? "Activo" : "No Activo") : e.target.value;
+        console.log(value);
         setFormDateUser({
             ...formDateUser,
             [e.target.name]: value,
@@ -109,7 +111,7 @@ export const AdminScreen = () => {
     const handleSubmitFormUser = (e) => {
         e.preventDefault();
         var { name, email, estado, password, rol } = formDateUser;
-
+        estado = estado ? "Activo" : "No Activo";
         if (!name.trim() || !email.trim() || !password.trim()) {
             Swal.fire({
                 icon: 'error',
@@ -298,6 +300,8 @@ export const AdminScreen = () => {
                             <th>#ID</th>
                             <th>Nombre y apellido</th>
                             <th>Email</th>
+                            <th>Estado</th>
+                            <th>Rol</th>
                         </tr>
                     </thead>
                     {cargarUsuarios.map((usuario) => {
@@ -307,6 +311,8 @@ export const AdminScreen = () => {
                                     <td>{usuario._id}</td>
                                     <td>{usuario.name}</td>
                                     <td>{usuario.email}</td>
+                                    <td>{usuario.estado}</td>
+                                    <td>{usuario.rol}</td>
                                 </tr>
                             </tbody>
                         )
