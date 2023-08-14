@@ -277,3 +277,54 @@ img{
     .p-espacio4{
         margin-bottom: 105px;
     }
+
+
+
+    
+@keyframes  c1 {
+    0%{
+        transform: rotate(45deg) translateY(0px);
+    }
+    50%{
+        transform:rotate(45deg) translateY(80px);
+    }
+    100%{
+        transform:rotate(45deg) translateY(0px);
+    }
+}
+
+@keyframes  c2 {
+    0%{
+        transform: rotate(65deg) translateY(0px);
+    }
+    50%{
+        transform:rotate(65deg) translateY(80px);
+    }
+    100%{
+        transform:rotate(65deg) translateY(0px);
+    }
+}
+
+@keyframes  c3 {
+    0%{
+        transform: rotate(65deg) translateY(0px);
+    }
+    50%{
+        transform:rotate(65deg) translateY(70px);
+    }
+    100%{
+        transform:rotate(65deg) translateY(0px);
+    }
+}
+
+@media screen and (max-width:2000px){
+    .container-cards{
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin-top: 100px ;
+        padding-bottom: 100px;
+        
+    }
+}
