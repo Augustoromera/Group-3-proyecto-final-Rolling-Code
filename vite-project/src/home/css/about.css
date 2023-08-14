@@ -134,3 +134,59 @@ img{
     height: 1px;
     background-color: #000;
 }
+
+.footer-card{
+    margin-top: 10px;
+    display: flex;
+    color: #ffffff;
+    justify-content: space-between;
+}
+
+.footer-card h3{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.container-cuadrado{
+    max-width: 1200px;
+    height: 600px;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cuadrado{
+    width: 300px;
+    height: 300px;
+    background-color: royalblue;
+    position: absolute;
+}
+
+.cuadrado1{
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(to left, #283e52, #77797f);
+    right: 250px;
+    top: 200px;
+    animation: c1 5s ease infinite;
+}
+
+.cuadrado2{
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to left, #77797f, #283e52);
+    top: 350px;
+    animation: c2 7s ease infinite;
+
+}
+
+.cuadrado3{
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(to left, #283e52, #77797f);
+    left: 200px;
+    animation: c3 6s ease infinite;
+
+}
