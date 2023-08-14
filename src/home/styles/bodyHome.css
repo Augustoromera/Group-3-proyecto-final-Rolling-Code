@@ -56,3 +56,15 @@
 	padding-top: 50px;
 	padding-bottom: 30px;
 }
+
+.service-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+  }
+  
+  .service-icon {
+	width: 150px;
+	height: 150px;
+  }
