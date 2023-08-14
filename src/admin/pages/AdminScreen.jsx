@@ -43,9 +43,11 @@ export const AdminScreen = () => {
     }
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        const { nombre, estado, precio, detalle, categoria } = formDate;
+        var { nombre, estado, precio, detalle, categoria } = formDate;
+        estado = !estado ? "No disponible" : "Disponible";
 
-        if (!nombre.trim() || !estado || !precio || !detalle.trim() || !categoria) {
+
+        if (!nombre.trim() || !precio || !detalle.trim() || !categoria) {
             return;
         }
 
@@ -60,7 +62,6 @@ export const AdminScreen = () => {
             detalle: '',
             categoria: '',
         });
-
         guardarProductoDb(nombre, estado, precio, detalle, categoria);
 
         setTimeout(() => {
@@ -73,7 +74,7 @@ export const AdminScreen = () => {
                 nombre,
                 estado,
                 precio,
-                detalle, 
+                detalle,
                 categoria
             });
             console.log(resp);
@@ -127,7 +128,7 @@ export const AdminScreen = () => {
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th>Primer nombre</th>
+                            <th>Nombre y apellido</th>
                             <th>Email</th>
                         </tr>
                     </thead>
@@ -159,13 +160,15 @@ export const AdminScreen = () => {
                         </tr>
                     </thead>
                     {cargarProducto.map((producto) => {
+                        let pesoModif = producto.precio % 1 === 0 ? `$ ${producto.precio}.00` : `$ ${producto.precio.toFixed(2)}`;
+
                         return (
                             <tbody key={producto._id}>
                                 <tr>
                                     <td>{producto._id}</td>
                                     <td>{producto.nombre}</td>
                                     <td>{producto.estado}</td>
-                                    <td>{producto.precio}</td>
+                                    <td>{pesoModif}</td>
                                     <td>{producto.detalle}</td>
                                     <td>{producto.categoria}</td>
                                     <td>
@@ -240,11 +243,22 @@ export const AdminScreen = () => {
                                     style={{ width: '100%' }}
                                     required
                                 >
-                                    <option value="">Seleccionar</option> {/* Opción por defecto */}
-                                    <option value="hamburguesas">Hamburguesas</option>
+                                    <option value="">Seleccionar</option>
+                                    <option value="parrilla">Parrilla</option>
+                                    <option value="empanadas">Empanadas</option>
+                                    <option value="milanesas">Milanesas</option>
+                                    <option value="pastas">Pastas</option>
+                                    <option value="asado">Asado</option>
                                     <option value="pizzas">Pizzas</option>
-                                    <option value="tacos">Tacos</option>
-                                    {/* Agrega más categorías según sea necesario */}
+                                    <option value="empanadas">Empanadas</option>
+                                    <option value="comida criolla">Comida Criolla</option>
+                                    <option value="mariscos">Mariscos</option>
+                                    <option value="comida vegetariana">Comida Vegetariana</option>
+                                    <option value="comida vegana">Comida Vegana</option>
+                                    <option value="comida regional">Comida Regional</option>
+                                    <option value="postres argentinos">Postres Argentinos</option>
+                                    <option value="vinos argentinos">Vinos Argentinos</option>
+
                                 </Form.Select>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicCategoria">
@@ -255,7 +269,7 @@ export const AdminScreen = () => {
                                     label="Disponible"
                                     checked={formDate.activo}
                                     onChange={handleChangeForm}
-                                    required
+
                                 />
                             </Form.Group>
 
@@ -272,7 +286,7 @@ export const AdminScreen = () => {
                             </Form.Group>
                             <div className="d-flex justify-content-end">
                                 <Button type="submit" variant="success" className="custom-button" >
-                                    Agregar
+                                    Dar de alta
                                 </Button>
 
                             </div>
