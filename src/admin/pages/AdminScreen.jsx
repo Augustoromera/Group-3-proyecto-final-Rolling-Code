@@ -455,6 +455,7 @@ export const AdminScreen = () => {
                                     <option value="empanadas">Empanadas</option>
                                     <option value="milanesas">Milanesas</option>
                                     <option value="pastas">Pastas</option>
+                                    <option value="hamburguesas">Hamburguesas</option>
                                     <option value="asado">Asado</option>
                                     <option value="pizzas">Pizzas</option>
                                     <option value="empanadas">Empanadas</option>
