@@ -86,10 +86,7 @@ export const AdminScreen = () => {
         });
 
         guardarProductoDb(nombre, estado, precio, detalle, categoria);
-
-        setTimeout(() => {
-            window.location.reload();
-        }, 2000);
+        recargarPagina();
     };
     const handleSubmitFormEditar = (e) => {
         e.preventDefault();
@@ -133,11 +130,11 @@ export const AdminScreen = () => {
         });
         console.log(formDateEditar)
         editarProductoDb(_id, nombre, estado, precio, detalle, categoria);
-
-        setTimeout(() => {
-            window.location.reload();
-        }, 2000);
+        recargarPagina();
     };
+
+
+
     const editarProductoDb = async (_id, nombre, estado, precio, detalle, categoria) => {
         try {
             const resp = await pruebaApi.put('/admin/editarMenu', {
@@ -186,14 +183,24 @@ export const AdminScreen = () => {
         }
     };
     const eliminarProductoClick = async (id) => {
-        console.log(id)
-    }
+        try {
+            const resp = await pruebaApi.delete(`/admin/eliminarMenu/${id}`);
+            console.log(resp);
+            recargarPagina();
+        } catch (error) {
+            console.log(error);
+        }
+    };
     const editarProductoClick = async (menu) => {
         setFormDateEditar(menu);
         setIsModalOpenEditar(true);
     }
 
-
+    const recargarPagina = () => {
+        setTimeout(() => {
+            window.location.reload();
+        }, 2000);
+    }
 
 
     useEffect(() => {
