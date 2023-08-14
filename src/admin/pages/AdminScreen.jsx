@@ -183,14 +183,30 @@ export const AdminScreen = () => {
         }
     };
     const eliminarProductoClick = async (id) => {
-        try {
-            const resp = await pruebaApi.delete(`/admin/eliminarMenu/${id}`);
-            console.log(resp);
-            recargarPagina();
-        } catch (error) {
-            console.log(error);
-        }
-    };
+        Swal.fire({
+            icon: 'warning',
+            title: '¿Estás seguro?',
+            text: 'Esta acción eliminará el producto permanentemente.',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar',
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const resp = await pruebaApi.delete(`/admin/eliminarMenu/${id}`);
+                    console.log(resp);
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Producto Eliminado!',
+                        text: 'El producto ha sido eliminado exitosamente.',
+                    });
+                    recargarPagina();
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        });
+    }
     const editarProductoClick = async (menu) => {
         setFormDateEditar(menu);
         setIsModalOpenEditar(true);
