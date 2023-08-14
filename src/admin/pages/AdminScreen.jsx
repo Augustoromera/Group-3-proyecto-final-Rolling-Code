@@ -272,6 +272,16 @@ export const AdminScreen = () => {
         setFormDateEditar(menu);
         setIsModalOpenEditar(true);
     }
+    const editarUsuarioClick = async () => {
+        console.log("hola")
+    }
+    const eliminarUsuarioClick = async () => {
+        console.log("hola")
+    }
+    const inactivarUsuarioClick = async () => {
+        console.log("hola")
+    }
+
 
     const recargarPagina = () => {
         setTimeout(() => {
@@ -302,6 +312,7 @@ export const AdminScreen = () => {
                             <th>Email</th>
                             <th>Estado</th>
                             <th>Rol</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     {cargarUsuarios.map((usuario) => {
@@ -313,6 +324,24 @@ export const AdminScreen = () => {
                                     <td>{usuario.email}</td>
                                     <td>{usuario.estado}</td>
                                     <td>{usuario.rol}</td>
+                                    <td>
+                                        <button onClick={() => editarUsuarioClick()}
+                                        >
+                                            <i className="fa-solid fa-pen-to-square fa-lg"
+
+                                                style={{ color: '#000000' }}></i>
+                                        </button>
+                                        <button onClick={() => eliminarUsuarioClick()}
+                                        >
+                                            <i className="fa-solid fa-trash fa-lg"
+                                                style={{ color: '#c43131' }}></i>
+                                        </button>
+                                        <button onClick={() => inactivarUsuarioClick()}
+                                        >
+                                            <i className="fa-solid fa-unlock fa-lg" 
+                                            style={{ color: '#3f9240' }}></i>
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         )
@@ -358,14 +387,14 @@ export const AdminScreen = () => {
                                     <td>
                                         <button onClick={() => editarProductoClick(menu)}
                                         >
-                                            <i className="fa-solid fa-pen-to-square"
+                                            <i className="fa-solid fa-pen-to-square fa-lg"
 
                                                 style={{ color: '#000000' }}></i>
                                         </button>
                                         <button onClick={() => eliminarProductoClick(menu._id)}
                                         >
-                                            <i className="fa-solid fa-trash"
-                                                style={{ color: '#000000' }}></i>
+                                            <i className="fa-solid fa-trash fa-lg"
+                                                style={{ color: '#c43131' }}></i>
                                         </button>
                                     </td>
                                 </tr>
