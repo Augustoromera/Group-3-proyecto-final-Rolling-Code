@@ -43,10 +43,13 @@ export const AdminScreen = () => {
         })
     }
     const handleChangeFormEditar = (e) => {
+        const value = e.target.type === "checkbox" ? (e.target.checked ? "Disponible" : "No Disponible") : e.target.value;
+
         setFormDateEditar({
             ...formDateEditar,
-            [e.target.name]: e.target.value,
-        })
+            [e.target.name]: value,
+        });
+        console.log(formDateEditar);
     }
     const handleSubmitForm = (e) => {
         e.preventDefault();
@@ -91,7 +94,7 @@ export const AdminScreen = () => {
     const handleSubmitFormEditar = (e) => {
         e.preventDefault();
         var { _id, nombre, estado, precio, detalle, categoria } = formDateEditar;
-        estado = !estado ? "No disponible" : "Disponible";
+        console.log(estado);
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
@@ -117,8 +120,8 @@ export const AdminScreen = () => {
 
         Swal.fire({
             icon: 'success',
-            title: 'Menu agregado!',
-            text: 'El menu ha sido agregado exitosamente.',
+            title: 'Menu Editado!',
+            text: 'El menu ha sido editado exitosamente.',
         });
 
         setFormDate({
@@ -475,7 +478,7 @@ export const AdminScreen = () => {
                                     type="checkbox"
                                     name="estado"
                                     label="Disponible"
-                                    checked={formDateEditar.activo}
+                                    checked={formDateEditar.estado === "Disponible"}
                                     onChange={handleChangeFormEditar}
 
                                 />
