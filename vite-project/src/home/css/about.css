@@ -103,3 +103,34 @@ img{
     height: 100%;
 
 }
+
+
+.cover-card{
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 300ms;
+}
+
+.card h2{
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+.card p{
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 450;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.card hr{
+    margin-top: 30px;
+    border: none;
+    height: 1px;
+    background-color: #000;
+}
