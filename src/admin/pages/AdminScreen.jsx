@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import pruebaApi from '../../api/pruebaapi';
 import Header from '../../home/components/Header';
 import '../../auth/css/adminscreen.css';
+import Swal from 'sweetalert2';
 
 
 
@@ -15,15 +16,16 @@ export const AdminScreen = () => {
     const [cargarProducto, setCargarProducto] = useState([]);
     //se encarga de cerrar y abrir el modal
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpenEditar, setIsModalOpenEditar] = useState(false);
     //hook para almacenar los datos del formulario agregarProducto
-    // const [formDateEditar, setFormDateEditar] = useState({
-    //     _id: '',
-    //     nombre: '',
-    //     estado: '',    
-    //     precio: '',
-    //     detalle: '',    
-    //     categoria: '' 
-    // });
+    const [formDateEditar, setFormDateEditar] = useState({
+        _id: '',
+        nombre: '',
+        estado: '',    
+        precio: '',
+        detalle: '',    
+        categoria: '' 
+    });
     //hook para almacenar los datos del formulario editarProducto
     const [formDate, setFormDate] = useState({
         nombre: '',
@@ -46,14 +48,29 @@ export const AdminScreen = () => {
         var { nombre, estado, precio, detalle, categoria } = formDate;
         estado = !estado ? "No disponible" : "Disponible";
 
-
         if (!nombre.trim() || !precio || !detalle.trim() || !categoria) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos incompletos',
+                text: 'Por favor completa todos los campos.',
+            });
             return;
         }
 
         if (isNaN(parseFloat(precio))) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Precio inválido',
+                text: 'El precio debe ser un número válido.',
+            });
             return;
         }
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Menu agregado!',
+            text: 'El menu ha sido agregado exitosamente.',
+        });
 
         setFormDate({
             nombre: '',
@@ -62,12 +79,76 @@ export const AdminScreen = () => {
             detalle: '',
             categoria: '',
         });
+
         guardarProductoDb(nombre, estado, precio, detalle, categoria);
 
         setTimeout(() => {
             window.location.reload();
         }, 2000);
     };
+    const handleSubmitFormEditar = (e) => {
+        e.preventDefault();
+        var { _id, nombre, estado, precio, detalle, categoria } = setFormDateEditar;
+        estado = !estado ? "No disponible" : "Disponible";
+        if (!_id) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'No se encontro el Menu',
+                text: 'Por favor contactese con el administrador.',
+            });
+        }
+        if (!nombre.trim() || !precio || !detalle.trim() || !categoria) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Campos incompletos',
+                text: 'Por favor completa todos los campos.',
+            });
+        }
+
+        if (isNaN(parseFloat(precio))) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Precio inválido',
+                text: 'El precio debe ser un número válido.',
+            });
+        }
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Menu agregado!',
+            text: 'El menu ha sido agregado exitosamente.',
+        });
+
+        setFormDate({
+            nombre: '',
+            estado: '',
+            precio: '',
+            detalle: '',
+            categoria: '',
+        });
+        console.log(formDateEditar)
+        editarProductoDb(nombre, estado, precio, detalle, categoria);
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 2000);
+    };
+    const editarProductoDb = async (_id, nombre, estado, precio, detalle, categoria) => {
+        try {
+            const resp = await pruebaApi.put('/admin/editar', {
+                _id,
+                nombre,
+                estado,
+                precio,
+                detalle, 
+                categoria
+            });
+            console.log(resp);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const guardarProductoDb = async (nombre, estado, precio, detalle, categoria) => {
         try {
             const resp = await pruebaApi.post('/admin/nuevoMenu', {
@@ -203,8 +284,7 @@ export const AdminScreen = () => {
             </div>
 
 
-            {/* Modal para agregar producto */}
-            {/* style={customStyles} */}
+            {/* Modal para agregar menús */}
             <Modal isOpen={isModalOpen} style={customStyles} ariaHideApp={false} onRequestClose={() => setIsModalOpen(false)}>
                 <div className="modal-content">
                     <div className="modal-header">
@@ -213,6 +293,97 @@ export const AdminScreen = () => {
                     </div>
                     <div className="modal-body">
                         <Form onSubmit={handleSubmitForm}>
+                            <Form.Group className="mb-3" controlId="formBasicCategoria">
+                                <Form.Label>Nombre</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="nombre"
+                                    value={formDate.nombre}
+                                    onChange={handleChangeForm}
+                                    placeholder="Ingrese el nombre del producto"
+                                    required
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicCategoria">
+                                <Form.Label>Precio</Form.Label>
+                                <Form.Control
+                                    type="number"
+                                    name="precio"
+                                    value={formDate.precio}
+                                    onChange={handleChangeForm}
+                                    required
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicCategoria">
+                                <Form.Label>Categoría</Form.Label>
+                                <Form.Select
+                                    name="categoria"
+                                    value={formDate.categoria}
+                                    onChange={handleChangeForm}
+                                    style={{ width: '100%' }}
+                                    required
+                                >
+                                    <option value="">Seleccionar</option>
+                                    <option value="parrilla">Parrilla</option>
+                                    <option value="empanadas">Empanadas</option>
+                                    <option value="milanesas">Milanesas</option>
+                                    <option value="pastas">Pastas</option>
+                                    <option value="asado">Asado</option>
+                                    <option value="pizzas">Pizzas</option>
+                                    <option value="empanadas">Empanadas</option>
+                                    <option value="comida criolla">Comida Criolla</option>
+                                    <option value="mariscos">Mariscos</option>
+                                    <option value="comida vegetariana">Comida Vegetariana</option>
+                                    <option value="comida vegana">Comida Vegana</option>
+                                    <option value="comida regional">Comida Regional</option>
+                                    <option value="postres argentinos">Postres Argentinos</option>
+                                    <option value="vinos argentinos">Vinos Argentinos</option>
+
+                                </Form.Select>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicCategoria">
+
+                                <Form.Check
+                                    type="checkbox"
+                                    name="estado"
+                                    label="Disponible"
+                                    checked={formDate.activo}
+                                    onChange={handleChangeForm}
+
+                                />
+                            </Form.Group>
+
+                            <Form.Group className="mb-3" controlId="formBasicCategoria">
+                                <Form.Label>Detalle</Form.Label>
+                                <textarea
+                                    name="detalle"
+                                    className="form-control"
+                                    rows="3"
+                                    value={formDate.detalle}
+                                    onChange={handleChangeForm}
+                                    required
+                                ></textarea>
+                            </Form.Group>
+                            <div className="d-flex justify-content-end">
+                                <Button type="submit" variant="success" className="custom-button" >
+                                    Dar de alta
+                                </Button>
+
+                            </div>
+                        </Form>
+                    </div>
+                </div >
+            </Modal >
+
+            {/* Modal para editar menus */}
+            <Modal isOpen={isModalOpenEditar} style={customStyles} ariaHideApp={false} onRequestClose={() => setIsModalOpenEditar(false)}>
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h2 className="modal-title">Editar producto</h2>
+                        <button type="button" className="btn-close m-3" onClick={() => setIsModalOpenEditar(false)}></button>
+                    </div>
+                    <div className="modal-body">
+                        <Form onSubmit={handleSubmitFormEditar}>
                             <Form.Group className="mb-3" controlId="formBasicCategoria">
                                 <Form.Label>Nombre</Form.Label>
                                 <Form.Control
