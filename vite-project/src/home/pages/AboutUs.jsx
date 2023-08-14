@@ -7,7 +7,13 @@ export const AboutUs = () => {
   return (
     <>
     <Navbar/>
-     <h1>Sobre nosotros</h1>
+     <h1>Nuestro equipo</h1>
+     
+     <div class="container-cuadrado">
+        <div class="cuadrado cuadrado1"></div>
+        <div class="cuadrado cuadrado2"></div>
+        <div class="cuadrado cuadrado3"></div>
+    </div>
     
 
 
