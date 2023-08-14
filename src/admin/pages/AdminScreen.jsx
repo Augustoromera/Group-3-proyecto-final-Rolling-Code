@@ -21,10 +21,10 @@ export const AdminScreen = () => {
     const [formDateEditar, setFormDateEditar] = useState({
         _id: '',
         nombre: '',
-        estado: '',    
+        estado: '',
         precio: '',
-        detalle: '',    
-        categoria: '' 
+        detalle: '',
+        categoria: ''
     });
     //hook para almacenar los datos del formulario editarProducto
     const [formDate, setFormDate] = useState({
@@ -36,10 +36,15 @@ export const AdminScreen = () => {
     });
 
 
-
     const handleChangeForm = (e) => {
         setFormDate({
             ...formDate,
+            [e.target.name]: e.target.value,
+        })
+    }
+    const handleChangeFormEditar = (e) => {
+        setFormDateEditar({
+            ...formDateEditar,
             [e.target.name]: e.target.value,
         })
     }
@@ -88,7 +93,7 @@ export const AdminScreen = () => {
     };
     const handleSubmitFormEditar = (e) => {
         e.preventDefault();
-        var { _id, nombre, estado, precio, detalle, categoria } = setFormDateEditar;
+        var { _id, nombre, estado, precio, detalle, categoria } = formDateEditar;
         estado = !estado ? "No disponible" : "Disponible";
         if (!_id) {
             return Swal.fire({
@@ -127,7 +132,7 @@ export const AdminScreen = () => {
             categoria: '',
         });
         console.log(formDateEditar)
-        editarProductoDb(nombre, estado, precio, detalle, categoria);
+        editarProductoDb(_id, nombre, estado, precio, detalle, categoria);
 
         setTimeout(() => {
             window.location.reload();
@@ -135,12 +140,12 @@ export const AdminScreen = () => {
     };
     const editarProductoDb = async (_id, nombre, estado, precio, detalle, categoria) => {
         try {
-            const resp = await pruebaApi.put('/admin/editar', {
+            const resp = await pruebaApi.put('/admin/editarMenu', {
                 _id,
                 nombre,
                 estado,
                 precio,
-                detalle, 
+                detalle,
                 categoria
             });
             console.log(resp);
@@ -180,6 +185,14 @@ export const AdminScreen = () => {
             console.log(error);
         }
     };
+    const eliminarProductoClick = async (id) => {
+        console.log(id)
+    }
+    const editarProductoClick = async (menu) => {
+        setFormDateEditar(menu);
+        setIsModalOpenEditar(true);
+    }
+
 
 
 
@@ -240,26 +253,26 @@ export const AdminScreen = () => {
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    {cargarProducto.map((producto) => {
-                        let pesoModif = producto.precio % 1 === 0 ? `$ ${producto.precio}.00` : `$ ${producto.precio.toFixed(2)}`;
+                    {cargarProducto.map((menu) => {
+                        let pesoModif = menu.precio % 1 === 0 ? `$ ${menu.precio}.00` : `$ ${menu.precio.toFixed(2)}`;
 
                         return (
-                            <tbody key={producto._id}>
+                            <tbody key={menu._id}>
                                 <tr>
-                                    <td>{producto._id}</td>
-                                    <td>{producto.nombre}</td>
-                                    <td>{producto.estado}</td>
+                                    <td>{menu._id}</td>
+                                    <td>{menu.nombre}</td>
+                                    <td>{menu.estado}</td>
                                     <td>{pesoModif}</td>
-                                    <td>{producto.detalle}</td>
-                                    <td>{producto.categoria}</td>
+                                    <td>{menu.detalle}</td>
+                                    <td>{menu.categoria}</td>
                                     <td>
-                                        <button
+                                        <button onClick={() => editarProductoClick(menu)}
                                         >
-                                            {/* onClick={() => editarProductoClick()} */}
                                             <i className="fa-solid fa-pen-to-square"
+
                                                 style={{ color: '#000000' }}></i>
                                         </button>
-                                        <button
+                                        <button onClick={() => eliminarProductoClick(menu._id)}
                                         >
                                             <i className="fa-solid fa-trash"
                                                 style={{ color: '#000000' }}></i>
@@ -389,8 +402,8 @@ export const AdminScreen = () => {
                                 <Form.Control
                                     type="text"
                                     name="nombre"
-                                    value={formDate.nombre}
-                                    onChange={handleChangeForm}
+                                    value={formDateEditar.nombre}
+                                    onChange={handleChangeFormEditar}
                                     placeholder="Ingrese el nombre del producto"
                                     required
                                 />
@@ -400,8 +413,8 @@ export const AdminScreen = () => {
                                 <Form.Control
                                     type="number"
                                     name="precio"
-                                    value={formDate.precio}
-                                    onChange={handleChangeForm}
+                                    value={formDateEditar.precio}
+                                    onChange={handleChangeFormEditar}
                                     required
                                 />
                             </Form.Group>
@@ -409,8 +422,8 @@ export const AdminScreen = () => {
                                 <Form.Label>Categoría</Form.Label>
                                 <Form.Select
                                     name="categoria"
-                                    value={formDate.categoria}
-                                    onChange={handleChangeForm}
+                                    value={formDateEditar.categoria}
+                                    onChange={handleChangeFormEditar}
                                     style={{ width: '100%' }}
                                     required
                                 >
@@ -438,8 +451,8 @@ export const AdminScreen = () => {
                                     type="checkbox"
                                     name="estado"
                                     label="Disponible"
-                                    checked={formDate.activo}
-                                    onChange={handleChangeForm}
+                                    checked={formDateEditar.activo}
+                                    onChange={handleChangeFormEditar}
 
                                 />
                             </Form.Group>
@@ -450,14 +463,14 @@ export const AdminScreen = () => {
                                     name="detalle"
                                     className="form-control"
                                     rows="3"
-                                    value={formDate.detalle}
-                                    onChange={handleChangeForm}
+                                    value={formDateEditar.detalle}
+                                    onChange={handleChangeFormEditar}
                                     required
                                 ></textarea>
                             </Form.Group>
                             <div className="d-flex justify-content-end">
                                 <Button type="submit" variant="success" className="custom-button" >
-                                    Dar de alta
+                                    Editar menú
                                 </Button>
 
                             </div>
