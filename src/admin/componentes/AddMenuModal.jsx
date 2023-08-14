@@ -25,7 +25,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                 </div>
                 <div className="modal-body">
                     <Form onSubmit={handleSubmitForm}>
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3" controlId="formBasicNombre">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
@@ -36,7 +36,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3" controlId="formBasicPrecio">
                             <Form.Label>Precio</Form.Label>
                             <Form.Control
                                 type="number"
@@ -73,7 +73,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
 
                             </Form.Select>
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3" controlId="formBasicEstado">
 
                             <Form.Check
                                 type="checkbox"
@@ -85,7 +85,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                             />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3" controlId="formBasicDetalle">
                             <Form.Label>Detalle</Form.Label>
                             <textarea
                                 name="detalle"

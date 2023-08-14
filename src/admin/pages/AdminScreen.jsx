@@ -5,8 +5,9 @@ import pruebaApi from '../../api/pruebaapi';
 import Header from '../../home/components/Header';
 import '../../auth/css/adminscreen.css';
 import Swal from 'sweetalert2';
-import AddMenuModal from '../componentes/AddModal';
-import EditMenuModal from '../componentes/EditModal';
+import AddMenuModal from '../componentes/AddMenuModal';
+import EditMenuModal from '../componentes/EditMenuModal';
+import AddUserModal from '../componentes/AddUserModal';
 
 
 
@@ -15,6 +16,7 @@ export const AdminScreen = () => {
     const [cargarProducto, setCargarProducto] = useState([]);
     //se encarga de cerrar y abrir el modal
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpenUser, setIsModalOpenUser] = useState(false);
     const [isModalOpenEditar, setIsModalOpenEditar] = useState(false);
     //hook para almacenar los datos del formulario agregarProducto
     const [formDateEditar, setFormDateEditar] = useState({
@@ -24,6 +26,13 @@ export const AdminScreen = () => {
         precio: '',
         detalle: '',
         categoria: ''
+    });
+    const [formDateUser, setFormDateUser] = useState({
+        name: '',
+        email: '',
+        estado: '',
+        password: '',
+        rol: ''
     });
     //hook para almacenar los datos del formulario editarProducto
     const [formDate, setFormDate] = useState({
@@ -41,6 +50,14 @@ export const AdminScreen = () => {
             [e.target.name]: e.target.value,
         })
     }
+    const handleChangeFormUser = (e) => {
+        const value = e.target.type === "checkbox" ? (e.target.checked ? "Activo" : "No Activo") : e.target.value;
+        setFormDateUser({
+            ...formDateUser,
+            [e.target.name]: value,
+        })
+
+    }
     const handleChangeFormEditar = (e) => {
         const value = e.target.type === "checkbox" ? (e.target.checked ? "Disponible" : "No Disponible") : e.target.value;
 
@@ -48,7 +65,6 @@ export const AdminScreen = () => {
             ...formDateEditar,
             [e.target.name]: value,
         });
-        console.log(formDateEditar);
     }
     const handleSubmitForm = (e) => {
         e.preventDefault();
@@ -90,10 +106,38 @@ export const AdminScreen = () => {
         guardarProductoDb(nombre, estado, precio, detalle, categoria);
         recargarPagina();
     };
+    const handleSubmitFormUser = (e) => {
+        e.preventDefault();
+        var { name, email, estado, password, rol } = formDateUser;
+
+        if (!name.trim() || !email.trim() || !password.trim()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos incompletos',
+                text: 'Por favor completa todos los campos.',
+            });
+            return;
+        }
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Usuario agregado!',
+            text: 'El Usuario ha sido agregado exitosamente.',
+        });
+
+        setFormDateUser({
+            name: '',
+            email: '',
+            estado: '',
+            password: '',
+            rol: ''
+        });
+        guardarUsuarioDb(name, email, estado, password, rol);
+        recargarPagina();
+    };
     const handleSubmitFormEditar = (e) => {
         e.preventDefault();
         var { _id, nombre, estado, precio, detalle, categoria } = formDateEditar;
-        console.log(estado);
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
@@ -130,7 +174,6 @@ export const AdminScreen = () => {
             detalle: '',
             categoria: '',
         });
-        console.log(formDateEditar)
         editarProductoDb(_id, nombre, estado, precio, detalle, categoria);
         recargarPagina();
     };
@@ -161,6 +204,20 @@ export const AdminScreen = () => {
                 precio,
                 detalle,
                 categoria
+            });
+            console.log(resp);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const guardarUsuarioDb = async (name, email, estado, password, rol) => {
+        try {
+            const resp = await pruebaApi.post('/admin/nuevoUsuario', {
+                name,
+                email,
+                estado,
+                password,
+                rol
             });
             console.log(resp);
         } catch (error) {
@@ -212,7 +269,6 @@ export const AdminScreen = () => {
     const editarProductoClick = async (menu) => {
         setFormDateEditar(menu);
         setIsModalOpenEditar(true);
-        console.log(isModalOpenEditar)
     }
 
     const recargarPagina = () => {
@@ -230,8 +286,11 @@ export const AdminScreen = () => {
     return (
         <>
             <Header></Header>
+            {/* codigo para tablas  */}
             <div className="">
                 <h1 className="text-center p-3">Admin Page</h1>
+
+                {/* tabla para usuarios */}
                 <h3>Usuarios</h3>
                 <Table striped bordered hover variant="dark">
                     <thead>
@@ -255,6 +314,16 @@ export const AdminScreen = () => {
                     )
                     }
                 </Table>
+                <div className="d-flex justify-content-end me-5">
+                    <button
+                        className="add-product-button border rounded-circle p-3 bg-dark "
+                        onClick={() => setIsModalOpenUser(true)}
+                    >
+                        <FaPlus className="add-product-icon text-white" />
+                    </button>
+                </div>
+
+                {/* tabla para menús */}
                 <h3>Menus</h3>
                 <Table striped bordered hover variant="dark">
                     <thead>
@@ -305,14 +374,22 @@ export const AdminScreen = () => {
             <div className="d-flex justify-content-end me-5">
                 <button
                     className="add-product-button border rounded-circle p-3 bg-dark "
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => setFormDateUser(true)}
                 >
                     <FaPlus className="add-product-icon text-white" />
                 </button>
             </div>
 
-
-
+            {/* Modal para agregar usuarios */}
+            <AddUserModal
+                isOpen={isModalOpenUser}
+                setIsOpen={setIsModalOpenUser}
+                onRequestClose={() => setIsModalOpenUser(false)}
+                handleChangeFormUser={handleChangeFormUser}
+                handleSubmitFormUser={handleSubmitFormUser}
+                formDateUser={formDateUser}
+            />
+            {/* Modal para agregar menús */}
             <AddMenuModal isOpen={isModalOpen}
                 setIsOpen={setIsModalOpen}
                 onRequestClose={() => setIsModalOpen(false)}
