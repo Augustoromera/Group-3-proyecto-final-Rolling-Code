@@ -42,8 +42,8 @@ form .custom-button:hover {
 }
 .custom-imagen {
     display: block;
-    width: 150px;
-    height: 150px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 8px;
     margin: 0 auto;

@@ -14,6 +14,7 @@ import EditUserModal from '../componentes/EditUserModal';
 
 export const AdminScreen = () => {
     const [cargarUsuarios, setCargarUsuarios] = useState([]);
+    const [cargarPedidos, setCargarPedidos] = useState([]);
     const [cargarProducto, setCargarProducto] = useState([]);
     //se encarga de cerrar y abrir el modal
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -308,6 +309,14 @@ export const AdminScreen = () => {
             console.log(error);
         }
     };
+    const cargarPedidosDB = async () => {
+        try {
+            const resp = await pruebaApi.get('/admin/listarPedido');
+            setCargarPedidos(resp.data.pedidos);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     const cargarProductoDB = async () => {
         try {
             const resp = await pruebaApi.get('/admin/listarMenu');
@@ -406,6 +415,7 @@ export const AdminScreen = () => {
     useEffect(() => {
         cargarUserDB();
         cargarProductoDB();
+        cargarPedidosDB();
     }, []);
 
     return (
@@ -524,16 +534,69 @@ export const AdminScreen = () => {
                     )
                     }
                 </Table>
+                {/* Botón con icono "+" */}
+                <div className="d-flex justify-content-end me-5">
+                    <button
+                        className="add-product-button border rounded-circle p-3 bg-dark "
+                        onClick={() => setFormDateUser(true)}
+                    >
+                        <FaPlus className="add-product-icon text-white" />
+                    </button>
+                </div>
+                {/* tabla para pedidos */}
+                <h3>Pedidos</h3>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Menu</th>
+                            <th>Estado</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    {cargarPedidos.map((pedido) => {
+                        let pesoModif = pedido.importeTotal % 1 === 0 ? `$ ${pedido.importeTotal}.00` : `$ ${pedido.importeTotal.toFixed(2)}`;
+                        return (
+                            <tbody key={pedido._id}>
+                                <tr>
+                                    {/* <td>
+                                        <img src={menu.imagen} alt={`Imagen de ${menu.nombre}`} className="custom-imagen" />  </td>*/}
+                                    <td>{pedido._id}</td>
+                                    <td>{pedido.usuario}</td>
+                                    <td>{pedido.fecha}</td>
+                                    <td>
+                                        <ul>
+                                            {pedido.menus.map((menuId) => (
+                                                <li key={menuId}>{menuId}</li>
+                                            ))}
+                                        </ul>
+                                    </td>
+                                    <td>{pedido.estado}</td>
+                                    <td>{pesoModif}</td>
+                                    {/* <td>
+                                        <button onClick={() => editarProductoClick(menu)}
+                                        >
+                                            <i className="fa-solid fa-pen-to-square fa-lg"
+
+                                                style={{ color: '#000000' }}></i>
+                                        </button>
+                                        <button onClick={() => eliminarProductoClick(menu._id)}
+                                        >
+                                            <i className="fa-solid fa-trash fa-lg"
+                                                style={{ color: '#c43131' }}></i>
+                                        </button>
+                                    </td> */}
+                                </tr>
+                            </tbody>
+                        )
+                    }
+                    )
+                    }
+                </Table>
             </div>
-            {/* Botón con icono "+" */}
-            <div className="d-flex justify-content-end me-5">
-                <button
-                    className="add-product-button border rounded-circle p-3 bg-dark "
-                    onClick={() => setFormDateUser(true)}
-                >
-                    <FaPlus className="add-product-icon text-white" />
-                </button>
-            </div>
+
 
             {/* Modal para agregar usuarios */}
             <AddUserModal
