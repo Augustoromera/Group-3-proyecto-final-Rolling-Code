@@ -173,16 +173,16 @@ img{
    transition: all 0.5s ease;
 } 
 
-.wrapper ul li:hover.facebook{
-   border: 5px solid #005eff;
-   box-shadow: 0 0 15px #005eff;
+.wrapper ul li:hover.github{
+   border: 5px solid #00e339;
+   box-shadow: 0 0 15px #00e339;
    transition: all 0.5s ease;
 
 }
 
-.wrapper ul li:hover .fa-facebook{
-    color: #005eff;
-    text-shadow: 0 0 15px #005eff;
+.wrapper ul li:hover .fa-github{
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff;
     transition: all 0.5s ease;
 }
 
@@ -194,8 +194,8 @@ img{
  }
  
  .wrapper ul li:hover .fa-instagram{
-     color: #ff00ae;
-     text-shadow: 0 0 15px #ff00ae;
+     color: #ffffff;
+     text-shadow: 0 0 15px #ffffff;
      transition: all 0.5s ease;
  }
 
