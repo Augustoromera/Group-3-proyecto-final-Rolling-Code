@@ -72,7 +72,7 @@ export const AdminScreen = () => {
     }
     const handleChangeFormUserEditar = (e) => {
 
-        const value = e.target.type === "checkbox" ? (e.target.checked ? "Activo" : "No Activo") : e.target.value;
+        const value = e.target.type === "checkbox" ? (e.target.checked ? "active" : "inactive") : e.target.value;
         setFormDateUserEditar({
             ...formDateUserEditar,
             [e.target.name]: value,
@@ -161,7 +161,8 @@ export const AdminScreen = () => {
     const handleSubmitFormUserEditar = (e) => {
         e.preventDefault();
         var { _id, name, email, estado, rol } = formDateUserEditar;
-        estado = estado ? "Activo" : "No Activo";
+        rol = rol ? rol.toLocaleLowerCase : "user";
+        let estadoModif = estado ? estado.toLocaleLowerCase() : "inactive";
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
@@ -169,7 +170,6 @@ export const AdminScreen = () => {
                 text: 'Por favor contactese con el administrador.',
             });
         }
-        estado = estado ? "Activo" : "No Activo";
         if (!name.trim() || !email.trim() || !rol) {
             Swal.fire({
                 icon: 'error',
@@ -192,7 +192,7 @@ export const AdminScreen = () => {
             password: '',
             rol: ''
         });
-        editarUsuarioDb(_id, name, email, estado, rol);
+        editarUsuarioDb(_id, name, email, estadoModif, rol);
         recargarPagina();
     };
     const handleSubmitFormEditar = (e) => {
@@ -266,7 +266,6 @@ export const AdminScreen = () => {
                 estado,
                 rol
             });
-
             console.log(resp);
         } catch (error) {
             console.log(error)
@@ -355,9 +354,44 @@ export const AdminScreen = () => {
     const eliminarUsuarioClick = async () => {
         console.log("hola")
     }
-    const inactivarUsuarioClick = async () => {
-        console.log("hola")
-    }
+
+
+    const inactivarUsuarioClick = async (usuario) => {
+        const { _id, name, email, estado, rol } = usuario;
+        const lowerCaseRol = rol ? rol.toLowerCase() : "user";
+        const lowerCaseEstado = estado ? estado.toLowerCase() : "inactive";
+        const newEstado = lowerCaseEstado === "active" ? "inactive" : "active";
+
+        if (!_id) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'No se encontró el Usuario',
+                text: 'Por favor contacte al administrador.',
+            });
+        }
+
+        Swal.fire({
+            icon: 'warning',
+            title: '¿Estás seguro?',
+            text: 'Esta acción cambiará el estado del usuario, luego podrá modificarlo.',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, cambiar',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setFormDateUser({
+                    name: '',
+                    email: '',
+                    estado: '',
+                    password: '',
+                    rol: ''
+                });
+                editarUsuarioDb(_id, name, email, newEstado, lowerCaseRol);
+                recargarPagina();
+            }
+        });
+    };
+
 
 
     const recargarPagina = () => {
@@ -418,7 +452,7 @@ export const AdminScreen = () => {
                                             <i className="fa-solid fa-trash fa-lg"
                                                 style={{ color: '#c43131' }}></i>
                                         </button>
-                                        <button onClick={() => inactivarUsuarioClick()}
+                                        <button onClick={() => inactivarUsuarioClick(usuario)}
                                             title={usuario.estado === "inactive" ? "Activar" : "Inactivar"}
                                         >
                                             <i className="fa-solid fa-unlock fa-lg"
