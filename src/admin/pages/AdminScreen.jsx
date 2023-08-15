@@ -131,7 +131,7 @@ export const AdminScreen = () => {
         e.preventDefault();
         var { name, email, estado, password, rol } = formDateUser;
         rol = rol ? rol.toLocaleLowerCase :"user";
-        estado = estado ? "Activo" : "No Activo";
+        estado = estado ?  estado.toLocaleLowerCase : "inactive";
         if (!name.trim() || !email.trim() || !password.trim()) {
             Swal.fire({
                 icon: 'error',
@@ -402,7 +402,7 @@ export const AdminScreen = () => {
                                     <td>{usuario._id}</td>
                                     <td>{usuario.name}</td>
                                     <td>{usuario.email}</td>
-                                    <td>{usuario.estado}</td>
+                                    <td>{capitalizeFirstLetter(usuario.estado)}</td>
                                     <td>{capitalizeFirstLetter(usuario.rol)}</td>
                                     <td>
                                         <button onClick={() => editarUsuarioClick(usuario)}
