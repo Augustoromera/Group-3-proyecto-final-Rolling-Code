@@ -271,6 +271,18 @@ export const AdminScreen = () => {
             console.log(error)
         }
     }
+    const editarPedidoDb = async (_id, estado) => {
+
+        try {
+            const resp = await pruebaApi.put('/admin/completarPedido', {
+                _id,
+                estado
+            });
+            console.log(resp);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const guardarProductoDb = async (nombre, estado, precio, detalle, categoria) => {
         try {
@@ -395,6 +407,33 @@ export const AdminScreen = () => {
                     rol: ''
                 });
                 editarUsuarioDb(_id, name, email, newEstado, lowerCaseRol);
+                recargarPagina();
+            }
+        });
+    };
+    const cambiarEstadoCick = async (pedido) => {
+        const { _id, estado } = pedido;
+        const lowerCaseEstado = estado ? estado.toLowerCase() : "completado";
+        const newEstado = lowerCaseEstado === "pendiente" ? "completado" : "pendiente";
+
+        if (!_id) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'No se encontró el Usuario',
+                text: 'Por favor contacte al administrador.',
+            });
+        }
+
+        Swal.fire({
+            icon: 'warning',
+            title: '¿Estás seguro?',
+            text: 'Esta acción cambiará el estado del pedido, luego podrá modificarlo.',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, cambiar',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                editarPedidoDb(_id, newEstado);
                 recargarPagina();
             }
         });
@@ -554,6 +593,7 @@ export const AdminScreen = () => {
                             <th>Menús Agregados</th>
                             <th>Estado</th>
                             <th>Total</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     {cargarPedidos.map((pedido) => {
@@ -595,19 +635,16 @@ export const AdminScreen = () => {
 
                                     <td>{pedido.estado}</td>
                                     <td>{pesoModif}</td>
-                                    {/* <td>
-                                        <button onClick={() => editarProductoClick(menu)}
-                                        >
-                                            <i className="fa-solid fa-pen-to-square fa-lg"
+                                    <td>
+                                        <button onClick={() => cambiarEstadoCick(pedido)}
+                                            title={pedido.estado === "pendiente" ? "Cambiar a completado" : "Cambiar a pendiente"}>
+                                            <i
+                                                className={`fa-solid ${pedido.estado === "pendiente" ? 'fa-circle-xmark fa-xl' : 'fa-circle-check fa-xl'}`}
+                                                style={{ color: pedido.estado === "pendiente" ? '#ff0000' : '#3f9240' }}
+                                            ></i>
+                                        </button>
+                                    </td>
 
-                                                style={{ color: '#000000' }}></i>
-                                        </button>
-                                        <button onClick={() => eliminarProductoClick(menu._id)}
-                                        >
-                                            <i className="fa-solid fa-trash fa-lg"
-                                                style={{ color: '#c43131' }}></i>
-                                        </button>
-                                    </td> */}
                                 </tr>
                             </tbody>
                         )
