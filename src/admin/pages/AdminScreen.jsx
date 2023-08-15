@@ -205,6 +205,7 @@ export const AdminScreen = () => {
     const handleSubmitFormEditar = (e) => {
         e.preventDefault();
         var { _id, nombre, imagen, estado, precio, detalle, categoria } = formDateEditar;
+        imagen = imagen ? imagen : '../assets/images/imagenDefault.png';
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
@@ -498,7 +499,11 @@ export const AdminScreen = () => {
             <Header></Header>
             {/* codigo para tablas  */}
             <div className="">
-                <h1 className="text-center p-3">Admin Page</h1>
+                <div className="text-center p-3">
+                    <h1>Bienvenido al Panel de Administración</h1>
+                    <p>¡Aquí puedes gestionar usuarios, productos y pedidos de manera fácil y eficiente!</p>
+                </div>
+
 
                 <div className="table-container">
                     {/* Tabla para usuarios */}

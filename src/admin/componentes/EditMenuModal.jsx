@@ -95,7 +95,6 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 placeholder='Inserte el URL de la imagen'
                                 value={formDateEditar.imagen}
                                 onChange={handleChangeFormEditar}
-                                required
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicDetalle">
