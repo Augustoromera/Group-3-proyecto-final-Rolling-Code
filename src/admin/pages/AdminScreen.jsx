@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import AddMenuModal from '../componentes/AddMenuModal';
 import EditMenuModal from '../componentes/EditMenuModal';
 import AddUserModal from '../componentes/AddUserModal';
+import EditUserModal from '../componentes/EditUserModal';
 
 
 
@@ -18,16 +19,26 @@ export const AdminScreen = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isModalOpenUser, setIsModalOpenUser] = useState(false);
     const [isModalOpenEditar, setIsModalOpenEditar] = useState(false);
+    const [isModalOpenUserEditar, setIsModalOpenUserEditar] = useState(false);
     //hook para almacenar los datos del formulario agregarProducto
     const [formDateEditar, setFormDateEditar] = useState({
         _id: '',
         nombre: '',
+        imagen: '',
         estado: '',
         precio: '',
         detalle: '',
         categoria: ''
     });
     const [formDateUser, setFormDateUser] = useState({
+        name: '',
+        email: '',
+        estado: '',
+        password: '',
+        rol: ''
+    });
+    const [formDateUserEditar, setFormDateUserEditar] = useState({
+        _id: '',
         name: '',
         email: '',
         estado: '',
@@ -53,9 +64,17 @@ export const AdminScreen = () => {
     const handleChangeFormUser = (e) => {
 
         const value = e.target.type === "checkbox" ? (e.target.checked ? "Activo" : "No Activo") : e.target.value;
-        console.log(value);
         setFormDateUser({
             ...formDateUser,
+            [e.target.name]: value,
+        })
+
+    }
+    const handleChangeFormUserEditar = (e) => {
+
+        const value = e.target.type === "checkbox" ? (e.target.checked ? "Activo" : "No Activo") : e.target.value;
+        setFormDateUserEditar({
+            ...formDateUserEditar,
             [e.target.name]: value,
         })
 
@@ -111,6 +130,7 @@ export const AdminScreen = () => {
     const handleSubmitFormUser = (e) => {
         e.preventDefault();
         var { name, email, estado, password, rol } = formDateUser;
+        rol = rol ? rol.toLocaleLowerCase :"user";
         estado = estado ? "Activo" : "No Activo";
         if (!name.trim() || !email.trim() || !password.trim()) {
             Swal.fire({
@@ -134,12 +154,14 @@ export const AdminScreen = () => {
             password: '',
             rol: ''
         });
+        console.log(estado);
         guardarUsuarioDb(name, email, estado, password, rol);
-        recargarPagina();
+        recargarPagina()
     };
-    const handleSubmitFormEditar = (e) => {
+    const handleSubmitFormUserEditar = (e) => {
         e.preventDefault();
-        var { _id, nombre, estado, precio, detalle, categoria } = formDateEditar;
+        var { _id, name, email, estado, rol } = formDateUserEditar;
+        estado = estado ? "Activo" : "No Activo";
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
@@ -147,7 +169,43 @@ export const AdminScreen = () => {
                 text: 'Por favor contactese con el administrador.',
             });
         }
-        if (!nombre.trim() || !precio || !detalle.trim() || !categoria) {
+        estado = estado ? "Activo" : "No Activo";
+        if (!name.trim() || !email.trim() || !rol) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos incompletos',
+                text: 'Por favor completa todos los campos.',
+            });
+            return;
+        }
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Usuario editado!',
+            text: 'El Usuario ha sido editado exitosamente.',
+        });
+
+        setFormDateUser({
+            name: '',
+            email: '',
+            estado: '',
+            password: '',
+            rol: ''
+        });
+        editarUsuarioDb(_id, name, email, estado, rol);
+        recargarPagina();
+    };
+    const handleSubmitFormEditar = (e) => {
+        e.preventDefault();
+        var { _id, nombre, imagen, estado, precio, detalle, categoria } = formDateEditar;
+        if (!_id) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'No se encontro el Menu',
+                text: 'Por favor contactese con el administrador.',
+            });
+        }
+        if (!nombre.trim() || !precio | !imagen || !detalle.trim() || !categoria) {
             return Swal.fire({
                 icon: 'error',
                 title: 'Campos incompletos',
@@ -176,22 +234,39 @@ export const AdminScreen = () => {
             detalle: '',
             categoria: '',
         });
-        editarProductoDb(_id, nombre, estado, precio, detalle, categoria);
+        editarProductoDb(_id, nombre, imagen, estado, precio, detalle, categoria);
         recargarPagina();
     };
 
 
 
-    const editarProductoDb = async (_id, nombre, estado, precio, detalle, categoria) => {
+    const editarProductoDb = async (_id, nombre, imagen, estado, precio, detalle, categoria) => {
         try {
             const resp = await pruebaApi.put('/admin/editarMenu', {
                 _id,
                 nombre,
+                imagen,
                 estado,
                 precio,
                 detalle,
                 categoria
             });
+            console.log(resp);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const editarUsuarioDb = async (_id, name, email, estado, rol) => {
+        
+        try {
+            const resp = await pruebaApi.put('/admin/editarUsuario', {
+                _id,
+                name,
+                email,
+                estado,
+                rol
+            });
+            
             console.log(resp);
         } catch (error) {
             console.log(error)
@@ -272,8 +347,10 @@ export const AdminScreen = () => {
         setFormDateEditar(menu);
         setIsModalOpenEditar(true);
     }
-    const editarUsuarioClick = async () => {
-        console.log("hola")
+
+    const editarUsuarioClick = async (usuario) => {
+        setFormDateUserEditar(usuario);
+        setIsModalOpenUserEditar(true);
     }
     const eliminarUsuarioClick = async () => {
         console.log("hola")
@@ -287,6 +364,9 @@ export const AdminScreen = () => {
         setTimeout(() => {
             window.location.reload();
         }, 2000);
+    }
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
 
@@ -323,9 +403,9 @@ export const AdminScreen = () => {
                                     <td>{usuario.name}</td>
                                     <td>{usuario.email}</td>
                                     <td>{usuario.estado}</td>
-                                    <td>{usuario.rol}</td>
+                                    <td>{capitalizeFirstLetter(usuario.rol)}</td>
                                     <td>
-                                        <button onClick={() => editarUsuarioClick()}
+                                        <button onClick={() => editarUsuarioClick(usuario)}
                                         >
                                             <i className="fa-solid fa-pen-to-square fa-lg"
 
@@ -338,8 +418,8 @@ export const AdminScreen = () => {
                                         </button>
                                         <button onClick={() => inactivarUsuarioClick()}
                                         >
-                                            <i className="fa-solid fa-unlock fa-lg" 
-                                            style={{ color: '#3f9240' }}></i>
+                                            <i className="fa-solid fa-unlock fa-lg"
+                                                style={{ color: '#3f9240' }}></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -363,6 +443,7 @@ export const AdminScreen = () => {
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
+                            <th>imagen</th>
                             <th>#ID</th>
                             <th>Nombre</th>
                             <th>Estado</th>
@@ -378,7 +459,9 @@ export const AdminScreen = () => {
                         return (
                             <tbody key={menu._id}>
                                 <tr>
-                                    <td>{menu._id}</td>
+                                    <td>
+                                        <img src={menu.imagen} alt={`Imagen de ${menu.nombre}`} className="custom-imagen" />
+                                    </td><td>{menu._id}</td>
                                     <td>{menu.nombre}</td>
                                     <td>{menu.estado}</td>
                                     <td>{pesoModif}</td>
@@ -440,6 +523,14 @@ export const AdminScreen = () => {
                 handleChangeFormEditar={handleChangeFormEditar}
                 handleSubmitFormEditar={handleSubmitFormEditar}
                 formDateEditar={formDateEditar}
+            />
+            {/* Modal para editar usuarios */}
+            <EditUserModal
+                isOpen={isModalOpenUserEditar}
+                setIsOpen={setIsModalOpenUserEditar}
+                handleChangeFormUserEditar={handleChangeFormUserEditar}
+                handleSubmitFormUserEditar={handleSubmitFormUserEditar}
+                formDateUserEditar={formDateUserEditar}
             />
         </>
     );

@@ -40,3 +40,11 @@ form .custom-button:hover {
     color: black !important;
     border: 2px solid black !important;
 }
+.custom-imagen {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
+}

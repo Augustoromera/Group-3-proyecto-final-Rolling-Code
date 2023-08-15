@@ -25,7 +25,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                 </div>
                 <div className="modal-body">
                     <Form onSubmit={handleSubmitFormEditar}>
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3" controlId="formBasicNombre">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
@@ -36,7 +36,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3" controlId="formBasicPrecio">
                             <Form.Label>Precio</Form.Label>
                             <Form.Control
                                 type="number"
@@ -66,6 +66,8 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 <option value="empanadas">Empanadas</option>
                                 <option value="comida criolla">Comida Criolla</option>
                                 <option value="mariscos">Mariscos</option>
+                                <option value="mexicana">Comida mexicana</option>
+                                <option value="infusiones">Bebidas o infusiones</option>
                                 <option value="comida vegetariana">Comida Vegetariana</option>
                                 <option value="comida vegana">Comida Vegana</option>
                                 <option value="comida regional">Comida Regional</option>
@@ -74,7 +76,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
 
                             </Form.Select>
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3" controlId="formBasicEstado">
 
                             <Form.Check
                                 type="checkbox"
@@ -85,8 +87,18 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
 
                             />
                         </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3" controlId="formBasicImagen">
+                            <Form.Label>Imagen</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="imagen"
+                                placeholder='Inserte el URL de la imagen'
+                                value={formDateEditar.imagen}
+                                onChange={handleChangeFormEditar}
+                                required
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicDetalle">
                             <Form.Label>Detalle</Form.Label>
                             <textarea
                                 name="detalle"
