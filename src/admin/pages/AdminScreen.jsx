@@ -510,20 +510,20 @@ export const AdminScreen = () => {
                                     <td>{capitalizeFirstLetter(usuario.rol)}</td>
                                     <td>
                                         <button onClick={() => editarUsuarioClick(usuario)}
-                                            title={"Editar"}
+                                            title={"Editar usuario"}
                                         >
                                             <i className="fa-solid fa-pen-to-square fa-lg"
 
                                                 style={{ color: '#000000' }}></i>
                                         </button>
                                         <button onClick={() => eliminarUsuarioClick(usuario._id)}
-                                            title={"Eliminar"}
+                                            title={"Eliminar usuario"}
                                         >
                                             <i className="fa-solid fa-trash fa-lg"
                                                 style={{ color: '#c43131' }}></i>
                                         </button>
                                         <button onClick={() => inactivarUsuarioClick(usuario)}
-                                            title={usuario.estado === "inactive" ? "Activar" : "Inactivar"}
+                                            title={usuario.estado === "inactive" ? "Activar usuario" : "Inactivar usuario"}
                                         >
                                             <i className="fa-solid fa-unlock fa-lg"
                                                 style={{ color: usuario.estado === "inactive" ? '#ff0000' : '#3f9240' }}>
@@ -541,6 +541,7 @@ export const AdminScreen = () => {
                     <button
                         className="add-product-button border rounded-circle p-3 bg-dark "
                         onClick={() => setIsModalOpenUser(true)}
+                        title='Agregar Usuario'
                     >
                         <FaPlus className="add-product-icon text-white" />
                     </button>
@@ -577,12 +578,14 @@ export const AdminScreen = () => {
                                     <td>{menu.categoria}</td>
                                     <td>
                                         <button onClick={() => editarProductoClick(menu)}
+                                        title='Editar menu'
                                         >
                                             <i className="fa-solid fa-pen-to-square fa-lg"
 
                                                 style={{ color: '#000000' }}></i>
                                         </button>
                                         <button onClick={() => eliminarProductoClick(menu._id)}
+                                        title='Eliminar menu'
                                         >
                                             <i className="fa-solid fa-trash fa-lg"
                                                 style={{ color: '#c43131' }}></i>
@@ -600,6 +603,7 @@ export const AdminScreen = () => {
                     <button
                         className="add-product-button border rounded-circle p-3 bg-dark "
                         onClick={() => setFormDateUser(true)}
+                        title='Agregar menu'
                     >
                         <FaPlus className="add-product-icon text-white" />
                     </button>
