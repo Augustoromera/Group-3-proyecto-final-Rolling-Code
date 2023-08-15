@@ -551,7 +551,7 @@ export const AdminScreen = () => {
                             <th>#ID</th>
                             <th>Usuario</th>
                             <th>Fecha</th>
-                            <th>Menu</th>
+                            <th>Menús Agregados</th>
                             <th>Estado</th>
                             <th>Total</th>
                         </tr>
@@ -563,16 +563,36 @@ export const AdminScreen = () => {
                                 <tr>
                                     {/* <td>
                                         <img src={menu.imagen} alt={`Imagen de ${menu.nombre}`} className="custom-imagen" />  </td>*/}
-                                    <td>{pedido._id}</td>
-                                    <td>{pedido.usuario}</td>
-                                    <td>{pedido.fecha}</td>
+                                    <td>{pedido._id}</td><td>
+                                        {cargarUsuarios.map(usuario => {
+                                            if (usuario._id === pedido.usuario) {
+                                                return usuario.name;
+                                            }
+                                            return null;
+                                        }) || "Usuario con ese id no encontrado"}
+                                    </td>
+                                    <td>
+                                        {new Intl.DateTimeFormat('es-AR', {
+                                            timeZone: 'America/Argentina/Buenos_Aires',
+                                            year: 'numeric',
+                                            month: '2-digit',
+                                            day: '2-digit',
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                            second: '2-digit'
+                                        }).format(new Date(pedido.fecha))}
+                                    </td>
                                     <td>
                                         <ul>
-                                            {pedido.menus.map((menuId) => (
-                                                <li key={menuId}>{menuId}</li>
-                                            ))}
+                                            {pedido.menus.map((menuId) => {
+                                                const menuEncontrado = cargarProducto.find(menu => menu._id === menuId);
+                                                return (
+                                                    <li key={menuId}>{menuEncontrado ? menuEncontrado.nombre : "Menú no encontrado"}</li>
+                                                );
+                                            })}
                                         </ul>
                                     </td>
+
                                     <td>{pedido.estado}</td>
                                     <td>{pesoModif}</td>
                                     {/* <td>
