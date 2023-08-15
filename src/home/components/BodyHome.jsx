@@ -43,6 +43,11 @@ export const BodyHome = () => {
       </div>
 
       <hr />
+
+	  <div className="container">
+	  <h3 className="text-center text-uppercase poppins-regular font-weight-bold">Menú</h3>
+	  <br />
+	  </div>
     </>
   )
 }
