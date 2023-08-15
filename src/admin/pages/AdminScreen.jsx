@@ -130,8 +130,8 @@ export const AdminScreen = () => {
     const handleSubmitFormUser = (e) => {
         e.preventDefault();
         var { name, email, estado, password, rol } = formDateUser;
-        rol = rol ? rol.toLocaleLowerCase :"user";
-        estado = estado ?  estado.toLocaleLowerCase : "inactive";
+        rol = rol ? rol.toLocaleLowerCase : "user";
+        estado = estado ? estado.toLocaleLowerCase : "inactive";
         if (!name.trim() || !email.trim() || !password.trim()) {
             Swal.fire({
                 icon: 'error',
@@ -257,7 +257,7 @@ export const AdminScreen = () => {
         }
     }
     const editarUsuarioDb = async (_id, name, email, estado, rol) => {
-        
+
         try {
             const resp = await pruebaApi.put('/admin/editarUsuario', {
                 _id,
@@ -266,7 +266,7 @@ export const AdminScreen = () => {
                 estado,
                 rol
             });
-            
+
             console.log(resp);
         } catch (error) {
             console.log(error)
@@ -406,20 +406,24 @@ export const AdminScreen = () => {
                                     <td>{capitalizeFirstLetter(usuario.rol)}</td>
                                     <td>
                                         <button onClick={() => editarUsuarioClick(usuario)}
+                                            title={"Editar"}
                                         >
                                             <i className="fa-solid fa-pen-to-square fa-lg"
 
                                                 style={{ color: '#000000' }}></i>
                                         </button>
                                         <button onClick={() => eliminarUsuarioClick()}
+                                            title={"Eliminar"}
                                         >
                                             <i className="fa-solid fa-trash fa-lg"
                                                 style={{ color: '#c43131' }}></i>
                                         </button>
                                         <button onClick={() => inactivarUsuarioClick()}
+                                            title={usuario.estado === "inactive" ? "Activar" : "Inactivar"}
                                         >
                                             <i className="fa-solid fa-unlock fa-lg"
-                                                style={{ color: '#3f9240' }}></i>
+                                                style={{ color: usuario.estado === "inactive" ? '#ff0000' : '#3f9240' }}>
+                                            </i>
                                         </button>
                                     </td>
                                 </tr>
