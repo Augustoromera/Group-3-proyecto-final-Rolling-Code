@@ -13,15 +13,16 @@ import EditUserModal from '../componentes/EditUserModal';
 
 
 export const AdminScreen = () => {
+    // Variables de estado
     const [cargarUsuarios, setCargarUsuarios] = useState([]);
     const [cargarPedidos, setCargarPedidos] = useState([]);
     const [cargarProducto, setCargarProducto] = useState([]);
-    //se encarga de cerrar y abrir el modal
+    // Estados para controlar la apertura de los modales
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isModalOpenUser, setIsModalOpenUser] = useState(false);
     const [isModalOpenEditar, setIsModalOpenEditar] = useState(false);
     const [isModalOpenUserEditar, setIsModalOpenUserEditar] = useState(false);
-    //hook para almacenar los datos del formulario agregarProducto
+    // Estados para almacenar los datos de los formularios de agregar/editar productos y usuarios
     const [formDateEditar, setFormDateEditar] = useState({
         _id: '',
         nombre: '',
@@ -46,7 +47,6 @@ export const AdminScreen = () => {
         password: '',
         rol: ''
     });
-    //hook para almacenar los datos del formulario editarProducto
     const [formDate, setFormDate] = useState({
         nombre: '',
         estado: '',
@@ -56,7 +56,7 @@ export const AdminScreen = () => {
         categoria: ''
     });
 
-
+    // Función para manejar cambios en los inputs de los formularios de agregar y editar (usuarios y menus)
     const handleChangeForm = (e) => {
         setFormDate({
             ...formDate,
@@ -88,6 +88,8 @@ export const AdminScreen = () => {
             [e.target.name]: value,
         });
     }
+
+    // Función para manejar el envío del formulario de agregar menu/producto
     const handleSubmitForm = (e) => {
         e.preventDefault();
         var { nombre, estado, precio, detalle, categoria, imagen } = formDate;
@@ -129,6 +131,7 @@ export const AdminScreen = () => {
         guardarProductoDb(nombre, estado, precio, detalle, categoria, imagen);
         recargarPagina();
     };
+    // Función para manejar el envío del formulario de agregar usuario
     const handleSubmitFormUser = (e) => {
         e.preventDefault();
         var { name, email, estado, password, rol } = formDateUser;
@@ -160,6 +163,7 @@ export const AdminScreen = () => {
         guardarUsuarioDb(name, email, estado, password, rol);
         recargarPagina()
     };
+    // Función para manejar el envío del formulario de editar usuario
     const handleSubmitFormUserEditar = (e) => {
         e.preventDefault();
         var { _id, name, email, estado, rol } = formDateUserEditar;
@@ -197,6 +201,7 @@ export const AdminScreen = () => {
         editarUsuarioDb(_id, name, email, estadoModif, rol);
         recargarPagina();
     };
+    // Función para manejar el envío del formulario de editar menu/producto
     const handleSubmitFormEditar = (e) => {
         e.preventDefault();
         var { _id, nombre, imagen, estado, precio, detalle, categoria } = formDateEditar;
@@ -241,7 +246,7 @@ export const AdminScreen = () => {
     };
 
 
-
+    // Funciones para interactuar con la API que permiten operaciones CRUD (Crear, Leer, Actualizar, Eliminar) 
     const editarProductoDb = async (_id, nombre, imagen, estado, precio, detalle, categoria) => {
         try {
             const resp = await pruebaApi.put('/admin/editarMenu', {
@@ -465,23 +470,29 @@ export const AdminScreen = () => {
     };
 
 
-
+    //funcion para recargar pagina
     const recargarPagina = () => {
         setTimeout(() => {
             window.location.reload();
         }, 2000);
     }
+    //funcion para capitalizar la primera letra a mayuscula
     function capitalizeFirstLetter(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-
+    // Cargar datos iniciales al montar el componente
     useEffect(() => {
+        // Cargar usuarios desde la base de datos
         cargarUserDB();
+
+        // Cargar productos desde la base de datos
         cargarProductoDB();
+
+        // Cargar pedidos desde la base de datos
         cargarPedidosDB();
     }, []);
-
+    //renderizado de componentes y elementos de la interfaz
     return (
         <>
             <Header></Header>
