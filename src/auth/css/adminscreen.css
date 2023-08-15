@@ -48,3 +48,29 @@ form .custom-button:hover {
     border-radius: 8px;
     margin: 0 auto;
 }
+.table-container {
+    margin: 30px;
+}
+
+.custom-table {
+    width: 100%;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.custom-table th {
+    background-color: #343a40;
+    color: white;
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

@@ -486,57 +486,62 @@ export const AdminScreen = () => {
             <div className="">
                 <h1 className="text-center p-3">Admin Page</h1>
 
-                {/* tabla para usuarios */}
-                <h3>Usuarios</h3>
-                <Table striped bordered hover variant="dark">
-                    <thead>
-                        <tr>
-                            <th>#ID</th>
-                            <th>Nombre y apellido</th>
-                            <th>Email</th>
-                            <th>Estado</th>
-                            <th>Rol</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    {cargarUsuarios.map((usuario) => {
-                        return (
-                            <tbody key={usuario._id}>
+                <div className="table-container">
+                    {/* Tabla para usuarios */}
+                    <h3>Usuarios</h3>
+                    <div className="table-responsive">
+                        <Table className="custom-table" striped bordered hover variant="dark">
+                            <thead>
                                 <tr>
-                                    <td>{usuario._id}</td>
-                                    <td>{usuario.name}</td>
-                                    <td>{usuario.email}</td>
-                                    <td>{capitalizeFirstLetter(usuario.estado)}</td>
-                                    <td>{capitalizeFirstLetter(usuario.rol)}</td>
-                                    <td>
-                                        <button onClick={() => editarUsuarioClick(usuario)}
-                                            title={"Editar usuario"}
-                                        >
-                                            <i className="fa-solid fa-pen-to-square fa-lg"
-
-                                                style={{ color: '#000000' }}></i>
-                                        </button>
-                                        <button onClick={() => eliminarUsuarioClick(usuario._id)}
-                                            title={"Eliminar usuario"}
-                                        >
-                                            <i className="fa-solid fa-trash fa-lg"
-                                                style={{ color: '#c43131' }}></i>
-                                        </button>
-                                        <button onClick={() => inactivarUsuarioClick(usuario)}
-                                            title={usuario.estado === "inactive" ? "Activar usuario" : "Inactivar usuario"}
-                                        >
-                                            <i className="fa-solid fa-unlock fa-lg"
-                                                style={{ color: usuario.estado === "inactive" ? '#ff0000' : '#3f9240' }}>
-                                            </i>
-                                        </button>
-                                    </td>
+                                    <th>#ID</th>
+                                    <th>Nombre y apellido</th>
+                                    <th>Email</th>
+                                    <th>Estado</th>
+                                    <th>Rol</th>
+                                    <th>Acciones</th>
                                 </tr>
-                            </tbody>
-                        )
-                    }
-                    )
-                    }
-                </Table>
+                            </thead>
+                            {cargarUsuarios.map((usuario) => {
+                                return (
+                                    <tbody key={usuario._id}>
+                                        <tr>
+                                            <td>{usuario._id}</td>
+                                            <td>{usuario.name}</td>
+                                            <td>{usuario.email}</td>
+                                            <td>{capitalizeFirstLetter(usuario.estado)}</td>
+                                            <td>{capitalizeFirstLetter(usuario.rol)}</td>
+                                            <td>
+                                                <button onClick={() => editarUsuarioClick(usuario)}
+                                                    title={"Editar usuario"}
+                                                >
+                                                    <i className="fa-solid fa-pen-to-square fa-lg"
+                                                        style={{ color: '#000000' }}></i>
+                                                </button>
+                                                <button onClick={() => eliminarUsuarioClick(usuario._id)}
+                                                    title={"Eliminar usuario"}
+                                                >
+                                                    <i className="fa-solid fa-trash fa-lg"
+                                                        style={{ color: '#c43131' }}></i>
+                                                </button>
+                                                <button onClick={() => inactivarUsuarioClick(usuario)}
+                                                    title={usuario.estado === "inactive" ? "Activar usuario" : "Inactivar usuario"}
+                                                >
+                                                    <i className="fa-solid fa-unlock fa-lg"
+                                                        style={{ color: usuario.estado === "inactive" ? '#ff0000' : '#3f9240' }}>
+                                                    </i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                );
+                            })}
+                        </Table>
+                    </div>
+                </div>
+
+
+
+                {/* Boton para agregar usuarios */}
                 <div className="d-flex justify-content-end me-5">
                     <button
                         className="add-product-button border rounded-circle p-3 bg-dark "
@@ -547,57 +552,60 @@ export const AdminScreen = () => {
                     </button>
                 </div>
 
-                {/* tabla para menús */}
-                <h3>Menus</h3>
-                <Table striped bordered hover variant="dark">
-                    <thead>
-                        <tr>
-                            <th>imagen</th>
-                            <th>#ID</th>
-                            <th>Nombre</th>
-                            <th>Estado</th>
-                            <th>Precio</th>
-                            <th>Detalle</th>
-                            <th>Categoria</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    {cargarProducto.map((menu) => {
-                        let pesoModif = menu.precio % 1 === 0 ? `$ ${menu.precio}.00` : `$ ${menu.precio.toFixed(2)}`;
-
-                        return (
-                            <tbody key={menu._id}>
+                <div className="table-container">
+                    {/* Tabla para menús */}
+                    <h3>Menús</h3>
+                    <div className="table-responsive">
+                        <Table className="custom-table" striped bordered hover variant="dark">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        <img src={menu.imagen} alt={`Imagen de ${menu.nombre}`} className="custom-imagen" />
-                                    </td><td>{menu._id}</td>
-                                    <td>{menu.nombre}</td>
-                                    <td>{menu.estado}</td>
-                                    <td>{pesoModif}</td>
-                                    <td>{menu.detalle}</td>
-                                    <td>{menu.categoria}</td>
-                                    <td>
-                                        <button onClick={() => editarProductoClick(menu)}
-                                        title='Editar menu'
-                                        >
-                                            <i className="fa-solid fa-pen-to-square fa-lg"
-
-                                                style={{ color: '#000000' }}></i>
-                                        </button>
-                                        <button onClick={() => eliminarProductoClick(menu._id)}
-                                        title='Eliminar menu'
-                                        >
-                                            <i className="fa-solid fa-trash fa-lg"
-                                                style={{ color: '#c43131' }}></i>
-                                        </button>
-                                    </td>
+                                    <th>Imagen</th>
+                                    <th>#ID</th>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>
+                                    <th>Precio</th>
+                                    <th>Detalle</th>
+                                    <th>Categoría</th>
+                                    <th>Acciones</th>
                                 </tr>
-                            </tbody>
-                        )
-                    }
-                    )
-                    }
-                </Table>
+                            </thead>
+                            {cargarProducto.map((menu) => {
+                                let pesoModif = menu.precio % 1 === 0 ? `$ ${menu.precio}.00` : `$ ${menu.precio.toFixed(2)}`;
+
+                                return (
+                                    <tbody key={menu._id}>
+                                        <tr>
+                                            <td>
+                                                <img src={menu.imagen} alt={`Imagen de ${menu.nombre}`} className="custom-imagen" />
+                                            </td>
+                                            <td>{menu._id}</td>
+                                            <td>{menu.nombre}</td>
+                                            <td>{menu.estado}</td>
+                                            <td>{pesoModif}</td>
+                                            <td>{menu.detalle}</td>
+                                            <td>{menu.categoria}</td>
+                                            <td>
+                                                <button onClick={() => editarProductoClick(menu)}
+                                                    title='Editar menú'
+                                                >
+                                                    <i className="fa-solid fa-pen-to-square fa-lg"
+                                                        style={{ color: '#000000' }}></i>
+                                                </button>
+                                                <button onClick={() => eliminarProductoClick(menu._id)}
+                                                    title='Eliminar menú'
+                                                >
+                                                    <i className="fa-solid fa-trash fa-lg"
+                                                        style={{ color: '#c43131' }}></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                );
+                            })}
+                        </Table>
+                    </div>
+                </div>
+
                 {/* Botón con icono "+" */}
                 <div className="d-flex justify-content-end me-5">
                     <button
@@ -608,76 +616,73 @@ export const AdminScreen = () => {
                         <FaPlus className="add-product-icon text-white" />
                     </button>
                 </div>
-                {/* tabla para pedidos */}
-                <h3>Pedidos</h3>
-                <Table striped bordered hover variant="dark">
-                    <thead>
-                        <tr>
-                            <th>#ID</th>
-                            <th>Usuario</th>
-                            <th>Fecha</th>
-                            <th>Menús Agregados</th>
-                            <th>Estado</th>
-                            <th>Total</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    {cargarPedidos.map((pedido) => {
-                        let pesoModif = pedido.importeTotal % 1 === 0 ? `$ ${pedido.importeTotal}.00` : `$ ${pedido.importeTotal.toFixed(2)}`;
-                        return (
-                            <tbody key={pedido._id}>
+                <div className="table-container">
+                    {/* Tabla para pedidos */}
+                    <h3>Pedidos</h3>
+                    <div className="table-responsive">
+                        <Table className="custom-table" striped bordered hover variant="dark">
+                            <thead>
                                 <tr>
-                                    {/* <td>
-                                        <img src={menu.imagen} alt={`Imagen de ${menu.nombre}`} className="custom-imagen" />  </td>*/}
-                                    <td>{pedido._id}</td><td>
-                                        {cargarUsuarios.map(usuario => {
-                                            if (usuario._id === pedido.usuario) {
-                                                return usuario.name;
-                                            }
-                                            return null;
-                                        }) || "Usuario con ese id no encontrado"}
-                                    </td>
-                                    <td>
-                                        {new Intl.DateTimeFormat('es-AR', {
-                                            timeZone: 'America/Argentina/Buenos_Aires',
-                                            year: 'numeric',
-                                            month: '2-digit',
-                                            day: '2-digit',
-                                            hour: '2-digit',
-                                            minute: '2-digit',
-                                            second: '2-digit'
-                                        }).format(new Date(pedido.fecha))}
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            {pedido.menus.map((menuId) => {
-                                                const menuEncontrado = cargarProducto.find(menu => menu._id === menuId);
-                                                return (
-                                                    <li key={menuId}>{menuEncontrado ? menuEncontrado.nombre : "Menú no encontrado"}</li>
-                                                );
-                                            })}
-                                        </ul>
-                                    </td>
-
-                                    <td>{pedido.estado}</td>
-                                    <td>{pesoModif}</td>
-                                    <td>
-                                        <button onClick={() => cambiarEstadoCick(pedido)}
-                                            title={pedido.estado === "pendiente" ? "Cambiar a pedido" : "Cambiar a pendiente"}>
-                                            <i
-                                                className={`fa-solid ${pedido.estado === "pendiente" ? 'fa-circle-xmark fa-xl' : 'fa-circle-check fa-xl'}`}
-                                                style={{ color: pedido.estado === "pendiente" ? '#ff0000' : '#3f9240' }}
-                                            ></i>
-                                        </button>
-                                    </td>
-
+                                    <th>#ID</th>
+                                    <th>Usuario</th>
+                                    <th>Fecha</th>
+                                    <th>Menús Agregados</th>
+                                    <th>Estado</th>
+                                    <th>Total</th>
+                                    <th>Acciones</th>
                                 </tr>
-                            </tbody>
-                        )
-                    }
-                    )
-                    }
-                </Table>
+                            </thead>
+                            {cargarPedidos.map((pedido) => {
+                                let pesoModif = pedido.importeTotal % 1 === 0 ? `$ ${pedido.importeTotal}.00` : `$ ${pedido.importeTotal.toFixed(2)}`;
+                                return (
+                                    <tbody key={pedido._id}>
+                                        <tr>
+                                            <td>{pedido._id}</td>
+                                            <td>
+                                                {cargarUsuarios.find(usuario => usuario._id === pedido.usuario)?.name || "Usuario con ese ID no encontrado"}
+                                            </td>
+                                            <td>
+                                                {new Intl.DateTimeFormat('es-AR', {
+                                                    timeZone: 'America/Argentina/Buenos_Aires',
+                                                    year: 'numeric',
+                                                    month: '2-digit',
+                                                    day: '2-digit',
+                                                    hour: '2-digit',
+                                                    minute: '2-digit',
+                                                    second: '2-digit'
+                                                }).format(new Date(pedido.fecha))}
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    {pedido.menus.map((menuId) => {
+                                                        const menuEncontrado = cargarProducto.find(menu => menu._id === menuId);
+                                                        return (
+                                                            <li key={menuId}>{menuEncontrado ? menuEncontrado.nombre : "Menú no encontrado"}</li>
+                                                        );
+                                                    })}
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                {pedido.estado}
+                                            </td>
+                                            <td>{pesoModif}</td>
+                                            <td>
+                                                <button onClick={() => cambiarEstadoCick(pedido)}
+                                                    title={pedido.estado === "pendiente" ? "Cambiar a pedido" : "Cambiar a pendiente"}>
+                                                    <i
+                                                        className={`fa-solid ${pedido.estado === "pendiente" ? 'fa-circle-xmark fa-xl' : 'fa-circle-check fa-xl'}`}
+                                                        style={{ color: pedido.estado === "pendiente" ? '#ff0000' : '#3f9240' }}
+                                                    ></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                );
+                            })}
+                        </Table>
+                    </div>
+                </div>
+
             </div>
 
 
