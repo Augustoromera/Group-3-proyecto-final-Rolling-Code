@@ -77,7 +77,6 @@ export const AdminScreen = () => {
             ...formDateUserEditar,
             [e.target.name]: value,
         })
-
     }
     const handleChangeFormEditar = (e) => {
         const value = e.target.type === "checkbox" ? (e.target.checked ? "Disponible" : "No Disponible") : e.target.value;
@@ -161,7 +160,7 @@ export const AdminScreen = () => {
     const handleSubmitFormUserEditar = (e) => {
         e.preventDefault();
         var { _id, name, email, estado, rol } = formDateUserEditar;
-        rol = rol ? rol.toLocaleLowerCase : "user";
+        rol = rol ? rol.toLocaleLowerCase() : "user";
         let estadoModif = estado ? estado.toLocaleLowerCase() : "inactive";
         if (!_id) {
             return Swal.fire({
