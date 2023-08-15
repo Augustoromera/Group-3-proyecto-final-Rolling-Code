@@ -18,7 +18,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
     };
     return (
         <Modal isOpen={isOpen} ariaHideApp={false} style={customStyles} onRequestClose={onRequestClose}>
-        <div className="modal-content">
+            <div className="modal-content">
                 <div className="modal-header">
                     <h2 className="modal-title">Agregar producto</h2>
                     <button type="button" className="btn-close m-3" onClick={() => setIsOpen(false)}></button>
@@ -43,6 +43,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 name="precio"
                                 value={formDate.precio}
                                 onChange={handleChangeForm}
+                                placeholder='Digite el precio'
                                 required
                             />
                         </Form.Group>
@@ -70,21 +71,27 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 <option value="comida regional">Comida Regional</option>
                                 <option value="postres argentinos">Postres Argentinos</option>
                                 <option value="vinos argentinos">Vinos Argentinos</option>
-
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEstado">
-
                             <Form.Check
                                 type="checkbox"
                                 name="estado"
                                 label="Disponible"
                                 checked={formDate.activo}
                                 onChange={handleChangeForm}
-
                             />
                         </Form.Group>
-
+                        <Form.Group className="mb-3" controlId="formBasicImagen">
+                            <Form.Label>Imagen</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="imagen"
+                                value={formDate.imagen}
+                                onChange={handleChangeForm}
+                                placeholder="URL de la imagen"
+                            />
+                        </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicDetalle">
                             <Form.Label>Detalle</Form.Label>
                             <textarea
@@ -97,10 +104,9 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                             ></textarea>
                         </Form.Group>
                         <div className="d-flex justify-content-end">
-                            <Button type="submit" variant="success" className="custom-button" >
+                            <Button type="submit" variant="success" className="custom-button">
                                 Dar de alta
                             </Button>
-
                         </div>
                     </Form>
                 </div>

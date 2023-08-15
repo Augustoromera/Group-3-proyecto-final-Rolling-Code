@@ -52,6 +52,7 @@ export const AdminScreen = () => {
         estado: '',
         precio: '',
         detalle: '',
+        imagen: '',
         categoria: ''
     });
 
@@ -89,8 +90,9 @@ export const AdminScreen = () => {
     }
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        var { nombre, estado, precio, detalle, categoria } = formDate;
+        var { nombre, estado, precio, detalle, categoria, imagen } = formDate;
         estado = !estado ? "No disponible" : "Disponible";
+        imagen = imagen ? imagen : '../assets/images/imagenDefault.png';
 
         if (!nombre.trim() || !precio || !detalle.trim() || !categoria) {
             Swal.fire({
@@ -124,7 +126,7 @@ export const AdminScreen = () => {
             categoria: '',
         });
 
-        guardarProductoDb(nombre, estado, precio, detalle, categoria);
+        guardarProductoDb(nombre, estado, precio, detalle, categoria, imagen);
         recargarPagina();
     };
     const handleSubmitFormUser = (e) => {
@@ -284,14 +286,15 @@ export const AdminScreen = () => {
         }
     }
 
-    const guardarProductoDb = async (nombre, estado, precio, detalle, categoria) => {
+    const guardarProductoDb = async (nombre, estado, precio, detalle, categoria, imagen) => {
         try {
             const resp = await pruebaApi.post('/admin/nuevoMenu', {
                 nombre,
                 estado,
                 precio,
                 detalle,
-                categoria
+                categoria,
+                imagen
             });
             console.log(resp);
         } catch (error) {
@@ -610,7 +613,7 @@ export const AdminScreen = () => {
                 <div className="d-flex justify-content-end me-5">
                     <button
                         className="add-product-button border rounded-circle p-3 bg-dark "
-                        onClick={() => setFormDateUser(true)}
+                        onClick={() => setIsModalOpen(true)}
                         title='Agregar menu'
                     >
                         <FaPlus className="add-product-icon text-white" />
