@@ -371,8 +371,30 @@ export const AdminScreen = () => {
         setFormDateUserEditar(usuario);
         setIsModalOpenUserEditar(true);
     }
-    const eliminarUsuarioClick = async () => {
-        console.log("hola")
+    const eliminarUsuarioClick = async (id) => {
+        Swal.fire({
+            icon: 'warning',
+            title: '¿Estás seguro?',
+            text: 'Esta acción eliminará el usuario permanentemente.',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar',
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const resp = await pruebaApi.delete(`/admin/eliminarUsuario/${id}`);
+                    console.log(resp);
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Usuario Eliminado!',
+                        text: 'El usuario ha sido eliminado exitosamente.',
+                    });
+                    recargarPagina();
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        });
     }
 
 
@@ -494,7 +516,7 @@ export const AdminScreen = () => {
 
                                                 style={{ color: '#000000' }}></i>
                                         </button>
-                                        <button onClick={() => eliminarUsuarioClick()}
+                                        <button onClick={() => eliminarUsuarioClick(usuario._id)}
                                             title={"Eliminar"}
                                         >
                                             <i className="fa-solid fa-trash fa-lg"
@@ -637,7 +659,7 @@ export const AdminScreen = () => {
                                     <td>{pesoModif}</td>
                                     <td>
                                         <button onClick={() => cambiarEstadoCick(pedido)}
-                                            title={pedido.estado === "pendiente" ? "Cambiar a completado" : "Cambiar a pendiente"}>
+                                            title={pedido.estado === "pendiente" ? "Cambiar a pedido" : "Cambiar a pendiente"}>
                                             <i
                                                 className={`fa-solid ${pedido.estado === "pendiente" ? 'fa-circle-xmark fa-xl' : 'fa-circle-check fa-xl'}`}
                                                 style={{ color: pedido.estado === "pendiente" ? '#ff0000' : '#3f9240' }}
