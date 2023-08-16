@@ -1,54 +1,68 @@
 export const data = [
 	{
 		id: 1,
-		img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-		nameProduct: 'Zapatos Nike',
+		img: 'https://mcdonalds.es/api/cms/images/mcdonalds-es/0f1e7c1e-bf9c-4d71-add8-341f32323981_1080x943_Best-Burger-clasicas-bm.png?auto=compress,format',
+		nameProduct: 'la llenadora',
 		price: 80,
 		quantity: 1,
 	},
 	{
 		id: 2,
-		img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80',
-		nameProduct: 'Reloj',
+		img: 'https://mcdonalds.es/api/cms/images/mcdonalds-es/d641f37a-a15f-441c-b93b-781d31f82293_1080x943_Best-Burger-clasicas-Cheeseburger-Single.png?auto=compress,format',
+		nameProduct: 'Cheseburger',
 		price: 50,
 		quantity: 1,
 	},
 	{
 		id: 3,
-		img: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
-		nameProduct: 'Smartwatch',
+		img: 'https://mcdonalds.es/api/cms/images/mcdonalds-es/72d7c2ef-a2cc-4384-93dc-71abeb61b2bd_1080x943_Best-Burger-clasicas-Cheeseburguer-Doble.png?auto=compress,format',
+		nameProduct: 'Doble Cheeseburger',
 		price: 90,
 		quantity: 1,
 	},
 	{
 		id: 4,
-		img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
-		nameProduct: 'Perfume',
-		price: 50,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Stacker-Doble.png',
+		nameProduct: 'Stacker Doble',
+		price: 1150,
+		quantity: 1,
+	},
+	
+	{
+		id: 5,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Stacker-Triple.png',
+		nameProduct: 'Stacker Triple',
+		price: 1720,
 		quantity: 1,
 	},
 	{
 		id: 5,
-		img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-		nameProduct: 'Audifonos',
-		price: 20,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Stacker-Cuadruple.png',
+		nameProduct: 'Stacker Cuadruple',
+		price: 2220,
 		quantity: 1,
 	},
-	{
-		id: 5,
-		img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-		nameProduct: 'Audifonos',
-		price: 20,
+    {
+		id: 6,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Papas-Cheddar-y-Bacon.png',
+		nameProduct: 'Papas Cheddar Bacon',
+		price: 2220,
 		quantity: 1,
 	},
-	{
-		id: 5,
-		img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-		nameProduct: 'Audifonos',
-		price: 20,
+    {
+		id: 6,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Papas-Cheddar.png',
+		nameProduct: 'Papas Cheddar',
+		price: 2220,
 		quantity: 1,
 	},
-
+    {
+		id: 6,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/wordpress/web/app/uploads/sites/5/2021/02/nuggets-x10.png',
+		nameProduct: 'Nuggets',
+		price: 2220,
+		quantity: 1,
+	},
 
 	// Aquí pueden agregar más o modificar los productos existentes
 ];
