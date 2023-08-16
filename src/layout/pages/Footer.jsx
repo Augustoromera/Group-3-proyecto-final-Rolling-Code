@@ -15,8 +15,8 @@ export const Footer = () => {
             </div>
             <div className="box">
                 <h2>SOBRE NOSOTROS</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
+                <p>Somos una empresa pequeña que prioriza la calidad por encima de la cantidad y siempre esta dispuesta a escuchar al cliente</p>
+                
             </div>
             <div className="box">
                 <h2>SIGUENOS</h2>
