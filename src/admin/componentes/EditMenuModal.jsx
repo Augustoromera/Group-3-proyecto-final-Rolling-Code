@@ -7,6 +7,10 @@ import Button from 'react-bootstrap/Button';
 
 const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmitFormEditar, formDateEditar }) => {
     const customStyles = {
+        overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            backdropFilter: 'blur(3px)', 
+        },
         content: {
             top: '50%',
             left: '50%',
@@ -14,18 +18,25 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
+            width: '70%', 
+            maxWidth: '600px',
+            border: 'none', 
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
+            padding: '20px', 
+            borderRadius: '8px',
+            background: 'white',
         },
     };
     return (
         <Modal isOpen={isOpen} ariaHideApp={false} style={customStyles} onRequestClose={() => setIsOpen(false)}>
             <div className="modal-content">
                 <div className="modal-header">
-                    <h2 className="modal-title">Editar producto</h2>
+                    <h2 className="modal-title">Editar un menu</h2>
                     <button type="button" className="btn-close m-3" onClick={() => setIsOpen(false)}></button>
                 </div>
                 <div className="modal-body">
                     <Form onSubmit={handleSubmitFormEditar}>
-                        <Form.Group className="mb-3" controlId="formBasicNombre">
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicNombre">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
@@ -34,11 +45,11 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 maxLength="30"
                                 value={formDateEditar.nombre}
                                 onChange={handleChangeFormEditar}
-                                placeholder="Ingrese el nombre del producto"
+                                placeholder="Ingrese el nombre" 
                                 required
                             />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPrecio">
+                        </Form.Group> 
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicPrecio" style={{ width: '100%' }}>
                             <Form.Label>Precio</Form.Label>
                             <Form.Control
                                 type="number"
@@ -47,10 +58,11 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 max="9999"
                                 value={formDateEditar.precio}
                                 onChange={handleChangeFormEditar}
+                                placeholder='Ingrese el precio'
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCategoria">
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicCategoria">
                             <Form.Label>Categoría</Form.Label>
                             <Form.Select
                                 name="categoria"
@@ -91,17 +103,17 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
 
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicImagen">
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicImagen">
                             <Form.Label>Imagen</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="imagen"
-                                placeholder='Inserte el URL de la imagen'
+                                placeholder="URL de la imagen"
                                 value={formDateEditar.imagen}
                                 onChange={handleChangeFormEditar}
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicDetalle">
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicDetalle">
                             <Form.Label>Detalle</Form.Label>
                             <textarea
                                 name="detalle"
@@ -111,6 +123,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 maxLength="500"
                                 value={formDateEditar.detalle}
                                 onChange={handleChangeFormEditar}
+                                placeholder='Agregue una breve descripcion del producto'
                                 required
                             ></textarea>
                         </Form.Group>

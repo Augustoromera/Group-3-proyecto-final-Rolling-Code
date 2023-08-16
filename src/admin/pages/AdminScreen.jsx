@@ -113,6 +113,15 @@ export const AdminScreen = () => {
             });
             return;
         }
+        if (comprobarImagenText(imagen)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Formato de la imagen es incorrecto',
+                text: 'Debe ser en base 64 png o jpeg',
+            });
+            return
+        }
+
 
         Swal.fire({
             icon: 'success',
@@ -522,6 +531,17 @@ export const AdminScreen = () => {
         console.log("true")
         return true;
     }
+    function comprobarImagenText(image) {
+        if (/^data:image\/(jpeg|png);base64,/.test(image)) {
+            return true;
+        }
+        return false;
+    }
+
+
+
+
+
     // Cargar datos iniciales al montar el componente
     useEffect(() => {
         // Cargar usuarios desde la base de datos
