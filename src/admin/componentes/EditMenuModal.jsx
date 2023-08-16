@@ -49,7 +49,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 required
                             />
                         </Form.Group> 
-                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicPrecio" style={{ width: '100%' }}>
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicPrecio" >
                             <Form.Label>Precio</Form.Label>
                             <Form.Control
                                 type="number"

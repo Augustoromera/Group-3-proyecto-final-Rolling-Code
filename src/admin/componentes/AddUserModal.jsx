@@ -7,6 +7,10 @@ import Button from 'react-bootstrap/Button';
 // eslint-disable-next-line react/prop-types
 const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser, handleSubmitFormUser, formDateUser }) => {
     const customStyles = {
+        overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            backdropFilter: 'blur(3px)',
+        },
         content: {
             top: '50%',
             left: '50%',
@@ -14,6 +18,13 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
+            width: '70%',
+            maxWidth: '600px',
+            border: 'none',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
+            padding: '20px',
+            borderRadius: '8px',
+            background: 'white',
         },
     };
     return (
@@ -25,7 +36,7 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                 </div>
                 <div className="modal-body">
                     <Form onSubmit={handleSubmitFormUser}>
-                        <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicName">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
@@ -39,7 +50,7 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="email"
@@ -50,7 +61,7 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicPassword">
                             <Form.Label>Contraseña</Form.Label>
                             <Form.Control
                                 type="password"
@@ -63,7 +74,7 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicRol">
+                        <Form.Group className="mb-3 ctm-form-group" controlId="formBasicRol">
                             <Form.Label></Form.Label>
                             <Form.Select
                                 name="rol"
