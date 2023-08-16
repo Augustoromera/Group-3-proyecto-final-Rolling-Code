@@ -43,7 +43,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                             <Form.Control
                                 type="number"
                                 name="precio"
-                                min="o"
+                                min="1"
                                 max="9999"
                                 value={formDate.precio}
                                 onChange={handleChangeForm}

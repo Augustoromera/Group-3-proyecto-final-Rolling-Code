@@ -30,6 +30,8 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                             <Form.Control
                                 type="text"
                                 name="nombre"
+                                minLength="3"
+                                maxLength="30"
                                 value={formDateEditar.nombre}
                                 onChange={handleChangeFormEditar}
                                 placeholder="Ingrese el nombre del producto"
@@ -41,6 +43,8 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                             <Form.Control
                                 type="number"
                                 name="precio"
+                                min="1"
+                                max="9999"
                                 value={formDateEditar.precio}
                                 onChange={handleChangeFormEditar}
                                 required
@@ -103,6 +107,8 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 name="detalle"
                                 className="form-control"
                                 rows="3"
+                                minLength="3"
+                                maxLength="500"
                                 value={formDateEditar.detalle}
                                 onChange={handleChangeFormEditar}
                                 required
