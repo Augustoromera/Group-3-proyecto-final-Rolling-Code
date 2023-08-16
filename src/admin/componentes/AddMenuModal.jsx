@@ -30,6 +30,8 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                             <Form.Control
                                 type="text"
                                 name="nombre"
+                                minLength="3"
+                                maxLength="30"
                                 value={formDate.nombre}
                                 onChange={handleChangeForm}
                                 placeholder="Ingrese el nombre del producto"
@@ -41,6 +43,8 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                             <Form.Control
                                 type="number"
                                 name="precio"
+                                min="o"
+                                max="9999"
                                 value={formDate.precio}
                                 onChange={handleChangeForm}
                                 placeholder='Digite el precio'
@@ -98,6 +102,8 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 name="detalle"
                                 className="form-control"
                                 rows="3"
+                                minLength="3"
+                                maxLength="500"
                                 value={formDate.detalle}
                                 onChange={handleChangeForm}
                                 required
