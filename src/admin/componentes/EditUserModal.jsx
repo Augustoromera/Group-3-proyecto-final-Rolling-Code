@@ -20,7 +20,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
         <Modal isOpen={isOpen} ariaHideApp={false} style={customStyles} onRequestClose={() => setIsOpen(false)}>
             <div className="modal-content">
                 <div className="modal-header">
-                    <h2 className="modal-title">Editar producto</h2>
+                    <h2 className="modal-title">Editar Usuario</h2>
                     <button type="button" className="btn-close m-3" onClick={() => setIsOpen(false)}></button>
                 </div>
                 <div className="modal-body">
@@ -33,6 +33,9 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                                 value={formDateUserEditar.name}
                                 onChange={handleChangeFormUserEditar}
                                 placeholder="Ingrese el nombre del producto"
+                                minLength="3"
+                                maxLength="40"
+                                pattern="[A-Za-z\s]+"
                                 required
                             />
                         </Form.Group>

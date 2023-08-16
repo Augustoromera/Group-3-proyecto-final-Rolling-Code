@@ -184,6 +184,14 @@ export const AdminScreen = () => {
             });
             return;
         }
+        if (!verificarFormatoEmail(email)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Formato de correo incorrecto',
+                text: 'Por favor ingresa un correo electrónico válido.',
+            });
+            return
+        }
 
         Swal.fire({
             icon: 'success',
@@ -245,6 +253,7 @@ export const AdminScreen = () => {
         editarProductoDb(_id, nombre, imagen, estado, precio, detalle, categoria);
         recargarPagina();
     };
+
 
 
     // Funciones para interactuar con la API que permiten operaciones CRUD (Crear, Leer, Actualizar, Eliminar) 
@@ -482,6 +491,18 @@ export const AdminScreen = () => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+    // Verificar formato de correo electrónico utilizando una expresión regular
+    function verificarFormatoEmail(email) {
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        if (!emailRegex.test(email)) {
+            
+        console.log("false")
+            return false;
+            
+        }
+        console.log("true")
+        return true;
+    }
     // Cargar datos iniciales al montar el componente
     useEffect(() => {
         // Cargar usuarios desde la base de datos
