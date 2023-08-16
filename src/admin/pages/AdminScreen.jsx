@@ -135,6 +135,7 @@ export const AdminScreen = () => {
     const handleSubmitFormUser = (e) => {
         e.preventDefault();
         var { name, email, estado, password, rol } = formDateUser;
+        const regexPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
         rol = rol ? rol.toLocaleLowerCase : "user";
         estado = estado ? estado.toLocaleLowerCase : "inactive";
         if (!name.trim() || !email.trim() || !password.trim()) {
@@ -145,6 +146,23 @@ export const AdminScreen = () => {
             });
             return;
         }
+        if (!verificarFormatoEmail(email)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Formato de correo incorrecto',
+                text: 'Por favor ingresa un correo electrónico válido.',
+            });
+            return
+        }
+        if (!regexPass.test(password)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Formato de contraseña incorrecto',
+                text: 'Debe contener al menos una mayuscula, minusculas y al menos 8 caracteres',
+            });
+            return
+        }
+
 
         Swal.fire({
             icon: 'success',
@@ -493,12 +511,13 @@ export const AdminScreen = () => {
 
     // Verificar formato de correo electrónico utilizando una expresión regular
     function verificarFormatoEmail(email) {
+        // eslint-disable-next-line no-useless-escape
         const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
         if (!emailRegex.test(email)) {
-            
-        console.log("false")
+
+            console.log("false")
             return false;
-            
+
         }
         console.log("true")
         return true;

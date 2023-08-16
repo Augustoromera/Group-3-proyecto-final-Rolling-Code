@@ -46,6 +46,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                                 name="email"
                                 value={formDateUserEditar.email}
                                 onChange={handleChangeFormUserEditar}
+                                placeholder="Ingrese el email"
                                 required
                             />
                         </Form.Group>
@@ -55,7 +56,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                                 name="rol"
                                 value={formDateUserEditar.rol}
                                 onChange={handleChangeFormUserEditar}
-                                required
+                                style={{ width: '100%' }}
                             >
                                 <option value="">Seleccionar</option>
                                 <option value="admin">Administrador</option>

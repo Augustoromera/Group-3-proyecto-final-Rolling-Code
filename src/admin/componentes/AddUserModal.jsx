@@ -32,6 +32,9 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                                 name="name"
                                 value={formDateUser.name}
                                 onChange={handleChangeFormUser}
+                                minLength="3"
+                                maxLength="40"
+                                pattern="[A-Za-z\s]+"
                                 placeholder="Ingrese el nombre completo"
                                 required
                             />
@@ -52,6 +55,8 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                             <Form.Control
                                 type="password"
                                 name="password"
+                                minLength="8"
+                                maxLength="12"
                                 value={formDateUser.password}
                                 placeholder="Ingrese la contraseña"
                                 onChange={handleChangeFormUser}
