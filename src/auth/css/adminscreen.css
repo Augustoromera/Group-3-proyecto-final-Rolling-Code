@@ -37,7 +37,9 @@ form .custom-button:hover {
     margin: 0 auto;
 }
 .table-container {
-    margin: 30px;
+    margin: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .custom-table {
@@ -64,4 +66,12 @@ form .custom-button:hover {
 }
 .ctm-form-group {
     width: 85%;
+}
+.privacy-message {
+    padding: 10px;
+    
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    text-align: center;
+    color: #777;
 }

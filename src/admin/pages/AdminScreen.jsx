@@ -113,11 +113,11 @@ export const AdminScreen = () => {
             });
             return;
         }
-        if (comprobarImagenText(imagen)) {
+        if (!comprobarImagenText(imagen)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Formato de la imagen es incorrecto',
-                text: 'Debe ser en base 64 png o jpeg',
+                text: 'Debe ser en base 64 (png o jpeg)',
             });
             return
         }
@@ -263,7 +263,14 @@ export const AdminScreen = () => {
                 text: 'El precio debe ser un número válido.',
             });
         }
-
+        if (!comprobarImagenText(imagen)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Formato de la imagen es incorrecto',
+                text: 'Debe ser en base 64 (png o jpeg)',
+            });
+            return
+        }
         Swal.fire({
             icon: 'success',
             title: 'Menu Editado!',
@@ -559,7 +566,7 @@ export const AdminScreen = () => {
             <Header></Header>
             {/* codigo para tablas  */}
             <div className="">
-                <div className="text-center p-3">
+                <div className="text-center mt-4 p-3">
                     <h1>Bienvenido al Panel de Administración</h1>
                     <p>¡Aquí puedes gestionar usuarios, productos y pedidos de manera fácil y eficiente!</p>
                 </div>
