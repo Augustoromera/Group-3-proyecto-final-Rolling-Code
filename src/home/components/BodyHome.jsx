@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/bodyHome.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export const BodyHome = () => {
   return (
@@ -13,7 +14,26 @@ export const BodyHome = () => {
           <p>Las mejores hamburguesas y la mejor calidad los encuentras en Rapiburgers</p>
         </div>
       </div>
+        <hr />
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-6">
+                <img src="src/assets/images/nosotros/hamburguesa-nosotros-2.jpg" className='img-fluid img-hambur-body h-100 w-100 ' alt="imagen de hamburguesa" />
+            </div>
+            <div className="col-6 d-flex flex-column justify-content-center align-items-start ">
+                
+                <div className='d-flex flex-column align-items-start' >
+                <h1 className='display-2 fw-bold d-flex flex-column align-items-center'>Sobre Nosotros</h1>
+                <h1 className='text-center display-5'>Rapiburgers</h1>
+                <h5 className='text-xl'>Bienvenidos a nuestro apasionante mundo de sabores en el restaurante de hamburguesas. En nuestro establecimiento, fusionamos la tradición de las hamburguesas clásicas con una dosis de innovación culinaria, creando una experiencia gastronómica que deleita a los amantes de la comida en cada mordisco. </h5>
+                <br />
+                <Link to="/sobre-nosotros" className="btn btn-warning btn-lg rounded-pill">Ver más</Link>
+              </div>
+            </div>
+          </div>
+        </div>
 
+          <hr />
       <div className="container">
         <h3 className="text-center text-uppercase poppins-regular font-weight-bold">Nuestros servicios</h3>
         <br />
