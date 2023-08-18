@@ -49,7 +49,7 @@ function RegisterPage() {
             type='text'
             {...register("username", { required: true, minLength: 3 })}
             className='inputsR'
-            placeholder='username' id='username'
+            placeholder='Ej: John Doe 10' id='username' maxLength={20}
           />
           {errors.username && (
             <p className='texto-validacion'>El nombre de usuario es obligatorio</p>
@@ -60,7 +60,7 @@ function RegisterPage() {
             type='email'
             {...register("email", { required: true })}
             className='inputsR'
-            placeholder='email' id='email'
+            placeholder='Ej: John@gmail.com' id='email' maxLength={60}
           />
           {errors.email && (
             <p className='texto-validacion'>El email es obligatorio</p>
@@ -71,7 +71,7 @@ function RegisterPage() {
             type='password'
             {...register("password", { required: true, minLength: 4 })}
             className='inputsR'
-            placeholder='password'  id='password'
+            placeholder='Contraseña'  id='password' maxLength={30}
           />
           {errors.password && (
             <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
@@ -82,7 +82,7 @@ function RegisterPage() {
             type='password'
             {...register("passwordConfirmation", { required: true })}
             className='inputsR'
-            placeholder='confirmar contraseña'  id='confirmPassword'
+            placeholder='Confirmar contraseña'  id='confirmPassword' maxLength={30}
           />
           {errors.passwordConfirmation && (
             <p className='texto-validacion'>{errors.passwordConfirmation.message}</p>
