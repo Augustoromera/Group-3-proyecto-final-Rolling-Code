@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Header } from './pages/Header';
+import { Headers } from './pages/Headers';
 import { ProductList } from './pages/ProductList';
+import Header from './home/components/Header';
 
 function App() {
 	const [allProducts, setAllProducts] = useState([]);
@@ -9,7 +10,8 @@ function App() {
 
 	return (
 		<>
-			<Header
+		    <Header/>
+			<Headers
 				allProducts={allProducts}
 				setAllProducts={setAllProducts}
 				total={total}

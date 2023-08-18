@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const Header = ({
+export const Headers = ({
 	allProducts,
 	setAllProducts,
 	total,
