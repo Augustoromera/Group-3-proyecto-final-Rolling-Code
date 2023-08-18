@@ -11,56 +11,61 @@ function LoginPage() {
    const navigate = useNavigate();
    
    const onSubmit = handleSubmit((data) =>{
-     signIn(data);
-   });
+    signIn(data);
+  });
 
 
-   useEffect(() =>{
-         if(isAuthenticated) navigate('/');
-   },[isAuthenticated])
+  useEffect(() =>{
+        if(isAuthenticated) navigate('/');
+  },[isAuthenticated])
+
 
 
 
   return (
-    <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
-         <div className='bg-zinc-800 max-w-md w-full p-10 rounded-md'>
+    <div className='contenedor1'>
+         <div>
 
          {Array.isArray(signInErrors) ? (
         signInErrors.map((error, i) => (
-          <div className='bg-red-500 p-2 text-white text-center m-5' key={i}>
+          <div className='error-usuario' key={i}>
             {error}
           </div>
         ))
       ) : (
-        <div className='bg-red-500 p-2 text-white text-center m-5'>
+        <div className='error-usuario'>
           {signInErrors}
         </div>
       )}
 
-          <h1 className='text-3xl font-mono flex items-center justify-center mb-7 mt-5'>Login</h1>
+          <h1 className='titulo-lr'>Login</h1>
 
            <form onSubmit={onSubmit}>
 
-            <input type="email" {...register("email", {required:true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' placeholder='Email'/>
+            <label htmlFor="email" className='labels'>Correo electrónico ↓</label>
+
+            <input type="email" {...register("email", {required:true})} className='inputs' placeholder='Email'  id='email'/>
  
             {errors.email &&(
-            <p className='text-red-500'>El email es obligatorio</p>
+            <p className='texto-validacion'>El email es obligatorio</p>
           )}
  
-            <input type="password" {...register("password", {required:true, minLength:4})} className='w-full bg-zinc-700 text-white px-4 py-2  rounded-md my-2' placeholder='Password'/>
+             <label htmlFor="password" className='labels'>Contraseña ↓</label>
+              
+            <input type="password" {...register("password", {required:true, minLength:4})} className='inputs' placeholder='Password' id='password'/>
  
             {errors.password &&(
-            <p className='text-red-500'>La contraseña es obligatoria</p>
+            <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
           )}
 
-            <button type="submit" className='bg-indigo-500 px-4 py-1 rounded-sm my-3'>
+            <button type="submit" className='boton-login'>
                 Login
             </button>
               
              
              </form>
 
-             <p className='flex gap-x-2 justify-between mt-2 text-yellow-300'>No tienes una cuenta para ingresar? <Link to="/register" className='text-sky-300'>Regístrate aquí</Link></p>   
+             <p className='texto-loginR'>No tienes una cuenta para ingresar? <Link to="/register" className='link-login'>Regístrate aquí</Link></p>   
             </div> 
     
 

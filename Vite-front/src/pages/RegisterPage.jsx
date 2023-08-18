@@ -1,70 +1,104 @@
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useAuth } from '../context/AuthContext';
 import { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-
 function RegisterPage() {
+  const {
+    register,
+    handleSubmit,
+    setError, 
+    formState: { errors },
+  } = useForm();
+  const { signUp, errors: registerErrors, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
-   const {register, handleSubmit, formState:{errors}} = useForm();
-   const {signUp, isAuthenticated, errors: registerErrors} = useAuth();
-   const navigate = useNavigate()
+  useEffect(() => {
+    if (isAuthenticated) navigate('/');
+  }, [isAuthenticated]);
 
+  const onSubmit = handleSubmit(async (values) => {
+    if (values.password !== values.passwordConfirmation) {
+      setError('passwordConfirmation', {
+        type: 'manual',
+        message: 'Las contraseñas no coinciden',
+      });
+      return;
+    }
 
-   useEffect(() =>{
-    if(isAuthenticated) navigate('/');
-   }, [isAuthenticated])
-
-   const onSubmit = handleSubmit (async(values) =>{
     signUp(values);
-   
-   });   
+  });
 
   return (
-    <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
-    <div className='bg-zinc-800 max-w-md p-10 rounded-md'>
+    <div className='contenedor1'>
+      <div className='contenedor2'>
+        {registerErrors.map((error, i) => (
+          <div className='error-usuario' key={i}>
+            {error}
+          </div>
+        ))}
 
-        {
-            registerErrors.map((error, i) =>(
-                <div className='bg-red-500 p-2 text-white' key={i}>
-                    {error}
-                </div>
-            ))
-        }
+        <h1 className='titulo-lr'>
+          Registro
+        </h1>
 
-   <h1 className='text-3xl font-mono flex items-center justify-center mb-7 mt-5'>Registro</h1>
-  
-         <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
+
+          <label htmlFor="username" className='labels'>Nombre de usuario ↓</label>
+          <input
+            type='text'
+            {...register("username", { required: true, minLength: 3 })}
+            className='inputsR'
+            placeholder='username' id='username'
+          />
+          {errors.username && (
+            <p className='texto-validacion'>El nombre de usuario es obligatorio</p>
+          )}
+
+           <label htmlFor="email" className='labels'>Correo eletrónico ↓</label>
+          <input
+            type='email'
+            {...register("email", { required: true })}
+            className='inputsR'
+            placeholder='email' id='email'
+          />
+          {errors.email && (
+            <p className='texto-validacion'>El email es obligatorio</p>
+          )}
             
-            <input type="text" {...register("username", {required:true, minLength:3})} className='w-full bg-zinc-700 text-white px-4 py-3 rounded-md my-2' placeholder='username'/>
-
-          {errors.username &&(
-            <p className='text-red-500'>El nombre de usuario es obligatorio</p>
+            <label htmlFor="password" className='labels'>Contraseña ↓</label>
+          <input
+            type='password'
+            {...register("password", { required: true, minLength: 4 })}
+            className='inputsR'
+            placeholder='password'  id='password'
+          />
+          {errors.password && (
+            <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
           )}
 
-            <input type="email" {...register("email", {required:true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' placeholder='email'/>
- 
-            {errors.email &&(
-            <p className='text-red-500'>El email es obligatorio</p>
-          )}
- 
-            <input type="password" {...register("password", {required:true, minLength:4})} className='w-full bg-zinc-700 text-white px-4 py-2  rounded-md my-2' placeholder='password'/>
- 
-            {errors.password &&(
-            <p className='text-red-500'>La contraseña es obligatoria</p>
+         <label htmlFor="confirmPassword" className='labels'>Confirmar contraseña ↓</label>
+          <input
+            type='password'
+            {...register("passwordConfirmation", { required: true })}
+            className='inputsR'
+            placeholder='confirmar contraseña'  id='confirmPassword'
+          />
+          {errors.passwordConfirmation && (
+            <p className='texto-validacion'>{errors.passwordConfirmation.message}</p>
           )}
 
-            <button type="submit" className='bg-indigo-500 px-4 py-1 rounded-sm my-3'>
-                Register
-            </button>
-              
-             
-            </form>    
-            <p className='flex gap-x-2 justify-between mt-2 text-yellow-300'>Ya tienes una cuenta? <Link to="/login" className='text-sky-300'>Ingresa aquí</Link></p>   
-    
+          <button type='submit' className='boton-login'>
+            Register
+          </button>
+        </form>
+
+        <p className='texto-loginR'>
+          Ya tienes una cuenta? <Link to='/login' className='link-login'>Ingresa aquí</Link>
+        </p>
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
 export default RegisterPage;

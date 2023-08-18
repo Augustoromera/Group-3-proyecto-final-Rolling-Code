@@ -1,9 +1,167 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 body{   
     color: #ffffff;
-    background-color: #ba3500;
+    background-color: #000;
+    font-family: monospace;
 }
+
+
+.contenedor1{
+    background-color: rgb(32, 32, 34);
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 3em;
+    border-radius: 1em;
+    
+}
+
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em 0em;
+    padding: .8em;
+    border-radius: 1em;
+    width: 70%;
+    
+}
+
+
+.boton-login{
+    padding: .5em 2em;
+    border-radius: 1em;
+    background-color: rgb(32, 171, 32);
+    cursor:pointer;
+    font-size: 15px;
+    color: #ffffff;
+    transition: 0.6s;
+}
+
+
+.link-login{
+    color: orange;
+    font-size:15px;
+    transition: 0.6s;
+}
+
+.texto-loginR{
+    color:yellow;
+    font-size:12px;
+
+}
+
+
+.titulo-lr{
+    text-align: center;
+    margin-bottom: 1.5em;
+    font-size: 40px;
+}
+
+.link-login:hover{
+    color: lightgreen;
+}
+
+.boton-login:hover{
+  background-color: rgb(24, 210, 24);
+}
+
+.labels{
+    font-size: 18px;
+}
+
+.texto-validacion{
+    color: red;
+    font-size: 15px;
+}
+
+.error-usuario{
+background-color: red;
+    padding: 1.5em;
+    font-size: 16px;
+    
+}
+
+.nav-lr{
+    background-color: rgb(32, 32, 34);
+    display: flex;
+    margin-bottom:3em;
+    justify-content: space-around;
+   
+      
+}
+
+
+.ul-lr{
+    display:flex;
+    list-style-type: none;
+    text-align: center;
+    margin-top:2em;
+
+    
+}
+
+.titulo-nav{
+    color: white;
+    font-size: 2em;
+    margin-left:1em;
+}
+
+
+.link-nav{
+    color:white;
+    margin: 1em;
+    text-decoration: none;
+    background-color: rgb(32, 171, 32);
+    padding: 1em;
+    border-radius: .5em;
+    font-size:15px;
+    transition: 0.6s;
+    
+}
+
+.link-nav:hover{
+    background-color: rgb(24, 210, 24);
+}
+
+
+.inputsR{
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em 0em;
+    padding: .8em;
+    border-radius: 1em;
+    width: 100%;
+}
+
+.contenedor2{
+    margin-left: -3em;
+}
+
+@media all and (max-width:800px){
+    .contenedor1{
+      width: 60vw;  
+    }
+}
+
+
+@media all and (min-width:800px) and (max-width:1300px){
+    .contenedor1{
+        width: 50vw
+    }
+}
+
+@media all and (min-width:1300px) and (max-width:2000px){
+    .contenedor1{
+        width: 30vw;
+    }
+}
+
+
+
+
+
+
+
+

@@ -8,24 +8,23 @@ function Navbar() {
 
 
   return (
-  <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
+  <nav className="nav-lr">
       <Link to="/">
-      <h1 className='text-2xl font-bold'>Rapi Burguers</h1>
+      <h1 className='titulo-nav'>Rapi Burguers</h1>
       </Link>
-     <ul className='flex gap-x-2'>
+     <ul className='ul-lr'>
        {isAuthenticated ? (
         <>
         <li>Bienvenido {user.username}</li>     
-        <li><Link to="/add-task">Añadir una tarea</Link></li>
-        <li><Link  className='bg-indigo-500 px-4 py-1 rounded-sm' to="/" onClick={() =>{
+        <li><Link  className='link-nav' to="/" onClick={() =>{
           logout();
         }}>Logout</Link></li>
 
         </>
        ) : (
         <>
-        <li><Link to="/login" className='bg-indigo-500 px-4 py-1 rounded-sm'>Login</Link></li>     
-      <li><Link to="/register" className='bg-indigo-500 px-4 py-1 rounded-sm'>Registro</Link></li>
+        <li><Link to="/login" className='link-nav'>Login</Link></li>     
+      <li><Link to="/register" className='link-nav'>Registro</Link></li>
         
         </>
        )}
@@ -36,4 +35,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
