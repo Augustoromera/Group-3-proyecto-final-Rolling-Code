@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import { useAuth } from '../context/AuthContext';
 import { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 function RegisterPage() {
   const {
@@ -12,6 +14,10 @@ function RegisterPage() {
   } = useForm();
   const { signUp, errors: registerErrors, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+
+  //Validacion nueva de email porque la anterior no funciona
+ const [email, setEmail] = useState('');
+ const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
   useEffect(() => {
     if (isAuthenticated) navigate('/');
@@ -26,17 +32,38 @@ function RegisterPage() {
       return;
     }
 
+    const emailValido = regex.test(values.email);
+    if (!emailValido) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Registro incorrecto',
+        text: 'El correo electrónico no es válido',
+      });
+      return;
+    }
+
+
     signUp(values);
   });
+  
 
+
+  
+ 
   return (
     <div className='contenedor1'>
       <div className='contenedor2'>
-        {registerErrors.map((error, i) => (
-          <div className='error-usuario' key={i}>
-            {error}
+      {Array.isArray(registerErrors) ? (
+          registerErrors.map((error, i) => (
+            <div className='error-usuario' key={i}>
+              {error}
+            </div>
+          ))
+        ) : (
+          <div className='error-usuario'>
+            {registerErrors}
           </div>
-        ))}
+        )}
 
         <h1 className='titulo-lr'>
           Registro
@@ -60,7 +87,7 @@ function RegisterPage() {
             type='email'
             {...register("email", { required: true })}
             className='inputsR'
-            placeholder='Ej: John@gmail.com' id='email' maxLength={60}
+            placeholder='Ej: John@gmail.com' id='email' maxLength={60}  onChange={(event) => setEmail(event.target.value)}
           />
           {errors.email && (
             <p className='texto-validacion'>El email es obligatorio</p>

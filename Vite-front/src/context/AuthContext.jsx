@@ -21,7 +21,7 @@ export const useAuth = () =>{
 
 
     useEffect(() =>{
-       if(errors.length > 0){
+       if(errors && errors.length > 0){
         const timer = setTimeout(() =>{
            setErrors([]);
          }, 5000)

@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -9,13 +11,31 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
+
+  //Validacion nueva de email porque la anterior no funciona
+  const [email, setEmail] = useState('');
+  const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+
+
   const onSubmit = handleSubmit((data) => {
+    const emailValido = regex.test(data.email);
+    if (!emailValido) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Login incorrecto',
+        text: 'El correo electrónico no es válido',
+      });
+      return;
+    }
     signIn(data);
   });
 
   useEffect(() => {
     if (isAuthenticated) navigate('/');
   }, [isAuthenticated]);
+
+
+
 
   return (
     <div className='contenedor1'>
@@ -43,6 +63,7 @@ function LoginPage() {
             placeholder='Ej: John@gmail.com'
             id='email'
             maxLength={60} // Agregamos el atributo maxLength
+            onChange={(event) => setEmail(event.target.value)}
           />
           {errors.email && (
             <p className='texto-validacion'>El email es obligatorio</p>
