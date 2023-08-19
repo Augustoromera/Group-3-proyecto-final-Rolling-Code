@@ -1,0 +1,77 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+form .custom-button {
+    background-color: black;
+    margin: 2px;
+    color: white;
+    border: none;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+form .custom-button:active,
+form .custom-button:hover {
+    margin: 1px !important;
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+}
+.custom-imagen {
+    display: block;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+.table-container {
+    margin: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.custom-table {
+    width: 100%;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.custom-table th {
+    background-color: #343a40;
+    color: white;
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.ctm-form-group {
+    width: 85%;
+}
+.privacy-message {
+    padding: 10px;
+    
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    text-align: center;
+    color: #777;
+}

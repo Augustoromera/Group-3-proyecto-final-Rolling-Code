@@ -14,11 +14,13 @@ body {
     cursor: pointer;
     border-radius: 50% !important;
 }
+
 nav.navbarmain .basic-nav-dropdown {
     background-color: #25252570 !important;
     color: white;
     backdrop-filter: blur(15px);
 }
+
 .nav-link:hover {
     color: white !important;
 }
