@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/bodyHome.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
+import pruebaApi from '../../api/pruebaApi.js';  
 
-export const BodyHome = () => {
+export const BodyHome =  () => {
+	const [cargarProducto, setCargarProducto] = useState([]);
+
+	useEffect(() => {
+		const cargarProductoDB = async () => {
+			try {
+				const resp = await pruebaApi.get('/admin/listarMenu');
+				setCargarProducto(resp.data.menus);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		cargarProductoDB();
+	}, []);
+
+
   return (
     <>
       <div className="banner">
@@ -68,6 +86,21 @@ export const BodyHome = () => {
 	  <h3 className="text-center text-uppercase poppins-regular font-weight-bold">Menú</h3>
 	  <br />
 	  </div>
+
+    <div className="row">
+				{cargarProducto.map((menu) => (
+					<div key={menu._id} className="col-md-4 mb-4">
+						<Card>
+            <img src={menu.imagen} alt={menu.nombre} className="card-img-top" />
+							<Card.Body>
+								<Card.Title>{menu.nombre}</Card.Title>
+								<Card.Text> $ {menu.precio}</Card.Text>
+							</Card.Body>
+						</Card>
+					</div>
+				))}
+			</div>
+
     </>
   )
 }
