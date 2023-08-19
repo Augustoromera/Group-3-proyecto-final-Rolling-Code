@@ -148,7 +148,7 @@ header {
 /* Main */
 .container-items {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
 	gap: 20px;
 }
 
@@ -161,9 +161,9 @@ header {
 }
 
 .item img {
-	width: 80%;
-	height: 350px;
-	object-fit:cover;
+	width: 100%;
+	height: 300px;
+	object-fit:contain;
 	border-radius: 10px 10px 0 0;
 	transition: all 0.5s;
 
@@ -174,7 +174,7 @@ header {
 }
 
 .item:hover img {
-	transform: scale(1.2);
+	transform: scale(1.4);
 }
 
 .info-product {
@@ -186,7 +186,7 @@ header {
 }
 
 .price {
-	font-size: 18px;
+	font-size: 22px;
 	font-weight: 900;
 }
 
