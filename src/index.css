@@ -5,14 +5,24 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	
 }
 
 body {
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 1600px;
 	font-family: 'Lato';
-	color: #333;
+	color: #13a74c;
 	
+  background-image: url('./img/comidafondeable.jpg');
+  /* Ajusta la imagen para cubrir todo el fondo */
+  background-repeat: repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed; /* Mantiene la imagen fija mientras se desplaza el contenido */
+
+
+		
+
+	  
   
 }
 
@@ -151,11 +161,12 @@ header {
 }
 
 .item img {
-	width: 100%;
-	height: 300px;
-	object-fit: cover;
+	width: 80%;
+	height: 350px;
+	object-fit:cover;
 	border-radius: 10px 10px 0 0;
 	transition: all 0.5s;
+
 }
 
 .item figure {

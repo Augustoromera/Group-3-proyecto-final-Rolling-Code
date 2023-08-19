@@ -63,6 +63,29 @@ export const data = [
 		price: 2220,
 		quantity: 1,
 	},
+    {
+		id: 7,
+		img: 'https://labebidadetusfiestas.com.ar/46006/coca-cola-sin-azucar-pet-1500cc.jpg',
+		nameProduct: 'Coca Cola',
+		price: 2220,
+		quantity: 1,
+	},
+	{
+		id: 7,
+		img: 'https://static.wixstatic.com/media/d2b1c5_02c49ec28b1b4d80ac492fff04b4a137~mv2.jpg/v1/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/d2b1c5_02c49ec28b1b4d80ac492fff04b4a137~mv2.jpg',
+		nameProduct: 'Fanta',
+		price: 2220,
+		quantity: 1,
+	},
+
+	{
+		id: 7,
+		img: 'https://file.nubing.com.ar/product/fe5603f2-1a5b-41d5-8811-c4c1cd0abf08_FULL.jpg',
+		nameProduct: 'Sprite',
+		price: 2220,
+		quantity: 1,
+	},
+
 
 	// Aquí pueden agregar más o modificar los productos existentes
 ];
