@@ -96,7 +96,8 @@ export const BodyHome =  () => {
             <img src={menu.imagen} alt={menu.nombre} className="card-img-top img-fluid img-card-home" />
 							<Card.Body className='d-flex flex-column'>
 								<Card.Title>{menu.nombre}</Card.Title>
-								<div className="mt-auto">
+                <Card.Text>{menu.detalle}</Card.Text>
+					<div className="mt-auto">
             <Card.Text > $ {menu.precio}</Card.Text>
           </div>
 							</Card.Body>
@@ -104,8 +105,12 @@ export const BodyHome =  () => {
 					</div>
 				))}
 			</div>
+      <div className='text-center'>
+      <Link to="/" className="btn btn-warning btn-lg rounded-pill ">Ver menús</Link>
       </div>
+      </div>      
             <hr />
+
       {/* ----------------mapa---------------- */}
       <div className='text-center mb-4'>
             <h2 className='fw-bold'>Dónde estamos?</h2>
