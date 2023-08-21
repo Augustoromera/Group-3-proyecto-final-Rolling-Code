@@ -165,9 +165,10 @@ header {
 	object-fit:contain;
 	border-radius: 10px 10px 0 0;
 	transition: all 0.5s;
-
+	max-width: 100%; /* Hacer que la imagen no sea más ancha que su contenedor */
+	height: auto; /* Mantener la proporción de la imagen */
+	object-fit: cover; 
 }
-
 .item figure {
 	overflow: hidden;
 }
