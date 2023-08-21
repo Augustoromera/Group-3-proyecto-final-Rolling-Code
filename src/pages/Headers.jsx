@@ -1,5 +1,6 @@
 import { useState } from 'react';
-
+import Swal from 'sweetalert2'; 
+import { Link } from 'react-router-dom';
 export const Headers = ({
 	allProducts,
 	setAllProducts,
@@ -19,12 +20,31 @@ export const Headers = ({
 		setCountProducts(countProducts - product.quantity);
 		setAllProducts(results);
 	};
-
 	const onCleanCart = () => {
-		setAllProducts([]);
-		setTotal(0);
-		setCountProducts(0);
-	};
+		Swal.fire({
+		  title: '¿Estás seguro?',
+		  text: 'Esta acción borrará todos los productos en el carrito',
+		  icon: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'Sí, borrar',
+		  cancelButtonText: 'Cancelar'
+		}).then((result) => {
+		  if (result.isConfirmed) {
+			// Si el usuario confirma, borramos los productos
+			setAllProducts([]);
+			setTotal(0);
+			setCountProducts(0);
+			Swal.fire(
+			  '¡Borrado!',
+			  'El carrito ha sido borrado exitosamente.',
+			  'success'
+			);
+		  }
+		});
+	  };
+	
 
 	return (
 		<header>
@@ -102,11 +122,17 @@ export const Headers = ({
 							<button className='btn-clear-all' onClick={onCleanCart}>
 								Vaciar Carrito
 							</button>
+							
+							<button className='btn-clear-all'>
+                              <Link to="/finalizar-compra">Finalizar compra</Link>
+                            </button>
+
 						</>
 					) : (
 						<p className='cart-empty'>El carrito está vacío</p>
 					)}
 				</div>
+
 			</div>
 		</header>
 	);
