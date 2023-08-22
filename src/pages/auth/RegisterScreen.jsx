@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 import '../css/auth.css';
-import pruebaApi from '../../api/pruebaapi';
+import pruebaApi from '../../../api/pruebaapi';
 export const RegisterScreen = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
