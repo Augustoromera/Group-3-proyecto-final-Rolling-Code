@@ -72,20 +72,15 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 required
                             >
                                 <option value="">Seleccionar</option>
-                                <option value="parrilla">Parrilla</option>
-                                <option value="empanadas">Empanadas</option>
-                                <option value="milanesas">Milanesas</option>
-                                <option value="pastas">Pastas</option>
-                                <option value="asado">Asado</option>
-                                <option value="pizzas">Pizzas</option>
-                                <option value="empanadas">Empanadas</option>
-                                <option value="comida criolla">Comida Criolla</option>
-                                <option value="mariscos">Mariscos</option>
-                                <option value="comida vegetariana">Comida Vegetariana</option>
-                                <option value="comida vegana">Comida Vegana</option>
-                                <option value="comida regional">Comida Regional</option>
-                                <option value="postres argentinos">Postres Argentinos</option>
-                                <option value="vinos argentinos">Vinos Argentinos</option>
+                                <option value="clasica">Clásica</option>
+                                <option value="gourmet">Gourmet</option>
+                                <option value="cerdo">Cerdo</option>
+                                <option value="vegetariana">Vegetariana</option>
+                                <option value="vegana">Vegana</option>
+                                <option value="choripán">Choripán</option>
+                                <option value="parrillera">Parrillera</option>
+                                <option value="provoleta">Provoleta</option>
+                                <option value="milanesa">Milanesa</option>
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3 " controlId="formBasicEstado">

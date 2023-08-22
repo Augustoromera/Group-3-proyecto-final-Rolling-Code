@@ -9,7 +9,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
     const customStyles = {
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            backdropFilter: 'blur(3px)', 
+            backdropFilter: 'blur(3px)',
         },
         content: {
             top: '50%',
@@ -18,11 +18,11 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            width: '70%', 
+            width: '70%',
             maxWidth: '600px',
-            border: 'none', 
+            border: 'none',
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
-            padding: '20px', 
+            padding: '20px',
             borderRadius: '8px',
             background: 'white',
         },
@@ -45,10 +45,10 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 maxLength="30"
                                 value={formDateEditar.nombre}
                                 onChange={handleChangeFormEditar}
-                                placeholder="Ingrese el nombre" 
+                                placeholder="Ingrese el nombre"
                                 required
                             />
-                        </Form.Group> 
+                        </Form.Group>
                         <Form.Group className="mb-3 ctm-form-group" controlId="formBasicPrecio" >
                             <Form.Label>Precio</Form.Label>
                             <Form.Control
@@ -72,23 +72,15 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 required
                             >
                                 <option value="">Seleccionar</option>
-                                <option value="parrilla">Parrilla</option>
-                                <option value="empanadas">Empanadas</option>
-                                <option value="milanesas">Milanesas</option>
-                                <option value="pastas">Pastas</option>
-                                <option value="hamburguesas">Hamburguesas</option>
-                                <option value="asado">Asado</option>
-                                <option value="pizzas">Pizzas</option>
-                                <option value="empanadas">Empanadas</option>
-                                <option value="comida criolla">Comida Criolla</option>
-                                <option value="mariscos">Mariscos</option>
-                                <option value="mexicana">Comida mexicana</option>
-                                <option value="infusiones">Bebidas o infusiones</option>
-                                <option value="comida vegetariana">Comida Vegetariana</option>
-                                <option value="comida vegana">Comida Vegana</option>
-                                <option value="comida regional">Comida Regional</option>
-                                <option value="postres argentinos">Postres Argentinos</option>
-                                <option value="vinos argentinos">Vinos Argentinos</option>
+                                <option value="clasica">Clásica</option>
+                                <option value="gourmet">Gourmet</option>
+                                <option value="cerdo">Cerdo</option>
+                                <option value="vegetariana">Vegetariana</option>
+                                <option value="vegana">Vegana</option>
+                                <option value="choripán">Choripán</option>
+                                <option value="parrillera">Parrillera</option>
+                                <option value="provoleta">Provoleta</option>
+                                <option value="milanesa">Milanesa</option>
 
                             </Form.Select>
                         </Form.Group>
