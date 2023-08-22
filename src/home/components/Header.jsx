@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "../styles/header.css"
 
-function Navbarproyect() {
+function Header() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary navbarmain" bg="dark" data-bs-theme="dark">
       <Container  >
@@ -41,4 +41,4 @@ function Navbarproyect() {
   );
 }
 
-export default Navbarproyect;
+export default Header;
