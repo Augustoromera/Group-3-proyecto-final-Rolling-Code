@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import { FaPlus } from 'react-icons/fa';
 import pruebaApi from '../../api/pruebaapi';
 import Header from '../../components/Header';
-import '../admin/css/adminscreen.css';
+import '../styles/adminscreen.css';
 import Swal from 'sweetalert2';
 import EditMenuModal from '../../components/admin-components/EditMenuModal';  
 import AddUserModal from '../../components/admin-components/AddUserModal';  

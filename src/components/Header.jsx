@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import "./styles/header.css"
+import "../pages/styles/header.css"
 
 function Header() {
   return (
@@ -29,7 +29,7 @@ function Header() {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#link" className='nav-link'>Pedidos</Nav.Link>
-            <Nav.Link href="#sobrenosotros" className="nav-link" >
+            <Nav.Link as={Link} to="/aboutus" className="nav-link" >
               Sobre Nosotros
             </Nav.Link>
             <Nav.Link as={Link} to="/contact" className="nav-link">
