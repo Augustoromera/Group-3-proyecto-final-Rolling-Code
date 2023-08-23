@@ -5,13 +5,13 @@ import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './styles/contact.css';
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'; // Cambio aquí
+import { Footer } from '../components/Footer';
 
 export const ContactScreen = () => {
 
   return (
     <>
-      <Header />
-
+      <Header/>
       <div className="container-fluid">
         <h1 className="text-center display-3">Contacto</h1>
         <p className="text-center">
@@ -96,7 +96,7 @@ export const ContactScreen = () => {
         </div>
 
       </div>
-
+      <Footer/>
     </>
   );
 };
