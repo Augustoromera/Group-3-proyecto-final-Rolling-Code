@@ -14,7 +14,7 @@ export const BodyHome =  () => {
 		const cargarProductoDB = async () => {
 			try {
 				const resp = await pruebaApi.get('/admin/listarMenu');
-				setCargarProducto(resp.data.menus);
+				setCargarProducto(resp.data.menus.slice(0,8));
 			} catch (error) {
 				console.log(error);
 			}
@@ -91,15 +91,12 @@ export const BodyHome =  () => {
 	  <br />
     <div className="row">
 				{cargarProducto.map((menu) => (
-					<div key={menu._id} className="col-md-4 col-lg-3 mb-4">
+					<div key={menu._id} className="col-md-6 col-lg-3 mb-4 ">
 						<Card className='h-100'>
             <img src={menu.imagen} alt={menu.nombre} className="card-img-top img-fluid img-card-home" />
-							<Card.Body className='d-flex flex-column'>
+							<Card.Body className='d-flex flex-column align-items-start'>
 								<Card.Title>{menu.nombre}</Card.Title>
                 <Card.Text>{menu.detalle}</Card.Text>
-					<div className="mt-auto">
-            <Card.Text > $ {menu.precio}</Card.Text>
-          </div>
 							</Card.Body>
 						</Card>
 					</div>
