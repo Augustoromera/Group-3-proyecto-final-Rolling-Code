@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { FaPlus } from 'react-icons/fa';
-import pruebaApi from '../../api/pruebaapi';
-import Header from '../../home/components/Header';
-import '../../auth/css/adminscreen.css';
+import pruebaApi from '../../api/pruebaApi';
+import Header from '../../components/Header';
 import Swal from 'sweetalert2';
-import AddMenuModal from '../componentes/AddMenuModal';
-import EditMenuModal from '../componentes/EditMenuModal';
-import AddUserModal from '../componentes/AddUserModal';
-import EditUserModal from '../componentes/EditUserModal';
+import AddMenuModal from '../../components/admin-components/AddMenuModal';
+import EditMenuModal from '../../components/admin-components/EditMenuModal';
+import AddUserModal from '../../components/admin-components/AddUserModal';
+import EditUserModal from '../../components/admin-components/EditUserModal';
 
 
 

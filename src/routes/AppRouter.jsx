@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { HomeScreen } from '../home/pages/HomeScreen'
-import { AdminScreen } from '../admin/pages/AdminScreen'
+import { HomeScreen } from '../pages/home/HomeScreen'
+import { AdminScreen } from '../pages/admin/AdminScreen'
 
 export const AppRouter = () => {
     return (

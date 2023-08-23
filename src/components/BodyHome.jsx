@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/bodyHome.css';
+import '../components/styles/bodyHome.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
-import pruebaApi from '../../api/pruebaApi.js';  
+import pruebaApi from '../api/pruebaApi';  
 
 export const BodyHome =  () => {
 	const [cargarProducto, setCargarProducto] = useState([]);
