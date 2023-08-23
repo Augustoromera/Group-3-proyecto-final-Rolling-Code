@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/styles/bodyHome.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import {  faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import pruebaApi from '../api/pruebaApi';  
@@ -57,7 +57,7 @@ export const BodyHome =  () => {
 
     {/* ----------------servicios---------------- */}    
       <div className="container">
-        <h3 className="text-center text-uppercase poppins-regular font-weight-bold">Nuestros servicios</h3>
+        <h3 className="text-center text-uppercase poppins-regular font-weight-bold display-5">Nuestros servicios</h3>
         <br />
         <div className="row">
           <div className="col-12 col-sm-6 col-md-4">
@@ -87,7 +87,7 @@ export const BodyHome =  () => {
 
     {/* ----------------menús---------------- */}
 	  <div className="container">
-	  <h3 className="text-center text-uppercase poppins-regular font-weight-bold">Nuestros menús más pedidos</h3>
+	  <h3 className="text-center text-uppercase poppins-regular font-weight-bold display-5">Nuestros menús más pedidos</h3>
 	  <br />
     <div className="row">
 				{cargarProducto.map((menu) => (
@@ -110,7 +110,24 @@ export const BodyHome =  () => {
 
       {/* ----------------mapa---------------- */}
       <div className='text-center mb-4'>
-            <h2 className='fw-bold'>Dónde estamos?</h2>
+            <h2 className='fw-bold display-5 mb-3'>Dónde estamos?</h2>
+            <div className="container">
+              <div className="row">
+                
+                <div className="col-12 col-md-6">
+                  <img src="https://media.traveler.es/photos/6221e27bd380db76a3a865f7/master/w_1600%2Cc_limit/275105567_3784919721633284_4999341144694882386_n.jpg" alt="hamburgueseria" className='img-fluid mb-3 rounded shadow-lg ' />
+                </div>
+                <div className="col-12 col-md-6 d-flex align-items-center">
+                  <div className='mb-3'>
+                  <h3>Nos encontramos en Gral Paz 576 - San Miguel de Tucumán - Argentina</h3>
+                  <h5>Encuéntranos también por nuestros canales de comunicación!</h5>
+                  <Link to="/" className="btn btn-primary btn-lg mx-2"><i className="fa-brands fa-facebook"></i></Link>
+                  <Link to="/" className="btn btn-danger btn-lg mx-2"><i className="fa-brands fa-instagram"></i></Link>
+                  <Link to="/" className="btn btn-success btn-lg mx-2"><i className="fa-brands fa-whatsapp"></i></Link>
+                  </div>
+                </div>
+              </div>
+            </div>
             <iframe className='w-75 ' src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14240.408879082126!2d-65.2072018!3d-26.8367009!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7f30f1d%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1690391123408!5m2!1ses-419!2sar" width="1000" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </>
