@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage'
-import { AuthProvider } from "./context/AuthContext";
-import ProfilePage from "./pages/ProfilePage";
-import HomePage from "./pages/HomePage";
+import LoginPage from '../pages/Login-Registro/LoginPage';
+import RegisterPage from '../pages/Login-Registro/RegisterPage'
+import { AuthProvider } from "../context/AuthContext";
+import ProfilePage from "../pages/Login-Registro/ProfilePage";
+import HomePage from "../pages/Login-Registro/HomePage";
 
-import ProtectedRoute from "../ProtectedRoute";
-import Navbar from "./components/Navbar";
+import ProtectedRoute from "../../ProtectedRoute";
+import NavbarLR from "../components/NavbarLR";
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
     <AuthProvider>
     <BrowserRouter>
-    <Navbar/>
+    <NavbarLR/>
     <Routes>
      <Route path="/login"  element={<LoginPage />}    />
      <Route path="/register"  element={<RegisterPage />}    />
@@ -29,6 +29,6 @@ function App() {
   )
 }
 
-export default App
+export default App;
 
 
