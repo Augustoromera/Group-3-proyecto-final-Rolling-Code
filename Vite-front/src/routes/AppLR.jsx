@@ -22,6 +22,10 @@ function App() {
      <Route element={<ProtectedRoute/>}>
      <Route path="/"  element={<HomePage/>}    />
      <Route path="/profile"  element={<ProfilePage/>}    />
+     
+     {/*Ruta ADMIN*/}
+     <Route path="/admin-page" element={user.role === 'admin' ? <AdminPage /> : <Redirect to="/" />} />
+
      </Route>
     </Routes>
    </BrowserRouter>
