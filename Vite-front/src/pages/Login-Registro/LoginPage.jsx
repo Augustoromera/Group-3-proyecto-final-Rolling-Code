@@ -1,23 +1,18 @@
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
 function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const { signIn, errors: signInErrors, isAuthenticated } = useAuth();
-
+  const { signIn, errors: signInErrors, isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
 
-
-  //Validacion nueva de email porque la anterior no funciona
   const [email, setEmail] = useState('');
   const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
-
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     const emailValido = regex.test(data.email);
     if (!emailValido) {
       Swal.fire({
@@ -27,15 +22,26 @@ function LoginPage() {
       });
       return;
     }
-    signIn(data);
+
+    try {
+      await signIn(data);
+    } catch (error) {
+      // Maneja los errores de inicio de sesión si es necesario
+      console.log(error);
+    }
   });
 
   useEffect(() => {
-    if (isAuthenticated) navigate('/');
-  }, [isAuthenticated]);
-
-
-
+    if (isAuthenticated) {
+      if (user.role === 'admin') {
+        console.log('Redirecting to admin page');
+        navigate('/admin-page'); 
+      } else {
+        console.log('Redirecting to home page');
+        navigate('/'); 
+      }
+    }
+  }, [isAuthenticated, user, navigate]);
 
   return (
     <div className='contenedor1'>
@@ -62,7 +68,7 @@ function LoginPage() {
             className='inputs'
             placeholder='Ej: John@gmail.com'
             id='email'
-            maxLength={60} // Agregamos el atributo maxLength
+            maxLength={60}
             onChange={(event) => setEmail(event.target.value)}
           />
           {errors.email && (
@@ -76,7 +82,7 @@ function LoginPage() {
             className='inputs'
             placeholder='Contraseña'
             id='password'
-            maxLength={30} // Agregamos el atributo maxLength
+            maxLength={30}
           />
           {errors.password && (
             <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
