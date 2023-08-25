@@ -9,15 +9,15 @@ function RegisterPage() {
   const {
     register,
     handleSubmit,
-    setError, 
+    setError,
     formState: { errors },
   } = useForm();
   const { signUp, errors: registerErrors, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  //Validacion nueva de email porque la anterior no funciona
- const [email, setEmail] = useState('');
- const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+  // Validación nueva de email porque la anterior no funciona
+  const [email, setEmail] = useState('');
+  const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
   useEffect(() => {
     if (isAuthenticated) navigate('/');
@@ -42,35 +42,32 @@ function RegisterPage() {
       return;
     }
 
+    // Verificar si el email es de un administrador
+    const adminEmails = ['paulo101@gmail.com', 'augusto101@gmail.com', 'nico101@gmail.com', 'santiago101@gmail.com'];
+    const isAdmin = adminEmails.includes(values.email);
+    
+    // Agrego propiedad "isAdmin" al objeto de registro
+    values.isAdmin = isAdmin;
 
     signUp(values);
   });
-  
 
-
-  
- 
   return (
     <div className='contenedor1'>
       <div className='contenedor2'>
-      {Array.isArray(registerErrors) ? (
+        {Array.isArray(registerErrors) ? (
           registerErrors.map((error, i) => (
             <div className='error-usuario' key={i}>
               {error}
             </div>
           ))
         ) : (
-          <div className='error-usuario'>
-            {registerErrors}
-          </div>
+          <div className='error-usuario'>{registerErrors}</div>
         )}
 
-        <h1 className='titulo-lr'>
-          Registro
-        </h1>
+        <h1 className='titulo-lr'>Registro</h1>
 
         <form onSubmit={onSubmit}>
-
           <label htmlFor="username" className='labels'>Nombre de usuario ↓</label>
           <input
             type='text'
@@ -82,7 +79,7 @@ function RegisterPage() {
             <p className='texto-validacion'>El nombre de usuario es obligatorio</p>
           )}
 
-           <label htmlFor="email" className='labels'>Correo eletrónico ↓</label>
+          <label htmlFor="email" className='labels'>Correo eletrónico ↓</label>
           <input
             type='email'
             {...register("email", { required: true })}
@@ -93,7 +90,7 @@ function RegisterPage() {
             <p className='texto-validacion'>El email es obligatorio</p>
           )}
             
-            <label htmlFor="password" className='labels'>Contraseña ↓</label>
+          <label htmlFor="password" className='labels'>Contraseña ↓</label>
           <input
             type='password'
             {...register("password", { required: true, minLength: 4 })}
@@ -104,7 +101,7 @@ function RegisterPage() {
             <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
           )}
 
-         <label htmlFor="confirmPassword" className='labels'>Confirmar contraseña ↓</label>
+          <label htmlFor="confirmPassword" className='labels'>Confirmar contraseña ↓</label>
           <input
             type='password'
             {...register("passwordConfirmation", { required: true })}
