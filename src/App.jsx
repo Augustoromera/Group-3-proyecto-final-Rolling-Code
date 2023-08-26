@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Headers } from './pages/Headers';
-
+import { ProductList } from './pages/ProductList';
 import Header from './home/components/Header';
 
 function App() {
@@ -12,6 +12,14 @@ function App() {
 		<>
 		    <Header/>
 			<Headers
+				allProducts={allProducts}
+				setAllProducts={setAllProducts}
+				total={total}
+				setTotal={setTotal}
+				countProducts={countProducts}
+				setCountProducts={setCountProducts}
+			/>
+			<ProductList
 				allProducts={allProducts}
 				setAllProducts={setAllProducts}
 				total={total}
