@@ -44,7 +44,9 @@ export const Headers = ({
 		  }
 		});
 	  };
-	
+    const reloadPage = () => {
+      window.location.reload(); // Recarga la página
+    };
 
 	return (
 		<header>
@@ -74,26 +76,27 @@ export const Headers = ({
 					</div>
 				</div>
 
-				<div
-					className={`container-cart-products ${
-						active ? '' : 'hidden-cart'
-					}`}
-				>
-					{allProducts.length ? (
-						<>
-							<div className='row-product'>
-								{allProducts.map(product => (
-									<div className='cart-product' key={product.id}>
-										<div className='info-cart-product'>
-											<span className='cantidad-producto-carrito'>
-												{product.quantity}
-											</span>
-											<p className='titulo-producto-carrito'>
-												{product.nameProduct}
-											</p>
-											<span className='precio-producto-carrito'>
-												${product.price}
-											</span>
+				<div className={`container-cart-products ${active ? 'active' : ''}`}>
+      {allProducts.length ? (
+        <>
+          <div className='row-product'>
+            {allProducts.map((product) => (
+              <div className='cart-product' key={product.id}>
+                <div className='info-cart-product'>
+                  <img
+                    src={product.img}
+                    alt={product.nameProduct}
+                    className='product-image'
+                  />
+                  <span className='cantidad-producto-carrito'>
+                    {product.quantity}
+                  </span>
+                  <p className='titulo-producto-carrito'>
+                    {product.nameProduct}
+                  </p>
+                  <span className='precio-producto-carrito'>
+                    ${product.price}
+                  </span>
 										</div>
 										<svg
 											xmlns='http://www.w3.org/2000/svg'
@@ -116,21 +119,25 @@ export const Headers = ({
 
 							<div className='cart-total'>
 								<h3>Total:</h3>
+                
 								<span className='total-pagar'>${total}</span>
 							</div>
-
+               
 							<button className='btn-clear-all' onClick={onCleanCart}>
 								Vaciar Carrito
 							</button>
-							
+              <button className="btn-clear-all" onClick={reloadPage}>
+        COMPRAR YA
+      </button>
 
 						</>
 					) : (
 						<p className='cart-empty'>El carrito está vacío</p>
 					)}
 				</div>
-
+              
 			</div>
+      
 		</header>
 	);
 };

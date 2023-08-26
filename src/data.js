@@ -10,14 +10,14 @@ export const data = [
 		id: 2,
 		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Hamburguesa-con-Queso.png',
 		nameProduct: 'La Cheseburger',
-		price: 50,
+		price: 1190,
 		quantity: 1,
 	},
 	{
 		id: 3,
-		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/BK_WEB_DOBLE-CUARTO-XL_1200X800_020822.png',
+		img: 'src/img/DOBLE-CUARTO.png',
 		nameProduct: 'Doble Cheeseburger',
-		price: 90,
+		price: 1590,
 		quantity: 1,
 	},
 	{
@@ -30,7 +30,7 @@ export const data = [
 	
 	{
 		id: 5,
-		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Stacker-Triple.png',
+		img: 'src/img/Stacker-Triple.png',
 		nameProduct: 'Stacker Triple',
 		price: 1720,
 		quantity: 1,
@@ -46,7 +46,7 @@ export const data = [
 		id: 7,
 		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina/home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Mozzarella.png',
 		nameProduct: 'La black Friday',
-		price: 2220,
+		price: 1990,
 		quantity: 1,
 	},
 	{
