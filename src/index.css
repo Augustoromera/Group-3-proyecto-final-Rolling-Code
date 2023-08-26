@@ -2,10 +2,13 @@ body{
     background-color: #E3E7E8;
     font-family: system-ui;
 }
-.container{
-    width: 1000px;
-    margin: auto;
-    transition: 0.5s;
+
+body {
+	margin: 0 auto;
+	max-width: 1200px;
+	font-family: 'Lato';
+	color: #333;
+  
 }
 header{
     display: grid;
