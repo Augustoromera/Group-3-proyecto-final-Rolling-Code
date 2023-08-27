@@ -91,7 +91,7 @@ export const AboutUs = () => {
                             <img src={imgSantiago} alt="Santiago, integrante del grupo." />
                         </div>
                         <h2>Santiago Gonzalez</h2>
-                        <p className="p-espacio5">Tengo 18 años, soy estudiante del Colegio Lorenzo Massa, programador Full stack, con un nivel medio-avanzado de ingles. En mi tiempo libre me gusta ver series y ir al gimnasio. y Espero poder seguir desarrollando mis habilidades como programador constantemente. </p>
+                        <p className="p-espacio5">Tengo 19 años, soy estudiante del Colegio Lorenzo Massa, programador Full stack, con un nivel medio-avanzado de ingles. En mi tiempo libre me gusta ver series y ir al gimnasio. y Espero poder seguir desarrollando mis habilidades como programador constantemente. </p>
                         <div className="wrapper">
                             <ul className="iconos">
                                 <li className="github"><a href="https://www.github.com" target="_blank"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
