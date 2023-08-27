@@ -24,3 +24,8 @@ nav.navbarmain .basic-nav-dropdown {
 .nav-link:hover {
     color: white !important;
 }
+
+.navbarmain{
+    position: relative;
+    z-index: 999;
+}

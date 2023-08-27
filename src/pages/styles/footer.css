@@ -9,6 +9,7 @@
 .pie-pagina{
     width: 100%;
     background-color: #0a141d;
+    z-index: 1000;
 }
 .pie-pagina .grupo-1{
     width: 100%;
