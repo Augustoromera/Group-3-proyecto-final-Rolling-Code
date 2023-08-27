@@ -17,7 +17,7 @@ export const AdminScreen = () => {
     const [cargarUsuarios, setCargarUsuarios] = useState([]);
     const [cargarPedidos, setCargarPedidos] = useState([]);
     const [cargarProducto, setCargarProducto] = useState([]);
-    // Estados para controlar la apertura de los modales
+    // Estados para controlear la apertura de los modales
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isModalOpenUser, setIsModalOpenUser] = useState(false);
     const [isModalOpenEditar, setIsModalOpenEditar] = useState(false);
@@ -33,19 +33,19 @@ export const AdminScreen = () => {
         categoria: ''
     });
     const [formDateUser, setFormDateUser] = useState({
-        name: '',
+        username: '',
         email: '',
-        estado: '',
+        status: '',
         password: '',
-        rol: ''
+        role: ''
     });
     const [formDateUserEditar, setFormDateUserEditar] = useState({
         _id: '',
-        name: '',
+        username: '',
         email: '',
-        estado: '',
+        status: '',
         password: '',
-        rol: ''
+        role: ''
     });
     const [formDate, setFormDate] = useState({
         nombre: '',
@@ -60,7 +60,7 @@ export const AdminScreen = () => {
     const handleChangeForm = (e) => {
         setFormDate({
             ...formDate,
-            [e.target.name]: e.target.value,
+            [e.target.username]: e.target.value,
         })
     }
     const handleChangeFormUser = (e) => {
@@ -68,7 +68,7 @@ export const AdminScreen = () => {
         const value = e.target.type === "checkbox" ? (e.target.checked ? "Activo" : "No Activo") : e.target.value;
         setFormDateUser({
             ...formDateUser,
-            [e.target.name]: value,
+            [e.target.username]: value,
         })
 
     }
@@ -77,7 +77,7 @@ export const AdminScreen = () => {
         const value = e.target.type === "checkbox" ? (e.target.checked ? "active" : "inactive") : e.target.value;
         setFormDateUserEditar({
             ...formDateUserEditar,
-            [e.target.name]: value,
+            [e.target.username]: value,
         })
     }
     const handleChangeFormEditar = (e) => {
@@ -85,7 +85,7 @@ export const AdminScreen = () => {
 
         setFormDateEditar({
             ...formDateEditar,
-            [e.target.name]: value,
+            [e.target.username]: value,
         });
     }
 
@@ -143,11 +143,11 @@ export const AdminScreen = () => {
     // Función para manejar el envío del formulario de agregar usuario
     const handleSubmitFormUser = (e) => {
         e.preventDefault();
-        var { name, email, estado, password, rol } = formDateUser;
+        var { username, email, status, password, role } = formDateUser;
         const regexPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-        rol = rol ? rol.toLocaleLowerCase : "user";
-        estado = estado ? estado.toLocaleLowerCase : "inactive";
-        if (!name.trim() || !email.trim() || !password.trim()) {
+        role = role ? role.toLocaleLowerCase : "user";
+        status = status ? status.toLocaleLowerCase : "inactive";
+        if (!username.trim() || !email.trim() || !password.trim()) {
             Swal.fire({
                 icon: 'error',
                 title: 'Campos incompletos',
@@ -180,22 +180,21 @@ export const AdminScreen = () => {
         });
 
         setFormDateUser({
-            name: '',
+            username: '',
             email: '',
-            estado: '',
+            status: '',
             password: '',
-            rol: ''
+            role: ''
         });
-        console.log(estado);
-        guardarUsuarioDb(name, email, estado, password, rol);
+        guardarUsuarioDb(username, email, status, password, role);
         recargarPagina()
     };
     // Función para manejar el envío del formulario de editar usuario
     const handleSubmitFormUserEditar = (e) => {
         e.preventDefault();
-        var { _id, name, email, estado, rol } = formDateUserEditar;
-        rol = rol ? rol.toLocaleLowerCase() : "user";
-        let estadoModif = estado ? estado.toLocaleLowerCase() : "inactive";
+        var { _id, username, email, status, role } = formDateUserEditar;
+        role = role ? role.toLocaleLowerCase() : "user";
+        let statusModif = status ? status.toLocaleLowerCase() : "inactive";
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
@@ -203,7 +202,7 @@ export const AdminScreen = () => {
                 text: 'Por favor contactese con el administrador.',
             });
         }
-        if (!name.trim() || !email.trim() || !rol) {
+        if (!username.trim() || !email.trim() || !role) {
             Swal.fire({
                 icon: 'error',
                 title: 'Campos incompletos',
@@ -227,13 +226,13 @@ export const AdminScreen = () => {
         });
 
         setFormDateUser({
-            name: '',
+            username: '',
             email: '',
-            estado: '',
+            status: '',
             password: '',
-            rol: ''
+            role: ''
         });
-        editarUsuarioDb(_id, name, email, estadoModif, rol);
+        editarUsuarioDb(_id, username, email, statusModif, role);
         recargarPagina();
     };
     // Función para manejar el envío del formulario de editar menu/producto
@@ -307,27 +306,27 @@ export const AdminScreen = () => {
             console.log(error)
         }
     }
-    const editarUsuarioDb = async (_id, name, email, estado, rol) => {
+    const editarUsuarioDb = async (_id, username, email, status, role) => {
 
         try {
             const resp = await pruebaApi.put('/admin/editarUsuario', {
                 _id,
-                name,
+                username,
                 email,
-                estado,
-                rol
+                status,
+                role
             });
             console.log(resp);
         } catch (error) {
             console.log(error)
         }
     }
-    const editarPedidoDb = async (_id, estado) => {
+    const editarPedidoDb = async (_id, status) => {
 
         try {
             const resp = await pruebaApi.put('/admin/completarPedido', {
                 _id,
-                estado
+                status
             });
             console.log(resp);
         } catch (error) {
@@ -350,14 +349,14 @@ export const AdminScreen = () => {
             console.log(error)
         }
     }
-    const guardarUsuarioDb = async (name, email, estado, password, rol) => {
+    const guardarUsuarioDb = async (username, email, status, password, role) => {
         try {
             const resp = await pruebaApi.post('/admin/nuevoUsuario', {
-                name,
+                username,
                 email,
-                estado,
+                status,
                 password,
-                rol
+                role
             });
             console.log(resp);
         } catch (error) {
@@ -451,10 +450,10 @@ export const AdminScreen = () => {
 
 
     const inactivarUsuarioClick = async (usuario) => {
-        const { _id, name, email, estado, rol } = usuario;
-        const lowerCaseRol = rol ? rol.toLowerCase() : "user";
-        const lowerCaseEstado = estado ? estado.toLowerCase() : "inactive";
-        const newEstado = lowerCaseEstado === "active" ? "inactive" : "active";
+        const { _id, username, email, status, role } = usuario;
+        const lowerCaserole = role ? role.toLowerCase() : "user";
+        const lowerCasestatus = status ? status.toLowerCase() : "inactive";
+        const newstatus = lowerCasestatus === "active" ? "inactive" : "active";
 
         if (!_id) {
             return Swal.fire({
@@ -474,21 +473,21 @@ export const AdminScreen = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 setFormDateUser({
-                    name: '',
+                    username: '',
                     email: '',
-                    estado: '',
+                    status: '',
                     password: '',
-                    rol: ''
+                    role: ''
                 });
-                editarUsuarioDb(_id, name, email, newEstado, lowerCaseRol);
+                editarUsuarioDb(_id, username, email, newstatus, lowerCaserole);
                 recargarPagina();
             }
         });
     };
     const cambiarEstadoCick = async (pedido) => {
-        const { _id, estado } = pedido;
-        const lowerCaseEstado = estado ? estado.toLowerCase() : "completado";
-        const newEstado = lowerCaseEstado === "pendiente" ? "completado" : "pendiente";
+        const { _id, status } = pedido;
+        const lowerCasestatus = status ? status.toLowerCase() : "completado";
+        const newstatus = lowerCasestatus === "pendiente" ? "completado" : "pendiente";
 
         if (!_id) {
             return Swal.fire({
@@ -507,7 +506,7 @@ export const AdminScreen = () => {
             cancelButtonText: 'Cancelar',
         }).then((result) => {
             if (result.isConfirmed) {
-                editarPedidoDb(_id, newEstado);
+                editarPedidoDb(_id, newstatus);
                 recargarPagina();
             }
         });
@@ -583,7 +582,7 @@ export const AdminScreen = () => {
                                     <th>Nombre y apellido</th>
                                     <th>Email</th>
                                     <th>Estado</th>
-                                    <th>Rol</th>
+                                    <th>role</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -592,10 +591,10 @@ export const AdminScreen = () => {
                                     <tbody key={usuario._id}>
                                         <tr>
                                             <td>{usuario._id}</td>
-                                            <td>{usuario.name}</td>
+                                            <td>{usuario.username}</td>
                                             <td>{usuario.email}</td>
-                                            <td>{capitalizeFirstLetter(usuario.estado)}</td>
-                                            <td>{capitalizeFirstLetter(usuario.rol)}</td>
+                                            <td>{capitalizeFirstLetter(usuario.status)}</td>
+                                            <td>{capitalizeFirstLetter(usuario.role)}</td>
                                             <td>
                                                 <button onClick={() => editarUsuarioClick(usuario)}
                                                     title={"Editar usuario"}
@@ -610,10 +609,10 @@ export const AdminScreen = () => {
                                                         style={{ color: '#c43131' }}></i>
                                                 </button>
                                                 <button onClick={() => inactivarUsuarioClick(usuario)}
-                                                    title={usuario.estado === "inactive" ? "Activar usuario" : "Inactivar usuario"}
+                                                    title={usuario.status === "inactive" ? "Activar usuario" : "Inactivar usuario"}
                                                 >
                                                     <i className="fa-solid fa-unlock fa-lg"
-                                                        style={{ color: usuario.estado === "inactive" ? '#ff0000' : '#3f9240' }}>
+                                                        style={{ color: usuario.status === "inactive" ? '#ff0000' : '#3f9240' }}>
                                                     </i>
                                                 </button>
                                             </td>
