@@ -44,7 +44,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 minLength="3"
                                 maxLength="30"
                                 value={formDateEditar.nombre}
-                                onChange={handleChangeFormEditar}
+                                onChange={(e)=>handleChangeFormEditar(e)}
                                 placeholder="Ingrese el nombre"
                                 required
                             />
@@ -57,7 +57,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 min="1"
                                 max="9999"
                                 value={formDateEditar.precio}
-                                onChange={handleChangeFormEditar}
+                                onChange={(e)=>handleChangeFormEditar(e)}
                                 placeholder='Ingrese el precio'
                                 required
                             />
@@ -67,7 +67,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                             <Form.Select
                                 name="categoria"
                                 value={formDateEditar.categoria}
-                                onChange={handleChangeFormEditar}
+                                onChange={(e)=>handleChangeFormEditar(e)}
                                 style={{ width: '100%' }}
                                 required
                             >
@@ -91,7 +91,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 name="estado"
                                 label="Disponible"
                                 checked={formDateEditar.estado === "Disponible"}
-                                onChange={handleChangeFormEditar}
+                                onChange={(e)=>handleChangeFormEditar(e)}
 
                             />
                         </Form.Group>
@@ -102,7 +102,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 name="imagen"
                                 placeholder="URL de la imagen"
                                 value={formDateEditar.imagen}
-                                onChange={handleChangeFormEditar}
+                                onChange={(e)=>handleChangeFormEditar(e)}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3 ctm-form-group" controlId="formBasicDetalle">
@@ -114,7 +114,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                 minLength="3"
                                 maxLength="500"
                                 value={formDateEditar.detalle}
-                                onChange={handleChangeFormEditar}
+                                onChange={(e)=>handleChangeFormEditar(e)}
                                 placeholder='Agregue una breve descripcion del producto'
                                 required
                             ></textarea>

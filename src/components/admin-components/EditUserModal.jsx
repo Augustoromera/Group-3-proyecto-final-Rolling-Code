@@ -41,7 +41,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                             <Form.Control
                                 type="text"
                                 name="name"
-                                value={formDateUserEditar.name}
+                                value={formDateUserEditar.username}
                                 onChange={handleChangeFormUserEditar}
                                 placeholder="Ingrese el nombre del producto"
                                 minLength="3"
@@ -65,7 +65,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                             <Form.Label>Rol</Form.Label>
                             <Form.Select
                                 name="rol"
-                                value={formDateUserEditar.rol}
+                                value={formDateUserEditar.role}
                                 onChange={handleChangeFormUserEditar}
                                 style={{ width: '100%' }}
                             >
@@ -79,9 +79,9 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
 
                             <Form.Check
                                 type="checkbox"
-                                name="estado"
+                                name="status"
                                 label="Activo"
-                                checked={formDateUserEditar.estado === "active"}
+                                checked={formDateUserEditar.status === "active"}
                                 onChange={handleChangeFormUserEditar}
 
                             />

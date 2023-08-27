@@ -40,9 +40,8 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="name"
-                                value={formDateUser.name}
-                                onChange={handleChangeFormUser}
+                                name="username"
+                                onChange={(e)=>handleChangeFormUser(e)}
                                 minLength="3"
                                 maxLength="40"
                                 pattern="[A-Za-z\s]+"
@@ -55,8 +54,7 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                             <Form.Control
                                 type="email"
                                 name="email"
-                                value={formDateUser.email}
-                                onChange={handleChangeFormUser}
+                                onChange={(e)=>handleChangeFormUser(e)}
                                 placeholder="Ingrese el email"
                                 required
                             />
@@ -68,18 +66,16 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                                 name="password"
                                 minLength="8"
                                 maxLength="12"
-                                value={formDateUser.password}
                                 placeholder="Ingrese la contraseña"
-                                onChange={handleChangeFormUser}
+                                onChange={(e)=>handleChangeFormUser(e)}
                                 required
                             />
                         </Form.Group>
                         <Form.Group className="mb-3 ctm-form-group" controlId="formBasicRol">
                             <Form.Label></Form.Label>
                             <Form.Select
-                                name="rol"
-                                value={formDateUser.rol}
-                                onChange={handleChangeFormUser}
+                                name="role"
+                                onChange={(e)=>handleChangeFormUser(e)}
                                 style={{ width: '100%' }}
                             >
                                 <option value="">Seleccionar Rol</option>
@@ -90,10 +86,10 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                         <Form.Group className="mb-3" controlId="formBasicEstado">
                             <Form.Check
                                 type="checkbox"
-                                name="estado"
+                                name="status"
                                 label="Activo"
-                                checked={formDateUser.estado === "Activo"}
-                                onChange={handleChangeFormUser}
+                                checked={formDateUser.status === "Active"}
+                                onChange={(e)=>handleChangeFormUser(e)}
                             />
                         </Form.Group>
 
