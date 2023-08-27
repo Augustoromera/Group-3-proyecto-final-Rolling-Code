@@ -40,8 +40,8 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="username"
-                                value={formDateUser.username}
+                                name="name"
+                                value={formDateUser.name}
                                 onChange={handleChangeFormUser}
                                 minLength="3"
                                 maxLength="40"
@@ -90,9 +90,9 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                         <Form.Group className="mb-3" controlId="formBasicEstado">
                             <Form.Check
                                 type="checkbox"
-                                name="status"
+                                name="estado"
                                 label="Activo"
-                                checked={formDateUser.status === "Activo"}
+                                checked={formDateUser.estado === "Activo"}
                                 onChange={handleChangeFormUser}
                             />
                         </Form.Group>

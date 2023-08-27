@@ -60,15 +60,15 @@ export const AdminScreen = () => {
     const handleChangeForm = (e) => {
         setFormDate({
             ...formDate,
-            [e.target.username]: e.target.value,
+            [e.target.name]: e.target.value,
         })
     }
     const handleChangeFormUser = (e) => {
 
-        const value = e.target.type === "checkbox" ? (e.target.checked ? "Activo" : "No Activo") : e.target.value;
+        const value = e.target.type === "checkbox" ? (e.target.checked ? "active" : "inactive") : e.target.value;
         setFormDateUser({
             ...formDateUser,
-            [e.target.username]: value,
+            [e.target.name]: value,
         })
 
     }
@@ -77,7 +77,7 @@ export const AdminScreen = () => {
         const value = e.target.type === "checkbox" ? (e.target.checked ? "active" : "inactive") : e.target.value;
         setFormDateUserEditar({
             ...formDateUserEditar,
-            [e.target.username]: value,
+            [e.target.name]: value,
         })
     }
     const handleChangeFormEditar = (e) => {
@@ -85,7 +85,7 @@ export const AdminScreen = () => {
 
         setFormDateEditar({
             ...formDateEditar,
-            [e.target.username]: value,
+            [e.target.name]: value,
         });
     }
 
@@ -138,7 +138,6 @@ export const AdminScreen = () => {
         });
 
         guardarProductoDb(nombre, estado, precio, detalle, categoria, imagen);
-        recargarPagina();
     };
     // Función para manejar el envío del formulario de agregar usuario
     const handleSubmitFormUser = (e) => {

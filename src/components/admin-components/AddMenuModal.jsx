@@ -43,8 +43,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 name="nombre"
                                 minLength="3"
                                 maxLength="30"
-                                value={formDate.nombre}
-                                onChange={handleChangeForm}
+                                onChange={(e)=>handleChangeForm(e)}
                                 placeholder="Ingrese el nombre"
                                 required
                             />
@@ -56,8 +55,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 name="precio"
                                 min="1"
                                 max="9999"
-                                value={formDate.precio}
-                                onChange={handleChangeForm}
+                                onChange={(e)=>handleChangeForm(e)}
                                 placeholder='Ingrese el precio'
                                 required
                             />
@@ -66,8 +64,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                             <Form.Label>Categoría</Form.Label>
                             <Form.Select
                                 name="categoria"
-                                value={formDate.categoria}
-                                onChange={handleChangeForm}
+                                onChange={(e)=>handleChangeForm(e)}
                                 style={{ width: '100%' }}
                                 required
                             >
@@ -89,7 +86,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 name="estado"
                                 label="Disponible"
                                 checked={formDate.activo}
-                                onChange={handleChangeForm}
+                                onChange={(e)=>handleChangeForm(e)}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3 ctm-form-group" controlId="formBasicImagen">
@@ -97,8 +94,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                             <Form.Control
                                 type="text"
                                 name="imagen"
-                                value={formDate.imagen}
-                                onChange={handleChangeForm}
+                                onChange={(e)=>handleChangeForm(e)}
                                 placeholder="URL de la imagen"
                             />
                         </Form.Group>
@@ -110,8 +106,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                 rows="3"
                                 minLength="3"
                                 maxLength="500"
-                                value={formDate.detalle}
-                                onChange={handleChangeForm}
+                                onChange={(e)=>handleChangeForm(e)}
                                 placeholder='Agregue una breve descripcion del producto'
                                 required
                             ></textarea>

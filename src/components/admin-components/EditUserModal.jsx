@@ -79,9 +79,9 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
 
                             <Form.Check
                                 type="checkbox"
-                                name="status"
+                                name="estado"
                                 label="Activo"
-                                checked={formDateUserEditar.status === "active"}
+                                checked={formDateUserEditar.estado === "active"}
                                 onChange={handleChangeFormUserEditar}
 
                             />
