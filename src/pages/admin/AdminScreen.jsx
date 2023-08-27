@@ -5,9 +5,9 @@ import pruebaApi from '../../api/pruebaapi';
 import Header from '../../components/Header';
 import '../styles/adminscreen.css';
 import Swal from 'sweetalert2';
-import EditMenuModal from '../../components/admin-components/EditMenuModal';  
-import AddUserModal from '../../components/admin-components/AddUserModal';  
-import AddMenuModal from '../../components/admin-components/AddMenuModal';  
+import EditMenuModal from '../../components/admin-components/EditMenuModal';
+import AddUserModal from '../../components/admin-components/AddUserModal';
+import AddMenuModal from '../../components/admin-components/AddMenuModal';
 import EditUserModal from '../../components/admin-components/EditUserModal';
 
 
@@ -138,11 +138,13 @@ export const AdminScreen = () => {
         });
 
         guardarProductoDb(nombre, estado, precio, detalle, categoria, imagen);
+        recargarPagina();
     };
     // Función para manejar el envío del formulario de agregar usuario
     const handleSubmitFormUser = (e) => {
         e.preventDefault();
         var { username, email, status, password, role } = formDateUser;
+        //username=username.trim;
         const regexPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
         role = role ? role.toLocaleLowerCase : "user";
         status = status ? status.toLocaleLowerCase : "inactive";
@@ -186,7 +188,8 @@ export const AdminScreen = () => {
             role: ''
         });
         guardarUsuarioDb(username, email, status, password, role);
-        recargarPagina()
+
+        // recargarPagina()
     };
     // Función para manejar el envío del formulario de editar usuario
     const handleSubmitFormUserEditar = (e) => {
@@ -418,6 +421,7 @@ export const AdminScreen = () => {
     }
 
     const editarUsuarioClick = async (usuario) => {
+        console.log(formDateUser)
         setFormDateUserEditar(usuario);
         setIsModalOpenUserEditar(true);
     }
@@ -533,7 +537,6 @@ export const AdminScreen = () => {
             return false;
 
         }
-        console.log("true")
         return true;
     }
     function comprobarImagenText(image) {
