@@ -5,9 +5,7 @@
     box-sizing: border-box;
     font-family: "Raleway", sans-serif;
 }
-body {
-    background-color: rgb(255, 255, 255) !important;
-}
+
 .icon-burger {
     width: 60px;
     height: 60px;

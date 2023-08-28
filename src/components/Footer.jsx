@@ -9,7 +9,7 @@ export const Footer = () => {
                     <div className="box">
                         <figure>
                             <a href="#">
-                                <img src={logofooter} alt="Logo fachero" />
+                                <img src={logofooter} alt="Logo fachero"/>
                             </a>
                         </figure>
                     </div>
@@ -29,7 +29,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="grupo-2">
-                    <small>&copy; 2023 <b>Mila que te como</b> - Todos los Derechos Reservados.</small>
+                    <small>&copy; 2023 <b>Rapiburguers</b> - Todos los Derechos Reservados.</small>
                 </div>
             </footer>
         </>

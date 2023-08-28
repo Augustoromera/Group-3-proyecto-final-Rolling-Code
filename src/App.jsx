@@ -1,4 +1,4 @@
-import { AppRouter } from "./routes/AppRouter"
+import AppRouter from './routes/AppRouter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
@@ -9,4 +9,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

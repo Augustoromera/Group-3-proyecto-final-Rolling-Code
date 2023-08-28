@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import './styles/about.css';
 import 'font-awesome/css/font-awesome.min.css';
