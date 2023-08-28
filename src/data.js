@@ -1,0 +1,133 @@
+export const data = [
+	{
+		id: 1,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Provoking-carne.png',
+		nameProduct: 'la Big Burger',
+		price: 80,
+		quantity: 1,
+	},
+	{
+		id: 2,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Hamburguesa-con-Queso.png',
+		nameProduct: 'La Cheseburger',
+		price: 1190,
+		quantity: 1,
+	},
+	{
+		id: 3,
+		img: 'src/img/DOBLE-CUARTO.png',
+		nameProduct: 'Doble Cheeseburger',
+		price: 1590,
+		quantity: 1,
+	},
+	{
+		id: 4,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Stacker-Doble.png',
+		nameProduct: 'Stacker Doble',
+		price: 1150,
+		quantity: 1,
+	},
+	
+	{
+		id: 5,
+		img: 'src/img/Stacker-Triple.png',
+		nameProduct: 'Stacker Triple',
+		price: 1720,
+		quantity: 1,
+	},
+	{
+		id: 6,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Stacker-Cuadruple.png',
+		nameProduct: 'Stacker Cuadruple',
+		price: 2220,
+		quantity: 1,
+	},
+	{
+		id: 7,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina/home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Mozzarella.png',
+		nameProduct: 'La black Friday',
+		price: 1990,
+		quantity: 1,
+	},
+	{
+		id: 8,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/BK_WEB_KING-DE-POLLO-FRANCES_1200X800_020822.png',
+		nameProduct: 'Sanguche Frances',
+		price: 2220,
+		quantity: 1,
+	},
+	{
+		id: 9,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/BK_WEB_KING-DE-POLLO_1200X800_240822.png',
+		nameProduct: 'La opcion Saludable',
+		price: 2220,
+		quantity: 1,
+	},
+    {
+		id: 10,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Papas-Cheddar-y-Bacon.png',
+		nameProduct: 'Cheddar con Bacon',
+		price: 2220,
+		quantity: 1,
+	},
+    {
+		id: 11,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Papas-Cheddar.png',
+		nameProduct: 'Papas Cheddar',
+		price: 2220,
+		quantity: 1,
+	},
+    {
+		id: 12,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/wordpress/web/app/uploads/sites/5/2021/02/nuggets-x10.png',
+		nameProduct: 'Nuggets de pollo',
+		price: 2220,
+		quantity: 1,
+	},
+    {
+		id: 13,
+		img: 'src/img/pngCOCA.png',
+		nameProduct: 'Lata de Coca Cola',
+		price: 2220,
+		quantity: 1,
+	},
+	{
+		id: 14,
+		img: 'src/img/pngfantita.png',
+		nameProduct: 'Lata de Fanta',
+		price: 2220,
+		quantity: 1,
+	},
+
+	{
+		id: 15,
+		img: 'src/img/pngSPRITE.png',
+		nameProduct: 'Lata de Sprite',
+		price: 2220,
+		quantity: 1,
+	},
+	{
+		id: 16,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/sundae_dulce_de_leche.png',
+		nameProduct: 'Sundae de Caramelo',
+		price: 850,
+		quantity: 1,
+	},
+    {
+		id: 17,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/MENU_Sundae.png',
+		nameProduct: 'Sundae de Chocolate',
+		price: 800,
+		quantity: 1,
+	},
+	{
+		id: 8,
+		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/BK_WEB_SUNDAE-FRUTILLA-_1200X800_020822-1.png',
+		nameProduct: 'Sundae de Frutilla',
+		price: 850,
+		quantity: 1,
+	},
+
+
+	// Aquí pueden agregar más o modificar los productos existentes
+];

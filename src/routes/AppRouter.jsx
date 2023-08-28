@@ -9,6 +9,7 @@ import { HomeScreen } from '../pages/HomeScreen'
 import { AdminScreen } from '../pages/admin/AdminScreen'
 import { ContactScreen } from '../pages/ContactScreen'
 import { AboutUs } from '../pages/AboutUs'
+import { ProductList } from "../pages/ProductList";
 
 function AppRouter() {
   return (
@@ -29,6 +30,7 @@ function AppLR() {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/contact" element={<ContactScreen />} />
           <Route path='/aboutus' element={<AboutUs />} />
+          <Route path="pedidos" element={<ProductList/>} />
 
         <Route element={<ProtectedRoute />}>
 
