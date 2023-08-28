@@ -14,14 +14,11 @@ body {
 	font-family: 'Lato';
 	color: #000000;
 
-  background-image: url('src/img/blanco-y-negro.jpg');
   background-repeat: repeat; 
   background-attachment: fixed; 
   
 
-		
-
-	  
+		 
   
 }
 
@@ -205,6 +202,7 @@ header {
 	color: #fff;
 	padding: 15px 10px;
 	cursor: pointer;
+	margin-bottom: 50px;
 }
 
 .cart-empty {
@@ -367,4 +365,8 @@ header .shopping span{
 }
 .listCard .count{
     margin: 0 10px;
+}
+
+.title-pedidos{
+	margin-left:2em;
 }

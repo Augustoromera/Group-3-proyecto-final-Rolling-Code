@@ -50,7 +50,7 @@ export const Headers = ({
 
 	return (
 		<header>
-			<h1>TIENDA</h1>
+			<h1 className='title-pedidos'>TIENDA</h1>
 
 			<div className='container-icon'>
 				<div
