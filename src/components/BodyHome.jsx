@@ -1,27 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../pages/styles/bodyHome.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
-import pruebaApi from '../api/pruebaApi';  
+import { Card } from 'react-bootstrap'; 
 
 export const BodyHome =  () => {
-	const [cargarProducto, setCargarProducto] = useState([]);
-
-	useEffect(() => {
-		const cargarProductoDB = async () => {
-			try {
-				const resp = await pruebaApi.get('/admin/listarMenu');
-				setCargarProducto(resp.data.menus.slice(0,8));
-			} catch (error) {
-				console.log(error);
-			}
-		};
-
-		cargarProductoDB();
-	}, []);
+  const menus = [
+  {
+    nombre: 'Menú 1',
+    imagen: 'https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_2000x1500__1.jpg',
+    detalle: 'Descripción del menú 1',
+  },
+  {
+    nombre: 'Menú 2',
+    imagen: 'https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_2000x1500__1.jpg',
+    detalle: 'Descripción del menú 2',
+  },
+  // Agrega más elementos de menú según sea necesario
+];
 
 
   return (
@@ -56,7 +54,7 @@ export const BodyHome =  () => {
           <hr />
 
     {/* ----------------servicios---------------- */}    
-      <div className="container">
+      <div className="container-fluid">
         <h3 className="text-center text-uppercase poppins-regular font-weight-bold display-5">Nuestros servicios</h3>
         <br />
         <div className="row">
@@ -86,32 +84,36 @@ export const BodyHome =  () => {
       <hr />
 
     {/* ----------------menús---------------- */}
-	  <div className="container">
-	  <h3 className="text-center text-uppercase poppins-regular font-weight-bold display-5">Nuestros menús más pedidos</h3>
-	  <br />
-    <div className="row">
-				{cargarProducto.map((menu) => (
-					<div key={menu._id} className="col-md-6 col-lg-3 mb-4 ">
-						<Card className='h-100'>
-            <img src={menu.imagen} alt={menu.nombre} className="card-img-top img-fluid img-card-home" />
-							<Card.Body className='d-flex flex-column align-items-start'>
-								<Card.Title>{menu.nombre}</Card.Title>
-                <Card.Text>{menu.detalle}</Card.Text>
-							</Card.Body>
-						</Card>
-					</div>
-				))}
-			</div>
-      <div className='text-center'>
-      <Link to="/pedidos" className="btn btn-warning btn-lg rounded-pill ">Ver menús</Link>
+	  <div className="container-fluid">
+        <h3 className="text-center text-uppercase poppins-regular font-weight-bold display-5">
+          Nuestros menús más pedidos
+        </h3>
+        <br />
+        <div className="row">
+          {menus.map((menu, index) => (
+            <div key={index} className="col-md-6 col-lg-3 mb-4">
+              <Card className="h-100">
+                <img src={menu.imagen} alt={menu.nombre} className="card-img-top img-fluid img-card-home" />
+                <Card.Body className="d-flex flex-column align-items-start">
+                  <Card.Title>{menu.nombre}</Card.Title>
+                  <Card.Text>{menu.detalle}</Card.Text>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </div>
+        <div className="text-center">
+          <Link to="/pedidos" className="btn btn-warning btn-lg rounded-pill">
+            Ver menús
+          </Link>
+        </div>
       </div>
-      </div>      
-            <hr />
+      <hr />
 
       {/* ----------------mapa---------------- */}
       <div className='text-center mb-4'>
             <h2 className='fw-bold display-5 mb-3'>Dónde estamos?</h2>
-            <div className="container">
+            <div className="container-fluid">
               <div className="row">
                 
                 <div className="col-12 col-md-6">
