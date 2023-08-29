@@ -48,7 +48,7 @@ export const BodyHome =  () => {
                 <h1 className='text-center display-5'>Rapiburgers</h1>
                 <h5 className='text-xl'>Bienvenidos a nuestro apasionante mundo de sabores en el restaurante de hamburguesas. En nuestro establecimiento, fusionamos la tradición de las hamburguesas clásicas con una dosis de innovación culinaria, creando una experiencia gastronómica que deleita a los amantes de la comida en cada mordisco. </h5>
                 <br />
-                <Link to="/" className="btn btn-warning btn-lg rounded-pill">Ver más</Link>
+                <Link to="/aboutus" className="btn btn-warning btn-lg rounded-pill">Ver más</Link>
               </div>
             </div>
           </div>
