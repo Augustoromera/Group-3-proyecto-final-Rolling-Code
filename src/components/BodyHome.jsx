@@ -121,9 +121,9 @@ export const BodyHome =  () => {
                   <div className='mb-3'>
                   <h3>Nos encontramos en Gral Paz 576 - San Miguel de Tucumán - Argentina</h3>
                   <h5>Encuéntranos también por nuestros canales de comunicación!</h5>
-                  <Link to="/" className="btn btn-primary btn-lg mx-2"><i className="fa-brands fa-facebook"></i></Link>
-                  <Link to="/" className="btn btn-danger btn-lg mx-2"><i className="fa-brands fa-instagram"></i></Link>
-                  <Link to="/" className="btn btn-success btn-lg mx-2"><i className="fa-brands fa-whatsapp"></i></Link>
+                  <a href="https://www.facebook.com/" className="btn btn-primary btn-lg mx-2" target="_blank"><i className="fa-brands fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/" className="btn btn-danger btn-lg mx-2" target="_blank"><i className="fa-brands fa-instagram"></i></a>
+                  <Link to="/contact#top" className="btn btn-success btn-lg mx-2" target="_blank" ><i className="fa-brands fa-whatsapp"></i></Link>
                   </div>
                 </div>
               </div>

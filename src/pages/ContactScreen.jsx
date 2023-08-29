@@ -13,7 +13,7 @@ export const ContactScreen = () => {
     <>
       <Header/>
       <div className="container-fluid">
-        <h1 className="text-center display-3">Contacto</h1>
+        <h1 id="top" className="text-center display-3">Contacto</h1>
         <p className="text-center">
           No dudes en ponerte en contacto con nosotros si tienes dudas o sugerencias. <br />
           Nuestro equipo se pondrá en contacto contigo cuanto antes!
@@ -87,7 +87,7 @@ export const ContactScreen = () => {
                   <h5>Encuéntranos también por nuestros canales de comunicación!</h5>
                   <a className="btn btn-primary btn-lg mx-2"><FontAwesomeIcon icon={faFacebook} /></a>
                   <a className="btn btn-danger btn-lg mx-2"><FontAwesomeIcon icon={faInstagram} /></a>
-                  <a className="btn btn-success btn-lg mx-2"><FontAwesomeIcon icon={faWhatsapp} /></a>
+                  <a href="#top" className="btn btn-success btn-lg mx-2"><FontAwesomeIcon icon={faWhatsapp} /></a>
                 </div>
               </div>
             </div>
