@@ -21,10 +21,10 @@ export const Footer = () => {
                     <div className="box">
                         <h2>SIGUENOS</h2>
                         <div className="red-social">
-                            <a href="#" className="fa fa-facebook"></a>
-                            <a href="#" className="fa fa-instagram"></a>
-                            <a href="#" className="fa fa-twitter"></a>
-                            <a href="#" className="fa fa-youtube"></a>
+                            <a href="https://www.facebook.com/" className="fa fa-facebook" target='_blank'></a>
+                            <a href="https://www.instagram.com/" className="fa fa-instagram"  target='_blank'></a>
+                            <a href="https://twitter.com/?lang=es" className="fa fa-twitter"  target='_blank'></a>
+                            <a href="https://www.youtube.com/" className="fa fa-youtube"  target='_blank'></a>
                         </div>
                     </div>
                 </div>

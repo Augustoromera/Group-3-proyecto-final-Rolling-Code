@@ -85,9 +85,9 @@ export const ContactScreen = () => {
                 <div className='mb-3'>
                   <h3>Nos encontramos en Gral Paz 576 - San Miguel de Tucumán - Argentina</h3>
                   <h5>Encuéntranos también por nuestros canales de comunicación!</h5>
-                  <a className="btn btn-primary btn-lg mx-2"><FontAwesomeIcon icon={faFacebook} /></a>
-                  <a className="btn btn-danger btn-lg mx-2"><FontAwesomeIcon icon={faInstagram} /></a>
-                  <a href="#top" className="btn btn-success btn-lg mx-2"><FontAwesomeIcon icon={faWhatsapp} /></a>
+                  <a className="btn btn-primary btn-lg mx-2" href='https://www.facebook.com/' target='_blank'><FontAwesomeIcon icon={faFacebook} /></a>
+                  <a className="btn btn-danger btn-lg mx-2" href='https://www.instagram.com/' target='_blank'><FontAwesomeIcon icon={faInstagram} /></a>
+                  <a href="https://www.whatsapp.com/?lang=es_LA" className="btn btn-success btn-lg mx-2" target='_blank'><FontAwesomeIcon icon={faWhatsapp} /></a>
                 </div>
               </div>
             </div>
