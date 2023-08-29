@@ -103,7 +103,7 @@ export const BodyHome =  () => {
 				))}
 			</div>
       <div className='text-center'>
-      <Link to="/" className="btn btn-warning btn-lg rounded-pill ">Ver menús</Link>
+      <Link to="/pedidos" className="btn btn-warning btn-lg rounded-pill ">Ver menús</Link>
       </div>
       </div>      
             <hr />
