@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap'; 
 
 export const BodyHome =  () => {
-  const menus = [
+  const menusHome = [
   {
     nombre: 'Menú 1',
     imagen: 'https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_2000x1500__1.jpg',
@@ -18,7 +18,7 @@ export const BodyHome =  () => {
     imagen: 'https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_2000x1500__1.jpg',
     detalle: 'Descripción del menú 2',
   },
-  // Agrega más elementos de menú según sea necesario
+  
 ];
 
 
@@ -90,8 +90,8 @@ export const BodyHome =  () => {
         </h3>
         <br />
         <div className="row">
-          {menus.map((menu, index) => (
-            <div key={index} className="col-md-6 col-lg-3 mb-4">
+          {menusHome.map((menu) => (
+            <div key={menu.nombre} className="col-md-6 col-lg-3 mb-4">
               <Card className="h-100">
                 <img src={menu.imagen} alt={menu.nombre} className="card-img-top img-fluid img-card-home" />
                 <Card.Body className="d-flex flex-column align-items-start">
