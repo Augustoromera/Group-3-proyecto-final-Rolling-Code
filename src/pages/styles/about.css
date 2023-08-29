@@ -26,7 +26,7 @@
     font-weight: 400;
 }
 
-.container-cards {
+.container-cardsA {
     width: 100%;
     margin: auto;
     display: flex;
@@ -38,7 +38,7 @@
     transform: translate(-50%, -50%);
 }
 
-.card {
+.cardA {
     width: 350px;
     margin: 10px;
     padding: 20px;
@@ -52,15 +52,15 @@
     transition: all 300ms;
 }
 
-.card:hover .cover-card {
+.cardA:hover .cover-card {
     transform: scale(1.1);
 }
 
-.card:hover {
+.cardA:hover {
     transform: translateY(-10px);
 }
 
-img {
+.imgAbout {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -74,14 +74,14 @@ img {
     transition: all 300ms;
 }
 
-.card h2 {
+.cardA h2 {
     font-size: 20px;
     font-weight: 400;
     margin-top: 20px;
     color: #ffffff;
 }
 
-.card p {
+.cardA p {
     margin-top: 20px;
     font-size: 14px;
     font-weight: 450;
@@ -89,7 +89,7 @@ img {
     letter-spacing: 0.5px;
 }
 
-.card hr {
+.cardA hr {
     margin-top: 30px;
     border: none;
     height: 1px;
@@ -272,7 +272,7 @@ img {
 }
 
 @media screen and (max-width: 2000px) {
-    .container-cards {
+    .container-cardsA {
         position: relative;
         top: 0;
         left: 0;

@@ -1,8 +1,9 @@
-import AppRouter from './routes/AppRouter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { Headers } from './pages/Headers';
 import { ProductList } from './pages/ProductList';
+import Header from './components/Header';
+
 
 function AppPedidos() {
 	const [allProducts, setAllProducts] = useState([]);
@@ -11,6 +12,7 @@ function AppPedidos() {
 
   return (
     <>
+	<Header />
      <Headers
 	allProducts={allProducts}
 	setAllProducts={setAllProducts}

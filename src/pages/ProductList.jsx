@@ -1,4 +1,5 @@
 import { data } from '../data';
+import "./styles/pedidos.css"
 
 export const ProductList = ({
 	allProducts,
