@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 import "./styles/pedidos.css"
@@ -14,10 +15,9 @@ export const Headers = ({
 
 	const onDeleteProduct = product => {
 		const results = allProducts.filter(
-			item => item.id !== product.id
+			item => item._id !== product._id
 		);
-
-		setTotal(total - product.price * product.quantity);
+		setTotal(total - product.precio * product.quantity);
 		setCountProducts(countProducts - product.quantity);
 		setAllProducts(results);
 	};
@@ -46,36 +46,37 @@ export const Headers = ({
 		});
 	};
 	const handleButton = () => {
-        const usuario = JSON.parse(localStorage.getItem("currentUser"));
-        const _idUser = usuario._id;
-        const productosEnCarrito = allProducts;
-        const menus = productosEnCarrito.map(item => ({ ...item }));
-        const currentDate = new Date();
-        const formattedDate = currentDate.toISOString();
-        const estado = "pendiente"
+		console.log("Hola")
+		// const usuario = JSON.parse(localStorage.getItem("currentUser"));
+		// const _idUser = usuario._id;
+		// const productosEnCarrito = allProducts;
+		// const menus = productosEnCarrito.map(item => ({ ...item }));
+		// const currentDate = new Date();
+		// const formattedDate = currentDate.toISOString();
+		// const estado = "pendiente"
 
-		console.log(total);
-		console.log(menus);
-		console.log(formattedDate);
-		console.log(estado);
-        // const importeTotal = menus.reduce((total, item) => total + item.precio, 0);
-        console.log(_idUser)
-        // guardarPedidoDB(_idUser, formattedDate, menus, estado, importeTotal)
-    };
-    // const guardarPedidoDB = async (usuario, fecha, menus, estado, importeTotal) => {
-    //     // try {
-    //     //     const resp = await pruebaApi.post('/pedido/nuevoPedido', {
-    //     //         usuario,
-    //     //         fecha,
-    //     //         menus,
-    //     //         estado,
-    //     //         importeTotal
-    //     //     });
-    //     //     console.log(resp);
-    //     // } catch (error) {
-    //     //     console.log(error)
-    //     // }
-    // }
+		// console.log(total);
+		// console.log(menus);
+		// console.log(formattedDate);
+		// console.log(estado);
+		// const importeTotal = menus.reduce((total, item) => total + item.precio, 0);
+		// console.log(_idUser)
+		// guardarPedidoDB(_idUser, formattedDate, menus, estado, importeTotal)
+	};
+	// const guardarPedidoDB = async (usuario, fecha, menus, estado, importeTotal) => {
+	//     // try {
+	//     //     const resp = await pruebaApi.post('/pedido/nuevoPedido', {
+	//     //         usuario,
+	//     //         fecha,
+	//     //         menus,
+	//     //         estado,
+	//     //         importeTotal
+	//     //     });
+	//     //     console.log(resp);
+	//     // } catch (error) {
+	//     //     console.log(error)
+	//     // }
+	// }
 
 	return (
 		<header className='header-pedidos'>
@@ -84,7 +85,7 @@ export const Headers = ({
 			<div className='container-icon'>
 				<div
 					className='container-cart-icon'
-					onClick={() => setActive(!active)}
+					onClick={() => { setActive(!active); console.log(active) }}
 				>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
@@ -100,31 +101,30 @@ export const Headers = ({
 							d='M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z'
 						/>
 					</svg>
-					<div className='count-products'>
+					<div className='count-products' >
 						<span id='contador-productos'>{countProducts}</span>
 					</div>
 				</div>
-
-				<div className={`container-cart-products ${active ? 'active' : ''}`}>
+				<div className={`container-cart-products ${active ? 'active' : ''}`} >
 					{allProducts.length ? (
 						<>
 							<div className='row-product'>
-								{allProducts.map((product) => (
-									<div className='cart-product' key={product.id}>
+								{allProducts.map((product, index) => (
+									<div className='cart-product hd-cart' key={index}>
 										<div className='info-cart-product'>
 											<img
-												src={product.img}
-												alt={product.nameProduct}
+												src={product.imagen}
+												alt={product.nombre}
 												className='product-image'
 											/>
-											<span className='cantidad-producto-carrito'>
-												{product.quantity}
-											</span>
 											<p className='titulo-producto-carrito'>
-												{product.nameProduct}
+												{product.nombre}
 											</p>
+											<span className='cantidad-producto-carrito'>
+												x{product.quantity}
+											</span>
 											<span className='precio-producto-carrito'>
-												${product.price}
+												${product.precio}
 											</span>
 										</div>
 										<svg
@@ -145,23 +145,29 @@ export const Headers = ({
 									</div>
 								))}
 							</div>
-
-							<div className='cart-total'>
+							<div className='cart-total p'>
 								<h3>Total:</h3>
 
-								<span className='total-pagar'>${total}</span>
+								<span className='total-pagar'>${isNaN(total) ? '0.00' : total}</span>
 							</div>
 
-							<button className='btn-clear-all' onClick={onCleanCart}>
-								Vaciar Carrito
-							</button>
-							<button className="btn-clear-all" onClick={handleButton()}>
-								COMPRAR YA
-							</button>
-
+							<div className="cart-buttons">
+								<button className='btn-clear-all' onClick={onCleanCart}>
+									Vaciar Carrito
+								</button>
+								<button className="btn-clear-all" onClick={handleButton}>
+									COMPRAR YA
+								</button>
+								<button className="btn-clear-all" onClick={() => setActive(false)}>
+									Seguir Comprando
+								</button>
+							</div>
 						</>
+
 					) : (
-						<p className='cart-empty'>El carrito está vacío</p>
+						<button className="btn-clear-all closeCart" onClick={() => setActive(false)}>
+							Carrito Vacio Cerrar
+						</button>
 					)}
 				</div>
 
