@@ -121,7 +121,7 @@ export const data = [
 		quantity: 1,
 	},
 	{
-		id: 8,
+		id: 18,
 		img: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-bk-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/BK_WEB_SUNDAE-FRUTILLA-_1200X800_020822-1.png',
 		nameProduct: 'Sundae de Frutilla',
 		price: 850,

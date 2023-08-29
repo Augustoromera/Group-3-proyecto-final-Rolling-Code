@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Swal from 'sweetalert2'; 
-import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import "./styles/pedidos.css"
 
 export const Headers = ({
@@ -24,31 +23,59 @@ export const Headers = ({
 	};
 	const onCleanCart = () => {
 		Swal.fire({
-		  title: '¿Estás seguro?',
-		  text: 'Esta acción borrará todos los productos en el carrito',
-		  icon: 'warning',
-		  showCancelButton: true,
-		  confirmButtonColor: '#3085d6',
-		  cancelButtonColor: '#d33',
-		  confirmButtonText: 'Sí, borrar',
-		  cancelButtonText: 'Cancelar'
+			title: '¿Estás seguro?',
+			text: 'Esta acción borrará todos los productos en el carrito',
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Sí, borrar',
+			cancelButtonText: 'Cancelar'
 		}).then((result) => {
-		  if (result.isConfirmed) {
-			// Si el usuario confirma, borramos los productos
-			setAllProducts([]);
-			setTotal(0);
-			setCountProducts(0);
-			Swal.fire(
-			  '¡Borrado!',
-			  'El carrito ha sido borrado exitosamente.',
-			  'success'
-			);
-		  }
+			if (result.isConfirmed) {
+				// Si el usuario confirma, borramos los productos
+				setAllProducts([]);
+				setTotal(0);
+				setCountProducts(0);
+				Swal.fire(
+					'¡Borrado!',
+					'El carrito ha sido borrado exitosamente.',
+					'success'
+				);
+			}
 		});
-	  };
-    const reloadPage = () => {
-      window.location.reload(); // Recarga la página
+	};
+	const handleButton = () => {
+        const usuario = JSON.parse(localStorage.getItem("currentUser"));
+        const _idUser = usuario._id;
+        const productosEnCarrito = allProducts;
+        const menus = productosEnCarrito.map(item => ({ ...item }));
+        const currentDate = new Date();
+        const formattedDate = currentDate.toISOString();
+        const estado = "pendiente"
+
+		console.log(total);
+		console.log(menus);
+		console.log(formattedDate);
+		console.log(estado);
+        // const importeTotal = menus.reduce((total, item) => total + item.precio, 0);
+        console.log(_idUser)
+        // guardarPedidoDB(_idUser, formattedDate, menus, estado, importeTotal)
     };
+    // const guardarPedidoDB = async (usuario, fecha, menus, estado, importeTotal) => {
+    //     // try {
+    //     //     const resp = await pruebaApi.post('/pedido/nuevoPedido', {
+    //     //         usuario,
+    //     //         fecha,
+    //     //         menus,
+    //     //         estado,
+    //     //         importeTotal
+    //     //     });
+    //     //     console.log(resp);
+    //     // } catch (error) {
+    //     //     console.log(error)
+    //     // }
+    // }
 
 	return (
 		<header className='header-pedidos'>
@@ -79,26 +106,26 @@ export const Headers = ({
 				</div>
 
 				<div className={`container-cart-products ${active ? 'active' : ''}`}>
-      {allProducts.length ? (
-        <>
-          <div className='row-product'>
-            {allProducts.map((product) => (
-              <div className='cart-product' key={product.id}>
-                <div className='info-cart-product'>
-                  <img
-                    src={product.img}
-                    alt={product.nameProduct}
-                    className='product-image'
-                  />
-                  <span className='cantidad-producto-carrito'>
-                    {product.quantity}
-                  </span>
-                  <p className='titulo-producto-carrito'>
-                    {product.nameProduct}
-                  </p>
-                  <span className='precio-producto-carrito'>
-                    ${product.price}
-                  </span>
+					{allProducts.length ? (
+						<>
+							<div className='row-product'>
+								{allProducts.map((product) => (
+									<div className='cart-product' key={product.id}>
+										<div className='info-cart-product'>
+											<img
+												src={product.img}
+												alt={product.nameProduct}
+												className='product-image'
+											/>
+											<span className='cantidad-producto-carrito'>
+												{product.quantity}
+											</span>
+											<p className='titulo-producto-carrito'>
+												{product.nameProduct}
+											</p>
+											<span className='precio-producto-carrito'>
+												${product.price}
+											</span>
 										</div>
 										<svg
 											xmlns='http://www.w3.org/2000/svg'
@@ -121,25 +148,25 @@ export const Headers = ({
 
 							<div className='cart-total'>
 								<h3>Total:</h3>
-                
+
 								<span className='total-pagar'>${total}</span>
 							</div>
-               
+
 							<button className='btn-clear-all' onClick={onCleanCart}>
 								Vaciar Carrito
 							</button>
-              <button className="btn-clear-all" onClick={reloadPage}>
-        COMPRAR YA
-      </button>
+							<button className="btn-clear-all" onClick={handleButton()}>
+								COMPRAR YA
+							</button>
 
 						</>
 					) : (
 						<p className='cart-empty'>El carrito está vacío</p>
 					)}
 				</div>
-              
+
 			</div>
-      
+
 		</header>
 	);
 };

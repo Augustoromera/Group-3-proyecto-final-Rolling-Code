@@ -358,3 +358,18 @@
 .title-pedidos{
 	margin-left:2em;
 }
+.add-to-cart {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+.my-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.add-to-cart-button {
+    align-self: flex-end;
+}

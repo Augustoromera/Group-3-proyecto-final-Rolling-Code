@@ -1,7 +1,13 @@
+/* eslint-disable react/prop-types */
+import { useEffect } from 'react';
 import { data } from '../data';
 import "./styles/pedidos.css"
+import pruebaApi from '../api/pruebaapi';
+import './styles/pedidos.css';
 
 export const ProductList = ({
+	listMenus,
+	setListMenus,
 	allProducts,
 	setAllProducts,
 	countProducts,
@@ -10,13 +16,13 @@ export const ProductList = ({
 	setTotal,
 }) => {
 	const onAddProduct = product => {
-		if (allProducts.find(item => item.id === product.id)) {
+		if (allProducts.find(item => item._id === product._id)) {
 			const products = allProducts.map(item =>
-				item.id === product.id
+				item._id === product._id
 					? { ...item, quantity: item.quantity + 1 }
 					: item
 			);
-			setTotal(total + product.price * product.quantity);
+			setTotal(total + product.precio * product.quantity);
 			setCountProducts(countProducts + product.quantity);
 			return setAllProducts([...products]);
 		}
@@ -25,25 +31,45 @@ export const ProductList = ({
 		setCountProducts(countProducts + product.quantity);
 		setAllProducts([...allProducts, product]);
 	};
-
+	const cargarProductoDB = async () => {
+		try {
+			const resp = await pruebaApi.get('/admin/listarMenu');
+			setListMenus(resp.data.menus);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	// Cargar datos iniciales al montar el componente
+    useEffect(() => {
+        // Cargar productos desde la base de datos
+        cargarProductoDB();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 	return (
 		<div className='body-pedidos'>
-		<div className='container-items'>
-			{data.map(product => (
-				<div className='item' key={product.id}>
-					<figure>
-						<img src={product.img} alt={product.nameProduct} />
-					</figure>
-					<div className='info-product'>
-						<h2>{product.nameProduct}</h2>
-						<p className='price'>${product.price}</p>
-						<button onClick={() => onAddProduct(product)}>
-							Añadir al carrito
-						</button>
+			<div className='container-items product-list-container'>
+				{listMenus.map(product => (
+					<div className={`item ${product.estado === 'No Disponible' ? 'unavailable my-item' : 'my-item'}`} key={product._id}>
+						<figure>
+							<img src={product.imagen} alt={product.nombre} />
+						</figure>
+						<div className='info-product d-flex'>
+							<h2>{product.nombre}</h2>
+							<p className='category'>{product.categoria}</p>
+							<p className='details'>{product.detalle}</p>
+							<p className='price'>${product.precio}</p>
+							{product.estado === 'No Disponible' ? (
+								<p className='unavailable-text'>Disculpa, este producto no está disponible.</p>
+							) : (
+								<button className='add-to-cart-button'  onClick={() => onAddProduct(product)}>
+									Añadir al carrito
+								</button>
+							)}
+						</div>
 					</div>
-				</div>
-			))}
-		</div>
+				))}
+			</div>
 		</div>
 	);
+	
 };
