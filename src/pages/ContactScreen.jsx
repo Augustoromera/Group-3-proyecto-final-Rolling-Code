@@ -29,7 +29,7 @@ export const ContactScreen = () => {
           <div className="col-12 col-lg-6 px-lg-5 d-flex align-items-center ">
             <div>
               <h2 className='mb-5'>Completa el formulario con tus datos</h2>
-              <Form>
+              <Form className='container-fluid'>
                 <div className="row">
                   <div className="col-12 col-md-6 col-lg-6">
                     <Form.Group className="mb-3 " controlId="firstName">
@@ -75,7 +75,7 @@ export const ContactScreen = () => {
 
         <div className='text-center mb-4'>
           <h2 className='fw-bold display-5 mb-3'>Dónde estamos?</h2>
-          <div className="container">
+          <div className="container-fluid">
             <div className="row">
 
               <div className="col-12 col-md-6">
