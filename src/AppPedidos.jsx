@@ -22,6 +22,7 @@ function AppPedidos() {
 				setTotal={setTotal}
 				countProducts={countProducts}
 				setCountProducts={setCountProducts}
+				setActive={setCountProducts}
 			/>
 			<ProductList
 				listMenus={listMenus}

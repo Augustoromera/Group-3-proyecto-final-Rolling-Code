@@ -442,8 +442,8 @@
 		color 0.1s;
 }
 .add-to-cart-button {
-		font-weight: bold;
-		cursor: pointer;
+	font-weight: bold;
+	cursor: pointer;
 }
 .btn-clear-all:hover,
 .add-to-cart-button:hover {
@@ -458,4 +458,9 @@
 .closeCart:hover {
 	background-color: #dd5858;
 	color: #ffffff;
+}
+.description-pedidos {
+	font-size: 18px;
+	color: #666;
+	margin-left: 50px;
 }

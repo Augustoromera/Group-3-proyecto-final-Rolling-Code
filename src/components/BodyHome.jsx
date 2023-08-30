@@ -4,22 +4,44 @@ import '../pages/styles/bodyHome.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap'; 
+import MenuCard from '../components/CardMenu';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+
 
 export const BodyHome =  () => {
-  const menusHome = [
-  {
-    nombre: 'Menú 1',
-    imagen: 'https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_2000x1500__1.jpg',
-    detalle: 'Descripción del menú 1',
-  },
-  {
-    nombre: 'Menú 2',
-    imagen: 'https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_2000x1500__1.jpg',
-    detalle: 'Descripción del menú 2',
-  },
-  
-];
+  const elementosMenu = [
+    {
+      nombre: 'Hamburguesa Triple',
+      descripcion: 'Triple medallón con cheddar, bacon y salsa de barbacoa. ',
+      imagenSrc: 'https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_2000x1500__1.jpg',
+    },
+    {
+      nombre: 'Hamburguesa de Pollo',
+      descripcion: 'Medallón de Pollo, queso y cebolla.',
+      imagenSrc: 'https://cdn.sanity.io/images/jsdrzfkj/production-esmx/8ee515d04b117226e0c0d44743a9c285280c4ea0-1024x680.jpg?w=1100&q=100&fit=max',
+    },
+    {
+      nombre: 'Hamburguesa de Chorizo',
+      descripcion: 'Medallón de chorizo, con queso gratinado y pepinillos.',
+      imagenSrc: 'https://images.aws.nestle.recipes/original/8689e8d974203563ddcc9bbff91323c2_MG_CHORIZOBURGER_Main-880x660.png',
+    },
+    {
+      nombre: 'Doble Cheeseburger',
+      descripcion: 'Dos medallones de carne magra con 4 quesos y cebolla.',
+      imagenSrc: 'https://www.kitchensanctuary.com/wp-content/uploads/2021/05/Double-Cheeseburger-square-FS-42.jpg',
+    },
+    {
+      nombre: 'Hamburguesa quíntuple',
+      descripcion: '5 medallones de carne con cheddar y mucho bacon.',
+      imagenSrc: 'https://media.cdnp.elobservador.com.uy/082020/1597947923831.jpg?cw=800&ch=532',
+    },
+    {
+      nombre: 'Hamburguesa Vegetariana',
+      descripcion: 'Medallón de soya con remolacha con queso y rúcula.',
+      imagenSrc: 'https://thefoodtech.com/wp-content/uploads/2020/01/Hamburguesa-vegetariana.jpg',
+    },
+   
+  ];
 
 
   return (
@@ -72,7 +94,7 @@ export const BodyHome =  () => {
               <p className="text-center">Querés deleitar a todos tus invitados en tus reuniones? No tan solo vendemos por menor, sino que tenemos los mejores precios por mayor para vos!</p>
             </div>
           </div>
-          <div className="col-12 col-sm-6 col-md-4">
+          <div className="col-12  col-md-4">
             <div className="service-item">
               <FontAwesomeIcon className='service-icon' icon={faStoreSlash} />
               <h5 className="text-center text-uppercase poppins-regular font-weight-bold">Reservaciones de local</h5>
@@ -89,19 +111,24 @@ export const BodyHome =  () => {
           Nuestros menús más pedidos
         </h3>
         <br />
-        <div className="row">
-          {menusHome.map((menu) => (
-            <div key={menu.nombre} className="col-md-6 col-lg-3 mb-4">
-              <Card className="h-100">
-                <img src={menu.imagen} alt={menu.nombre} className="card-img-top img-fluid img-card-home" />
-                <Card.Body className="d-flex flex-column align-items-start">
-                  <Card.Title>{menu.nombre}</Card.Title>
-                  <Card.Text>{menu.detalle}</Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
-        </div>
+
+        <div className='home-menus row'>
+
+<div className='home-contenedor-cards-menus'>
+  {elementosMenu.map((elemento, index) => (
+    <div key={index} className='col-12 col-md-4 col-lg-2 p-2'>
+      <div className='custom-card mb-2'>
+        <MenuCard
+          nombre={elemento.nombre}
+          descripcion={elemento.descripcion}
+          imagenSrc={elemento.imagenSrc}
+        />
+      </div>
+    </div>
+  ))}
+</div>
+
+</div>
         <div className="text-center">
           <Link to="/pedidos" className="btn btn-warning btn-lg rounded-pill">
             Ver menús
@@ -125,7 +152,7 @@ export const BodyHome =  () => {
                   <h5>Encuéntranos también por nuestros canales de comunicación!</h5>
                   <a href="https://www.facebook.com/" className="btn btn-primary btn-lg mx-2" target="_blank"><i className="fa-brands fa-facebook"></i></a>
                   <a href="https://www.instagram.com/" className="btn btn-danger btn-lg mx-2" target="_blank"><i className="fa-brands fa-instagram"></i></a>
-                  <Link to="/contact" className="btn btn-success btn-lg mx-2" ><i className="fa-brands fa-whatsapp"></i></Link>
+                  <a className="btn btn-success btn-lg mx-2" href='https://www.whatsapp.com/?lang=es_LA' target='_blank'><FontAwesomeIcon icon={faWhatsapp} /></a>
                   </div>
                 </div>
               </div>

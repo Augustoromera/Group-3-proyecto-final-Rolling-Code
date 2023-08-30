@@ -15,21 +15,25 @@ export const ProductList = ({
 	setTotal,
 }) => {
 	const onAddProduct = product => {
-		if (allProducts.find(item => item._id === product._id)) {
-			const products = allProducts.map(item =>
+		const existingProduct = allProducts.find(item => item._id === product._id);
+		
+		if (existingProduct) {
+			const updatedProducts = allProducts.map(item =>
 				item._id === product._id
 					? { ...item, quantity: item.quantity + 1 }
 					: item
 			);
-			setTotal(total + product.precio * product.quantity);
-			setCountProducts(countProducts + product.quantity);
-			return setAllProducts([...products]);
+			setTotal(total + product.precio);
+			setCountProducts(countProducts + 1);
+			setAllProducts(updatedProducts);
+		} else {
+			const newProduct = { ...product, quantity: 1 };
+			setTotal(total + newProduct.precio);
+			setCountProducts(countProducts + 1);
+			setAllProducts([...allProducts, newProduct]);
 		}
-
-		setTotal(total + product.precio * product.quantity);
-		setCountProducts(countProducts + product.quantity);
-		setAllProducts([...allProducts, product]);
 	};
+	
 	const cargarProductoDB = async () => {
 		try {
 			const resp = await pruebaApi.get('/admin/listarMenu');
@@ -50,6 +54,7 @@ export const ProductList = ({
 	}, []);
 	return (
 		<div className='body-pedidos'>
+			<p className='description-pedidos'>           Explora nuestra selección de deliciosas hamburguesas argentinas y disfruta de su sabor auténtico.</p>
 			<div className='container-items product-list-container'>
 				{listMenus.map((product, index) => (
 					<div className={`item ${product.estado === 'No Disponible' ? 'unavailable my-item' : 'my-item'}`} key={index}>
