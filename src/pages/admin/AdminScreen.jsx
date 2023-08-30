@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { FaPlus } from 'react-icons/fa';
-import pruebaApi from '../../api/pruebaapi';
+import pruebaApi from '../../api/pruebaApi';
 import Header from '../../components/Header';
 import '../styles/adminscreen.css';
 import Swal from 'sweetalert2';
