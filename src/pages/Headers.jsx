@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 import "./styles/pedidos.css"
+import pruebaApi from '../api/pruebaapi';
 
 export const Headers = ({
 	allProducts,
@@ -46,42 +47,38 @@ export const Headers = ({
 		});
 	};
 	const handleButton = () => {
-		console.log("Hola")
-		// const usuario = JSON.parse(localStorage.getItem("currentUser"));
-		// const _idUser = usuario._id;
-		// const productosEnCarrito = allProducts;
-		// const menus = productosEnCarrito.map(item => ({ ...item }));
-		// const currentDate = new Date();
-		// const formattedDate = currentDate.toISOString();
-		// const estado = "pendiente"
-
-		// console.log(total);
-		// console.log(menus);
-		// console.log(formattedDate);
-		// console.log(estado);
-		// const importeTotal = menus.reduce((total, item) => total + item.precio, 0);
-		// console.log(_idUser)
-		// guardarPedidoDB(_idUser, formattedDate, menus, estado, importeTotal)
+		const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+		const usuario = currentUser._id;
+		const menus = allProducts;
+		const estado = "pendiente"
+		const importeTotal = total;
+		const currentDate = new Date();
+		const fecha = currentDate.toISOString();
+		console.log(usuario)
+		console.log(menus)
+		console.log(estado)
+		console.log(importeTotal)
+		console.log(fecha)
+		guardarPedidoDB(usuario, fecha, menus, estado, importeTotal)
 	};
-	// const guardarPedidoDB = async (usuario, fecha, menus, estado, importeTotal) => {
-	//     // try {
-	//     //     const resp = await pruebaApi.post('/pedido/nuevoPedido', {
-	//     //         usuario,
-	//     //         fecha,
-	//     //         menus,
-	//     //         estado,
-	//     //         importeTotal
-	//     //     });
-	//     //     console.log(resp);
-	//     // } catch (error) {
-	//     //     console.log(error)
-	//     // }
-	// }
+	const guardarPedidoDB = async (usuario, fecha, menus, estado, importeTotal) => {
+		try {
+			const resp = await pruebaApi.post('/pedido/nuevoPedido', {
+				usuario,
+				fecha,
+				menus,
+				estado,
+				importeTotal
+			});
+			console.log(resp);
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	return (
 		<header className='header-pedidos'>
-			<h1 className='title-pedidos'>TIENDA</h1>
-
+			<h1 className='title-pedidos'>Menú de Hamburguesas Rapiburger</h1>
 			<div className='container-icon'>
 				<div
 					className='container-cart-icon'
@@ -153,13 +150,13 @@ export const Headers = ({
 
 							<div className="cart-buttons">
 								<button className='btn-clear-all' onClick={onCleanCart}>
-									Vaciar Carrito
+									Vaciar carrito :(
 								</button>
 								<button className="btn-clear-all" onClick={handleButton}>
-									COMPRAR YA
+									COMPRAR
 								</button>
 								<button className="btn-clear-all" onClick={() => setActive(false)}>
-									Seguir Comprando
+									Ocultar
 								</button>
 							</div>
 						</>
