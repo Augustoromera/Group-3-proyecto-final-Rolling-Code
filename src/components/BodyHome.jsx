@@ -6,6 +6,7 @@ import {  faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-so
 import { Link } from 'react-router-dom';
 import MenuCard from '../components/CardMenu';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import Swal from 'sweetalert2';
 
 
 export const BodyHome =  () => {
@@ -42,6 +43,16 @@ export const BodyHome =  () => {
     },
    
   ];
+
+  const handleSolicitarPedido = () =>{
+    Swal.fire({
+      icon: 'warning',
+      title: '¡Atención!',
+      text: 'Primero debes iniciar sesión para poder realizar un pedido',
+      confirmButtonText: 'Ok',
+    });
+  };
+  
 
 
   return (
@@ -133,7 +144,11 @@ export const BodyHome =  () => {
           <Link to="/pedidos" className="btn btn-warning btn-lg rounded-pill">
             Ver menús
           </Link>
+          <button className="btn btn-warning btn-lg rounded-pill m-4" onClick={handleSolicitarPedido}>
+            Realizar un pedido
+          </button>
         </div>
+        
       </div>
       <hr />
 
