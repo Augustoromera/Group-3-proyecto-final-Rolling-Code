@@ -21,7 +21,7 @@ export const BodyHome =  () => {
       imagenSrc: 'https://cdn.sanity.io/images/jsdrzfkj/production-esmx/8ee515d04b117226e0c0d44743a9c285280c4ea0-1024x680.jpg?w=1100&q=100&fit=max',
     },
     {
-      nombre: 'Hamburguesa de Chorizo',
+      nombre: 'HamburChorizo',
       descripcion: 'Medallón de chorizo, con queso gratinado y pepinillos.',
       imagenSrc: 'https://images.aws.nestle.recipes/original/8689e8d974203563ddcc9bbff91323c2_MG_CHORIZOBURGER_Main-880x660.png',
     },
@@ -36,7 +36,7 @@ export const BodyHome =  () => {
       imagenSrc: 'https://media.cdnp.elobservador.com.uy/082020/1597947923831.jpg?cw=800&ch=532',
     },
     {
-      nombre: 'Hamburguesa Vegetariana',
+      nombre: 'Vegetariana',
       descripcion: 'Medallón de soya con remolacha con queso y rúcula.',
       imagenSrc: 'https://thefoodtech.com/wp-content/uploads/2020/01/Hamburguesa-vegetariana.jpg',
     },
