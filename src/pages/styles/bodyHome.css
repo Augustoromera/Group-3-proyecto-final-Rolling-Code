@@ -78,6 +78,7 @@
 	font-weight: 300;
 	font-size: 2rem;
 	margin-left: 0;
+	
   }
   .home-contenedor-cards-menus {
 	display: flex;
@@ -86,9 +87,7 @@
   
   .home-card-menus {
 	width: 100%;
-	height: 450px;
-	display: flex;
-	flex-direction: column;
+	height: 100%;
 	overflow: hidden;
 	padding: 0;
 	border-radius: 15px;
@@ -103,6 +102,10 @@
   }
   .home-contenedor-info-menus {
 	padding: 0.3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
   }
   .home-nombre-menus {
 	margin: 0;
@@ -114,7 +117,7 @@
   }
   
   .home-descripcion-menus {
-	margin: 0;
+	margin-top: 2rem;
 	
   } 
    
@@ -135,13 +138,44 @@
 	@media (min-width: 768px) {
 		.home-card-menus {
 		  width: 100%;
-		  height: 400px;
+		  height: 360px;
 		}
+		.home-nombre-menus {
+			margin: 0;
+			font-size: 1.1rem;
+			text-align: left;
+			color: var(--rojo);
+			font-weight: bolder;
+			margin-top: 0.2rem;
+		  }
 	  }
 
 	  @media (min-width: 1024px) {
 		.home-card-menus {
 		  width: 100%;
-		  height: 450px;
+		  height: 350px;
 		}
+		.home-nombre-menus {
+			margin: 0;
+			font-size: 0.9rem;
+			text-align: left;
+			color: var(--rojo);
+			font-weight: bolder;
+			margin-top: 0.2rem;
+		  }
+	  }
+
+	  @media (min-width: 1281px) {
+		.home-card-menus {
+		  width: 100%;
+		  height: 430px;
+		}
+		.home-nombre-menus {
+			margin: 0;
+			font-size: 1.5rem;
+			text-align: left;
+			color: var(--rojo);
+			font-weight: bolder;
+			margin-top: 0.2rem;
+		  }
 	  }
