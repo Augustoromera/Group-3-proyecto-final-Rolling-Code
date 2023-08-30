@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 import "./styles/pedidos.css"
-import pruebaApi from '../api/pruebaapi';
+import pruebaApi from '../api/pruebaApi';
 
 export const Headers = ({
 	allProducts,
@@ -163,7 +163,7 @@ export const Headers = ({
 
 					) : (
 						<button className="btn-clear-all closeCart" onClick={() => setActive(false)}>
-							Carrito Vacio Cerrar
+							Cerrar (Carrito vacío)
 						</button>
 					)}
 				</div>
