@@ -364,6 +364,9 @@
 .add-to-cart-button {
 	align-self: flex-end;
 }
+.title-pedido{
+	text-align: center;
+}
 @media (max-width: 990px) {
 	.container-cart-icon {
 		position: fixed;
@@ -483,14 +486,29 @@
 		height:220px ;	
 	}
 	
-	.info-product {
-		padding: 10px;
+	.product-image{
+		max-width: 70px;
+	}
+	.icon-close{
+		color: red;
+	}
+	.cart-product{
+		padding: 15px;
+	}
+	.btn-clear-all {
+		background-color: #fffb07;
+		color: #000000;
+		padding: 5px 10px;
+		margin: 5px;
+		border-radius: 35px;
+		margin-bottom: 10px;	
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);	
 	}
 
 	}
 
 	/* ----------Tarjetas laptop------------- */
-@media (max-width: 768px) {
+	@media (min-width: 768px) and (max-width: 1024px) {
 
 	.container-items {
 		gap: 10px;
@@ -504,6 +522,26 @@
 	
 	.info-product {
 		padding: 10px;
+	}
+	.product-image{
+		max-width: 70px;
+	}
+	.icon-close{
+		color: red;
+	}
+	.cart-product{
+		padding: 15px;
+		display: flex;
+		justify-content: space-around;
+	}
+	.btn-clear-all {
+		background-color: #fffb07;
+		color: #000000;
+		padding: 5px 10px;
+		margin: 5px;
+		border-radius: 35px;
+		margin-bottom: 10px;	
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);	
 	}
 
 	}
