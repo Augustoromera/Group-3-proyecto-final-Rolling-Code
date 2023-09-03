@@ -62,11 +62,11 @@ export const ProductList = ({
       <p className='description-pedidos'>Explora nuestra selección de deliciosas hamburguesas argentinas y disfruta de su sabor auténtico.</p>
       <div className='container-items product-list-container'>
         {listMenus.map((product, index) => (
-          <div className={`item ${product.estado === 'No Disponible' ? 'unavailable my-item' : 'my-item'}`} key={index}>
+          <div className={`item ${product.estado === 'No Disponible' ? 'unavailable item' : 'item'}`} key={index}>
             <figure>
-              <img src={product.imagen} alt={product.nombre} />
+              <img src={product.imagen} alt={product.nombre} className='img-menus' />
             </figure>
-            <div className='info-product d-flex'>
+            <div className='info-product'>
               <h2>{product.nombre}</h2>
               <p className='category'>{product.categoria}</p>
               <p className='details'>{product.detalle}</p>
