@@ -422,6 +422,7 @@
 		margin-bottom: 80px;
 	}
 }
+
 .cart-total.p {
 	padding: 0 20px;
 }
@@ -544,4 +545,23 @@
 		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);	
 	}
 
+	}
+
+	@media (min-width: 1024px) {
+		.container-cart-icon {
+			position: fixed;
+			bottom: 20px;
+			transform: translateX(-50%);
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 60%;
+			box-shadow:
+				0 4px 10px rgba(0, 0, 0, 0.2),
+				0 6px 12px rgba(0, 0, 0, 0.3);
+			z-index: 99;
+			display: flex;
+			align-items: end;
+			justify-content: end;
+			padding-bottom: 30px;
+		}
 	}
