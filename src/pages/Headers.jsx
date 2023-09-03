@@ -106,6 +106,8 @@ export const Headers = ({
 					{allProducts.length ? (
 						<>
 							<div className='row-product'>
+								<br />
+								<h2 className='title-pedido'>Pedido</h2>
 								{allProducts.map((product, index) => (
 									<div className='cart-product hd-cart' key={index}>
 										<div className='info-cart-product'>
