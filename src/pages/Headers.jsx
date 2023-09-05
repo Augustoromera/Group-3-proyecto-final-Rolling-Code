@@ -78,7 +78,7 @@ export const Headers = ({
 
 	return (
 		<header className='header-pedidos'>
-			<h1 className='title-pedidos'>Menú de Hamburguesas Rapiburger</h1>
+			<h1 className='title-pedidos text-center'>Menú de Hamburguesas Rapiburger</h1>
 			<div className='container-icon'>
 				<div
 					className='container-cart-icon'

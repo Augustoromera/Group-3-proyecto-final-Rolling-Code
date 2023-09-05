@@ -352,8 +352,23 @@
 }
 
 .title-pedidos {
-	margin-left: 2em;
+	font-size: 3em;
+    font-weight: 600;
+    color: #000000;
+    text-shadow: 0 0 5px #fff700,
+    0 0 25px #fff700, 
+    0 0 50px #fff700,
+    0 0 100px #fff700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transition: 1s;
+	margin-bottom: 1.5em;
+	text-align: center;
+	width: 100%;
+	margin-left: .8em;
 }
+
+
 .add-to-cart {
 	display: flex;
 	flex-direction: column;
@@ -462,7 +477,7 @@
 }
 .description-pedidos {
 	font-size: 18px;
-	color: #666;
+	color: #5e5e5e;
 	margin-left: 50px;
 }
 
@@ -565,3 +580,16 @@
 			padding-bottom: 30px;
 		}
 	}
+
+	/*Titulo de pedidos*/
+@media (max-width: 768px) {
+    .title-pedidos {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-pedidos {
+        font-size: 1.5em;
+    }
+}

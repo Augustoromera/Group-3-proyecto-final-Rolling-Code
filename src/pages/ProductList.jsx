@@ -59,7 +59,7 @@ export const ProductList = ({
 
   return (
     <div className='body-pedidos'>
-      <p className='description-pedidos'>Explora nuestra selección de deliciosas hamburguesas argentinas y disfruta de su sabor auténtico.</p>
+      <p className='description-pedidos'><i>Explora nuestra selección de deliciosas hamburguesas argentinas y disfruta de su sabor auténtico.</i></p>
       <div className='container-items product-list-container'>
         {listMenus.map((product, index) => (
           <div className={`item ${product.estado === 'No Disponible' ? 'unavailable item' : 'item'}`} key={index}>
