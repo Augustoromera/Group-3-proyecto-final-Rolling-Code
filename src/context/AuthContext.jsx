@@ -2,7 +2,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { registerRequest, loginRequest, verifyTokenRequest } from '../api/auth';
 import Cookies from 'js-cookie';
-
 export const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -43,9 +42,10 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await loginRequest(user);
       console.log(res.data); // Verifica la respuesta del inicio de sesión
-
-      setUser(res.data);
-      setIsAuthenticated(true);
+      setIsAuthenticated(true); 
+      console.log("first console")
+      console.log(isAuthenticated);
+      checkLogin();
     } catch (error) {
       console.log(error);
       setErrors(error.response.data.message);
@@ -57,32 +57,42 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     setIsAuthenticated(false);
   };
-
-  useEffect(() => {
-    async function checkLogin() {
-      const cookies = Cookies.get();
-
-      if (!cookies.token) {
+  async function checkLogin() {
+    const cookies = Cookies.get("token");
+    if (!cookies) {
+      console.log("NO ESTA")
+      setIsAuthenticated(false);
+      setUser(null);
+      setLoading(false);
+      return;
+    }
+    console.log("SI ESTA")
+    console.log(cookies)
+    console.log(Cookies.get("token"))
+    console.log(cookies.token)
+    try {
+      const res = await verifyTokenRequest(cookies.token);
+      if (!res.data) {
         setIsAuthenticated(false);
         setUser(null);
-        setLoading(false);
-        return;
-      }
-
-      try {
-        const res = await verifyTokenRequest(cookies.token);
-        if (!res.data) return setIsAuthenticated(false);
+      } else {
         setIsAuthenticated(true);
         setUser(res.data);
-        setLoading(false);
-      } catch (error) {
-        setIsAuthenticated(false);
-        setLoading(false);
       }
+      setLoading(false);
+      console.log("El usuario esta autenticado?" + isAuthenticated);
+    } catch (error) {
+      setIsAuthenticated(false);
+      setLoading(false);
     }
-    checkLogin();
-  }, []);
+  }
 
+  useEffect(() => {
+    checkLogin();
+  }, [])
+  useEffect(() => {
+    console.log("isAuthenticated cambió a:", isAuthenticated); // Esto mostrará el valor actualizado de isAuthenticated
+  }, [isAuthenticated]);
   return (
     <AuthContext.Provider
       value={{

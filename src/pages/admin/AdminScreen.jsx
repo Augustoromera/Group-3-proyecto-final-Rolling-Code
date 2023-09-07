@@ -560,6 +560,7 @@ export const AdminScreen = () => {
 
         // Cargar pedidos desde la base de datos
         cargarPedidosDB();
+
     }, []);
     //renderizado de componentes y elementos de la interfaz
     return (

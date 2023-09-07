@@ -50,7 +50,7 @@ function RegisterPage() {
     // Verificar si el email es de un administrador
     const adminEmails = ['paulo101@gmail.com', 'augusto101@gmail.com', 'nico101@gmail.com', 'santiago101@gmail.com'];
     const isAdmin = adminEmails.includes(values.email);
-    
+
     // Agrego propiedad "isAdmin" al objeto de registro
     values.isAdmin = isAdmin;
 
@@ -60,76 +60,76 @@ function RegisterPage() {
   return (
     <div className='contenedorTodo'>
       <Header />
-    <div className='contenedor1'>
-      <div className='contenedor2'>
-        {Array.isArray(registerErrors) ? (
-          registerErrors.map((error, i) => (
-            <div className='error-usuario' key={i}>
-              {error}
-            </div>
-          ))
-        ) : (
-          <div className='error-usuario'>{registerErrors}</div>
-        )}
-
-        <h1 className='titulo-lr'>Registro</h1>
-
-        <form onSubmit={onSubmit}>
-          <label htmlFor="username" className='labels'>Nombre de usuario ↓</label>
-          <input
-            type='text'
-            {...register("username", { required: true, minLength: 3 })}
-            className='inputsR'
-            placeholder='Ej: John Doe 10' id='username' maxLength={20}
-          />
-          {errors.username && (
-            <p className='texto-validacion'>El nombre de usuario es obligatorio</p>
+      <div className='contenedor1'>
+        <div className='contenedor2'>
+          {Array.isArray(registerErrors) ? (
+            registerErrors.map((error, i) => (
+              <div className='error-usuario' key={i}>
+                {error}
+              </div>
+            ))
+          ) : (
+            <div className='error-usuario'>{registerErrors}</div>
           )}
 
-          <label htmlFor="email" className='labels'>Correo eletrónico ↓</label>
-          <input
-            type='email'
-            {...register("email", { required: true })}
-            className='inputsR'
-            placeholder='Ej: John@gmail.com' id='email' maxLength={60}  onChange={(event) => setEmail(event.target.value)}
-          />
-          {errors.email && (
-            <p className='texto-validacion'>El email es obligatorio</p>
-          )}
-            
-          <label htmlFor="password" className='labels'>Contraseña ↓</label>
-          <input
-            type='password'
-            {...register("password", { required: true, minLength: 4 })}
-            className='inputsR'
-            placeholder='Contraseña'  id='password' maxLength={30}
-          />
-          {errors.password && (
-            <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
-          )}
+          <h1 className='titulo-lr'>Registro</h1>
 
-          <label htmlFor="confirmPassword" className='labels'>Confirmar contraseña ↓</label>
-          <input
-            type='password'
-            {...register("passwordConfirmation", { required: true })}
-            className='inputsR'
-            placeholder='Confirmar contraseña'  id='confirmPassword' maxLength={30}
-          />
-          {errors.passwordConfirmation && (
-            <p className='texto-validacion'>{errors.passwordConfirmation.message}</p>
-          )}
+          <form onSubmit={onSubmit}>
+            <label htmlFor="username" className='labels'>Nombre de usuario ↓</label>
+            <input
+              type='text'
+              {...register("username", { required: true, minLength: 3 })}
+              className='inputsR'
+              placeholder='Ej: John Doe 10' id='username' maxLength={20}
+            />
+            {errors.username && (
+              <p className='texto-validacion'>El nombre de usuario es obligatorio</p>
+            )}
 
-          <button type='submit' className='boton-login'>
-            Register
-          </button>
-        </form>
+            <label htmlFor="email" className='labels'>Correo eletrónico ↓</label>
+            <input
+              type='email'
+              {...register("email", { required: true })}
+              className='inputsR'
+              placeholder='Ej: John@gmail.com' id='email' maxLength={60} onChange={(event) => setEmail(event.target.value)}
+            />
+            {errors.email && (
+              <p className='texto-validacion'>El email es obligatorio</p>
+            )}
 
-        <p className='texto-loginR'>
-          Ya tienes una cuenta? <Link to='/login' className='link-login'>Ingresa aquí</Link>
-        </p>
+            <label htmlFor="password" className='labels'>Contraseña ↓</label>
+            <input
+              type='password'
+              {...register("password", { required: true, minLength: 4 })}
+              className='inputsR'
+              placeholder='Contraseña' id='password' maxLength={30}
+            />
+            {errors.password && (
+              <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
+            )}
+
+            <label htmlFor="confirmPassword" className='labels'>Confirmar contraseña ↓</label>
+            <input
+              type='password'
+              {...register("passwordConfirmation", { required: true })}
+              className='inputsR'
+              placeholder='Confirmar contraseña' id='confirmPassword' maxLength={30}
+            />
+            {errors.passwordConfirmation && (
+              <p className='texto-validacion'>{errors.passwordConfirmation.message}</p>
+            )}
+
+            <button type='submit' className='boton-login'>
+              Register
+            </button>
+          </form>
+
+          <p className='texto-loginR'>
+            Ya tienes una cuenta? <Link to='/login' className='link-login'>Ingresa aquí</Link>
+          </p>
+        </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </div>
   );
 }

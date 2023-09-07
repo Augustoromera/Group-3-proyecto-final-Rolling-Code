@@ -27,10 +27,10 @@ function AppLR() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/contact" element={<ContactScreen />} />
-          <Route path='/aboutus' element={<AboutUs />} />
-          <Route path="/pedidos" element={<AppPedidos/>} />
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/contact" element={<ContactScreen />} />
+        <Route path='/aboutus' element={<AboutUs />} />
+        <Route path="/pedidos" element={<AppPedidos />} />
 
         <Route element={<ProtectedRoute />}>
 
