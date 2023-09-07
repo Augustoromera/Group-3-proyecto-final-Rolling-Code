@@ -43,8 +43,6 @@ export const AuthProvider = ({ children }) => {
       const res = await loginRequest(user);
       console.log(res.data); // Verifica la respuesta del inicio de sesión
       setIsAuthenticated(true); 
-      console.log("first console")
-      console.log(isAuthenticated);
       checkLogin();
     } catch (error) {
       console.log(error);
@@ -60,16 +58,11 @@ export const AuthProvider = ({ children }) => {
   async function checkLogin() {
     const cookies = Cookies.get("token");
     if (!cookies) {
-      console.log("NO ESTA")
       setIsAuthenticated(false);
       setUser(null);
       setLoading(false);
       return;
     }
-    console.log("SI ESTA")
-    console.log(cookies)
-    console.log(Cookies.get("token"))
-    console.log(cookies.token)
     try {
       const res = await verifyTokenRequest(cookies.token);
       if (!res.data) {
@@ -80,7 +73,6 @@ export const AuthProvider = ({ children }) => {
         setUser(res.data);
       }
       setLoading(false);
-      console.log("El usuario esta autenticado?" + isAuthenticated);
     } catch (error) {
       setIsAuthenticated(false);
       setLoading(false);
