@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import "./styles/pedidos.css"
 import pruebaApi from '../api/pruebaApi';
 import './styles/pedidos.css';
+import { useAuth } from '../context/AuthContext';
 
 export const ProductList = ({
   listMenus,
@@ -14,6 +15,7 @@ export const ProductList = ({
   total,
   setTotal,
 }) => {
+  const {user}= useAuth();
   const onAddProduct = product => {
     const existingProduct = allProducts.find(item => item._id === product._id);
     if (existingProduct) {
@@ -31,7 +33,7 @@ export const ProductList = ({
       setCountProducts(countProducts + 1);
       setAllProducts([...allProducts, newProduct]);
     }
-    
+
     Swal.fire({
       icon: 'success',
       title: 'Añadido al carrito exitosamente',
@@ -42,10 +44,15 @@ export const ProductList = ({
 
   const cargarProductoDB = async () => {
     try {
-      const resp = await pruebaApi.get('/admin/listarMenu');
+      const resp = await pruebaApi.get('/api/admin-page/listarMenu', {
+        withCredentials: true,
+        headers: {
+          User: JSON.stringify(user),
+        },
+      });
       const productsWithQuantity = resp.data.menus.map(product => ({
         ...product,
-        quantity: 1 
+        quantity: 1
       }));
       setListMenus(productsWithQuantity);
     } catch (error) {

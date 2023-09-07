@@ -63,7 +63,7 @@ function Header() {
               <>
                 <Nav.Link as={Link} to="/pedidos" className='nav-link'>Pedidos</Nav.Link>
                 <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotros</Nav.Link>
-                <Nav.Link as={Link} to="/contact" className="nav-link">Contacto</Nav.Link>
+                <Nav.Link as={Link} to="/contact" className="nav-link">Contactoo</Nav.Link>
                 <Nav.Link as={Link} className='link-nav' to="/" onClick={() => {
                   logout();
                 }}>Logout</Nav.Link>

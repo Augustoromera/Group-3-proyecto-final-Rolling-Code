@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import "./styles/pedidos.css"
 import pruebaApi from '../api/pruebaApi';
+import { useAuth } from '../context/AuthContext';
 
 export const Headers = ({
 	allProducts,
@@ -13,7 +14,7 @@ export const Headers = ({
 	setTotal,
 }) => {
 	const [active, setActive] = useState(false);
-
+	const { user } = useAuth();
 	const onDeleteProduct = product => {
 		const results = allProducts.filter(
 			item => item._id !== product._id
@@ -47,9 +48,8 @@ export const Headers = ({
 		});
 	};
 	const handleButton = () => {
-		const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-		const usuario = currentUser._id;
-		const menus = allProducts;
+		const usuario = user.id;
+		const menus = allProducts.map(product => product._id);
 		const estado = "pendiente"
 		const importeTotal = total;
 		const currentDate = new Date();
@@ -63,12 +63,12 @@ export const Headers = ({
 	};
 	const guardarPedidoDB = async (usuario, fecha, menus, estado, importeTotal) => {
 		try {
-			const resp = await pruebaApi.post('/pedido/nuevoPedido', {
-				usuario,
-				fecha,
-				menus,
-				estado,
-				importeTotal
+			const resp = await pruebaApi.post('/api/pedidos/nuevoPedido', {
+				usuario: usuario,
+				fecha: fecha,
+				menus: menus,
+				estado: estado,
+				importeTotal: importeTotal
 			});
 			console.log(resp);
 		} catch (error) {

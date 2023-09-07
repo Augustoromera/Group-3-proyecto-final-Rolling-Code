@@ -9,10 +9,11 @@ import EditMenuModal from '../../components/admin-components/EditMenuModal';
 import AddUserModal from '../../components/admin-components/AddUserModal';
 import AddMenuModal from '../../components/admin-components/AddMenuModal';
 import EditUserModal from '../../components/admin-components/EditUserModal';
-
+import { useAuth } from '../../context/AuthContext';
 
 
 export const AdminScreen = () => {
+    const { user } = useAuth();
     // Variables de estado
     const [cargarUsuarios, setCargarUsuarios] = useState([]);
     const [cargarPedidos, setCargarPedidos] = useState([]);
@@ -189,7 +190,7 @@ export const AdminScreen = () => {
         });
         guardarUsuarioDb(username, email, status, password, role);
 
-        // recargarPagina()
+        recargarPagina()
     };
     // Función para manejar el envío del formulario de editar usuario
     const handleSubmitFormUserEditar = (e) => {
@@ -294,14 +295,19 @@ export const AdminScreen = () => {
     // Funciones para interactuar con la API que permiten operaciones CRUD (Crear, Leer, Actualizar, Eliminar) 
     const editarProductoDb = async (_id, nombre, imagen, estado, precio, detalle, categoria) => {
         try {
-            const resp = await pruebaApi.put('/admin/editarMenu', {
+            const resp = await pruebaApi.put('/api/admin-page/editarMenu', {
                 _id,
                 nombre,
                 imagen,
                 estado,
                 precio,
                 detalle,
-                categoria
+                categoria,
+            }, {
+                withCredentials: true,
+                headers: {
+                    User: JSON.stringify(user),
+                },
             });
             console.log(resp);
         } catch (error) {
@@ -311,12 +317,17 @@ export const AdminScreen = () => {
     const editarUsuarioDb = async (_id, username, email, status, role) => {
 
         try {
-            const resp = await pruebaApi.put('/admin/editarUsuario', {
+            const resp = await pruebaApi.put('/api/admin-page/editarUsuario', {
                 _id,
                 username,
                 email,
                 status,
                 role
+            }, {
+                withCredentials: true,
+                headers: {
+                    User: JSON.stringify(user),
+                },
             });
             console.log(resp);
         } catch (error) {
@@ -326,9 +337,14 @@ export const AdminScreen = () => {
     const editarPedidoDb = async (_id, status) => {
 
         try {
-            const resp = await pruebaApi.put('/admin/completarPedido', {
-                _id,
-                status
+            const resp = await pruebaApi.put('/api/admin-page/completarPedido', {
+                _id: _id,
+                estado: status
+            }, {
+                withCredentials: true,
+                headers: {
+                    User: JSON.stringify(user),
+                },
             });
             console.log(resp);
         } catch (error) {
@@ -338,13 +354,18 @@ export const AdminScreen = () => {
 
     const guardarProductoDb = async (nombre, estado, precio, detalle, categoria, imagen) => {
         try {
-            const resp = await pruebaApi.post('/admin/nuevoMenu', {
+            const resp = await pruebaApi.post('/api/admin-page/nuevoMenu', {
                 nombre,
                 estado,
                 precio,
                 detalle,
                 categoria,
                 imagen
+            }, {
+                withCredentials: true,
+                headers: {
+                    User: JSON.stringify(user),
+                },
             });
             console.log(resp);
         } catch (error) {
@@ -353,12 +374,17 @@ export const AdminScreen = () => {
     }
     const guardarUsuarioDb = async (username, email, status, password, role) => {
         try {
-            const resp = await pruebaApi.post('/admin/nuevoUsuario', {
+            const resp = await pruebaApi.post('api/admin-page/nuevoUsuario', {
                 username,
                 email,
                 status,
                 password,
                 role
+            }, {
+                withCredentials: true,
+                headers: {
+                    User: JSON.stringify(user),
+                },
             });
             console.log(resp);
         } catch (error) {
@@ -368,15 +394,26 @@ export const AdminScreen = () => {
 
     const cargarUserDB = async () => {
         try {
-            const resp = await pruebaApi.get('/admin/listarUsuarios');
+            const resp = await pruebaApi.get('/api/admin-page/listarUsuarios', {
+                withCredentials: true,
+                headers: {
+                    User: JSON.stringify(user),
+                },
+            });
             setCargarUsuarios(resp.data.usuarios);
         } catch (error) {
             console.log(error);
         }
     };
+
     const cargarPedidosDB = async () => {
         try {
-            const resp = await pruebaApi.get('/admin/listarPedido');
+            const resp = await pruebaApi.get('/api/admin-page/listarPedido', {
+                withCredentials: true,
+                headers: {
+                    User: JSON.stringify(user),
+                },
+            });
             setCargarPedidos(resp.data.pedidos);
         } catch (error) {
             console.log(error);
@@ -384,7 +421,12 @@ export const AdminScreen = () => {
     };
     const cargarProductoDB = async () => {
         try {
-            const resp = await pruebaApi.get('/admin/listarMenu');
+            const resp = await pruebaApi.get('/api/admin-page/listarMenu', {
+                withCredentials: true,
+                headers: {
+                    User: JSON.stringify(user),
+                },
+            });
             setCargarProducto(resp.data.menus);
         } catch (error) {
             console.log(error);
@@ -401,7 +443,12 @@ export const AdminScreen = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const resp = await pruebaApi.delete(`/admin/eliminarMenu/${id}`);
+                    const resp = await pruebaApi.delete(`/api/admin-page/eliminarMenu/${id}`, {
+                        withCredentials: true,
+                        headers: {
+                            User: JSON.stringify(user),
+                        },
+                    });
                     console.log(resp);
                     Swal.fire({
                         icon: 'success',
@@ -436,7 +483,12 @@ export const AdminScreen = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const resp = await pruebaApi.delete(`/admin/eliminarUsuario/${id}`);
+                    const resp = await pruebaApi.delete(`/api/admin-page/eliminarUsuario/${id}`, {
+                        withCredentials: true,
+                        headers: {
+                            User: JSON.stringify(user),
+                        },
+                    });
                     console.log(resp);
                     Swal.fire({
                         icon: 'success',
@@ -488,8 +540,8 @@ export const AdminScreen = () => {
         });
     };
     const cambiarEstadoCick = async (pedido) => {
-        const { _id, status } = pedido;
-        const lowerCasestatus = status ? status.toLowerCase() : "completado";
+        const { _id, estado } = pedido;
+        const lowerCasestatus = estado ? estado.toLowerCase() : "completado";
         const newstatus = lowerCasestatus === "pendiente" ? "completado" : "pendiente";
 
         if (!_id) {
@@ -510,7 +562,7 @@ export const AdminScreen = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 editarPedidoDb(_id, newstatus);
-                recargarPagina();
+                // recargarPagina();
             }
         });
     };
@@ -727,7 +779,7 @@ export const AdminScreen = () => {
                                         <tr>
                                             <td>{pedido._id}</td>
                                             <td>
-                                                {cargarUsuarios.find(usuario => usuario._id === pedido.usuario)?.name || "Usuario con ese ID no encontrado"}
+                                                {cargarUsuarios.find(usuario => usuario._id === pedido.usuario)?.username || "Usuario con ese ID no encontrado"}
                                             </td>
                                             <td>
                                                 {new Intl.DateTimeFormat('es-AR', {
