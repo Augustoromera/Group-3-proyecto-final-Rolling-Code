@@ -54,11 +54,6 @@ export const Headers = ({
 		const importeTotal = total;
 		const currentDate = new Date();
 		const fecha = currentDate.toISOString();
-		console.log(usuario)
-		console.log(menus)
-		console.log(estado)
-		console.log(importeTotal)
-		console.log(fecha)
 		guardarPedidoDB(usuario, fecha, menus, estado, importeTotal)
 	};
 	const guardarPedidoDB = async (usuario, fecha, menus, estado, importeTotal) => {
