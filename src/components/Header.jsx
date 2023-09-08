@@ -7,9 +7,25 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import "../pages/styles/header.css";
 import logoTipo from '../assets/images/logo/logotipo.png'
+import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert2';
 
 function Header() {
   const { isAuthenticated, logout, user } = useAuth();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    swal.fire({
+      title: "Cerrando sesión...",
+      timer: 2000, // Espera 2 segundos antes de redirigir
+      buttons: false,
+      icon:"success",
+      position:"center",
+    }).then(() => {
+      logout();
+      navigate("/"); // Navega al home ("/") después de cerrar sesión
+    });
+  };
+
   if (user === null) {
     return (
       <Navbar expand="lg" className="bg-body-tertiary navbarmain" bg="dark" data-bs-theme="dark">
@@ -53,9 +69,7 @@ function Header() {
                 <Nav.Link as={Link} to="/pedidos" className='nav-link'>Pedidos</Nav.Link>
                 <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotros</Nav.Link>
                 <Nav.Link as={Link} to="/contact" className="nav-link">Contacto</Nav.Link>
-                <Nav.Link as={Link} className='nav-link' to="/" onClick={() => {
-                  logout();
-                }}>Cerrar sesión</Nav.Link>
+                <Nav.Link as={Link} className='nav-link' to="/" onClick={handleLogout}>Cerrar sesión</Nav.Link>
               </>
             )}
             {/* Mostrar elementos de usuario normal */}
@@ -64,9 +78,7 @@ function Header() {
                 <Nav.Link as={Link} to="/pedidos" className='nav-link'>Pedidos</Nav.Link>
                 <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotros</Nav.Link>
                 <Nav.Link as={Link} to="/contact" className="nav-link">Contacto</Nav.Link>
-                <Nav.Link as={Link} className='nav-link' to="/" onClick={() => {
-                  logout();
-                }}>Cerrar sesión</Nav.Link>
+                <Nav.Link as={Link} className='nav-link' to="/" onClick={handleLogout}>Cerrar sesión</Nav.Link>
               </>
             ) : ("")}
 

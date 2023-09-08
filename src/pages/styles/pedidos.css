@@ -369,6 +369,11 @@
 }
 
 
+.unavailable-text{
+	color: red;
+}
+
+
 .add-to-cart {
 	display: flex;
 	flex-direction: column;
