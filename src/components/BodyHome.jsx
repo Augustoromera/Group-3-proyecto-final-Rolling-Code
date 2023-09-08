@@ -141,11 +141,9 @@ export const BodyHome =  () => {
 
 </div>
         <div className="text-center">
-          <Link to="/pedidos" className="btn btn-warning btn-lg rounded-pill">
-            Ver menús
-          </Link>
+          
           <button className="btn btn-warning btn-lg rounded-pill m-4" onClick={handleSolicitarPedido}>
-            Realizar un pedido
+            Ver menús para realizar un pedido
           </button>
         </div>
         

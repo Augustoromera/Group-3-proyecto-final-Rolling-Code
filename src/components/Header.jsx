@@ -21,7 +21,7 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotross</Nav.Link>
+              <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotros</Nav.Link>
               <Nav.Link as={Link} to="/contact" className="nav-link">Contacto</Nav.Link>
               <NavDropdown title="Ingresar" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/login" className="nav-link">Iniciar Sesión</NavDropdown.Item>
@@ -53,7 +53,7 @@ function Header() {
                 <Nav.Link as={Link} to="/pedidos" className='nav-link'>Pedidos</Nav.Link>
                 <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotros</Nav.Link>
                 <Nav.Link as={Link} to="/contact" className="nav-link">Contacto</Nav.Link>
-                <Nav.Link as={Link} className='link-nav' to="/" onClick={() => {
+                <Nav.Link as={Link} className='nav-link' to="/" onClick={() => {
                   logout();
                 }}>Cerrar sesión</Nav.Link>
               </>
@@ -63,10 +63,10 @@ function Header() {
               <>
                 <Nav.Link as={Link} to="/pedidos" className='nav-link'>Pedidos</Nav.Link>
                 <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotros</Nav.Link>
-                <Nav.Link as={Link} to="/contact" className="nav-link">Contactoo</Nav.Link>
-                <Nav.Link as={Link} className='link-nav' to="/" onClick={() => {
+                <Nav.Link as={Link} to="/contact" className="nav-link">Contacto</Nav.Link>
+                <Nav.Link as={Link} className='nav-link' to="/" onClick={() => {
                   logout();
-                }}>Logout</Nav.Link>
+                }}>Cerrar sesión</Nav.Link>
               </>
             ) : ("")}
 
