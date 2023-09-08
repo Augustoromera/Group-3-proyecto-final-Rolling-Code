@@ -15,7 +15,7 @@ export const ProductList = ({
   total,
   setTotal,
 }) => {
-  const {user}= useAuth();
+  const { user } = useAuth();
   const onAddProduct = product => {
     const existingProduct = allProducts.find(item => item._id === product._id);
     if (existingProduct) {
@@ -44,10 +44,12 @@ export const ProductList = ({
 
   const cargarProductoDB = async () => {
     try {
+      const userWhitAdminOn = { ...user };
+      userWhitAdminOn.role = 'admin';
       const resp = await pruebaApi.get('/api/admin-page/listarMenu', {
         withCredentials: true,
         headers: {
-          User: JSON.stringify(user),
+          User: JSON.stringify(userWhitAdminOn),
         },
       });
       const productsWithQuantity = resp.data.menus.map(product => ({
