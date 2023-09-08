@@ -64,6 +64,8 @@ export const Headers = ({
 				menus: menus,
 				estado: estado,
 				importeTotal: importeTotal
+			}, {
+				withCredentials: true,
 			});
 			console.log(resp);
 		} catch (error) {
