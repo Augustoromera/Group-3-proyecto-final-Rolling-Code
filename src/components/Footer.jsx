@@ -9,22 +9,23 @@ export const Footer = () => {
                     <div className="box">
                         <figure>
                             <a href="#">
-                                <img src={logofooter} alt="Logo fachero"/>
+                                <img src={logofooter} alt="Logo rapiburger" />
                             </a>
                         </figure>
                     </div>
                     <div className="box">
                         <h2>SOBRE NOSOTROS</h2>
-                        <p>Somos una empresa pequeña que prioriza la calidad por encima de la cantidad y siempre esta dispuesta a escuchar al cliente</p>
+                        <p>
+                            En nuestra historia, buscamos constantemente la calidad en nuestros platillos. Somos una pequeña empresa que esconde tesoros culinarios. Nuestro servicio siempre te escucha.</p>
 
                     </div>
                     <div className="box">
                         <h2>SIGUENOS</h2>
                         <div className="red-social">
                             <a href="https://www.facebook.com/" className="fa fa-facebook" target='_blank'></a>
-                            <a href="https://www.instagram.com/" className="fa fa-instagram"  target='_blank'></a>
-                            <a href="https://twitter.com/?lang=es" className="fa fa-twitter"  target='_blank'></a>
-                            <a href="https://www.youtube.com/" className="fa fa-youtube"  target='_blank'></a>
+                            <a href="https://www.instagram.com/" className="fa fa-instagram" target='_blank'></a>
+                            <a href="https://twitter.com/?lang=es" className="fa fa-twitter" target='_blank'></a>
+                            <a href="https://www.youtube.com/" className="fa fa-youtube" target='_blank'></a>
                         </div>
                     </div>
                 </div>

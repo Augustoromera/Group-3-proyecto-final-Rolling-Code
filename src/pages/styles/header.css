@@ -13,17 +13,40 @@
     border-radius: 50% !important;
 }
 
-nav.navbarmain .basic-nav-dropdown {
-    background-color: #25252570 !important;
+nav.navbarmain .basic-nav-dropdown.navbarmain .basic-nav-dropdown {
+    background-color: #ff0000 !important;
     color: white;
     backdrop-filter: blur(15px);
 }
-
+.nav-link {
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease !important;
+}
 .nav-link:hover {
-    color: white !important;
+    
+    background-color: black !important;
+    color: #ffc107 !important;
 }
 
-.navbarmain{
+.navbarmain {
     position: relative;
     z-index: 999;
+}
+.navbar-image {
+    width: 60px;
+    height: auto;
+    transition: all 300ms ease;
+}
+
+.navbar-image:hover {
+    transform: scale(1.3);
+    filter: brightness(1.5);
+}
+.brand-text:hover {
+    color: #ffc107; /* Cambia el color a amarillo al hacer hover */
+    transition: color 0.3s; /* Agrega una transición suave */
+}
+.show {
+    background-color: black !important;
 }

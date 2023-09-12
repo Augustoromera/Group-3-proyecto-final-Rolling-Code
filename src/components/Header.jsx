@@ -18,8 +18,8 @@ function Header() {
       title: "Cerrando sesión...",
       timer: 2000, // Espera 2 segundos antes de redirigir
       buttons: false,
-      icon:"success",
-      position:"center",
+      icon: "success",
+      position: "center",
     }).then(() => {
       logout();
       navigate("/"); // Navega al home ("/") después de cerrar sesión
@@ -28,12 +28,14 @@ function Header() {
 
   if (user === null) {
     return (
-      <Navbar expand="lg" className="bg-body-tertiary navbarmain" bg="dark" data-bs-theme="dark">
+      <Navbar variant="dark" className="navbarmain" style={{ backgroundColor: 'black' }}>
+
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <img src={logoTipo} className="d-inline-block icon-burger" alt="Logo" />
-            Rapiburgers
+            <img src={logoTipo} className="d-inline-block icon-burger navbar-image me-3" alt="Logo" />
+            <span className="brand-text">Rapiburgers</span>
           </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
@@ -50,11 +52,11 @@ function Header() {
     );
   }
   return (
-    <Navbar expand="lg" className="bg-body-tertiary navbarmain" bg="dark" data-bs-theme="dark">
+    <Navbar variant="dark" className="navbarmain" style={{ backgroundColor: 'black' }}>
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img src={logoTipo} className="d-inline-block icon-burger" alt="Logo" />
-          Rapiburgers
+          <span className="brand-text">Rapiburgers</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
