@@ -28,7 +28,7 @@ function Header() {
 
   if (user === null) {
     return (
-      <Navbar variant="dark" className="navbarmain" style={{ backgroundColor: 'black' }}>
+      <Navbar expand="lg" data-bs-theme="dark" className=" navbarmain" style={{ backgroundColor: 'black' }}>
 
         <Container>
           <Navbar.Brand as={Link} to="/">
@@ -52,7 +52,7 @@ function Header() {
     );
   }
   return (
-    <Navbar variant="dark" className="navbarmain" style={{ backgroundColor: 'black' }}>
+    <Navbar expand="lg" data-bs-theme="dark" className=" navbarmain" style={{ backgroundColor: 'black' }}>
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img src={logoTipo} className="d-inline-block icon-burger" alt="Logo" />

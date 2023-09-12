@@ -51,15 +51,15 @@ export const BodyHome = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-lg-6">
-            <img src="src/assets/images/nosotros/hamburguesa-nosotros-2.jpg" className='img-fluid rounded shadow-sm h-100 w-100 ' alt="imagen de hamburguesa" />
+            <img src="src/assets/images/nosotros/hamburguesa-nosotros-2.jpg" className='img-fluid rounded shadow-sm my-img' alt="imagen de hamburguesa" />
           </div>
           <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start ">
             <div className='d-flex flex-column align-items-start' >
-              <h1 className='display-2 fw-bold d-flex flex-column align-items-center'>Sobre Nosotros</h1>
-              <h1 className='text-center display-5'>Rapiburgers</h1>
-              <h5 className='text-xl'>Bienvenidos a nuestro apasionante mundo de sabores en el restaurante de hamburguesas. En nuestro establecimiento, fusionamos la tradición de las hamburguesas clásicas con una dosis de innovación culinaria, creando una experiencia gastronómica que deleita a los amantes de la comida en cada mordisco. </h5>
+              <h1 className='display-2 fw-bold d-flex flex-column align-items-center m-2'>Sobre Nosotros</h1>
+              <h1 className='text-center display-5 m-2'>Rapiburgers</h1>
+              <h5 className='text-xl m-2'>Bienvenidos a nuestro apasionante mundo de sabores en el restaurante de hamburguesas. En nuestro establecimiento, fusionamos la tradición de las hamburguesas clásicas con una dosis de innovación culinaria, creando una experiencia gastronómica que deleita a los amantes de la comida en cada mordisco. </h5>
               <br />
-              <Link to="/aboutus" className="btn btn-warning btn-lg rounded-pill">Ver más</Link>
+              <Link to="/aboutus" className="btn btn-warning btn-lg rounded-pill m-2">Ver más</Link>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ export const BodyHome = () => {
 
           <div className='home-contenedor-cards-menus'>
             {cargarProducto.map((elemento, index) => (
-              <div key={index} className='col-12 col-md-4 col-lg-2 p-2'>
+              <div key={index} className='col-12 col-sm-6 col-md-4 col-lg-2 p-2'>
                 <div className='custom-card mb-2'>
                   <MenuCard
                     nombre={elemento.nombre}
