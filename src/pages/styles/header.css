@@ -50,3 +50,7 @@ nav.navbarmain .basic-nav-dropdown.navbarmain .basic-nav-dropdown {
 .show {
     background-color: black !important;
 }
+
+.nav-welcome{
+    color: #ffc107 !important;
+}

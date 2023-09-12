@@ -65,6 +65,7 @@ function Header() {
             {/*Mostrar enlace de administrador solo si el usuario es un administrador */}
             {isAuthenticated && user.role === 'admin' && (
               <>
+                <Nav.Link as={Link} to="/" className='nav-welcome'>Bienvenid@ {user.username}!</Nav.Link>
                 <Nav.Link as={Link} to="/admin" className='nav-link'>
                   Administración
                 </Nav.Link>
@@ -77,6 +78,7 @@ function Header() {
             {/* Mostrar elementos de usuario normal */}
             {(isAuthenticated && !(user.role === 'admin')) ? (
               <>
+                <Nav.Link as={Link} to="/" className='nav-welcome'>Bienvenid@ {user.username}!</Nav.Link>
                 <Nav.Link as={Link} to="/pedidos" className='nav-link'>Pedidos</Nav.Link>
                 <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotros</Nav.Link>
                 <Nav.Link as={Link} to="/contact" className="nav-link">Contacto</Nav.Link>
