@@ -66,7 +66,7 @@ function Header() {
             {isAuthenticated && user.role === 'admin' && (
               <>
                 <Nav.Link as={Link} to="/admin" className='nav-link'>
-                  Página de Administrador
+                  Administración
                 </Nav.Link>
                 <Nav.Link as={Link} to="/pedidos" className='nav-link'>Pedidos</Nav.Link>
                 <Nav.Link as={Link} to="/aboutus" className="nav-link">Sobre Nosotros</Nav.Link>
