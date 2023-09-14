@@ -120,10 +120,10 @@ export const BodyHome = () => {
       {/* ----------------sobre nosotros---------------- */}
       <div className="container-fluid">
         <div className="row">
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 espacio-mBlanco">
             <img src="src/assets/images/nosotros/hamburguesa-nosotros-2.jpg" className='img-fluid rounded shadow-sm my-img' alt="imagen de hamburguesa" />
           </div>
-          <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start ">
+          <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start">
             <div className='d-flex flex-column align-items-start' >
               <h1 className='display-2 fw-bold d-flex flex-column align-items-center m-2'>Sobre Rapiburgers</h1>
               <h1 className='text-center display-5 m-2'>Pasión por las Hamburguesas</h1>

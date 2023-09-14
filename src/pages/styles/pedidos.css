@@ -1,5 +1,7 @@
 /* Globales */
-
+img{
+	object-fit: cover !important;
+}
 .body-pedidos {
 	margin: 0 auto;
 	max-width: 1600px;

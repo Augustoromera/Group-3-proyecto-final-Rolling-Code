@@ -1,197 +1,223 @@
+img{
+	   object-fit: cover !important;
+}
+
+@media (min-width:1400px){
+ .espacio-mBlanco{
+	 margin-right: -50px;
+ }
+}
+
+@media (min-width:1600px){
+ .espacio-mBlanco{
+	 margin-right: -150px;
+ }
+}
+
+@media (min-width:1800px){
+ .espacio-mBlanco{
+	 margin-right: -200px;
+ }
+}
+
+@media (min-width:1900px){
+ .espacio-mBlanco{
+	 margin-right: -300px;
+ }
+}
+
 .banner {
-	height: 95vh;
-	position: relative;
-	background-position: center;
-	background-image: url("../../assets/banner/hambur1.jpg");
-	background-size: cover;
-	animation: banner 15s infinite linear;
+ height: 95vh;
+ position: relative;
+ background-position: center;
+ background-image: url("/src/assets/banner/hambur1.jpg");
+ background-size: cover;
+ animation: banner 15s infinite linear;
 }
 .banner-body {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	height: 100%;
-	color: #fff;
-	font-family: "poppinsregular";
-	text-align: center;
+ position: relative;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ height: 100%;
+ color: #fff;
+ font-family: "poppinsregular";
+ text-align: center;
 }
 .banner::before {
-	content: "";
-	background: #000000;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	opacity: 0.4;
+ content: "";
+ background: #000000;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ opacity: 0.4;
 }
 
 .container-web-page {
-	padding-top: 50px;
-	padding-bottom: 30px;
+ padding-top: 50px;
+ padding-bottom: 30px;
 }
 
 .service-item {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
 }
 
 .service-icon {
-	width: 150px;
-	height: 150px;
+ width: 150px;
+ height: 150px;
 }
 
 .home-menus {
-	margin-top: 1rem;
-	padding: 1rem;
+ margin-top: 1rem;
+ padding: 1rem;
 }
 .home-menus-tituloMenu {
-	font-weight: 300;
-	font-size: 2rem;
-	margin-left: 0;
+ font-weight: 300;
+ font-size: 2rem;
+ margin-left: 0;
 }
 .home-contenedor-cards-menus {
-	display: flex;
-	flex-wrap: wrap;
+ display: flex;
+ flex-wrap: wrap;
 }
 
 .home-card-menus {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	padding: 0;
-	border-radius: 15px;
-	-webkit-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.23);
-	-moz-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.23);
-	box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.23);
+ width: 100%;
+ height: 100%;
+ overflow: hidden;
+ padding: 0;
+ border-radius: 15px;
+ box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.23);
 }
 .home-imagen-menus {
-	width: 100%;
-	aspect-ratio: 1/1;
+ width: 100%;
+ aspect-ratio: 1/1;
 	object-fit: cover;
 }
 .home-contenedor-info-menus {
-	padding: 0.3rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+ padding: 0.3rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: center;
 }
 .home-nombre-menus {
-	margin: 0;
-	font-size: 1.5rem;
-	text-align: left;
-	color: var(--rojo);
-	font-weight: bolder;
-	margin-top: 0.2rem;
+ margin: 0;
+ font-size: 1.5rem;
+ text-align: left;
+ color: var(--rojo);
+ font-weight: bolder;
+ margin-top: 0.2rem;
 }
 
 .home-descripcion-menus {
-	margin-top: 2rem;
+ margin-top: 2rem;
 }
 
 .custom-card {
-	margin-bottom: 1rem;
+ margin-bottom: 1rem;
 }
 
 @media (max-width: 767px) {
-	.home-card-menus {
-		width: 90%;
-		height: 30%;
-		margin: 0 auto;
-	}
+ .home-card-menus {
+	 width: 90%;
+	 height: 30%;
+	 margin: 0 auto;
+ }
 }
 
 @media (min-width: 768px) {
-	.home-card-menus {
-		width: 100%;
-		height: 360px;
-	}
-	.home-nombre-menus {
-		margin: 0;
-		font-size: 1.1rem;
-		text-align: left;
-		color: var(--rojo);
-		font-weight: bolder;
-		margin-top: 0.2rem;
-	}
+ .home-card-menus {
+	 width: 100%;
+	 height: 455px;
+ }
+ .home-nombre-menus {
+	 margin: 0;
+	 font-size: 1.2rem;
+	 text-align: left;
+	 color: var(--rojo);
+	 font-weight: bolder;
+	 margin-top: 0.2rem;
+ }
 }
 
 @media (min-width: 1024px) {
-	.home-card-menus {
-		width: 100%;
-		height: 350px;
-	}
-	.home-nombre-menus {
-		margin: 0;
-		font-size: 0.9rem;
-		text-align: left;
-		color: var(--rojo);
-		font-weight: bolder;
-		margin-top: 0.2rem;
-	}
+ .home-card-menus {
+	 width: 100%;
+	 height: 370px;
+ }
+ .home-nombre-menus {
+	 margin: 0;
+	 font-size: 0.9rem;
+	 text-align: left;
+	 color: var(--rojo);
+	 font-weight: bolder;
+	 margin-top: 0.2rem;
+ }
 }
 
 @media (min-width: 1281px) {
-	.home-card-menus {
-		width: 100%;
-		height: 430px;
-	}
-	.home-nombre-menus {
-		margin: 0;
-		font-size: 1.5rem;
-		text-align: left;
-		color: var(--rojo);
-		font-weight: bolder;
-		margin-top: 0.2rem;
-	}
+ .home-card-menus {
+	 width: 100%;
+	 height: 480px;
+ }
+ .home-nombre-menus {
+	 margin: 0;
+	 font-size: 1.5rem;
+	 text-align: left;
+	 color: var(--rojo);
+	 font-weight: bolder;
+	 margin-top: 0.2rem;
+ }
 }
 .my-img {
-	object-fit: cover;
-	object-position: right;
-	height: 100%;
+	   object-fit: cover;
+	   object-position: right;
+       height: 100%;
 }
 .my-button-buy {
-	background-color: #ffc107;
-	cursor: pointer;
-	border: none;
-	color: black;
-	font-size: 24px;
-	position: relative;
-	border-radius: 40px;
-	}
+ background-color: #ffc107;
+ cursor: pointer;
+ border: none;
+ color: black;
+ font-size: 24px;
+ position: relative;
+ border-radius: 40px;
+ }
 
 .my-button-buy::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
-	background-size: 800%;
-	border-radius: 20px;
-	filter: blur(8px);
-	animation: glowing 20s linear infinite;
-	transition: opacity 0.3s ease; /* Agregamos una transición para controlar la aparición/desaparición */
-	opacity: 0; /* Inicialmente, ocultamos el ::before */
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ z-index: -1;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+ background-size: 800%;
+ border-radius: 20px;
+ filter: blur(8px);
+ animation: glowing 20s linear infinite;
+ transition: opacity 0.3s ease; /* Agregamos una transición para controlar la aparición/desaparición */
+ opacity: 0; /* Inicialmente, ocultamos el ::before */
 }
 
 .my-button-buy:hover::before {
-	opacity: 1; /* Mostramos el ::before al hacer hover */
+ opacity: 1; /* Mostramos el ::before al hacer hover */
 }
 
 @keyframes glowing {
-	0% {
-		background-position: 0 0;
-	}
-	50% {
-		background-position: 400% 0;
-	}
-	100% {
-		background-position: 0 0;
-	}
+ 0% {
+	 background-position: 0 0;
+ }
+ 50% {
+	 background-position: 400% 0;
+ }
+ 100% {
+	 background-position: 0 0;
+ }
 }
