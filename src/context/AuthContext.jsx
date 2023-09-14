@@ -82,9 +82,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     checkLogin();
   }, [])
-  useEffect(() => {
-    console.log("isAuthenticated cambió a:", isAuthenticated); // Esto mostrará el valor actualizado de isAuthenticated
-  }, [isAuthenticated]);
   return (
     <AuthContext.Provider
       value={{

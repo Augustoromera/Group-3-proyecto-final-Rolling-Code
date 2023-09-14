@@ -149,8 +149,49 @@
 	}
 }
 .my-img {
-	object-fit: cover; /* Mantendrá la relación de aspecto original y ajustará la imagen al contenedor sin deformarla */
-	object-position: right; /* Alinea la imagen hacia la derecha */
+	object-fit: cover;
+	object-position: right;
 	height: 100%;
-	/* Agrega cualquier otro estilo personalizado que desees */
+}
+.my-button-buy {
+	background-color: #ffc107;
+	cursor: pointer;
+	border: none;
+	color: black;
+	font-size: 24px;
+	position: relative;
+	border-radius: 40px;
+	}
+
+.my-button-buy::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, red, blue, deeppink, blue, red, blue, deeppink, blue);
+	background-size: 800%;
+	border-radius: 20px;
+	filter: blur(8px);
+	animation: glowing 20s linear infinite;
+	transition: opacity 0.3s ease; /* Agregamos una transición para controlar la aparición/desaparición */
+	opacity: 0; /* Inicialmente, ocultamos el ::before */
+}
+
+.my-button-buy:hover::before {
+	opacity: 1; /* Mostramos el ::before al hacer hover */
+}
+
+@keyframes glowing {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
 }

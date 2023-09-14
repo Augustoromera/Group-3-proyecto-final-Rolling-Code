@@ -8,9 +8,11 @@ import MenuCard from '../components/CardMenu';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import Swal from 'sweetalert2';
 import pruebaApi from '../api/pruebaApi';
+import { useAuth } from '../context/AuthContext';
 
 
 export const BodyHome = () => {
+  const { user } = useAuth();
   const [cargarProducto, setCargarProducto] = useState([]);
   const cargarProductoDB = async () => {
     try {
@@ -23,14 +25,20 @@ export const BodyHome = () => {
   };
 
   const handleSolicitarPedido = () => {
-    Swal.fire({
-      icon: 'warning',
-      title: '¡Atención!',
-      text: 'Primero debes iniciar sesión para poder realizar un pedido',
-      confirmButtonText: 'Ok',
-    });
+    window.location.href = "/pedidos";
   };
+  function iniciarSesionRedirect() {
+    Swal.fire({
+      title: "Estás a un paso de comprar en Rapiburguers",
+      text: "Accede con tu cuenta para continuar",
+      icon: "info",
+      showConfirmButton: false
+    });
 
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 4000);
+  }
   useEffect(() => {
     cargarProductoDB()
   }, [])
@@ -46,26 +54,40 @@ export const BodyHome = () => {
         </div>
       </div>
       <hr />
-
-      {/* ----------------sobre nosotros---------------- */}
+      {/* ----------------menús---------------- */}
       <div className="container-fluid">
-        <div className="row">
-          <div className="col-12 col-lg-6">
-            <img src="src/assets/images/nosotros/hamburguesa-nosotros-2.jpg" className='img-fluid rounded shadow-sm my-img' alt="imagen de hamburguesa" />
+        <h3 className="text-center text-uppercase poppins-regular font-weight-bold display-5">
+          Nuestros menús más pedidos
+        </h3>
+        <br />
+
+        <div className='home-menus row'>
+
+          <div className='home-contenedor-cards-menus'>
+            {cargarProducto.map((elemento, index) => (
+              <div key={index} className='col-12 col-sm-6 col-md-4 col-lg-2 p-2'>
+                <div className='custom-card mb-2'>
+                  <MenuCard
+                    nombre={elemento.nombre}
+                    descripcion={elemento.detalle}
+                    imagenSrc={elemento.imagen}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start ">
-            <div className='d-flex flex-column align-items-start' >
-              <h1 className='display-2 fw-bold d-flex flex-column align-items-center m-2'>Sobre Nosotros</h1>
-              <h1 className='text-center display-5 m-2'>Rapiburgers</h1>
-              <h5 className='text-xl m-2'>Bienvenidos a nuestro apasionante mundo de sabores en el restaurante de hamburguesas. En nuestro establecimiento, fusionamos la tradición de las hamburguesas clásicas con una dosis de innovación culinaria, creando una experiencia gastronómica que deleita a los amantes de la comida en cada mordisco. </h5>
-              <br />
-              <Link to="/aboutus" className="btn btn-warning btn-lg rounded-pill m-2">Ver más</Link>
-            </div>
-          </div>
+
         </div>
+        <div className="text-center">
+
+          <button className="btn btn-warning btn-lg my-button-buy" onClick={user ? handleSolicitarPedido : iniciarSesionRedirect}>
+            {user ? "Elije tu hamburguesa" : "Comprar ahora"}
+          </button>
+
+        </div>
+
       </div>
       <hr />
-
       {/* ----------------servicios---------------- */}
       <div className="container-fluid">
         <h3 className="text-center text-uppercase poppins-regular font-weight-bold display-5">Nuestros servicios</h3>
@@ -95,40 +117,28 @@ export const BodyHome = () => {
         </div>
       </div>
       <hr />
-
-      {/* ----------------menús---------------- */}
+      {/* ----------------sobre nosotros---------------- */}
       <div className="container-fluid">
-        <h3 className="text-center text-uppercase poppins-regular font-weight-bold display-5">
-          Nuestros menús más pedidos
-        </h3>
-        <br />
-
-        <div className='home-menus row'>
-
-          <div className='home-contenedor-cards-menus'>
-            {cargarProducto.map((elemento, index) => (
-              <div key={index} className='col-12 col-sm-6 col-md-4 col-lg-2 p-2'>
-                <div className='custom-card mb-2'>
-                  <MenuCard
-                    nombre={elemento.nombre}
-                    descripcion={elemento.detalle}
-                    imagenSrc={elemento.imagen}
-                  />
-                </div>
-              </div>
-            ))}
+        <div className="row">
+          <div className="col-12 col-lg-6">
+            <img src="src/assets/images/nosotros/hamburguesa-nosotros-2.jpg" className='img-fluid rounded shadow-sm my-img' alt="imagen de hamburguesa" />
           </div>
-
+          <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start ">
+            <div className='d-flex flex-column align-items-start' >
+              <h1 className='display-2 fw-bold d-flex flex-column align-items-center m-2'>Sobre Rapiburgers</h1>
+              <h1 className='text-center display-5 m-2'>Pasión por las Hamburguesas</h1>
+              <h5 className='text-xl m-2'>Bienvenidos a nuestro apasionante mundo de sabores en el restaurante de hamburguesas. En nuestro establecimiento, fusionamos la tradición de las hamburguesas clásicas con una dosis de innovación culinaria, creando una experiencia gastronómica que deleita a los amantes de la comida en cada mordisco. </h5>
+              <br />
+              <Link to="/aboutus" className="btn btn-warning btn-lg rounded-pill m-2">Ver más</Link>
+            </div>
+          </div>
         </div>
-        <div className="text-center">
-
-          <button className="btn btn-warning btn-lg rounded-pill m-4" onClick={handleSolicitarPedido}>
-            Ver menús para realizar un pedido
-          </button>
-        </div>
-
       </div>
       <hr />
+
+
+
+
 
       {/* ----------------mapa---------------- */}
       <div className='text-center mb-4'>
