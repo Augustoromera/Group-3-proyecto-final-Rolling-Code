@@ -80,7 +80,7 @@ function RegisterPage() {
               type='text'
               {...register("username", { required: true, minLength: 3 })}
               className='inputsR'
-              placeholder='Ej: John Doe 10' id='username' maxLength={20}
+              placeholder='Ej: John 10' id='username' maxLength={20}
             />
             {errors.username && (
               <p className='texto-validacion'>El nombre de usuario es obligatorio</p>
@@ -120,7 +120,8 @@ function RegisterPage() {
             )}
 
             <button type='submit' className='boton-login'>
-              Register
+              <span></span><span></span><span></span><span></span>
+              Registrarme
             </button>
           </form>
 

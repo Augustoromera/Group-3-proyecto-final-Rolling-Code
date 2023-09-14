@@ -99,7 +99,11 @@ function LoginPage() {
                         )}
 
                         <button type="submit" className='boton-login'>
-                            Login
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Ingresar
                         </button>
                     </form>
 
