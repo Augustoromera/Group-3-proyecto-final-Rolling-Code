@@ -14,6 +14,21 @@ import { useAuth } from '../context/AuthContext';
 export const BodyHome = () => {
   const { user } = useAuth();
   const [cargarProducto, setCargarProducto] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Estado para el índice de la imagen actual
+  const bannerImages = [ // Array de rutas de imágenes
+
+    '/src/assets/banner/Bannerrapiburguerjpeg.jpg',
+    '/src/assets/banner/hambur1.jpg',
+    '/src/assets/banner/hambur2.jpg',
+    '/src/assets/banner/hambur3.jpg',
+  ];
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bannerImages.length);
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + bannerImages.length) % bannerImages.length);
+  };
   const cargarProductoDB = async () => {
     try {
       const resp = await pruebaApi.get('/api/mostrarMenus');
@@ -39,6 +54,7 @@ export const BodyHome = () => {
       window.location.href = "/login";
     }, 4000);
   }
+  const bannerClass = `banner banner-${currentImageIndex}`;
   useEffect(() => {
     cargarProductoDB()
   }, [])
@@ -47,11 +63,24 @@ export const BodyHome = () => {
     <>
 
       {/* ----------------banner---------------- */}
-      <div className="banner">
+      <div className={bannerClass} style={{ backgroundImage: `url(${bannerImages[currentImageIndex]})` }}>
         <div className="banner-body">
-          <h3 className="text-uppercase">Bienvenido a Rapiburgers</h3>
-          <p>Las mejores hamburguesas y la mejor calidad los encuentras en Rapiburgers</p>
+          <div className="banner-container-text">
+            <p className='banner-text1'>Tu paladar merece lo mejor. Siente la exelencia</p>
+            <p className='banner-text2'>en cada bocado</p>
+          </div>
         </div>
+        <div className='button-container-banner'>
+          <button className="btn btn-warning btn-lg my-button-buy button-banner" onClick={user ? handleSolicitarPedido : iniciarSesionRedirect}>
+              {user ? "Elije tu hamburguesa" : "Comprar ahora"}
+            </button>
+        </div>
+        <button className="btn btn-link banner-control" onClick={handlePrevImage}>
+          <i className="fa-solid fa-arrow-left banner-control" style={{ position: 'absolute', top: '50%', left: '20px', transform: 'translateY(-50%)' }}></i>
+        </button>
+        <button className="btn btn-link banner-control" onClick={handleNextImage}>
+          <i className="fa-solid fa-arrow-right banner-control" style={{ position: 'absolute', top: '50%', right: '20px', transform: 'translateY(-50%)' }}></i>
+        </button>
       </div>
       <hr />
       {/* ----------------menús---------------- */}
