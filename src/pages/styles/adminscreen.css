@@ -1,4 +1,6 @@
+
 form {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,6 +15,7 @@ form {
 
 form .custom-button {
     background-color: black;
+    border: 1px #ffc107 solid !important;
     margin: 2px;
     color: white;
     border: none;
@@ -24,8 +27,9 @@ form .custom-button {
 form .custom-button:active,
 form .custom-button:hover {
     margin: 1px !important;
-    background-color: white !important;
-    color: black !important;
+    background-color: #ffc107 !important;
+    color: #fff !important;
+    text-shadow: 0 0 5px #000;
     border: 2px solid black !important;
 }
 .custom-imagen {

@@ -20,11 +20,11 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
             transform: 'translate(-50%, -50%)',
             width: '70%',
             maxWidth: '600px',
-            border: 'none',
+            border: '2px solid yellow',
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
             padding: '20px',
             borderRadius: '8px',
-            background: 'white',
+            background: 'black',
         },
     };
     return (
@@ -32,7 +32,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
             <div className="modal-content">
                 <div className="modal-header">
                     <h2 className="modal-title">Editar un menu</h2>
-                    <button type="button" className="btn-close m-3" onClick={() => setIsOpen(false)}></button>
+                    <button type="button" className="btn-close m-3 bg-warning" onClick={() => setIsOpen(false)}></button>
                 </div>
                 <div className="modal-body">
                     <Form onSubmit={handleSubmitFormEditar}>

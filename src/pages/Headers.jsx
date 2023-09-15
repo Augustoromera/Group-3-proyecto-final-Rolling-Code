@@ -75,7 +75,7 @@ export const Headers = ({
 	const handleScroll = () => {
 		const scrollY = window.scrollY;
 		const windowHeight = window.innerHeight;
-		const scrollThreshold = 0.2; // 30% de la página
+		const scrollThreshold = 0.8; // 30% de la página
 
 		if (scrollY > windowHeight * scrollThreshold) {
 			setActive(false);
