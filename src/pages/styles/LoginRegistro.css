@@ -1,26 +1,24 @@
-
-
-.contenedorTodo{
-    background-image: url('/src/assets/images/fondos/burguer.jpg');
+.contenedorTodo {
+  background-image: url('/src/assets/images/fondos/burguer.jpg');
 }
 
 
-.contenedor1{
-    background-color: rgb(27, 27, 27);
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 2.5em;
-    border-radius: 1em;
-    margin-top: 1.5em;
-    margin-bottom: 3em;  
-    color: #ffffff;  
+.contenedor1 {
+  background-color: rgb(27, 27, 27);
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2.5em;
+  border-radius: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 3em;
+  color: #ffffff;
 }
 
 
-.inputs{
-    width: 100%;
+.inputs {
+  width: 100%;
   padding: 10px 0;
   font-size: 16px;
   color: #fff;
@@ -29,103 +27,105 @@
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
-    
-}
-
-
-
-
-
-.link-login{
-    color: orange;
-    font-size:15px;
-    transition: 0.6s;
-}
-
-.texto-loginR{
-    color:yellow;
-    font-size:12px;
 
 }
 
 
-.titulo-lr{
-    text-align: center;
-    margin-bottom: 1.5em;
-    font-size: 40px;
+
+
+
+.link-login {
+  color: orange;
+  font-size: 15px;
+  transition: 0.6s;
 }
 
-.link-login:hover{
-    color: #ff5900;
-}
-
-
-
-.labels{
-    font-size: 18px;
-    text-align: center;
-}
-
-.texto-validacion{
-    color: red;
-    font-size: 15px;
-    text-align: center;
-}
-
-.error-usuario{
-background-color: red;
-    padding: 1.5em;
-    font-size: 16px;
-    color: #ffffff !important;
-    text-align: center;
-    
-}
-
-.nav-lr{
-    background-color: rgb(32, 32, 34);
-    display: flex;
-    margin-bottom:3em;
-    justify-content: space-around;
-   
-      
+.texto-loginR {
+  color: yellow;
+  font-size: 12px;
+  text-align: center;
+  justify-content: center;
+  align-items: center
 }
 
 
-.ul-lr{
-    display:flex;
-    list-style-type: none;
-    text-align: center;
-    margin-top:2em;
-
-    
+.titulo-lr {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 40px;
 }
 
-.titulo-nav{
-    color: white;
-    font-size: 2em;
-    margin-left:1em;
+.link-login:hover {
+  color: #ff5900;
 }
 
 
-.link-nav{
-    color:white;
-    margin: 1em;
-    text-decoration: none;
-    background-color: rgb(32, 171, 32);
-    padding: 1em;
-    border-radius: .5em;
-    font-size:15px;
-    transition: 0.6s;
-    
+
+.labels {
+  font-size: 18px;
+  text-align: center;
 }
 
-.link-nav:hover{
-    background-color: #ffc107;
+.texto-validacion {
+  color: red;
+  font-size: 15px;
+  text-align: center;
+}
+
+.error-usuario {
+  background-color: red;
+  padding: 1.5em;
+  font-size: 16px;
+  color: #ffffff !important;
+  text-align: center;
+
+}
+
+.nav-lr {
+  background-color: rgb(32, 32, 34);
+  display: flex;
+  margin-bottom: 3em;
+  justify-content: space-around;
+
+
 }
 
 
-.inputsR{
-    width: 100%;
+.ul-lr {
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+  margin-top: 2em;
+
+
+}
+
+.titulo-nav {
+  color: white;
+  font-size: 2em;
+  margin-left: 1em;
+}
+
+
+.link-nav {
+  color: white;
+  margin: 1em;
+  text-decoration: none;
+  background-color: rgb(32, 171, 32);
+  padding: 1em;
+  border-radius: .5em;
+  font-size: 15px;
+  transition: 0.6s;
+
+}
+
+.link-nav:hover {
+  background-color: #ffc107;
+}
+
+
+.inputsR {
+  width: 100%;
   padding: 10px 0;
   font-size: 16px;
   color: #fff;
@@ -136,33 +136,33 @@ background-color: red;
   background: transparent;
 }
 
-.contenedor2{
-    margin-left: -1em;
+.contenedor2 {
+  margin-left: -1em;
 }
 
-@media all and (max-width:500px){
-    .contenedor1{
-      width: 90vw;  
-    }
+@media all and (max-width:500px) {
+  .contenedor1 {
+    width: 90vw;
+  }
 }
 
 
-@media all and (min-width:500px) and (max-width:800px){
-    .contenedor1{
-        width: 70vw
-    }
+@media all and (min-width:500px) and (max-width:800px) {
+  .contenedor1 {
+    width: 70vw
+  }
 }
 
-@media all and (min-width:800px) and (max-width:1400px){
-    .contenedor1{
-        width: 50vw;
-    }
+@media all and (min-width:800px) and (max-width:1400px) {
+  .contenedor1 {
+    width: 50vw;
+  }
 }
 
-@media all and (min-width:1400px) and (max-width:2000px){
-    .contenedor1{
-        width: 30vw;
-    }
+@media all and (min-width:1400px) and (max-width:2000px) {
+  .contenedor1 {
+    width: 30vw;
+  }
 }
 
 
@@ -170,110 +170,129 @@ background-color: red;
 
 
 .boton-login {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #ffc107;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px;
-    background-color:#000;
-    border: none;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffc107;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  background-color: #000;
+  border: none;
 }
-  
-  .boton-login:hover {
-    background: #ffc107;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #ffc107,
-                0 0 25px #ffc107,
-                0 0 50px #ffc107,
-                0 0 100px #ffc107;
-  }
-  
-  .boton-login span {
-    position: absolute;
-    display: block;
-  }
-  
-  .boton-login span:nth-child(1) {
-    top: 0;
+
+.boton-login:hover {
+  background: #ffc107;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ffc107,
+    0 0 25px #ffc107,
+    0 0 50px #ffc107,
+    0 0 100px #ffc107;
+}
+
+.boton-login span {
+  position: absolute;
+  display: block;
+}
+
+.boton-login span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffc107);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
     left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ffc107);
-    animation: btn-anim1 1s linear infinite;
   }
-  
-  @keyframes btn-anim1 {
-    0% {
-      left: -100%;
-    }
-    50%,100% {
-      left: 100%;
-    }
+
+  50%,
+  100% {
+    left: 100%;
   }
-  
-  .boton-login span:nth-child(2) {
+}
+
+.boton-login span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ffc107);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
     top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #ffc107);
-    animation: btn-anim2 1s linear infinite;
-    animation-delay: .25s
   }
-  
-  @keyframes btn-anim2 {
-    0% {
-      top: -100%;
-    }
-    50%,100% {
-      top: 100%;
-    }
+
+  50%,
+  100% {
+    top: 100%;
   }
-  
-  .boton-login span:nth-child(3) {
-    bottom: 0;
+}
+
+.boton-login span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ffc107);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
     right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #ffc107);
-    animation: btn-anim3 1s linear infinite;
-    animation-delay: .5s
   }
-  
-  @keyframes btn-anim3 {
-    0% {
-      right: -100%;
-    }
-    50%,100% {
-      right: 100%;
-    }
+
+  50%,
+  100% {
+    right: 100%;
   }
-  
-  .boton-login span:nth-child(4) {
+}
+
+.boton-login span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ffc107);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
     bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #ffc107);
-    animation: btn-anim4 1s linear infinite;
-    animation-delay: .75s
   }
-  
-  @keyframes btn-anim4 {
-    0% {
-      bottom: -100%;
-    }
-    50%,100% {
-      bottom: 100%;
-    }
+
+  50%,
+  100% {
+    bottom: 100%;
   }
-  
+}
 
+.password-input-container {
+  display: flex;
+  align-items: center;
+}
 
+.password-toggle-icon {
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: -20px;
+  border-radius: 20px;
+}

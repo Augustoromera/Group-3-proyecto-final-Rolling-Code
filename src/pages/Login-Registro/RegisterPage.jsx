@@ -1,32 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/AuthContext';
-import { useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import '../styles/LoginRegistro.css'
+import '../styles/LoginRegistro.css';
 import Header from '../../components/Header';
 import { Footer } from '../../components/Footer';
-
+import ojoAbierto from '../../img/ojo.jpg';
+import ojoCerrado from '../../img/ojoCerrado.jpg';
+import { useEffect } from 'react';
 
 function RegisterPage() {
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, setError, formState: { errors } } = useForm();
   const { signUp, errors: registerErrors, isAuthenticated } = useAuth();
   const navigate = useNavigate();
-
-  // Validación nueva de email porque la anterior no funciona
-  const [email, setEmail] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Nuevo estado para Confirmar Contraseña
   const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
   useEffect(() => {
     if (isAuthenticated) navigate('/');
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
 
   const onSubmit = handleSubmit(async (values) => {
     if (values.password !== values.passwordConfirmation) {
@@ -80,7 +74,9 @@ function RegisterPage() {
               type='text'
               {...register("username", { required: true, minLength: 3 })}
               className='inputsR'
-              placeholder='Ej: John 10' id='username' maxLength={20}
+              placeholder='Ej: John 10'
+              id='username'
+              maxLength={20}
             />
             {errors.username && (
               <p className='texto-validacion'>El nombre de usuario es obligatorio</p>
@@ -91,30 +87,56 @@ function RegisterPage() {
               type='email'
               {...register("email", { required: true })}
               className='inputsR'
-              placeholder='Ej: John@gmail.com' id='email' maxLength={60} onChange={(event) => setEmail(event.target.value)}
+              placeholder='Ej: John@gmail.com'
+              id='email'
+              maxLength={60}
             />
             {errors.email && (
               <p className='texto-validacion'>El email es obligatorio</p>
             )}
 
             <label htmlFor="password" className='labels'>Contraseña ↓</label>
-            <input
-              type='password'
-              {...register("password", { required: true, minLength: 4 })}
-              className='inputsR'
-              placeholder='Contraseña' id='password' maxLength={30}
-            />
+            <div className='password-input-container'>
+              {/* Campo de Contraseña */}
+              <input
+                type={showPassword ? "text" : "password"}
+                {...register("password", { required: true, minLength: 4 })}
+                className='inputsR'
+                placeholder='Contraseña'
+                id='password'
+                maxLength={30}
+              />
+              {/* Icono de ojo para Contraseña */}
+              <img
+                src={showPassword ? ojoAbierto : ojoCerrado}
+                alt={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                className='password-toggle-icon'
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            </div>
             {errors.password && (
               <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
             )}
 
             <label htmlFor="confirmPassword" className='labels'>Confirmar contraseña ↓</label>
-            <input
-              type='password'
-              {...register("passwordConfirmation", { required: true })}
-              className='inputsR'
-              placeholder='Confirmar contraseña' id='confirmPassword' maxLength={30}
-            />
+            <div className='password-input-container'>
+              {/* Campo de Confirmar Contraseña */}
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                {...register("passwordConfirmation", { required: true })}
+                className='inputsR'
+                placeholder='Confirmar contraseña'
+                id='confirmPassword'
+                maxLength={30}
+              />
+              {/* Icono de ojo para Confirmar Contraseña */}
+              <img
+                src={showConfirmPassword ? ojoAbierto : ojoCerrado}
+                alt={showConfirmPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                className='password-toggle-icon'
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              />
+            </div>
             {errors.passwordConfirmation && (
               <p className='texto-validacion'>{errors.passwordConfirmation.message}</p>
             )}

@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import '../styles/LoginRegistro.css'
+import '../styles/LoginRegistro.css';
 import { Footer } from '../../components/Footer';
 import Header from '../../components/Header';
-
+import ojoAbierto from '../../img/ojo.jpg';
+import ojoCerrado from '../../img/ojoCerrado.jpg';
+import { useEffect } from 'react';
 
 function LoginPage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signIn, errors: signInErrors, isAuthenticated, user } = useAuth();
     const navigate = useNavigate();
-    // eslint-disable-next-line no-unused-vars
-    const [email, setEmail] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
     const onSubmit = handleSubmit(async (data) => {
@@ -49,9 +49,7 @@ function LoginPage() {
         }
     }, [isAuthenticated, user, navigate]);
 
-
     return (
-
         <div className='contenedorTodo'>
             <Header />
             <div className='contenedor1'>
@@ -72,6 +70,7 @@ function LoginPage() {
 
                     <form onSubmit={onSubmit}>
                         <label htmlFor="email" className='labels'>Correo electrónico ↓</label>
+                        {/* Campo de Email */}
                         <input
                             type="email"
                             {...register("email", { required: true })}
@@ -86,14 +85,24 @@ function LoginPage() {
                         )}
 
                         <label htmlFor="password" className='labels'>Contraseña ↓</label>
-                        <input
-                            type="password"
-                            {...register("password", { required: true, minLength: 4 })}
-                            className='inputs'
-                            placeholder='Contraseña'
-                            id='password'
-                            maxLength={30}
-                        />
+                        <div className='password-input-container'>
+                            {/* Campo de Contraseña */}
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                {...register("password", { required: true, minLength: 4 })}
+                                className='inputs'
+                                placeholder='Contraseña'
+                                id='password'
+                                maxLength={30}
+                            />
+                            {/* Icono de ojo */}
+                            <img
+                                src={showPassword ? ojoAbierto : ojoCerrado}
+                                alt={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                                className='password-toggle-icon'
+                                onClick={() => setShowPassword(!showPassword)}
+                            />
+                        </div>
                         {errors.password && (
                             <p className='texto-validacion'>La contraseña debe ser mayor a 4 caracteres</p>
                         )}
@@ -114,7 +123,6 @@ function LoginPage() {
             </div>
             <Footer />
         </div>
-
     );
 }
 
