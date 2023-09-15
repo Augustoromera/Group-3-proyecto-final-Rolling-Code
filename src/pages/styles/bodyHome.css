@@ -125,6 +125,14 @@ hr {
 
 .custom-card {
 	margin-bottom: 1rem;
+	color:#ffffff;
+	border-radius: 20px;
+	box-shadow: 0 0 12px #fff700,
+    0 0 12px #fff700, 
+    0 0 12px #fff700,
+    0 0 12px #fff700;;
+	margin-left: .5em;
+	margin-right: .5em;
 }
 
 @media (max-width: 575px) {
