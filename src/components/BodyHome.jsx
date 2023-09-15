@@ -72,8 +72,8 @@ export const BodyHome = () => {
         </div>
         <div className='button-container-banner'>
           <button className="btn btn-warning btn-lg my-button-buy button-banner" onClick={user ? handleSolicitarPedido : iniciarSesionRedirect}>
-              {user ? "Elije tu hamburguesa" : "Comprar ahora"}
-            </button>
+            Comprar ahora
+          </button>
         </div>
         <button className="btn btn-link banner-control" onClick={handlePrevImage}>
           <i className="fa-solid fa-arrow-left banner-control" style={{ position: 'absolute', top: '50%', left: '20px', transform: 'translateY(-50%)' }}></i>
@@ -110,7 +110,7 @@ export const BodyHome = () => {
         <div className="text-center">
 
           <button className="btn btn-warning btn-lg my-button-buy" onClick={user ? handleSolicitarPedido : iniciarSesionRedirect}>
-            {user ? "Elije tu hamburguesa" : "Comprar ahora"}
+            {user ? "Elije tu hamburguesa" : "Hacer un pedido"}
           </button>
 
         </div>
