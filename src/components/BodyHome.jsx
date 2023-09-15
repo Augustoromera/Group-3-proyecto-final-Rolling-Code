@@ -67,7 +67,7 @@ export const BodyHome = () => {
         <div className="banner-body">
           <div className="banner-container-text">
             <p className='banner-text1'>Tu paladar merece lo mejor. Siente la exelencia</p>
-            <p className='banner-text2'>en cada bocado</p>
+            <p className='banner-text2'>en cada bocado.</p>
           </div>
         </div>
         <div className='button-container-banner'>
