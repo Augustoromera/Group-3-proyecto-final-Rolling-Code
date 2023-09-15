@@ -131,6 +131,22 @@ F @media (min-width: 1400px) {
 	margin-bottom: 1rem;
 }
 
+@media (max-width: 575px) {
+	.home-card-menus {
+		width: 90%;
+		height: 30%;
+		margin: 0 auto;
+	}
+   }
+   
+   @media (min-width:575px) and (max-width:768px){
+		.home-card-menus {
+		width: 90%;
+		height: 450px;
+		margin: 0 auto;
+	}
+   }
+
 @media (max-width: 767px) {
 	.home-card-menus {
 		width: 90%;

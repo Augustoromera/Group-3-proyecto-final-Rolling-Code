@@ -1,8 +1,4 @@
 
-body{   
-    font-family: monospace;
-}
-
 
 .contenedorTodo{
     background-image: url('/src/assets/images/fondos/burguer.jpg');
@@ -10,7 +6,7 @@ body{
 
 
 .contenedor1{
-    background-color: rgb(32, 32, 34);
+    background-color: rgb(27, 27, 27);
     width: 20%;
     display: flex;
     justify-content: center;
@@ -24,25 +20,20 @@ body{
 
 
 .inputs{
-    display: flex;
-    flex-direction: column;
-    margin: 1.5em 0em;
-    padding: .8em;
-    border-radius: 1em;
-    width: 120%;
+    width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
     
 }
 
 
-.boton-login{
-    padding: .5em 2em;
-    border-radius: 1em;
-    background-color: black;
-    cursor:pointer;
-    font-size: 15px;
-    color: #ffffff !important;
-    transition: 0.6s;
-}
+
 
 
 .link-login{
@@ -65,12 +56,10 @@ body{
 }
 
 .link-login:hover{
-    color: lightgreen;
+    color: #ff5900;
 }
 
-.boton-login:hover{
-  background-color: #ffc107;
-}
+
 
 .labels{
     font-size: 18px;
@@ -131,17 +120,20 @@ background-color: red;
 }
 
 .link-nav:hover{
-    background-color: rgb(24, 210, 24);
+    background-color: #ffc107;
 }
 
 
 .inputsR{
-    display: flex;
-    flex-direction: column;
-    margin: 1.5em 0em;
-    padding: .8em;
-    border-radius: 1em;
-    width: 120%;
+    width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
 }
 
 .contenedor2{
@@ -150,7 +142,7 @@ background-color: red;
 
 @media all and (max-width:500px){
     .contenedor1{
-      width: 95vw;  
+      width: 90vw;  
     }
 }
 
@@ -177,6 +169,111 @@ background-color: red;
 
 
 
-
+.boton-login {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffc107;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    background-color:#000;
+    border: none;
+}
+  
+  .boton-login:hover {
+    background: #ffc107;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ffc107,
+                0 0 25px #ffc107,
+                0 0 50px #ffc107,
+                0 0 100px #ffc107;
+  }
+  
+  .boton-login span {
+    position: absolute;
+    display: block;
+  }
+  
+  .boton-login span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffc107);
+    animation: btn-anim1 1s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .boton-login span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #ffc107);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+  
+  .boton-login span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #ffc107);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+  }
+  
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+  
+  .boton-login span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #ffc107);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+  }
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+  
 
 
