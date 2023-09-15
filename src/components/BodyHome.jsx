@@ -56,6 +56,13 @@ export const BodyHome = () => {
   }
   const bannerClass = `banner banner-${currentImageIndex}`;
   useEffect(() => {
+    const nextImage = () => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bannerImages.length);
+    };
+    const intervalId = setInterval(nextImage, currentImageIndex === 0 ? 7000 : 3000);
+    return () => clearInterval(intervalId);
+  }, [currentImageIndex, bannerImages.length]);
+  useEffect(() => {
     cargarProductoDB()
   }, [])
 
