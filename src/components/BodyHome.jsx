@@ -18,9 +18,9 @@ export const BodyHome = () => {
   const bannerImages = [ // Array de rutas de imágenes
 
     '/src/assets/banner/Bannerrapiburguerjpeg.jpg',
-    '/src/assets/banner/hambur1.jpg',
-    '/src/assets/banner/hambur2.jpg',
-    '/src/assets/banner/hambur3.jpg',
+    '/src/assets/banner/bannerPsh1.jpg',
+    '/src/assets/banner/bannerPsh2.jpg',
+    '/src/assets/banner/bannerPsh3.jpg'
   ];
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bannerImages.length);
@@ -59,7 +59,7 @@ export const BodyHome = () => {
     const nextImage = () => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bannerImages.length);
     };
-    const intervalId = setInterval(nextImage, currentImageIndex === 0 ? 7000 : 3000);
+    const intervalId = setInterval(nextImage, currentImageIndex === 0 ? 7000 : 5000);
     return () => clearInterval(intervalId);
   }, [currentImageIndex, bannerImages.length]);
   useEffect(() => {
