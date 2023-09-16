@@ -145,7 +145,7 @@ hr {
 @media (min-width: 575px) and (max-width: 768px) {
 	.home-card-menus {
 		width: 90%;
-		height: 450px !important;
+		height: 465px !important;
 		margin: 0 auto;
 	}
 }
@@ -161,7 +161,7 @@ hr {
 @media (min-width: 768px) {
 	.home-card-menus {
 		width: 100%;
-		height: 400px;
+		height: 440px;
 	}
 	.home-nombre-menus {
 		margin: 0;
@@ -191,7 +191,7 @@ hr {
 @media (min-width: 1281px) {
 	.home-card-menus {
 		width: 100%;
-		height: 400px;
+		height: 465px;
 	}
 	.home-nombre-menus {
 		margin: 0;
