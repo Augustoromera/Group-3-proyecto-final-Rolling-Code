@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Open+Sans:ital,wght@0,400;1,300&family=Raleway:wght@700&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Open+Sans:ital,wght@0,400;1,300&family=Poppins&family=Raleway:wght@700&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -15,10 +15,11 @@
 }
 
 .nav-link {
-    font-family: "Open Sans", sans-serif !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold!important;
+    font-size: 1.2rem !important;
     padding: 5px !important;
-    font-weight: bold !important;
-    text-shadow: 0 0 5px #000 !important;
+    text-shadow: 1px 1px 5px #000 !important;
     color: #fff !important;
     transition:
         transform 0.3s ease,

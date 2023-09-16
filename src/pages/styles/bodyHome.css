@@ -14,7 +14,7 @@ body {
 hr {
 	border: 2px solid #ffc107; /* Cambia el color y grosor según tus preferencias */
 	margin: 20px 0; /* Ajusta el margen superior e inferior según sea necesario */
-  }
+}
 @media (min-width: 1400px) {
 	.espacio-mBlanco {
 		margin-right: -50px;
@@ -40,14 +40,13 @@ hr {
 }
 
 .banner {
-	height: 95vh;
+	height: 100vh;
 	position: relative;
-	background-position: center;
+	background-position: top center;
 	background-size: cover;
-	transition: background-image 0.3s ease-in-out;
 }
 .banner-body {
-	position: absolute;
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -124,14 +123,15 @@ hr {
 
 .custom-card {
 	margin-bottom: 1rem;
-	color:#ffffff;
+	color: #ffffff;
 	border-radius: 20px;
-	box-shadow: 0 0 12px #fff700,
-    0 0 12px #fff700, 
-    0 0 12px #fff700,
-    0 0 12px #fff700;;
-	margin-left: .5em;
-	margin-right: .5em;
+	box-shadow:
+		0 0 12px #fff700,
+		0 0 12px #fff700,
+		0 0 12px #fff700,
+		0 0 12px #fff700;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
 }
 
 @media (max-width: 575px) {
@@ -230,12 +230,12 @@ hr {
 	border-radius: 20px;
 	filter: blur(8px);
 	animation: glowing 20s linear infinite;
-	transition: opacity 0.3s ease; 
+	transition: opacity 0.3s ease;
 	opacity: 0;
 }
 
 .my-button-buy:hover::before {
-	opacity: 1; 
+	opacity: 1;
 }
 
 @keyframes glowing {
@@ -260,13 +260,10 @@ hr {
 	color: #ffc107;
 }
 .banner-container-text {
-	text-align: center;
-}
-.banner-container-text {
 	display: none;
 	position: absolute;
 	right: 10%;
-	bottom: 28vh;
+	bottom: 15%;
 	text-align: center;
 }
 .banner-text1,
@@ -289,15 +286,31 @@ hr {
 	display: none;
 	position: absolute;
 	right: 25%;
-	bottom: 20%;
+	bottom: 8%;
 	z-index: 1;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1920px) {
 	.button-container-banner {
 		display: block;
 	}
 	.banner-container-text {
 		display: block;
+	}
+}
+@media (min-width: 1920px) {
+	.button-container-banner {
+		display: block;
+		position: absolute;
+		right: 25%;
+		bottom: 25%;
+		z-index: 1;
+	}
+	.banner-container-text {
+		display: block;
+		position: absolute;
+		right: 15%;
+		bottom: 30%;
+		text-align: center;
 	}
 }
 .banner-control {

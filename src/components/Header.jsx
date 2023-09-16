@@ -33,8 +33,6 @@ function Header({ navBarClass }) {
   } else {
       navLinkClassWelcome = "none-class";
   }
-  console.log(navLinkClassWelcome)
-
   if (user === null) {
     return (
       <Navbar expand="lg" data-bs-theme="dark" className={navClass} >
