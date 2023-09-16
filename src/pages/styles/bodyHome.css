@@ -47,7 +47,7 @@ hr {
 	transition: background-image 0.3s ease-in-out;
 }
 .banner-body {
-	position: relative;
+	position: absolute;
 	display: flex;
 	justify-content: center;
 	align-items: center;

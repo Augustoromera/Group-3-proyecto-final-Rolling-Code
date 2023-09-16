@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Open+Sans:ital,wght@0,400;1,300&family=Raleway:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Open+Sans:ital,wght@0,400;1,300&family=Raleway:wght@700&display=swap");
 * {
     padding: 0;
     margin: 0;
@@ -15,16 +15,17 @@
 }
 
 .nav-link {
-    
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: "Open Sans", sans-serif !important;
+    padding: 5px !important;
+    font-weight: bold !important;
+    text-shadow: 0 0 5px #000 !important;
     color: #fff !important;
     transition:
         transform 0.3s ease,
         color 0.3s ease !important;
 }
 .nav-link:hover {
-    
-    background-color: black !important;
+    background-color: transparent !important;
     color: #ffc107 !important;
 }
 
@@ -32,24 +33,69 @@
     position: relative;
     z-index: 999;
 }
+.navbarhome {
+    background-color: transparent;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
 .navbar-image {
-    width: 60px;
-    height: auto;
-    transition: all 300ms ease;
+    height: 80px;
 }
 
 .navbar-image:hover {
     transform: scale(1.3);
     filter: brightness(1.5);
 }
+.dropdown-item{
+    font-weight: bold !important;
+    text-shadow: 0 0 5px #000 !important;
+}
+.dropdown-item:hover {
+    background-color: transparent !important;
+    color: #ffc107 !important;
+}
 .brand-text:hover {
     color: #ffc107; /* Cambia el color a amarillo al hacer hover */
     transition: color 0.3s; /* Agrega una transición suave */
 }
 .show {
-    background-color: black !important;
+    background-color: transparent !important;
 }
 
-.nav-welcome{
-    color: #ffc107 !important;
+.nav-welcome {
+    color: #fff !important;
+}
+@media (max-width: 991px) {
+    .navbarhome {
+        background-color: transparent;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+}
+@media (min-width: 991px) {
+    .navbarhome {
+        background-color: transparent;
+        position: fixed !important;
+        width: 100% ;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    .container{
+        width: 100% !important;
+    }
+}
+.inline-block-class {
+    display: block !important;
+}
+.none-class {
+    display: none !important;
 }
