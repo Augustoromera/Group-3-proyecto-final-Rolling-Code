@@ -33,9 +33,10 @@
 .navbarmain {
     position: relative;
     z-index: 999;
+    background-color: #000000dd !important;
 }
 .navbarhome {
-    background-color: transparent;
+    background-color: #000000dd !important;
     position: fixed !important;
     top: 0;
     left: 0;
@@ -72,7 +73,7 @@
 }
 @media (max-width: 991px) {
     .navbarhome {
-        background-color: transparent;
+        background-color: #000000dd !important ;
         position: fixed !important;
         top: 0;
         left: 0;
@@ -82,7 +83,7 @@
 }
 @media (min-width: 991px) {
     .navbarhome {
-        background-color: transparent;
+        background-color: #000000dd !important;
         position: fixed !important;
         width: 100% ;
         top: 0;
@@ -94,9 +95,7 @@
         width: 100% !important;
     }
 }
-.inline-block-class {
-    display: block !important;
-}
-.none-class {
-    display: none !important;
+
+.dropdown-menu{
+    background-color: #000000dd !important;
 }
