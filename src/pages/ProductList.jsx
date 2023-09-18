@@ -72,7 +72,7 @@ export const ProductList = ({
       <div className='container-items product-list-container'>
         {listMenus.map((product, index) => (
           <div className={`item ${product.estado === 'No Disponible' ? 'unavailable item' : 'item'}`} key={index}>
-            <figure>
+            <figure className='box-1-pedidos'>
               <img src={product.imagen} alt={product.nombre} className='img-menus' />
             </figure>
             <div className='info-product'>
