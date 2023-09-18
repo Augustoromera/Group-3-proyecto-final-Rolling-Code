@@ -46,7 +46,7 @@ function Header({ navBarClass }) {
                   window.location.href = "/login";
                 }
                 : () => {
-                  window.location.href = "/pedidos";
+                  window.location.href = "/";
                 }
             } alt="Logo" />
           </Navbar.Brand>
@@ -81,7 +81,7 @@ function Header({ navBarClass }) {
                   window.location.href = "/login";
                 }
                 : () => {
-                  window.location.href = "/pedidos";
+                  window.location.href = "/";
                 }
             }
           />
