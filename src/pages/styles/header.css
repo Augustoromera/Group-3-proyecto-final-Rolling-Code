@@ -14,6 +14,7 @@
 }
 
 .nav-link {
+    background-color: transparent !important;
     font-family: "Poppins", sans-serif;
     font-weight: bold !important;
     font-size: 1.2rem !important;
@@ -63,15 +64,15 @@
     color: #ffc107;
     transition: color 0.3s;
 }
-.show {
-    background: rgba(0, 0, 0, 0.1) !important;
-    backdrop-filter: blur(10px) !important;
-}
+
 
 .nav-welcome {
     color: #fff !important;
 }
 @media (max-width: 991px) {
+    .navbar-collapse.collapse.show {
+        border: 1px solid #fff;
+    }
     .navbarhome {
         background: rgba(0, 0, 0, 0) !important;
         position: fixed !important;
@@ -80,6 +81,10 @@
         right: 0;
         z-index: 1000;
         transition: top 0.3s;
+    }
+    .show {
+        background: rgba(0, 0, 0, 0.1) !important;
+        backdrop-filter: blur(10px) !important;
     }
 }
 @media (min-width: 991px) {
@@ -94,6 +99,10 @@
     }
     .container {
         width: 100% !important;
+    }
+    .show {
+        background: transparent !important;
+        backdrop-filter: blur(10px) !important;
     }
 }
 
@@ -118,7 +127,7 @@
 .navbarmain {
     transition: all 0.5s ease;
 }
-.active-link{
+.active-link {
     background-color: #ffc107 !important;
     color: #000 !important;
 }

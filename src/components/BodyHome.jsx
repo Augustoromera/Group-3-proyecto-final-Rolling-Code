@@ -14,20 +14,37 @@ import { useAuth } from '../context/AuthContext';
 export const BodyHome = () => {
   const { user } = useAuth();
   const [cargarProducto, setCargarProducto] = useState([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Estado para el índice de la imagen actual
-  const bannerImages = [ // Array de rutas de imágenes
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 720);
+  const bannerImages = [
 
     '/src/assets/banner/Bannerrapiburguerjpeg.jpg',
     '/src/assets/banner/bannerPsh1.jpg',
     '/src/assets/banner/bannerPsh2.jpg',
     '/src/assets/banner/bannerPsh3.jpg'
   ];
+  const bannerImagesMini = [
+    '/src/assets/banner/bannerMobile.jpg'
+  ];
   const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bannerImages.length);
-  };
+    setCurrentImageIndex((prevIndex) => {
+      if (isMobile) {
+        return ((prevIndex + 1) % bannerImagesMini.length);
+      }
+      else {
+        return ((prevIndex + 1) % bannerImages.length);
+      }
+    });
+  }
 
   const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + bannerImages.length) % bannerImages.length);
+    setCurrentImageIndex((prevIndex) => {
+      if (isMobile) {
+        return (prevIndex - 1 + bannerImagesMini.length) % bannerImagesMini.length;
+      } else {
+        return (prevIndex - 1 + bannerImages.length) % bannerImages.length;
+      }
+    });
   };
   const cargarProductoDB = async () => {
     try {
@@ -54,23 +71,42 @@ export const BodyHome = () => {
       window.location.href = "/login";
     }, 4000);
   }
-  const bannerClass = `banner banner-${currentImageIndex}`;
+  const bannerClass = `banner banner-${currentImageIndex}${isMobile ? ' mobile' : ''}`;
+
+  const currentBannerImage = isMobile ? bannerImagesMini[currentImageIndex] : bannerImages[currentImageIndex];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 720);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   useEffect(() => {
     const nextImage = () => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % bannerImages.length);
+      setCurrentImageIndex((prevIndex) => {
+        if (isMobile) {
+          return (prevIndex + 1) % bannerImagesMini.length;
+        } else {
+          return (prevIndex + 1) % bannerImages.length;
+        }
+      });
     };
     const intervalId = setInterval(nextImage, currentImageIndex === 0 ? 7000 : 5000);
     return () => clearInterval(intervalId);
-  }, [currentImageIndex, bannerImages.length]);
+  }, [currentImageIndex, bannerImages.length, bannerImagesMini.length, isMobile]);
+
   useEffect(() => {
     cargarProductoDB()
   }, [])
-
   return (
     <>
 
       {/* ----------------banner---------------- */}
-      <div className={bannerClass} style={{ backgroundImage: `url(${bannerImages[currentImageIndex]})` }}>
+      <div className={bannerClass} style={{ backgroundImage: `url(${currentBannerImage})` }}>
         <div className="banner-body">
           <div className="banner-container-text">
             <p className='banner-text1'>Tu paladar merece lo mejor. Siente la exelencia</p>
@@ -101,7 +137,15 @@ export const BodyHome = () => {
 
           <div className='home-contenedor-cards-menus'>
             {cargarProducto.map((elemento, index) => (
-              <div key={index} className='col-12 col-sm-6 col-md-4 col-lg-2 p-2'>
+              <div key={index} className='col-12 col-sm-6 col-md-4 col-lg-2 p-2' onClick={
+                user === null
+                  ? () => {
+                    window.location.href = "/login";
+                  }
+                  : () => {
+                    window.location.href = "/pedidos";
+                  }
+              }>
                 <div className='custom-card mb-2'>
                   <MenuCard
                     nombre={elemento.nombre}
