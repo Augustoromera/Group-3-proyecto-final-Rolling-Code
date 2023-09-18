@@ -9,7 +9,7 @@ export const HomeScreen = () => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
-            const scrollThreshold = 0.2;
+            const scrollThreshold = 0.05;
 
             if (scrollY > windowHeight * scrollThreshold) {
                 setNavBarClass("navbarmain");

@@ -12,7 +12,6 @@ import swal from 'sweetalert2';
 function Header({ navBarClass }) {
   const { isAuthenticated, logout, user } = useAuth();
   const navigate = useNavigate();
-  const navClass = location.pathname === '/' ? 'navbarhome' : 'navbarmain';
 
   const handleLogout = () => {
     swal.fire({
@@ -41,12 +40,21 @@ function Header({ navBarClass }) {
 
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <img src={logoTipo} className="d-inline-block navbar-image " alt="Logo" />
+            <img src={logoTipo} className="d-inline-block navbar-image " onClick={
+              user === null
+                ? () => {
+                  window.location.href = "/login";
+                }
+                : () => {
+                  window.location.href = "/pedidos";
+                }
+            } alt="Logo" />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              <Nav.Link as={Link} to="/" >Inicio</Nav.Link>
               <Nav.Link as={Link} to="/aboutus" >Sobre Nosotros</Nav.Link>
               <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
               <NavDropdown title="Ingresar" id="basic-nav-dropdown">
@@ -63,8 +71,22 @@ function Header({ navBarClass }) {
     <Navbar expand="lg" data-bs-theme="dark" className={`navbarhome ${dinamicNav} ${navLinkClass}`} >
       <Container>
         <Navbar.Brand as={Link} to="/">
-          <img src={logoTipo} className="d-inline-block navbar-image " alt="Logo" />
+          <img
+            src={logoTipo}
+            className="d-inline-block navbar-image"
+            alt="Logo"
+            onClick={
+              user === null
+                ? () => {
+                  window.location.href = "/login";
+                }
+                : () => {
+                  window.location.href = "/pedidos";
+                }
+            }
+          />
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
@@ -72,7 +94,8 @@ function Header({ navBarClass }) {
             {/*Mostrar enlace de administrador solo si el usuario es un administrador */}
             {isAuthenticated && user.role === 'admin' && (
               <>
-                <Nav.Link as={Link} to="/" className={`nav-welcome ${navLinkClassWelcome}`}>Bienvenid@ {user.username}!</Nav.Link>
+                
+              <Nav.Link as={Link} to="/" >Inicio</Nav.Link>
                 <Nav.Link as={Link} to="/admin">
                   Administración
                 </Nav.Link>
