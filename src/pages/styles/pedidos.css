@@ -162,6 +162,10 @@ img {
 	place-content: center;
 	place-items: center;
 	overflow: hidden;
+	box-shadow: 0 0 5px #fff700,
+    0 0 5px #fff700, 
+    0 0 5px #fff700,
+    0 0 5px #fff700;
 	
 }
 
@@ -174,6 +178,10 @@ img {
 	height: 130%;
 	animation: rotBGimg 3.5s linear infinite;
 	transition: all 0.2s linear;
+	box-shadow: 0 0 5px #fff700,
+    0 0 25px #fff700, 
+    0 0 50px #fff700,
+    0 0 100px #fff700;
   }
   
   @keyframes rotBGimg {

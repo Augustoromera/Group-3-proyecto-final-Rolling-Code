@@ -130,8 +130,8 @@ hr {
 		0 0 12px #fff700,
 		0 0 12px #fff700,
 		0 0 12px #fff700;
-	margin-left: 0.7em;
-	margin-right: 0.7em;
+	margin: 0.8em;
+	
 }
 
 @media (max-width: 575px) {
