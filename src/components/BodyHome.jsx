@@ -16,6 +16,8 @@ export const BodyHome = () => {
   const [cargarProducto, setCargarProducto] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 720);
+  const textTextBanner = window.innerWidth <= 720 ? "Tu plato favorito a un clic de distancia!" : "Tu paladar merece lo mejor. Siente la excelencia";
+  const textButtonBanner = window.innerWidth <= 720 ? "¡Ordenar Ya!" : "Comprar ahora";
   const bannerImages = [
 
     '/src/assets/banner/Bannerrapiburguerjpeg.jpg',
@@ -24,7 +26,10 @@ export const BodyHome = () => {
     '/src/assets/banner/bannerPsh3.jpg'
   ];
   const bannerImagesMini = [
-    '/src/assets/banner/bannerMobile.jpg'
+    '/src/assets/banner/bannerMobile.jpg',
+    '/src/assets/banner/bannerMobile1.jpg',
+    '/src/assets/banner/bannerMobile2.jpg',
+    '/src/assets/banner/bannerMobile3.jpeg'
   ];
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => {
@@ -109,13 +114,13 @@ export const BodyHome = () => {
       <div className={bannerClass} style={{ backgroundImage: `url(${currentBannerImage})` }}>
         <div className="banner-body">
           <div className="banner-container-text">
-            <p className='banner-text1'>Tu paladar merece lo mejor. Siente la exelencia</p>
+            <p className='banner-text1'>{`${textTextBanner}`}</p>
             <p className='banner-text2'>en cada bocado.</p>
           </div>
         </div>
         <div className='button-container-banner'>
           <button className="btn btn-warning btn-lg my-button-buy button-banner" onClick={user ? handleSolicitarPedido : iniciarSesionRedirect}>
-            Comprar ahora
+          {`${textButtonBanner}`}
           </button>
         </div>
         <button className="btn btn-link banner-control" onClick={handlePrevImage}>

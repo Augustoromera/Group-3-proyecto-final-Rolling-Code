@@ -30,12 +30,14 @@
 }
 
 .navbarmain {
+    padding-left: 15px !important;
     position: relative;
     z-index: 999;
     background: rgba(0, 0, 0, 0.1) !important;
     backdrop-filter: blur(10px) !important;
 }
 .navbarhome {
+    padding-left: 15px !important;
     background: rgba(0, 0, 0, 0) !important;
     position: fixed !important;
     top: 0;

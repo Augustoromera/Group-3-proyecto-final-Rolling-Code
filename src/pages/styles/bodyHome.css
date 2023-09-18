@@ -45,8 +45,11 @@ hr {
 	background-position: top right;
 	background-size: cover;
 }
-.banner-1{
+.banner-1 {
 	background-position: top center;
+}
+.banner-3.mobile {
+	background-position:  center;
 }
 .banner-body {
 	position: relative;
@@ -59,7 +62,7 @@ hr {
 	font-family: "poppinsregular";
 	text-align: center;
 }
-.mobile{
+.mobile {
 	background-position: top center;
 }
 .container-web-page {
@@ -136,7 +139,6 @@ hr {
 		0 0 12px #fff700,
 		0 0 12px #fff700;
 	margin: 0.8em;
-	
 }
 
 @media (max-width: 575px) {
@@ -288,7 +290,6 @@ hr {
 }
 
 .button-container-banner {
-	display: none;
 	position: absolute;
 	right: 25%;
 	bottom: 8%;
@@ -300,6 +301,25 @@ hr {
 	}
 	.banner-container-text {
 		display: block;
+	}
+}
+@media (max-width: 720px) {
+	.button-container-banner {
+		display: block;
+		right: 35%;
+		bottom: 8%;
+	}
+	.banner-container-text {
+		background: rgba(0, 0, 0, 0.2) !important;
+		border-radius: 10px; /* Añade esquinas redondeadas */
+        backdrop-filter: blur(10px) !important;
+		display: block !important;
+		right: 10%;
+		bottom: 18%;
+		z-index: 999;
+	}
+	.banner-text2 {
+		display: none;
 	}
 }
 @media (min-width: 1920px) {
