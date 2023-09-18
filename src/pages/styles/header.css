@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Open+Sans:ital,wght@0,400;1,300&family=Poppins&family=Raleway:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Open+Sans:ital,wght@0,400;1,300&family=Poppins&family=Raleway:wght@700&display=swap");
 * {
     padding: 0;
     margin: 0;
@@ -15,8 +14,8 @@
 }
 
 .nav-link {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold!important;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold !important;
     font-size: 1.2rem !important;
     padding: 5px !important;
     text-shadow: 1px 1px 5px #000 !important;
@@ -26,17 +25,17 @@
         color 0.3s ease !important;
 }
 .nav-link:hover {
-    background-color: transparent !important;
     color: #ffc107 !important;
 }
 
 .navbarmain {
     position: relative;
     z-index: 999;
-    background-color: #000000dd !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
 }
 .navbarhome {
-    background-color: #000000dd !important;
+    background: rgba(0, 0, 0, 0) !important;
     position: fixed !important;
     top: 0;
     left: 0;
@@ -52,7 +51,7 @@
     transform: scale(1.3);
     filter: brightness(1.5);
 }
-.dropdown-item{
+.dropdown-item {
     font-weight: bold !important;
     text-shadow: 0 0 5px #000 !important;
 }
@@ -61,11 +60,12 @@
     color: #ffc107 !important;
 }
 .brand-text:hover {
-    color: #ffc107; /* Cambia el color a amarillo al hacer hover */
-    transition: color 0.3s; /* Agrega una transición suave */
+    color: #ffc107; 
+    transition: color 0.3s; 
 }
 .show {
-    background-color: transparent !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
 }
 
 .nav-welcome {
@@ -73,33 +73,48 @@
 }
 @media (max-width: 991px) {
     .navbarhome {
-        background-color: #000000dd !important ;
+        background: rgba(0, 0, 0, 0) !important;
         position: fixed !important;
         top: 0;
         left: 0;
         right: 0;
         z-index: 1000;
+        transition: top 0.3s;
     }
 }
 @media (min-width: 991px) {
     .navbarhome {
-        background-color: #000000dd !important;
+        background: rgba(0, 0, 0, 0) !important;
         position: fixed !important;
-        width: 100% ;
+        width: 100%;
         top: 0;
         left: 0;
         right: 0;
         z-index: 1000;
     }
-    .container{
+    .container {
         width: 100% !important;
     }
 }
 
-.dropdown-menu{
-    background-color: #000000dd !important;
+.dropdown-menu {
+    background: rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
 }
 
-.nav-welcome{
+.nav-welcome {
     color: #ffc107 !important;
+}
+.none-class {
+    display: none !important;
+    transition: top 0.3s;
+}
+
+.inline-block-class {
+    display: inline-block;
+    transition: top 0.3s;
+}
+.navbarhome,
+.navbarmain {
+    transition: all .5s ease; 
 }

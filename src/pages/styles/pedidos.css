@@ -24,6 +24,8 @@ img {
 
 /* Header */
 .header-pedidos {
+	
+	padding-top: 106px !important;
 	display: flex;
 	justify-content: space-between;
 	padding: 30px 0 40px 0;

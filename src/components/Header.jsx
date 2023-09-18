@@ -31,11 +31,13 @@ function Header({ navBarClass }) {
   if (navLinkClass === "none-class") {
     navLinkClassWelcome = "inline-block-class";
   } else {
-      navLinkClassWelcome = "none-class";
+    navLinkClassWelcome = "none-class";
   }
+  const dinamicNav = location.pathname === '/' ? 'navbarhome' : 'navbarmain';
+
   if (user === null) {
     return (
-      <Navbar expand="lg" data-bs-theme="dark" className={navClass} >
+      <Navbar expand="lg" data-bs-theme="dark" className={`navbarhome ${dinamicNav} ${navLinkClass}`} >
 
         <Container>
           <Navbar.Brand as={Link} to="/">
@@ -45,11 +47,11 @@ function Header({ navBarClass }) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/aboutus" className={navLinkClass}>Sobre Nosotros</Nav.Link>
-              <Nav.Link as={Link} to="/contact" className={navLinkClass}>Contacto</Nav.Link>
-              <NavDropdown title="Ingresar" id="basic-nav-dropdown" className={navLinkClass}>
+              <Nav.Link as={Link} to="/aboutus" >Sobre Nosotros</Nav.Link>
+              <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
+              <NavDropdown title="Ingresar" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/login" >Iniciar Sesión</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/register" className={navLinkClass}>Registrarse</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/register">Registrarse</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
@@ -58,7 +60,7 @@ function Header({ navBarClass }) {
     );
   }
   return (
-    <Navbar expand="lg" data-bs-theme="dark" className={navClass} style={{ backgroundColor: 'transparent' }}>
+    <Navbar expand="lg" data-bs-theme="dark" className={`navbarhome ${dinamicNav} ${navLinkClass}`} >
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img src={logoTipo} className="d-inline-block navbar-image " alt="Logo" />
@@ -71,23 +73,23 @@ function Header({ navBarClass }) {
             {isAuthenticated && user.role === 'admin' && (
               <>
                 <Nav.Link as={Link} to="/" className={`nav-welcome ${navLinkClassWelcome}`}>Bienvenid@ {user.username}!</Nav.Link>
-                <Nav.Link as={Link} to="/admin" className={navLinkClass}>
+                <Nav.Link as={Link} to="/admin">
                   Administración
                 </Nav.Link>
-                <Nav.Link as={Link} to="/pedidos" className={navLinkClass}>Pedidos</Nav.Link>
-                <Nav.Link as={Link} to="/aboutus" className={navLinkClass}>Sobre Nosotros</Nav.Link>
-                <Nav.Link as={Link} to="/contact" className={navLinkClass}>Contacto</Nav.Link>
-                <Nav.Link as={Link} className={navLinkClass} to="/" onClick={handleLogout}>Cerrar sesión</Nav.Link>
+                <Nav.Link as={Link} to="/pedidos">Pedidos</Nav.Link>
+                <Nav.Link as={Link} to="/aboutus">Sobre Nosotros</Nav.Link>
+                <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
+                <Nav.Link as={Link} to="/" onClick={handleLogout}>Cerrar sesión</Nav.Link>
               </>
             )}
             {/* Mostrar elementos de usuario normal */}
             {(isAuthenticated && !(user.role === 'admin')) ? (
               <>
                 <Nav.Link as={Link} to="/" className={`nav-welcome ${navLinkClass}`}>Bienvenid@ {user.username}!</Nav.Link>
-                <Nav.Link as={Link} to="/pedidos" className={navLinkClass}>Pedidos</Nav.Link>
-                <Nav.Link as={Link} to="/aboutus" className={navLinkClass}>Sobre Nosotros</Nav.Link>
-                <Nav.Link as={Link} to="/contact" className={navLinkClass}>Contacto</Nav.Link>
-                <Nav.Link as={Link} className={navLinkClass} to="/" onClick={handleLogout}>Cerrar sesión</Nav.Link>
+                <Nav.Link as={Link} to="/pedidos">Pedidos</Nav.Link>
+                <Nav.Link as={Link} to="/aboutus">Sobre Nosotros</Nav.Link>
+                <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
+                <Nav.Link as={Link} to="/" onClick={handleLogout}>Cerrar sesión</Nav.Link>
               </>
             ) : ("")}
 
