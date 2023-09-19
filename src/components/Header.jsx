@@ -21,6 +21,7 @@ function Header({ navBarClass }) {
       icon: "success",
       position: "center",
       background: 'black',
+      color:'white',
       customClass: {
           container: 'custom-swal-container',
           title: 'custom-swal-title',

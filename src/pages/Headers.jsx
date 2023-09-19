@@ -30,6 +30,7 @@ export const Headers = ({
 			icon: 'warning',
 			showCancelButton: true,
 			background: 'black',
+			color:'white',
 			customClass: {
 				container: 'custom-swal-container',
 				title: 'custom-swal-title',
@@ -52,6 +53,7 @@ export const Headers = ({
 					showConfirmButton: true,
 					timer: 2000,
 					background: 'black',
+					color:'white',
 					customClass: {
 						container: 'custom-swal-container',
 						title: 'custom-swal-title',
@@ -81,6 +83,7 @@ export const Headers = ({
 					showConfirmButton: true,
 					timer: 2000,
 					background: 'black',
+					color:'white',
 					customClass: {
 						container: 'custom-swal-container',
 						title: 'custom-swal-title',

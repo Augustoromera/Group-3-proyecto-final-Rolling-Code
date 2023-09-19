@@ -38,6 +38,7 @@ export const ProductList = ({
       icon: 'success',
       title: 'Añadido al carrito exitosamente',
       background: 'black',
+      color:'white',
 			customClass: {
 				container: 'custom-swal-container',
 				title: 'custom-swal-title',

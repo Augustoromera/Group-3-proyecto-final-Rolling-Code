@@ -70,6 +70,7 @@ export const BodyHome = () => {
       text: "Accede con tu cuenta para continuar",
       icon: "info",
       background: 'black',
+      color:'white',
       customClass: {
           container: 'custom-swal-container',
           title: 'custom-swal-title',
