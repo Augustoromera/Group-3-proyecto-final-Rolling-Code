@@ -48,6 +48,7 @@
 
 .navbar-image {
     height: 80px;
+    cursor: pointer;
 }
 
 .navbar-image:hover {
