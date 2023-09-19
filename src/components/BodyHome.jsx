@@ -142,7 +142,7 @@ export const BodyHome = () => {
 
           <div className='home-contenedor-cards-menus'>
             {cargarProducto.map((elemento, index) => (
-              <div key={index} className='col-12 col-sm-6 col-md-4 col-lg-2 p-2' onClick={
+              <div key={index} className='col-12 col-sm-6 col-md-4 col-lg-2 p-2 car-cont' onClick={
                 user === null
                   ? () => {
                     window.location.href = "/login";
