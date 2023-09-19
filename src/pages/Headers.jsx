@@ -29,8 +29,14 @@ export const Headers = ({
 			text: 'Esta acción borrará todos los productos en el carrito',
 			icon: 'warning',
 			showCancelButton: true,
-			confirmButtonColor: '#3085d6',
-			cancelButtonColor: '#d33',
+			background: 'black',
+			customClass: {
+				container: 'custom-swal-container',
+				title: 'custom-swal-title',
+				content: 'custom-swal-content',
+				confirmButton: 'custom-swal-confirm-button',
+				cancelButton: 'custom-swal-cancel-button',
+			},
 			confirmButtonText: 'Sí, borrar',
 			cancelButtonText: 'Cancelar'
 		}).then((result) => {
@@ -39,10 +45,21 @@ export const Headers = ({
 				setAllProducts([]);
 				setTotal(0);
 				setCountProducts(0);
-				Swal.fire(
-					'¡Borrado!',
-					'El carrito ha sido borrado exitosamente.',
-					'success'
+				Swal.fire({
+					icon: 'success',
+					title: 'Carrito borrado',
+					text: '¡Puedes volver a hacer tu carrito!',
+					showConfirmButton: true,
+					timer: 2000,
+					background: 'black',
+					customClass: {
+						container: 'custom-swal-container',
+						title: 'custom-swal-title',
+						content: 'custom-swal-content',
+						confirmButton: 'custom-swal-confirm-button',
+						cancelButton: 'custom-swal-cancel-button',
+					},
+				}
 				);
 			}
 		});
@@ -55,6 +72,43 @@ export const Headers = ({
 		const currentDate = new Date();
 		const fecha = currentDate.toISOString();
 		guardarPedidoDB(usuario, fecha, menus, estado, importeTotal)
+			.then(() => {
+
+				Swal.fire({
+					icon: 'success',
+					title: 'Compra confirmada',
+					text: '¡Tu compra ha sido confirmada con éxito!',
+					showConfirmButton: true,
+					timer: 2000,
+					background: 'black',
+					customClass: {
+						container: 'custom-swal-container',
+						title: 'custom-swal-title',
+						content: 'custom-swal-content',
+						confirmButton: 'custom-swal-confirm-button',
+						cancelButton: 'custom-swal-cancel-button',
+					},
+					confirmButtonColor: '#FFD700',
+					cancelButtonColor: '#FFD700',
+					allowOutsideClick: false,
+
+				});
+			})
+			.catch((error) => {
+				console.error('Error al guardar el pedido:', error);
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					customClass: {
+						container: 'custom-swal-container',
+						title: 'custom-swal-title',
+						content: 'custom-swal-content',
+						confirmButton: 'custom-swal-confirm-button',
+						cancelButton: 'custom-swal-cancel-button',
+					},
+					text: 'Hubo un problema al procesar tu compra. Por favor, inténtalo de nuevo más tarde.',
+				});
+			});
 	};
 	const guardarPedidoDB = async (usuario, fecha, menus, estado, importeTotal) => {
 		try {
@@ -79,7 +133,7 @@ export const Headers = ({
 
 		if (scrollY > windowHeight * scrollThreshold) {
 			setActive(false);
-		} 
+		}
 	};
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
@@ -93,7 +147,7 @@ export const Headers = ({
 			<div className='container-icon'>
 				<div
 					className='container-cart-icon'
-					onClick={() => { setActive(true); console.log(active) }}
+					onClick={() => { setActive(true); }}
 				>
 					<a href='#header-pedidos'>
 						<svg
@@ -116,10 +170,10 @@ export const Headers = ({
 						<span id='contador-productos'>{countProducts}</span>
 					</div>
 				</div>
-				<div className={`container-cart-products ${active ? 'active' : ''}`} >
+				<div className={`container-cart-products pt-5 ${active ? 'active' : ''}`} >
 					{allProducts.length ? (
 						<>
-							<div className='row-product'>
+							<div className='row-product p'>
 								<br />
 								<h2 className='title-pedido'>Pedido</h2>
 								{allProducts.map((product, index) => (

@@ -102,6 +102,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Campos incompletos',
                 text: 'Por favor completa todos los campos.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return;
         }
@@ -111,6 +119,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Precio inválido',
                 text: 'El precio debe ser un número válido.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return;
         }
@@ -119,6 +135,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Formato de la imagen es incorrecto',
                 text: 'Debe ser en base 64 (png o jpeg)',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return
         }
@@ -128,6 +152,13 @@ export const AdminScreen = () => {
             icon: 'success',
             title: 'Menu agregado!',
             text: 'El menu ha sido agregado exitosamente.',
+            background: 'black', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
         });
 
         setFormDate({
@@ -154,6 +185,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Campos incompletos',
                 text: 'Por favor completa todos los campos.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return;
         }
@@ -161,7 +200,14 @@ export const AdminScreen = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Formato de correo incorrecto',
-                text: 'Por favor ingresa un correo electrónico válido.',
+                text: 'Por favor ingresa un correo electrónico válido.', background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return
         }
@@ -170,6 +216,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Formato de contraseña incorrecto',
                 text: 'Debe contener al menos una mayuscula, minusculas y al menos 8 caracteres',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return
         }
@@ -179,6 +233,13 @@ export const AdminScreen = () => {
             icon: 'success',
             title: 'Usuario agregado!',
             text: 'El Usuario ha sido agregado exitosamente.',
+            background: 'black', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
         });
 
         setFormDateUser({
@@ -203,6 +264,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'No se encontro el Menu',
                 text: 'Por favor contactese con el administrador.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
         }
         if (!username.trim() || !email.trim() || !role) {
@@ -210,6 +279,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Campos incompletos',
                 text: 'Por favor completa todos los campos.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return;
         }
@@ -218,6 +295,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Formato de correo incorrecto',
                 text: 'Por favor ingresa un correo electrónico válido.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return
         }
@@ -226,6 +311,13 @@ export const AdminScreen = () => {
             icon: 'success',
             title: 'Usuario editado!',
             text: 'El Usuario ha sido editado exitosamente.',
+            background: 'black', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
         });
 
         setFormDateUser({
@@ -248,6 +340,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'No se encontro el Menu',
                 text: 'Por favor contactese con el administrador.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
         }
         if (!nombre.trim() || !precio | !imagen || !detalle.trim() || !categoria) {
@@ -255,6 +355,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Campos incompletos',
                 text: 'Por favor completa todos los campos.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
         }
 
@@ -263,6 +371,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Precio inválido',
                 text: 'El precio debe ser un número válido.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
         }
         if (!comprobarImagenText(imagen)) {
@@ -270,6 +386,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Formato de la imagen es incorrecto',
                 text: 'Debe ser en base 64 (png o jpeg)',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
             return
         }
@@ -277,6 +401,13 @@ export const AdminScreen = () => {
             icon: 'success',
             title: 'Menu Editado!',
             text: 'El menu ha sido editado exitosamente.',
+            background: 'black', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
         });
 
         setFormDate({
@@ -440,6 +571,13 @@ export const AdminScreen = () => {
             showCancelButton: true,
             confirmButtonText: 'Sí, eliminar',
             cancelButtonText: 'Cancelar',
+            background: 'black', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
@@ -454,6 +592,14 @@ export const AdminScreen = () => {
                         icon: 'success',
                         title: '¡Producto Eliminado!',
                         text: 'El producto ha sido eliminado exitosamente.',
+                        background: 'black',
+                        customClass: {
+                            container: 'custom-swal-container',
+                            title: 'custom-swal-title',
+                            content: 'custom-swal-content',
+                            confirmButton: 'custom-swal-confirm-button',
+                            cancelButton: 'custom-swal-cancel-button',
+                        },
                     });
                     recargarPagina();
                 } catch (error) {
@@ -480,6 +626,13 @@ export const AdminScreen = () => {
             showCancelButton: true,
             confirmButtonText: 'Sí, eliminar',
             cancelButtonText: 'Cancelar',
+            background: 'black', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
@@ -494,6 +647,14 @@ export const AdminScreen = () => {
                         icon: 'success',
                         title: '¡Usuario Eliminado!',
                         text: 'El usuario ha sido eliminado exitosamente.',
+                        background: 'black',
+                        customClass: {
+                            container: 'custom-swal-container',
+                            title: 'custom-swal-title',
+                            content: 'custom-swal-content',
+                            confirmButton: 'custom-swal-confirm-button',
+                            cancelButton: 'custom-swal-cancel-button',
+                        },
                     });
                     recargarPagina();
                 } catch (error) {
@@ -515,6 +676,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'No se encontró el Usuario',
                 text: 'Por favor contacte al administrador.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
         }
 
@@ -525,6 +694,13 @@ export const AdminScreen = () => {
             showCancelButton: true,
             confirmButtonText: 'Sí, cambiar',
             cancelButtonText: 'Cancelar',
+            background: 'black', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
         }).then((result) => {
             if (result.isConfirmed) {
                 setFormDateUser({
@@ -549,6 +725,14 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'No se encontró el Usuario',
                 text: 'Por favor contacte al administrador.',
+                background: 'black',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
             });
         }
 
@@ -559,6 +743,13 @@ export const AdminScreen = () => {
             showCancelButton: true,
             confirmButtonText: 'Sí, cambiar',
             cancelButtonText: 'Cancelar',
+            background: 'black', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
         }).then((result) => {
             if (result.isConfirmed) {
                 editarPedidoDb(_id, newstatus);
@@ -619,8 +810,8 @@ export const AdminScreen = () => {
         <>
             <Header></Header>
             {/* codigo para tablas  */}
-            <div className="">
-                <div className="text-center mt-4 p-3">
+            <div className="pt-5">
+                <div className="text-center mt-4 p-5">
                     <h1>Bienvenido al Panel de Administración</h1>
                     <p>¡Aquí puedes gestionar usuarios, productos y pedidos de manera fácil y eficiente!</p>
                 </div>

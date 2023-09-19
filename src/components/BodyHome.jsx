@@ -69,6 +69,14 @@ export const BodyHome = () => {
       title: "Estás a un paso de comprar en Rapiburguers",
       text: "Accede con tu cuenta para continuar",
       icon: "info",
+      background: 'black',
+      customClass: {
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
+      },
       showConfirmButton: false
     });
 

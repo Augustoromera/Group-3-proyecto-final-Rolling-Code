@@ -28,6 +28,14 @@ export const ContactScreen = () => {
         icon: 'error',
         title: 'Error en el nombre',
         text: 'Por favor, ingresa un nombre válido.',
+        background: 'black',
+        customClass: {
+            container: 'custom-swal-container',
+            title: 'custom-swal-title',
+            content: 'custom-swal-content',
+            confirmButton: 'custom-swal-confirm-button',
+            cancelButton: 'custom-swal-cancel-button',
+        },
       });
       return;
     }
@@ -38,6 +46,14 @@ export const ContactScreen = () => {
         icon: 'error',
         title: 'Error en el apellido',
         text: 'Por favor, ingresa un apellido válido.',
+        background: 'black',
+        customClass: {
+            container: 'custom-swal-container',
+            title: 'custom-swal-title',
+            content: 'custom-swal-content',
+            confirmButton: 'custom-swal-confirm-button',
+            cancelButton: 'custom-swal-cancel-button',
+        },
       });
       return;
     }
@@ -48,6 +64,14 @@ export const ContactScreen = () => {
         icon: 'error',
         title: 'Error en el correo electrónico',
         text: 'Por favor, ingresa un correo electrónico válido.',
+        background: 'black',
+        customClass: {
+            container: 'custom-swal-container',
+            title: 'custom-swal-title',
+            content: 'custom-swal-content',
+            confirmButton: 'custom-swal-confirm-button',
+            cancelButton: 'custom-swal-cancel-button',
+        },
       });
       return;
     }
@@ -58,6 +82,14 @@ export const ContactScreen = () => {
         icon: 'error',
         title: 'Error en el teléfono',
         text: 'Por favor, ingresa un teléfono válido.',
+        background: 'black',
+        customClass: {
+            container: 'custom-swal-container',
+            title: 'custom-swal-title',
+            content: 'custom-swal-content',
+            confirmButton: 'custom-swal-confirm-button',
+            cancelButton: 'custom-swal-cancel-button',
+        },
       });
       return;
     }
@@ -68,6 +100,14 @@ export const ContactScreen = () => {
         icon: 'error',
         title: 'Error en el asunto',
         text: 'Por favor, ingresa un asunto.',
+        background: 'black',
+        customClass: {
+            container: 'custom-swal-container',
+            title: 'custom-swal-title',
+            content: 'custom-swal-content',
+            confirmButton: 'custom-swal-confirm-button',
+            cancelButton: 'custom-swal-cancel-button',
+        },
       });
       return;
     }
@@ -78,6 +118,14 @@ export const ContactScreen = () => {
         icon: 'error',
         title: 'Error en el mensaje',
         text: 'Por favor, escribe un mensaje.',
+        background: 'black',
+        customClass: {
+            container: 'custom-swal-container',
+            title: 'custom-swal-title',
+            content: 'custom-swal-content',
+            confirmButton: 'custom-swal-confirm-button',
+            cancelButton: 'custom-swal-cancel-button',
+        },
       });
       return;
     }
@@ -88,6 +136,14 @@ export const ContactScreen = () => {
         title: 'Formulario enviado correctamente!',
         html: 'Nuestro equipo recibió tu solicitud',
         showConfirmButton: false,
+        background: 'black',
+        customClass: {
+            container: 'custom-swal-container',
+            title: 'custom-swal-title',
+            content: 'custom-swal-content',
+            confirmButton: 'custom-swal-confirm-button',
+            cancelButton: 'custom-swal-cancel-button',
+        },
         timer: 3000,
       }).then(() => {
         window.location.href = '/contact';

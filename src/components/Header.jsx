@@ -20,6 +20,14 @@ function Header({ navBarClass }) {
       buttons: false,
       icon: "success",
       position: "center",
+      background: 'black',
+      customClass: {
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
+      },
     }).then(() => {
       logout();
       navigate("/"); // Navega al home ("/") después de cerrar sesión
