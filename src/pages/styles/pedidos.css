@@ -540,6 +540,7 @@ img {
 .closeCart {
 	background-color: #dd5858;
 	color: #ffffff;
+	margin-top: 30px !important;
 }
 .closeCart:hover {
 	background-color: #dd5858;
