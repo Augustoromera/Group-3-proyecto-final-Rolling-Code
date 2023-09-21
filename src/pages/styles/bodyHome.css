@@ -139,7 +139,17 @@ hr {
 		0 0 12px #fff700,
 		0 0 12px #fff700;
 	margin: 0.8em;
+	transition: box-shadow .3s ease;
 }
+
+.custom-card:hover{
+	box-shadow:
+		0 0 30px #fff700,
+		0 0 30px #fff700,
+		0 0 30px #fff700,
+		0 0 30px #fff700;
+}
+
 
 @media (max-width: 575px) {
 	.home-card-menus {
