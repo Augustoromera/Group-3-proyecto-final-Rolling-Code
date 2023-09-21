@@ -87,7 +87,7 @@ export const ProductList = ({
             <div className='info-product'>
               <h2>{product.nombre}</h2>
               <p className='category'>{product.categoria}</p>
-              <p className='details'>{product.detalle}</p>
+              <p className='details'><i>{product.detalle}</i></p>
               <p className='price'>${product.precio}</p>
               {product.estado === 'No Disponible' ? (
                 <p className='unavailable-text'>Disculpa, este producto no está disponible.</p>

@@ -7,7 +7,7 @@ const MenuCard = ({ imagenSrc, nombre, descripcion }) => {
         <img src={imagenSrc} alt={nombre} className="home-imagen-menus" />
         <div className='home-contenedor-info-menus'>
           <h2 className='home-nombre-menus'>{nombre}</h2>
-          <p className='home-descripcion-menus text-center '>{descripcion}</p>
+          <p className='home-descripcion-menus text-center '><i>{descripcion}</i></p>
         </div>
       </div>
     );
