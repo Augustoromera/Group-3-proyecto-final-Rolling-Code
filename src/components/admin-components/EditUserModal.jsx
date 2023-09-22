@@ -17,7 +17,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
             <div className="modal-content">
                 <div className="modal-header">
                     <h2 className="modal-title">Editar Usuario</h2>
-                    <button type="button" className="btn-close m-3 bg-warning" onClick={() => setIsOpen(false)}></button>
+                    <button type="button" className="btn-close m-3 bg-warning p-1" onClick={() => setIsOpen(false)}></button>
                 </div>
                 <div className="modal-body">
                     <Form onSubmit={handleSubmitFormUserEditar}>
