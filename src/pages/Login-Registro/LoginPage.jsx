@@ -25,6 +25,7 @@ function LoginPage() {
                 title: 'Login incorrecto',
                 text: 'El correo electrónico no es válido',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',

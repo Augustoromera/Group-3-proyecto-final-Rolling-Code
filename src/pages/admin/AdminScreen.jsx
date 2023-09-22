@@ -103,6 +103,7 @@ export const AdminScreen = () => {
                 title: 'Campos incompletos',
                 text: 'Por favor completa todos los campos.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -120,6 +121,7 @@ export const AdminScreen = () => {
                 title: 'Precio inválido',
                 text: 'El precio debe ser un número válido.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -136,6 +138,7 @@ export const AdminScreen = () => {
                 title: 'Formato de la imagen es incorrecto',
                 text: 'Debe ser en base 64 (png o jpeg)',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -152,7 +155,9 @@ export const AdminScreen = () => {
             icon: 'success',
             title: 'Menu agregado!',
             text: 'El menu ha sido agregado exitosamente.',
-            background: 'black', customClass: {
+            background: 'black', 
+            color:'white',
+            customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
@@ -186,6 +191,7 @@ export const AdminScreen = () => {
                 title: 'Campos incompletos',
                 text: 'Por favor completa todos los campos.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -201,6 +207,7 @@ export const AdminScreen = () => {
                 icon: 'error',
                 title: 'Formato de correo incorrecto',
                 text: 'Por favor ingresa un correo electrónico válido.', background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -217,6 +224,7 @@ export const AdminScreen = () => {
                 title: 'Formato de contraseña incorrecto',
                 text: 'Debe contener al menos una mayuscula, minusculas y al menos 8 caracteres',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -233,7 +241,8 @@ export const AdminScreen = () => {
             icon: 'success',
             title: 'Usuario agregado!',
             text: 'El Usuario ha sido agregado exitosamente.',
-            background: 'black', customClass: {
+            background: 'black',
+            color:'white', customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
@@ -265,6 +274,7 @@ export const AdminScreen = () => {
                 title: 'No se encontro el Menu',
                 text: 'Por favor contactese con el administrador.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -280,6 +290,7 @@ export const AdminScreen = () => {
                 title: 'Campos incompletos',
                 text: 'Por favor completa todos los campos.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -296,6 +307,7 @@ export const AdminScreen = () => {
                 title: 'Formato de correo incorrecto',
                 text: 'Por favor ingresa un correo electrónico válido.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -311,7 +323,8 @@ export const AdminScreen = () => {
             icon: 'success',
             title: 'Usuario editado!',
             text: 'El Usuario ha sido editado exitosamente.',
-            background: 'black', customClass: {
+            background: 'black',
+            color:'white', customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
@@ -341,6 +354,7 @@ export const AdminScreen = () => {
                 title: 'No se encontro el Menu',
                 text: 'Por favor contactese con el administrador.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -356,6 +370,7 @@ export const AdminScreen = () => {
                 title: 'Campos incompletos',
                 text: 'Por favor completa todos los campos.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -372,6 +387,7 @@ export const AdminScreen = () => {
                 title: 'Precio inválido',
                 text: 'El precio debe ser un número válido.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -387,6 +403,7 @@ export const AdminScreen = () => {
                 title: 'Formato de la imagen es incorrecto',
                 text: 'Debe ser en base 64 (png o jpeg)',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -401,7 +418,8 @@ export const AdminScreen = () => {
             icon: 'success',
             title: 'Menu Editado!',
             text: 'El menu ha sido editado exitosamente.',
-            background: 'black', customClass: {
+            background: 'black',
+            color:'white', customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
@@ -571,7 +589,8 @@ export const AdminScreen = () => {
             showCancelButton: true,
             confirmButtonText: 'Sí, eliminar',
             cancelButtonText: 'Cancelar',
-            background: 'black', customClass: {
+            background: 'black',
+            color:'white', customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
@@ -593,6 +612,7 @@ export const AdminScreen = () => {
                         title: '¡Producto Eliminado!',
                         text: 'El producto ha sido eliminado exitosamente.',
                         background: 'black',
+                        color:'white',
                         customClass: {
                             container: 'custom-swal-container',
                             title: 'custom-swal-title',
@@ -626,7 +646,8 @@ export const AdminScreen = () => {
             showCancelButton: true,
             confirmButtonText: 'Sí, eliminar',
             cancelButtonText: 'Cancelar',
-            background: 'black', customClass: {
+            background: 'black',
+            color:'white', customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
@@ -648,6 +669,7 @@ export const AdminScreen = () => {
                         title: '¡Usuario Eliminado!',
                         text: 'El usuario ha sido eliminado exitosamente.',
                         background: 'black',
+                        color:'white',
                         customClass: {
                             container: 'custom-swal-container',
                             title: 'custom-swal-title',
@@ -677,6 +699,7 @@ export const AdminScreen = () => {
                 title: 'No se encontró el Usuario',
                 text: 'Por favor contacte al administrador.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -694,7 +717,8 @@ export const AdminScreen = () => {
             showCancelButton: true,
             confirmButtonText: 'Sí, cambiar',
             cancelButtonText: 'Cancelar',
-            background: 'black', customClass: {
+            background: 'black',
+            color:'white', customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
@@ -726,6 +750,7 @@ export const AdminScreen = () => {
                 title: 'No se encontró el Usuario',
                 text: 'Por favor contacte al administrador.',
                 background: 'black',
+                color:'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -743,7 +768,8 @@ export const AdminScreen = () => {
             showCancelButton: true,
             confirmButtonText: 'Sí, cambiar',
             cancelButtonText: 'Cancelar',
-            background: 'black', customClass: {
+            background: 'black',
+            color:'white', customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
