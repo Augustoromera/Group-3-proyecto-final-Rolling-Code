@@ -11,24 +11,9 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
             backdropFilter: 'blur(3px)',
         },
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-            width: '70%',
-            maxWidth: '600px',
-            border: '2px solid yellow',
-            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
-            padding: '20px',
-            borderRadius: '8px',
-            background: 'black',
-        },
     };
     return (
-        <Modal isOpen={isOpen} ariaHideApp={false} style={customStyles} onRequestClose={() => setIsOpen(false)}>
+        <Modal isOpen={isOpen} ariaHideApp={false} style={customStyles} className="custom-modal" onRequestClose={() => setIsOpen(false)}>
             <div className="modal-content">
                 <div className="modal-header">
                     <h2 className="modal-title">Editar Usuario</h2>
