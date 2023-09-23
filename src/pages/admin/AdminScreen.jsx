@@ -23,14 +23,17 @@ export const AdminScreen = () => {
     const [isModalOpenUser, setIsModalOpenUser] = useState(false);
     const [isModalOpenEditar, setIsModalOpenEditar] = useState(false);
     const [isModalOpenUserEditar, setIsModalOpenUserEditar] = useState(false);
+    const [estadoCheckbox, setEstadoCheckbox] = useState(false);
+    const [favoritoCheckbox, setFavoritoCheckbox] = useState(false);
+
     // Estados para almacenar los datos de los formularios de agregar/editar productos y usuarios
     const [formDateEditar, setFormDateEditar] = useState({
-        _id: '',
         nombre: '',
-        imagen: '',
         estado: '',
+        favorito: false,
         precio: '',
         detalle: '',
+        imagen: '',
         categoria: ''
     });
     const [formDateUser, setFormDateUser] = useState({
@@ -51,6 +54,7 @@ export const AdminScreen = () => {
     const [formDate, setFormDate] = useState({
         nombre: '',
         estado: '',
+        favorito: false,
         precio: '',
         detalle: '',
         imagen: '',
@@ -59,11 +63,19 @@ export const AdminScreen = () => {
 
     // Función para manejar cambios en los inputs de los formularios de agregar y editar (usuarios y menus)
     const handleChangeForm = (e) => {
-        setFormDate({
-            ...formDate,
-            [e.target.name]: e.target.value,
-        })
-    }
+        const { name, value, type, checked } = e.target;
+        if (type === "checkbox") {
+            setFormDate({
+                ...formDate,
+                [name]: checked,
+            });
+        } else {
+            setFormDate({
+                ...formDate,
+                [name]: value,
+            });
+        }
+    };
     const handleChangeFormUser = (e) => {
 
         const value = e.target.type === "checkbox" ? (e.target.checked ? "active" : "inactive") : e.target.value;
@@ -82,19 +94,31 @@ export const AdminScreen = () => {
         })
     }
     const handleChangeFormEditar = (e) => {
-        const value = e.target.type === "checkbox" ? (e.target.checked ? "Disponible" : "No Disponible") : e.target.value;
 
-        setFormDateEditar({
-            ...formDateEditar,
-            [e.target.name]: value,
-        });
+        const { name, value, type, checked } = e.target;
+        // Si el elemento es un checkbox, actualiza el estado correspondiente según el nombre
+        if (type === "checkbox") {
+            setFormDate({
+                ...formDate,
+                [name]: checked,
+            });
+        } else {
+            // Si es otro tipo de elemento de entrada (por ejemplo, un campo de texto), actualiza el estado normalmente
+            setFormDate({
+                ...formDate,
+                [name]: value,
+            });
+        }
     }
 
     // Función para manejar el envío del formulario de agregar menu/producto
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        var { nombre, estado, precio, detalle, categoria, imagen } = formDate;
+        var { nombre, precio, detalle, categoria, imagen } = formDate;
+        let estado = estadoCheckbox;
+        let favorito = favoritoCheckbox;
         estado = !estado ? "No disponible" : "Disponible";
+        favorito = favorito ? true : false;
         imagen = imagen ? imagen : '../assets/images/imagenDefault.png';
 
         if (!nombre.trim() || !precio || !detalle.trim() || !categoria) {
@@ -173,8 +197,7 @@ export const AdminScreen = () => {
             detalle: '',
             categoria: '',
         });
-
-        guardarProductoDb(nombre, estado, precio, detalle, categoria, imagen);
+        guardarProductoDb(nombre, estado, favorito, precio, detalle, categoria, imagen);
         recargarPagina();
     };
     // Función para manejar el envío del formulario de agregar usuario
@@ -346,7 +369,11 @@ export const AdminScreen = () => {
     // Función para manejar el envío del formulario de editar menu/producto
     const handleSubmitFormEditar = (e) => {
         e.preventDefault();
-        var { _id, nombre, imagen, estado, precio, detalle, categoria } = formDateEditar;
+        var { _id, nombre, imagen, precio, detalle, categoria } = formDateEditar;
+        let estado = estadoCheckbox;
+        let favorito = favoritoCheckbox;
+        estado = !estado ? "No disponible" : "Disponible";
+        favorito = !favorito ? false : true;
         imagen = imagen ? imagen : '../assets/images/imagenDefault.png';
         if (!_id) {
             return Swal.fire({
@@ -435,14 +462,14 @@ export const AdminScreen = () => {
             detalle: '',
             categoria: '',
         });
-        editarProductoDb(_id, nombre, imagen, estado, precio, detalle, categoria);
+        editarProductoDb(_id, nombre, imagen, estado, favorito, precio, detalle, categoria);
         recargarPagina();
     };
 
 
 
     // Funciones para interactuar con la API que permiten operaciones CRUD (Crear, Leer, Actualizar, Eliminar) 
-    const editarProductoDb = async (_id, nombre, imagen, estado, precio, detalle, categoria) => {
+    const editarProductoDb = async (_id, nombre, imagen, estado, favorito, precio, detalle, categoria) => {
         try {
             const resp = await pruebaApi.put('/api/admin-page/editarMenu', {
                 _id,
@@ -501,11 +528,12 @@ export const AdminScreen = () => {
         }
     }
 
-    const guardarProductoDb = async (nombre, estado, precio, detalle, categoria, imagen) => {
+    const guardarProductoDb = async (nombre, estado, favorito, precio, detalle, categoria, imagen) => {
         try {
             const resp = await pruebaApi.post('/api/admin-page/nuevoMenu', {
                 nombre,
                 estado,
+                favorito,
                 precio,
                 detalle,
                 categoria,
@@ -634,7 +662,6 @@ export const AdminScreen = () => {
     }
 
     const editarUsuarioClick = async (usuario) => {
-        console.log(formDateUser)
         setFormDateUserEditar(usuario);
         setIsModalOpenUserEditar(true);
     }
@@ -801,8 +828,6 @@ export const AdminScreen = () => {
         // eslint-disable-next-line no-useless-escape
         const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
         if (!emailRegex.test(email)) {
-
-            console.log("false")
             return false;
 
         }
@@ -831,6 +856,13 @@ export const AdminScreen = () => {
         cargarPedidosDB();
 
     }, []);
+    useEffect(() => {
+        // Aquí actualizas `formDate` con el nuevo valor de `estadoCheckbox`
+        setFormDateEditar((prevFormDate) => ({
+            ...prevFormDate,
+            estado: estadoCheckbox ? 'Disponible' : 'No disponible',
+        }));
+    }, [estadoCheckbox]);
     //renderizado de componentes y elementos de la interfaz
     return (
         <>
@@ -1058,16 +1090,21 @@ export const AdminScreen = () => {
                 onRequestClose={() => setIsModalOpen(false)}
                 handleChangeForm={handleChangeForm}
                 handleSubmitForm={handleSubmitForm}
-                formDate={formDate}
+                setEstadoCheckbox={setEstadoCheckbox}
+                setFavoritoCheckbox={setFavoritoCheckbox}
             />
 
             {/* Modal para editar menús */}
             <EditMenuModal
                 isOpen={isModalOpenEditar}
                 setIsOpen={setIsModalOpenEditar}
+                formDateEditar={formDateEditar}
                 handleChangeFormEditar={handleChangeFormEditar}
                 handleSubmitFormEditar={handleSubmitFormEditar}
-                formDateEditar={formDateEditar}
+                estadoCheckbox={estadoCheckbox}
+                setEstadoCheckbox={setEstadoCheckbox}
+                favoritoCheckbox={favoritoCheckbox}
+                setFavoritoCheckbox={setFavoritoCheckbox}
             />
             {/* Modal para editar usuarios */}
             <EditUserModal

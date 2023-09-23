@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmitFormEditar, formDateEditar }) => {
+const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmitFormEditar, formDateEditar,  setEstadoCheckbox, favoritoCheckbox,  setFavoritoCheckbox }) => {
     const customStyles = {
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -72,15 +72,6 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                         <option value="milanesa">Milanesa</option>
                                     </Form.Select>
                                 </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicEstado">
-                                    <Form.Check
-                                        type="checkbox"
-                                        name="estado"
-                                        label="Disponible"
-                                        checked={formDateEditar.estado === "Disponible"}
-                                        onChange={(e) => handleChangeFormEditar(e)}
-                                    />
-                                </Form.Group>
                             </div>
                             <div className="col-md-6">
                                 <Form.Group className="mb-3 ctm-form-group" controlId="formBasicImagen">
@@ -106,6 +97,22 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                         placeholder='Agregue una breve descripcion del producto'
                                         required
                                     ></textarea>
+                                </Form.Group>
+                                <Form.Group className="mb-3 " controlId="formBasicEstado">
+                                    <Form.Check
+                                        type="checkbox"
+                                        name="estado"
+                                        label="Disponible"
+                                        onChange={(e) => setEstadoCheckbox(e.target.checked)}
+                                    />
+                                </Form.Group>
+                                <Form.Group className="mb-3 " controlId="formBasicFavorito">
+                                    <Form.Check
+                                        type="checkbox"
+                                        name="favorito"
+                                        label="Se muestra en homescreen"
+                                        onChange={(e) => setFavoritoCheckbox(e.target.checked)}
+                                    />
                                 </Form.Group>
                             </div>
                         </div>

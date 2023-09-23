@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 // eslint-disable-next-line react/prop-types
-const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, handleSubmitForm, formDate }) => {
+const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, handleSubmitForm,  setEstadoCheckbox,  setFavoritoCheckbox }) => {
     const customStyles = {
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -31,7 +31,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                         name="nombre"
                                         minLength="3"
                                         maxLength="30"
-                                        onChange={(e)=>handleChangeForm(e)}
+                                        onChange={(e) => handleChangeForm(e)}
                                         placeholder="Ingrese el nombre"
                                         required
                                     />
@@ -43,7 +43,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                         name="precio"
                                         min="1"
                                         max="9999"
-                                        onChange={(e)=>handleChangeForm(e)}
+                                        onChange={(e) => handleChangeForm(e)}
                                         placeholder='Ingrese el precio'
                                         required
                                     />
@@ -52,7 +52,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                     <Form.Label>Categoría</Form.Label>
                                     <Form.Select
                                         name="categoria"
-                                        onChange={(e)=>handleChangeForm(e)}
+                                        onChange={(e) => handleChangeForm(e)}
                                         style={{ width: '100%' }}
                                         required
                                     >
@@ -68,15 +68,6 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                         <option value="milanesa">Milanesa</option>
                                     </Form.Select>
                                 </Form.Group>
-                                <Form.Group className="mb-3 " controlId="formBasicEstado">
-                                    <Form.Check
-                                        type="checkbox"
-                                        name="estado"
-                                        label="Disponible"
-                                        checked={formDate.activo}
-                                        onChange={(e)=>handleChangeForm(e)}
-                                    />
-                                </Form.Group>
                             </div>
                             <div className="col-md-6">
                                 <Form.Group className="mb-3 ctm-form-group" controlId="formBasicImagen">
@@ -84,7 +75,7 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                     <Form.Control
                                         type="text"
                                         name="imagen"
-                                        onChange={(e)=>handleChangeForm(e)}
+                                        onChange={(e) => handleChangeForm(e)}
                                         placeholder="URL de la imagen"
                                     />
                                 </Form.Group>
@@ -96,10 +87,27 @@ const AddMenuModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeForm, han
                                         rows="3"
                                         minLength="3"
                                         maxLength="500"
-                                        onChange={(e)=>handleChangeForm(e)}
+                                        onChange={(e) => handleChangeForm(e)}
                                         placeholder='Agregue una breve descripcion del producto'
                                         required
                                     ></textarea>
+                                </Form.Group>
+                                <Form.Group className="mb-3 " controlId="formBasicEstado">
+                                    <Form.Check
+                                        type="checkbox"
+                                        name="estado"
+                                        label="Disponible"
+                                        onChange={(e) => setEstadoCheckbox(e.target.checked)}
+                    
+                                    />
+                                </Form.Group>
+                                <Form.Group className="mb-3 " controlId="formBasicFavorito">
+                                    <Form.Check
+                                        type="checkbox"
+                                        name="favorito"
+                                        label="Se muestra en homescreen"
+                                        onChange={(e) => setFavoritoCheckbox(e.target.checked)}
+                                    />
                                 </Form.Group>
                             </div>
                         </div>
