@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmitFormEditar, formDateEditar,  setEstadoCheckbox, favoritoCheckbox,  setFavoritoCheckbox }) => {
+const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmitFormEditar, formDateEditar,  setEstadoCheckbox,  setFavoritoCheckbox }) => {
     const customStyles = {
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.7)',

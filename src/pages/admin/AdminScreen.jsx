@@ -94,19 +94,18 @@ export const AdminScreen = () => {
         })
     }
     const handleChangeFormEditar = (e) => {
-
-        const { name, value, type, checked } = e.target;
+        const { value, type, checked } = e.target;
         // Si el elemento es un checkbox, actualiza el estado correspondiente según el nombre
         if (type === "checkbox") {
             setFormDate({
-                ...formDate,
-                [name]: checked,
+                ...formDateEditar,
+                [e.target.name]: checked,
             });
         } else {
             // Si es otro tipo de elemento de entrada (por ejemplo, un campo de texto), actualiza el estado normalmente
-            setFormDate({
-                ...formDate,
-                [name]: value,
+            setFormDateEditar({
+                ...formDateEditar,
+                [e.target.name]: value,
             });
         }
     }
@@ -862,7 +861,11 @@ export const AdminScreen = () => {
             ...prevFormDate,
             estado: estadoCheckbox ? 'Disponible' : 'No disponible',
         }));
-    }, [estadoCheckbox]);
+        setFormDateEditar((prevFormDate) => ({
+            ...prevFormDate,
+            favorito: favoritoCheckbox ? false : true,
+        }));
+    }, [estadoCheckbox, favoritoCheckbox]);
     //renderizado de componentes y elementos de la interfaz
     return (
         <>

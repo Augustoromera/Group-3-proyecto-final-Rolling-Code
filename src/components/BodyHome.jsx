@@ -54,8 +54,15 @@ export const BodyHome = () => {
   const cargarProductoDB = async () => {
     try {
       const resp = await pruebaApi.get('/api/mostrarMenus');
-      const primerosElementos = resp.data.menus.slice(0, 6);
-      setCargarProducto(primerosElementos);
+      const menus = resp.data.menus;
+      const favoritos = menus.filter(menu => menu.favorito === true);
+      if (favoritos.length >= 6) {
+        const primerosElementos = favoritos.slice(0, 6);
+        setCargarProducto(primerosElementos);
+      } else {
+        const primerosElementos = resp.data.menus.slice(0, 6);
+        setCargarProducto(primerosElementos);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -70,13 +77,13 @@ export const BodyHome = () => {
       text: "Accede con tu cuenta para continuar",
       icon: "info",
       background: 'black',
-      color:'white',
+      color: 'white',
       customClass: {
-          container: 'custom-swal-container',
-          title: 'custom-swal-title',
-          content: 'custom-swal-content',
-          confirmButton: 'custom-swal-confirm-button',
-          cancelButton: 'custom-swal-cancel-button',
+        container: 'custom-swal-container',
+        title: 'custom-swal-title',
+        content: 'custom-swal-content',
+        confirmButton: 'custom-swal-confirm-button',
+        cancelButton: 'custom-swal-cancel-button',
       },
       showConfirmButton: false
     });
@@ -129,7 +136,7 @@ export const BodyHome = () => {
         </div>
         <div className='button-container-banner'>
           <button className="btn btn-warning btn-lg my-button-buy button-banner" onClick={user ? handleSolicitarPedido : iniciarSesionRedirect}>
-          {`${textButtonBanner}`}
+            {`${textButtonBanner}`}
           </button>
         </div>
         <button className="btn btn-link banner-control" onClick={handlePrevImage}>
