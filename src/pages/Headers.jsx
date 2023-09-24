@@ -223,10 +223,10 @@ export const Headers = ({
 
 							<div className="cart-buttons">
 								<button className='btn-clear-all' onClick={onCleanCart}>
-									Vaciar carrito :(
+									Vaciar 
 								</button>
 								<button className="btn-clear-all" onClick={handleButton}>
-									COMPRAR
+									COMPRAR CARRITO :)
 								</button>
 								<button className="btn-clear-all" onClick={() => setActive(false)}>
 									Ocultar
