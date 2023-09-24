@@ -664,7 +664,6 @@ export const AdminScreen = () => {
     const destacarMenuClick = async (menu) => {
         let { _id, nombre, estado, favorito, precio, detalle, categoria, imagen } = menu;
         favorito = !favorito;
-
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
@@ -682,37 +681,73 @@ export const AdminScreen = () => {
             });
         }
 
-        Swal.fire({
-            icon: 'warning',
-            title: '¿Mostrar en el home entre los 6 destacados?',
-            text: 'Esta acción cambiará el estado del menu a favorito, solo pueden haber 6; En caso de haber mas, se mostraran los 6 primeros menus destacados, caso contrario se mostraran los primeros menus encontrados. Asegurese de elejir productos disponibles',
-            showCancelButton: true,
-            confirmButtonText: 'Sí, destacar',
-            cancelButtonText: 'Cancelar',
-            background: 'black',
-            color: 'white', customClass: {
-                container: 'custom-swal-container',
-                title: 'custom-swal-title',
-                content: 'custom-swal-content',
-                confirmButton: 'custom-swal-confirm-button',
-                cancelButton: 'custom-swal-cancel-button',
-            },
-        }).then((result) => {
-            if (result.isConfirmed) {
-                setFormDateEditar({
-                    _id: '',
-                    nombre: '',
-                    estado: '',
-                    favorito: '',
-                    precio: '',
-                    detalle: '',
-                    categoria: '',
-                    imagen: '',
-                });
-                editarProductoDb(_id, nombre, imagen, estado, favorito, precio, detalle, categoria);
-                recargarPagina();
-            }
-        });
+        if (menu.favorito === false) {
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Mostrar en el home entre los 6 destacados?',
+                text: 'Esta acción cambiará el estado del menú a favorito. Solo pueden haber 6 menús destacados; en caso de haber más, se mostrarán los 6 primeros menús destacados. En caso contrario, se mostrarán los primeros menús encontrados. Asegúrese de elegir productos disponibles.',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, destacar',
+                cancelButtonText: 'Cancelar',
+                background: 'black',
+                color: 'white',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setFormDateEditar({
+                        _id: '',
+                        nombre: '',
+                        estado: '',
+                        favorito: '',
+                        precio: '',
+                        detalle: '',
+                        categoria: '',
+                        imagen: '',
+                    });
+                    editarProductoDb(_id, nombre, imagen, estado, favorito, precio, detalle, categoria);
+                    recargarPagina();
+                }
+            });
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Quitar del menú home destacado?',
+                text: 'Esta acción cambiará el estado del menú a no favorito. Ya no se mostrará en el menú home destacado.',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, quitar destacado',
+                cancelButtonText: 'Cancelar',
+                background: 'black',
+                color: 'white',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setFormDateEditar({
+                        _id: '',
+                        nombre: '',
+                        estado: '',
+                        favorito: '',
+                        precio: '',
+                        detalle: '',
+                        categoria: '',
+                        imagen: '',
+                    });
+                    editarProductoDb(_id, nombre, imagen, estado, favorito, precio, detalle, categoria);
+                    recargarPagina();
+                }
+            });
+        }
     };
 
 
