@@ -13,6 +13,8 @@ import { useEffect } from 'react';
 function LoginPage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signIn, errors: signInErrors, isAuthenticated, user } = useAuth();
+    const [email, setEmail] = useState('');
+
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
