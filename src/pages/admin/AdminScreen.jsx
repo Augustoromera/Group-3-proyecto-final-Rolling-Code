@@ -111,7 +111,7 @@ export const AdminScreen = () => {
     }
 
     // Función para manejar el envío del formulario de agregar menu/producto
-    const handleSubmitForm = (e) => {
+    const handleSubmitForm = async (e) => {
         e.preventDefault();
         var { nombre, precio, detalle, categoria, imagen } = formDate;
         let estado = estadoCheckbox;
@@ -156,10 +156,12 @@ export const AdminScreen = () => {
             return;
         }
         if (!comprobarImagenText(imagen)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Formato de la imagen es incorrecto',
-                text: 'Debe ser en base 64 (png o jpeg)',
+            console.log(!comprobarImagenText(imagen));
+
+            await Swal.fire({
+                icon: 'warning',
+                title: 'Se recomienda otro formato de imagen',
+                text: 'Por motivos de seguridad, la imagen debería ser en base 64 (png o jpeg)',
                 background: 'black',
                 color: 'white',
                 customClass: {
@@ -170,17 +172,14 @@ export const AdminScreen = () => {
                     cancelButton: 'custom-swal-cancel-button',
                 },
             });
-            return
         }
-
 
         Swal.fire({
             icon: 'success',
-            title: 'Menu agregado!',
-            text: 'El menu ha sido agregado exitosamente.',
+            title: 'Menu Editado!',
+            text: 'El menu ha sido editado exitosamente.',
             background: 'black',
-            color: 'white',
-            customClass: {
+            color: 'white', customClass: {
                 container: 'custom-swal-container',
                 title: 'custom-swal-title',
                 content: 'custom-swal-content',
@@ -285,7 +284,7 @@ export const AdminScreen = () => {
         recargarPagina()
     };
     // Función para manejar el envío del formulario de editar usuario
-    const handleSubmitFormUserEditar = (e) => {
+    const handleSubmitFormUserEditar = async (e) => {
         e.preventDefault();
         var { _id, username, email, status, role } = formDateUserEditar;
         role = role ? role.toLocaleLowerCase() : "user";
@@ -366,7 +365,7 @@ export const AdminScreen = () => {
         recargarPagina();
     };
     // Función para manejar el envío del formulario de editar menu/producto
-    const handleSubmitFormEditar = (e) => {
+    const handleSubmitFormEditar = async (e) => {
         e.preventDefault();
         var { _id, nombre, imagen, precio, detalle, categoria } = formDateEditar;
         let estado = estadoCheckbox;
@@ -424,10 +423,12 @@ export const AdminScreen = () => {
             });
         }
         if (!comprobarImagenText(imagen)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Formato de la imagen es incorrecto',
-                text: 'Debe ser en base 64 (png o jpeg)',
+            console.log(!comprobarImagenText(imagen));
+
+            await Swal.fire({
+                icon: 'warning',
+                title: 'Se recomienda otro formato de imagen',
+                text: 'Por motivos de seguridad, la imagen debería ser en base 64 (png o jpeg)',
                 background: 'black',
                 color: 'white',
                 customClass: {
@@ -438,8 +439,8 @@ export const AdminScreen = () => {
                     cancelButton: 'custom-swal-cancel-button',
                 },
             });
-            return
         }
+
         Swal.fire({
             icon: 'success',
             title: 'Menu Editado!',
@@ -476,6 +477,7 @@ export const AdminScreen = () => {
                 imagen,
                 estado,
                 precio,
+                favorito,
                 detalle,
                 categoria,
             }, {
@@ -659,6 +661,60 @@ export const AdminScreen = () => {
         setFormDateEditar(menu);
         setIsModalOpenEditar(true);
     }
+    const destacarMenuClick = async (menu) => {
+        let { _id, nombre, estado, favorito, precio, detalle, categoria, imagen } = menu;
+        favorito = !favorito;
+
+        if (!_id) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'No se encontró el Usuario',
+                text: 'Por favor contacte al administrador.',
+                background: 'black',
+                color: 'white',
+                customClass: {
+                    container: 'custom-swal-container',
+                    title: 'custom-swal-title',
+                    content: 'custom-swal-content',
+                    confirmButton: 'custom-swal-confirm-button',
+                    cancelButton: 'custom-swal-cancel-button',
+                },
+            });
+        }
+
+        Swal.fire({
+            icon: 'warning',
+            title: '¿Mostrar en el home entre los 6 destacados?',
+            text: 'Esta acción cambiará el estado del menu a favorito, solo pueden haber 6; En caso de haber mas, se mostraran los 6 primeros menus destacados, caso contrario se mostraran los primeros menus encontrados. Asegurese de elejir productos disponibles',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, destacar',
+            cancelButtonText: 'Cancelar',
+            background: 'black',
+            color: 'white', customClass: {
+                container: 'custom-swal-container',
+                title: 'custom-swal-title',
+                content: 'custom-swal-content',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button',
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setFormDateEditar({
+                    _id: '',
+                    nombre: '',
+                    estado: '',
+                    favorito: '',
+                    precio: '',
+                    detalle: '',
+                    categoria: '',
+                    imagen: '',
+                });
+                editarProductoDb(_id, nombre, imagen, estado, favorito, precio, detalle, categoria);
+                recargarPagina();
+            }
+        });
+    };
+
 
     const editarUsuarioClick = async (usuario) => {
         setFormDateUserEditar(usuario);
@@ -976,18 +1032,25 @@ export const AdminScreen = () => {
                                             <td>{pesoModif}</td>
                                             <td>{menu.detalle}</td>
                                             <td>{menu.categoria}</td>
-                                            <td>
-                                                <button onClick={() => editarProductoClick(menu)}
+                                            <td className='align-middle' >
+                                                <button className='m-1' onClick={() => editarProductoClick(menu)}
                                                     title='Editar menú'
                                                 >
                                                     <i className="fa-solid fa-pen-to-square fa-lg"
                                                         style={{ color: '#000000' }}></i>
                                                 </button>
-                                                <button onClick={() => eliminarProductoClick(menu._id)}
+                                                <button className='m-1' onClick={() => eliminarProductoClick(menu._id)}
                                                     title='Eliminar menú'
                                                 >
                                                     <i className="fa-solid fa-trash fa-lg"
                                                         style={{ color: '#c43131' }}></i>
+                                                </button>
+                                                <button className='m-1' onClick={() => destacarMenuClick(menu)}
+                                                    title={menu.favorito ? "Mostrar en el inicio" : "No mostrar en el inicio"}
+                                                >
+                                                    <i className="fa-solid fa-star fa-lg "
+                                                        style={{ color: menu.favorito ? '#3f9240' : '#ff0000' }}>
+                                                    </i>
                                                 </button>
                                             </td>
                                         </tr>
