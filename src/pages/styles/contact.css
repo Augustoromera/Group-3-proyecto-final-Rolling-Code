@@ -1,3 +1,7 @@
-.container-fluid{
+.container-fluid.micontenedor.principal{
     padding-top: 106px !important;
+}
+.container-fluid.micontenedor{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
 }

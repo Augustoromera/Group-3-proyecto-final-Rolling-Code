@@ -4,6 +4,7 @@ import "./styles/pedidos.css"
 import pruebaApi from '../api/pruebaApi';
 import './styles/pedidos.css';
 import { useAuth } from '../context/AuthContext';
+import { getAuthToken } from '../api/auth';
 
 export const ProductList = ({
   listMenus,
@@ -51,6 +52,7 @@ export const ProductList = ({
     });
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const cargarProductoDB = async () => {
     try {
       const userWhitAdminOn = { ...user };
@@ -58,8 +60,9 @@ export const ProductList = ({
       const resp = await pruebaApi.get('/api/admin-page/listarMenu', {
         withCredentials: true,
         headers: {
+          Authorization: `Bearer ${getAuthToken()}`,
           User: JSON.stringify(userWhitAdminOn),
-        },
+      },
       });
       const productsWithQuantity = resp.data.menus.map(product => ({
         ...product,

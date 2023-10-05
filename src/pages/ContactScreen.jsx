@@ -161,7 +161,7 @@ export const ContactScreen = () => {
   return (
     <>
       <Header />
-      <div className="container-fluid">
+      <div className="container-fluid micontenedor principal">
         <h1 id="top" className="text-center display-3">
           Contacto
         </h1>
@@ -185,7 +185,7 @@ export const ContactScreen = () => {
             <div>
               <h2 className="mb-5">Completa el formulario con tus datos</h2>
 
-              <Form className="container-fluid" onSubmit={handleSubmit}>
+              <Form className="container-fluid micontenedor" onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-12 col-md-6">
                     <Form.Group className="mb-3 " controlId="firstName">
@@ -287,7 +287,7 @@ export const ContactScreen = () => {
 
         <div className="text-center mb-4">
           <h2 className="fw-bold display-5 mb-3">Dónde estamos?</h2>
-          <div className="container-fluid">
+          <div className="container-fluid micontenedor">
             <div className="row">
               <div className="col-12 col-md-6">
                 <img

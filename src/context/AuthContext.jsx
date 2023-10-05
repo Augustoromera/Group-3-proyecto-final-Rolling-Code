@@ -1,6 +1,6 @@
 // AuthContext.jsx
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest, verifyTokenRequest } from '../api/auth';
+import { registerRequest, loginRequest, verifyTokenRequest, setAuthToken } from '../api/auth';
 import Cookies from 'js-cookie';
 export const AuthContext = createContext();
 
@@ -41,8 +41,10 @@ export const AuthProvider = ({ children }) => {
   const signIn = async (user) => {
     try {
       const res = await loginRequest(user);
-      console.log(res.data); // Verifica la respuesta del inicio de sesión
-      setIsAuthenticated(true); 
+      const token = res.data.token;
+      setAuthToken(token);
+      Cookies.set("token", res.data.token);
+      setIsAuthenticated(true);
       checkLogin();
     } catch (error) {
       console.log(error);
@@ -50,24 +52,30 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+
+
   const logout = () => {
     Cookies.remove("token");
     setUser(null);
     setIsAuthenticated(false);
+    setAuthToken(null);
   };
   async function checkLogin() {
-    const cookies = Cookies.get("token");
-    if (!cookies) {
+    const token = Cookies.get("token");
+    if (!token) {
       setIsAuthenticated(false);
       setUser(null);
       setLoading(false);
+      setAuthToken(null);
       return;
     }
     try {
-      const res = await verifyTokenRequest(cookies.token);
+      const res = await verifyTokenRequest(token);
+
       if (!res.data) {
         setIsAuthenticated(false);
         setUser(null);
+        setAuthToken(null);
       } else {
         setIsAuthenticated(true);
         setUser(res.data);
@@ -78,7 +86,12 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   }
-
+  useEffect(() => {
+    const storedToken = Cookies.get("token");
+    if (storedToken) {
+      setAuthToken(storedToken);
+    }
+  }, []);
   useEffect(() => {
     checkLogin();
   }, [])

@@ -3,11 +3,12 @@ img {
 }
 
 body {
-	background-image: url("/src/assets/images/fondos/fondo1.png");
+	background-image: url("/src/assets/images/fondos/fondo1.jpg");
 	color: #fff;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	min-height: 100vh !important;
 	margin: 0;
 	padding: 0;
 }
@@ -305,7 +306,7 @@ hr {
 	bottom: 8%;
 	z-index: 1;
 }
-@media (min-width: 1024px) and (max-width: 1920px) {
+@media (min-width: 720px) and (max-width: 1920px) {
 	.button-container-banner {
 		display: block;
 	}
@@ -316,19 +317,26 @@ hr {
 @media (max-width: 720px) {
 	.button-container-banner {
 		display: block;
-		right: 35%;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
 		bottom: 8%;
 	}
+	
 	.banner-container-text {
-		background: rgba(0, 0, 0, 0.2) !important;
 		border-radius: 10px; /* Añade esquinas redondeadas */
-        backdrop-filter: blur(10px) !important;
+		background-color: rgb(0, 0, 0,0.5);
+        backdrop-filter: blur(4px) !important;
 		display: block !important;
-		right: 10%;
-		bottom: 18%;
+		right: 20%;
+		left: 20%;
+		bottom: 24%;
 		z-index: 999;
 	}
-	.banner-text2 {
+	.banner-text1 {
+		text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+	}.banner-text2 {
+
 		display: none;
 	}
 }

@@ -21,13 +21,13 @@ function Header({ navBarClass }) {
       icon: "success",
       position: "center",
       background: 'black',
-      color:'white',
+      color: 'white',
       customClass: {
-          container: 'custom-swal-container',
-          title: 'custom-swal-title',
-          content: 'custom-swal-content',
-          confirmButton: 'custom-swal-confirm-button',
-          cancelButton: 'custom-swal-cancel-button',
+        container: 'custom-swal-container',
+        title: 'custom-swal-title',
+        content: 'custom-swal-content',
+        confirmButton: 'custom-swal-confirm-button',
+        cancelButton: 'custom-swal-cancel-button',
       },
     }).then(() => {
       logout();
@@ -45,13 +45,9 @@ function Header({ navBarClass }) {
         <Container>
           <Navbar.Brand >
             <img src={logoTipo} className="d-inline-block navbar-image " onClick={
-              user === null
-                ? () => {
-                  window.location.href = "/login";
-                }
-                : () => {
-                  window.location.href === "/";
-                }
+              () => {
+                navigate("/");
+              }
             } alt="Logo" />
           </Navbar.Brand>
 

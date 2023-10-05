@@ -10,6 +10,8 @@ import AddUserModal from '../../components/admin-components/AddUserModal';
 import AddMenuModal from '../../components/admin-components/AddMenuModal';
 import EditUserModal from '../../components/admin-components/EditUserModal';
 import { useAuth } from '../../context/AuthContext';
+import { getAuthToken } from '../../api/auth';
+import { Footer } from '../../components/Footer';
 
 
 export const AdminScreen = () => {
@@ -483,6 +485,7 @@ export const AdminScreen = () => {
             }, {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${getAuthToken()}`,
                     User: JSON.stringify(user),
                 },
             });
@@ -503,6 +506,7 @@ export const AdminScreen = () => {
             }, {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${getAuthToken()}`,
                     User: JSON.stringify(user),
                 },
             });
@@ -520,6 +524,7 @@ export const AdminScreen = () => {
             }, {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${getAuthToken()}`,
                     User: JSON.stringify(user),
                 },
             });
@@ -542,6 +547,7 @@ export const AdminScreen = () => {
             }, {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${getAuthToken()}`,
                     User: JSON.stringify(user),
                 },
             });
@@ -561,6 +567,7 @@ export const AdminScreen = () => {
             }, {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${getAuthToken()}`,
                     User: JSON.stringify(user),
                 },
             });
@@ -575,6 +582,7 @@ export const AdminScreen = () => {
             const resp = await pruebaApi.get('/api/admin-page/listarUsuarios', {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${getAuthToken()}`,
                     User: JSON.stringify(user),
                 },
             });
@@ -583,12 +591,14 @@ export const AdminScreen = () => {
             console.log(error);
         }
     };
+    
 
     const cargarPedidosDB = async () => {
         try {
             const resp = await pruebaApi.get('/api/admin-page/listarPedido', {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${getAuthToken()}`,
                     User: JSON.stringify(user),
                 },
             });
@@ -602,6 +612,7 @@ export const AdminScreen = () => {
             const resp = await pruebaApi.get('/api/admin-page/listarMenu', {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${getAuthToken()}`,
                     User: JSON.stringify(user),
                 },
             });
@@ -632,6 +643,7 @@ export const AdminScreen = () => {
                     const resp = await pruebaApi.delete(`/api/admin-page/eliminarMenu/${id}`, {
                         withCredentials: true,
                         headers: {
+                            Authorization: `Bearer ${getAuthToken()}`,
                             User: JSON.stringify(user),
                         },
                     });
@@ -777,6 +789,7 @@ export const AdminScreen = () => {
                     const resp = await pruebaApi.delete(`/api/admin-page/eliminarUsuario/${id}`, {
                         withCredentials: true,
                         headers: {
+                            Authorization: `Bearer ${getAuthToken()}`,
                             User: JSON.stringify(user),
                         },
                     });
@@ -1215,6 +1228,7 @@ export const AdminScreen = () => {
                 handleSubmitFormUserEditar={handleSubmitFormUserEditar}
                 formDateUserEditar={formDateUserEditar}
             />
+            <Footer></Footer>
         </>
     );
 };

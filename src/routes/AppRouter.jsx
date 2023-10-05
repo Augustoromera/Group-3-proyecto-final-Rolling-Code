@@ -33,7 +33,7 @@ function AppLR() {
         <Route path="/pedidos" element={<AppPedidos />} />
 
         <Route element={<ProtectedRoute />}>
-
+n
           {/* Ruta ADMIN */}
           <Route path="/admin" element={auth.user?.role === 'admin' ? <AdminScreen /> : <Navigate to="/" />} />
 

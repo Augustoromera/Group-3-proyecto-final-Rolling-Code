@@ -14,6 +14,22 @@ module.exports = {
   rules: {
     'no-unused-vars': ['error', { varsIgnorePattern: 'React' }],
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },

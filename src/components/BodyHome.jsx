@@ -3,15 +3,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../pages/styles/bodyHome.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faStoreSlash, faTruckFast } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MenuCard from '../components/CardMenu';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import Swal from 'sweetalert2';
 import pruebaApi from '../api/pruebaApi';
 import { useAuth } from '../context/AuthContext';
-
+import Bannerrapiburguerjpeg from '../assets/banner/Bannerrapiburguerjpeg.jpg';
+import bannerPsh1 from '../assets/banner/bannerPsh1.jpg';
+import bannerPsh2 from '../assets/banner/bannerPsh2.jpg';
+import bannerPsh3 from '../assets/banner/bannerPsh3.jpg';
+import bannerMobile from '../assets/banner/bannerMobile.jpg';
+import bannerMobile1 from '../assets/banner/bannerMobile1.jpg';
+import bannerMobile2 from '../assets/banner/bannerMobile2.jpg';
+import bannerMobile3 from '../assets/banner/bannerMobile3.jpeg';
+import hamburguesaNosotros from '../assets/images/nosotros/hamburguesa-nosotros-2.jpg';
 
 export const BodyHome = () => {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [cargarProducto, setCargarProducto] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -19,17 +28,16 @@ export const BodyHome = () => {
   const textTextBanner = window.innerWidth <= 720 ? "Tu plato favorito a un clic de distancia!" : "Tu paladar merece lo mejor. Siente la excelencia";
   const textButtonBanner = window.innerWidth <= 720 ? "¡Ordenar Ya!" : "Comprar ahora";
   const bannerImages = [
-
-    '/src/assets/banner/Bannerrapiburguerjpeg.jpg',
-    '/src/assets/banner/bannerPsh1.jpg',
-    '/src/assets/banner/bannerPsh2.jpg',
-    '/src/assets/banner/bannerPsh3.jpg'
+    Bannerrapiburguerjpeg,
+    bannerPsh1,
+    bannerPsh2,
+    bannerPsh3,
   ];
   const bannerImagesMini = [
-    '/src/assets/banner/bannerMobile.jpg',
-    '/src/assets/banner/bannerMobile1.jpg',
-    '/src/assets/banner/bannerMobile2.jpg',
-    '/src/assets/banner/bannerMobile3.jpeg'
+    bannerMobile,
+    bannerMobile1,
+    bannerMobile2,
+    bannerMobile3,
   ];
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => {
@@ -69,7 +77,7 @@ export const BodyHome = () => {
   };
 
   const handleSolicitarPedido = () => {
-    window.location.href = "/pedidos";
+    navigate("/pedidos");
   };
   function iniciarSesionRedirect() {
     Swal.fire({
@@ -89,7 +97,7 @@ export const BodyHome = () => {
     });
 
     setTimeout(() => {
-      window.location.href = "/login";
+      navigate("/login");
     }, 4000);
   }
   const bannerClass = `banner banner-${currentImageIndex}${isMobile ? ' mobile' : ''}`;
@@ -161,10 +169,10 @@ export const BodyHome = () => {
               <div key={index} className='col-12 col-sm-6 col-md-4 col-lg-2 p-2 car-cont' onClick={
                 user === null
                   ? () => {
-                    window.location.href = "/login";
+                    navigate("/login");
                   }
                   : () => {
-                    window.location.href = "/pedidos";
+                    navigate("/pedidos");
                   }
               }>
                 <div className='custom-card mb-2'>
@@ -222,7 +230,7 @@ export const BodyHome = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-lg-6 espacio-mBlanco">
-            <img src="src/assets/images/nosotros/hamburguesa-nosotros-2.jpg" className='img-fluid rounded shadow-sm my-img' alt="imagen de hamburguesa" />
+            <img src={hamburguesaNosotros} className='img-fluid rounded shadow-sm my-img' alt="imagen de hamburguesa" />
           </div>
           <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-start">
             <div className='d-flex flex-column align-items-start' >
@@ -247,7 +255,7 @@ export const BodyHome = () => {
         <div className="container-fluid">
           <div className="row">
 
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6 ">
               <img src="https://media.traveler.es/photos/6221e27bd380db76a3a865f7/master/w_1600%2Cc_limit/275105567_3784919721633284_4999341144694882386_n.jpg" alt="hamburgueseria" className='img-fluid mb-3 rounded shadow-lg ' />
             </div>
             <div className="col-12 col-md-6 d-flex align-items-center">
