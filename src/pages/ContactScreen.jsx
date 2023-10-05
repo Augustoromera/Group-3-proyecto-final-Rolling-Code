@@ -29,6 +29,7 @@ export const ContactScreen = () => {
         title: 'Error en el nombre',
         text: 'Por favor, ingresa un nombre válido.',
         background: 'black',
+        color:'white',
         customClass: {
             container: 'custom-swal-container',
             title: 'custom-swal-title',
@@ -47,6 +48,7 @@ export const ContactScreen = () => {
         title: 'Error en el apellido',
         text: 'Por favor, ingresa un apellido válido.',
         background: 'black',
+        color:'white',
         customClass: {
             container: 'custom-swal-container',
             title: 'custom-swal-title',
@@ -65,6 +67,7 @@ export const ContactScreen = () => {
         title: 'Error en el correo electrónico',
         text: 'Por favor, ingresa un correo electrónico válido.',
         background: 'black',
+        color:'white',
         customClass: {
             container: 'custom-swal-container',
             title: 'custom-swal-title',
@@ -83,6 +86,7 @@ export const ContactScreen = () => {
         title: 'Error en el teléfono',
         text: 'Por favor, ingresa un teléfono válido.',
         background: 'black',
+        color:'white',
         customClass: {
             container: 'custom-swal-container',
             title: 'custom-swal-title',
@@ -101,6 +105,7 @@ export const ContactScreen = () => {
         title: 'Error en el asunto',
         text: 'Por favor, ingresa un asunto.',
         background: 'black',
+        color:'white',
         customClass: {
             container: 'custom-swal-container',
             title: 'custom-swal-title',
@@ -119,6 +124,7 @@ export const ContactScreen = () => {
         title: 'Error en el mensaje',
         text: 'Por favor, escribe un mensaje.',
         background: 'black',
+        color:'white',
         customClass: {
             container: 'custom-swal-container',
             title: 'custom-swal-title',
@@ -137,6 +143,7 @@ export const ContactScreen = () => {
         html: 'Nuestro equipo recibió tu solicitud',
         showConfirmButton: false,
         background: 'black',
+        color:'white',
         customClass: {
             container: 'custom-swal-container',
             title: 'custom-swal-title',
