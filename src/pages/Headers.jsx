@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import "./styles/pedidos.css"
 import pruebaApi from '../api/pruebaApi';
 import { useAuth } from '../context/AuthContext';
+import { getAuthToken } from '../api/auth';
 
 export const Headers = ({
 	allProducts,
@@ -30,7 +31,7 @@ export const Headers = ({
 			icon: 'warning',
 			showCancelButton: true,
 			background: 'black',
-			color:'white',
+			color: 'white',
 			customClass: {
 				container: 'custom-swal-container',
 				title: 'custom-swal-title',
@@ -53,7 +54,7 @@ export const Headers = ({
 					showConfirmButton: true,
 					timer: 2000,
 					background: 'black',
-					color:'white',
+					color: 'white',
 					customClass: {
 						container: 'custom-swal-container',
 						title: 'custom-swal-title',
@@ -83,7 +84,7 @@ export const Headers = ({
 					showConfirmButton: true,
 					timer: 2000,
 					background: 'black',
-					color:'white',
+					color: 'white',
 					customClass: {
 						container: 'custom-swal-container',
 						title: 'custom-swal-title',
@@ -123,6 +124,10 @@ export const Headers = ({
 				importeTotal: importeTotal
 			}, {
 				withCredentials: true,
+				headers: {
+					Authorization: `Bearer ${getAuthToken()}`,
+					User: JSON.stringify(user),
+				},
 			});
 			console.log(resp);
 		} catch (error) {
@@ -223,7 +228,7 @@ export const Headers = ({
 
 							<div className="cart-buttons">
 								<button className='btn-clear-all' onClick={onCleanCart}>
-									Vaciar 
+									Vaciar
 								</button>
 								<button className="btn-clear-all" onClick={handleButton}>
 									COMPRAR CARRITO :)

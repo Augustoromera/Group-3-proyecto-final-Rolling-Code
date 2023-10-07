@@ -49,9 +49,8 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                         <Form.Group className="mb-3 ctm-form-group" controlId="formBasicRol">
                             <Form.Label>Rol</Form.Label>
                             <Form.Select
-                                name="rol"
-                                value={formDateUserEditar.role}
-                                onChange={handleChangeFormUserEditar}
+                                name="role"
+                                onChange={(e) => handleChangeFormUserEditar(e)}
                                 style={{ width: '100%' }}
                             >
                                 <option value="">Seleccionar</option>
