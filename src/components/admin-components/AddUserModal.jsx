@@ -10,7 +10,6 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.7)' ,
             backdropFilter: 'blur(3px)',
-            alignItem:'center',
         },
     };
     return (
@@ -20,9 +19,9 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                     <h2 className="modal-title">Agregar un usuario</h2>
                     <button type="button" className="btn-close m-3 bg-warning p-1" onClick={() => setIsOpen(false)}></button>
                 </div>
-                <div className="modal-body">
+                <div className="modal-body justify-content-center">
                     <Form onSubmit={handleSubmitFormUser}>
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <Form.Group className="mb-3 ctm-form-group" controlId="formBasicName">
                                 <Form.Label>Nombre</Form.Label>
                                 <Form.Control
@@ -71,7 +70,7 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                                     <option value="user" >Usuario</option>
                                 </Form.Select>
                             </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEstado">
+                            <Form.Group className="mb-3 ctm-form-group" controlId="formBasicEstado">
                                 <Form.Check
                                     type="checkbox"
                                     name="status"
