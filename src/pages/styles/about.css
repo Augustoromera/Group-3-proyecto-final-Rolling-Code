@@ -14,30 +14,29 @@
     flex: 1;
 }
 
-.container-aboutus{
+.container-aboutus {
     padding-top: 105px;
-   background-image: linear-gradient(
-    to bottom right,
-    #bfbcbc00 0%,
-    #bfbcbc00 20%,
-    #ff6a00ab 40%,
-    #bfbcbc00 60%,
-    #bfbcbc00 80%   
-   );
-   
-   background-size: 300% 300%;
-   animation: movimiento 5s linear infinite alternate;
+    background-image: linear-gradient(
+        to bottom right,
+        #bfbcbc00 0%,
+        #bfbcbc00 20%,
+        #ff6a00ab 40%,
+        #bfbcbc00 60%,
+        #bfbcbc00 80%
+    );
+
+    background-size: 300% 300%;
+    animation: movimiento 5s linear infinite alternate;
 }
 
-@keyframes movimiento{
-    from{
+@keyframes movimiento {
+    from {
         background-position: 0 0;
     }
-    to{
+    to {
         background-position: 100% 100%;
     }
 }
-
 
 .title-nosotros {
     text-align: center;
@@ -154,7 +153,7 @@
     top: 200px;
     animation: c1 5s ease infinite;
 }
- 
+
 .cuadrado2 {
     width: 200px;
     height: 200px;
@@ -232,8 +231,7 @@
 .iconos {
     display: flex;
     flex-direction: row;
-   margin-left: -23px;
-    
+    margin-left: -23px;
 }
 
 .p-espacio1 {
@@ -291,7 +289,16 @@
         transform: rotate(65deg) translateY(0px);
     }
 }
-
+@media screen and (max-width: 739px) {
+    .cuadrado2,.cuadrado3 {
+        display: none;
+    }
+}
+@media screen and (min-width: 740px) and (max-width: 1245px) {
+    .cuadrado3 {
+        display: none;
+    }
+}
 @media screen and (max-width: 2000px) {
     .container-cardsA {
         position: relative;

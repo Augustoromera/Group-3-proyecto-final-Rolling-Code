@@ -3,14 +3,6 @@ img {
 }
 
 body {
-	background-image: url("/src/assets/images/fondos/fondo1.jpg");
-	color: #fff;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	min-height: 100vh !important;
-	margin: 0;
-	padding: 0;
 }
 hr {
 	border: 2px solid #ffc107; /* Cambia el color y grosor según tus preferencias */
@@ -50,7 +42,7 @@ hr {
 	background-position: top center;
 }
 .banner-3.mobile {
-	background-position:  center;
+	background-position: center;
 }
 .banner-body {
 	position: relative;
@@ -140,17 +132,16 @@ hr {
 		0 0 12px #fff700,
 		0 0 12px #fff700;
 	margin: 0.8em;
-	transition: box-shadow .3s ease;
+	transition: box-shadow 0.3s ease;
 }
 
-.custom-card:hover{
+.custom-card:hover {
 	box-shadow:
 		0 0 30px #fff700,
 		0 0 30px #fff700,
 		0 0 30px #fff700,
 		0 0 30px #fff700;
 }
-
 
 @media (max-width: 575px) {
 	.home-card-menus {
@@ -314,7 +305,27 @@ hr {
 		display: block;
 	}
 }
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1;
+}
+
 @media (max-width: 720px) {
+	body {
+		background-image: url("/src/assets/images/fondos/fondo1.jpg");
+		color: #fff;
+		min-height: 100vh !important;
+		margin: 0;
+		padding: 0;
+		background-attachment: scroll;
+		
+	}
 	.button-container-banner {
 		display: block;
 		position: absolute;
@@ -322,11 +333,11 @@ hr {
 		transform: translateX(-50%);
 		bottom: 8%;
 	}
-	
+
 	.banner-container-text {
 		border-radius: 10px; /* Añade esquinas redondeadas */
-		background-color: rgb(0, 0, 0,0.5);
-        backdrop-filter: blur(4px) !important;
+		background-color: rgb(0, 0, 0, 0.5);
+		backdrop-filter: blur(4px) !important;
 		display: block !important;
 		right: 20%;
 		left: 20%;
@@ -335,9 +346,21 @@ hr {
 	}
 	.banner-text1 {
 		text-shadow: 0 0 10px rgba(0, 0, 0, 1);
-	}.banner-text2 {
-
+	}
+	.banner-text2 {
 		display: none;
+	}
+}
+@media (min-width: 721px) {
+	body {
+		background-image: url("/src/assets/images/fondos/fondo1.jpg");
+		color: #fff;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		min-height: 100vh !important;
+		margin: 0;
+		padding: 0;
 	}
 }
 @media (min-width: 1920px) {
@@ -359,8 +382,6 @@ hr {
 .banner-control {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
-.car-cont{
+.car-cont {
 	cursor: pointer;
 }
-
-
