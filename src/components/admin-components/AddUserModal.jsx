@@ -75,7 +75,7 @@ const AddUserModal = ({ isOpen, setIsOpen, onRequestClose, handleChangeFormUser,
                                     type="checkbox"
                                     name="status"
                                     label="Activo"
-                                    checked={formDateUser.status === "Active"}
+                                    checked={formDateUser.status === "active"}
                                     onChange={(e) => handleChangeFormUser(e)}
                                 />
                             </Form.Group>

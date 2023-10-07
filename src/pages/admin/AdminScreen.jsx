@@ -94,7 +94,6 @@ export const AdminScreen = () => {
             ...formDateUserEditar,
             [e.target.name]: value,
         })
-        console.log(formDateUserEditar);
     }
     const handleChangeFormEditar = (e) => {
         const { value, type, checked } = e.target;
@@ -207,7 +206,7 @@ export const AdminScreen = () => {
         var { username, email, status, password, role } = formDateUser;
         //username=username.trim;
         const regexPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-        role = role ? role.toLocaleLowerCase : "user";
+        role = role ? role.toLocaleLowerCase() : "user";
         status = status ? status.toLocaleLowerCase : "inactive";
         if (!username.trim() || !email.trim() || !password.trim()) {
             Swal.fire({
@@ -290,10 +289,7 @@ export const AdminScreen = () => {
     const handleSubmitFormUserEditar = async (e) => {
         e.preventDefault();
         var { _id, username, email, status, role } = formDateUserEditar;
-        console.log("el rol viene: ")
         role = role ? role.toLocaleLowerCase() : "user";
-        
-        console.log(role);
         let statusModif = status ? status.toLocaleLowerCase() : "inactive";
         if (!_id) {
             return Swal.fire({
@@ -368,7 +364,7 @@ export const AdminScreen = () => {
             role: ''
         });
         editarUsuarioDb(_id, username, email, statusModif, role);
-        // recargarPagina();
+        recargarPagina();
     };
     // Función para manejar el envío del formulario de editar menu/producto
     const handleSubmitFormEditar = async (e) => {
