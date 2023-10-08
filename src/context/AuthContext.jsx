@@ -29,8 +29,11 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await registerRequest(user);
       if (res.status === 200) {
-        setUser(res.data);
+        const token = res.data.token;
+        setAuthToken(token);
+        Cookies.set("token", res.data.token);
         setIsAuthenticated(true);
+        checkLogin();
       }
     } catch (error) {
       console.log(error.response.data);
