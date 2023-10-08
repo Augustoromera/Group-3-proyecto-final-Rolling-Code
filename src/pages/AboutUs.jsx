@@ -56,7 +56,7 @@ export const AboutUs = () => {
                         <div className="wrapper">
                             <ul className="iconos">
                                 <li className="github"><a href="https://www.github.com" target="_blank"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
-                                <li className="instagram"><a href="https://www.instagram.com" target="_blank"><i className="fa fa-instagram fa-2x" aria-hidden="true"></i></a> </li>
+                                <li className="instagram"><a href="https://www.instagram.com/augusto.romera/" target="_blank"><i className="fa fa-instagram fa-2x" aria-hidden="true"></i></a> </li>
                                 <li className="linkedin"><a href="https://www.linkedin.com" target="_blank"><i className="fa fa-linkedin fa-2x" aria-hidden="true"></i></a> </li>
                             </ul>
                         </div>
