@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Kanit:wght@500&family=Open+Sans:ital,wght@0,400;1,300&family=Poppins&family=Raleway:wght@700&display=swap");
 img {
 	object-fit: cover !important;
 }
@@ -306,16 +307,33 @@ hr {
 	}
 }
 body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: -1;
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: -1;
 }
-
+@media (max-width: 480px) {
+	.button-container-banner {
+		display: block;
+		position: absolute;
+		left: 47%;
+		transform: translateX(-50%);
+		bottom: 8%;
+	}
+}
+@media (min-width: 480px) and (max-width: 721px) {
+	.button-container-banner {
+		display: block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 8%;
+	}
+}
 @media (max-width: 720px) {
 	body {
 		background-image: url("/src/assets/images/fondos/fondo1.jpg");
@@ -324,15 +342,8 @@ body::before {
 		margin: 0;
 		padding: 0;
 		background-attachment: scroll;
-		
 	}
-	.button-container-banner {
-		display: block;
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 8%;
-	}
+	
 
 	.banner-container-text {
 		border-radius: 10px; /* Añade esquinas redondeadas */
@@ -384,4 +395,7 @@ body::before {
 }
 .car-cont {
 	cursor: pointer;
+}
+.button-banner {
+	font-family: "Kanit", sans-serif;
 }

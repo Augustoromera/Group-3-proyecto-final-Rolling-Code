@@ -26,7 +26,7 @@ export const BodyHome = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 720);
   const textTextBanner = window.innerWidth <= 720 ? "Tu plato favorito a un clic de distancia!" : "Tu paladar merece lo mejor. Siente la excelencia";
-  const textButtonBanner = window.innerWidth <= 720 ? "¡Ordenar Ya!" : "Comprar ahora";
+  const textButtonBanner = window.innerWidth <= 720 ? "COMPRAR" : "COMPRAR AHORA";
   const bannerImages = [
     Bannerrapiburguerjpeg,
     bannerPsh1,
