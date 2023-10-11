@@ -158,8 +158,6 @@ export const AdminScreen = () => {
             return;
         }
         if (!comprobarImagenText(imagen)) {
-            console.log(!comprobarImagenText(imagen));
-
             await Swal.fire({
                 icon: 'warning',
                 title: 'Se recomienda otro formato de imagen',
@@ -425,8 +423,6 @@ export const AdminScreen = () => {
             });
         }
         if (!comprobarImagenText(imagen)) {
-            console.log(!comprobarImagenText(imagen));
-
             await Swal.fire({
                 icon: 'warning',
                 title: 'Se recomienda otro formato de imagen',

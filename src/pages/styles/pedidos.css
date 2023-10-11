@@ -33,7 +33,7 @@ img {
 .product-image {
 	max-width: 150px;
 	height: 65px;
-	object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionar */
+	object-fit: contain;
 	margin-right: 15px;
 }
 
@@ -255,7 +255,6 @@ img {
 	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 	transform: scale(1.03);
 }
-/* ---------------------------------------------------------------- */
 .cart-empty {
 	padding: 20px;
 	text-align: center;
@@ -513,7 +512,7 @@ img {
 .cart-buttons {
 	display: flex;
 	justify-content: center;
-	margin-top: 20px; /* Ajusta este valor según tus preferencias */
+	margin-top: 20px; 
 }
 .btn-clear-all {
 	background-color: #ffffff;
