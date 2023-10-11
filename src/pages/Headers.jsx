@@ -43,7 +43,6 @@ export const Headers = ({
 			cancelButtonText: 'Cancelar'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				// Si el usuario confirma, borramos los productos
 				setAllProducts([]);
 				setTotal(0);
 				setCountProducts(0);
@@ -76,7 +75,10 @@ export const Headers = ({
 		const fecha = currentDate.toISOString();
 		guardarPedidoDB(usuario, fecha, menus, estado, importeTotal)
 			.then(() => {
-
+				setAllProducts([]);
+				setTotal(0);
+				setCountProducts(0);
+				setActive(false)
 				Swal.fire({
 					icon: 'success',
 					title: 'Compra confirmada',
