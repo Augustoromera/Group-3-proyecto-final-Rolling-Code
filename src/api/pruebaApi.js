@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const pruebaApi = axios.create({
-    baseURL: 'https://backendrapuburgers.up.railway.app',
+    baseURL: 'http://localhost:8080/',
 });
 
 export default pruebaApi;
