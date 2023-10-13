@@ -83,7 +83,7 @@ export const ProductList = ({
       <p className='description-pedidos'><i>Explora nuestra selección de deliciosas hamburguesas argentinas y disfruta de su sabor auténtico.</i></p>
       <div className='container-items product-list-container'>
         {listMenus.map((product, index) => (
-          <div className={`item ${product.estado === 'No Disponible' ? 'unavailable item' : 'item'}`} key={index}>
+          <div className={`item ${product.estado === 'No disponible' ? 'unavailable item' : 'item'}`} key={index}>
             <figure className='box-1-pedidos'>
               <img src={product.imagen} alt={product.nombre} className='img-menus' />
             </figure>
@@ -92,7 +92,7 @@ export const ProductList = ({
               <p className='category'>{product.categoria}</p>
               <p className='details'><i>{product.detalle}</i></p>
               <p className='price'>${product.precio}</p>
-              {product.estado === 'No Disponible' ? (
+              {product.estado === 'No disponible' ? (
                 <p className='unavailable-text'>Disculpa, este producto no está disponible.</p>
               ) : (
                 <button className='add-to-cart-button' onClick={() => onAddProduct(product)}>

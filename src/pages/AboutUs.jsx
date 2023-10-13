@@ -52,7 +52,7 @@ export const AboutUs = () => {
                             <img src={imgAugusto} alt="Augusto, integrante del grupo"  className='imgAbout'/>
                         </div>
                         <h2>Augusto Romera</h2>
-                        <p className="p-espacio2">Tengo 24 años, soy estudiante de ingeniería en sistemas de información, con estudios en rolling code para full stack developer disfruto explorando la naturaleza y los momentos al aire libre. Además, encuentro fascinación en la lógica y en enfrentar desafíos.</p>
+                        <p className="p-espacio2">Tengo 24 años. Soy estudiante de ingeniería en sistemas de información con un año completo de carrera. Anteriormente, adquirí valiosa experiencia con 500 horas de prácticas reales en desarrollo backend utilizando Java y Spring Boot. Mi experiencia en Rolling Code ha enriquecido mi conjunto de habilidades tecnológicas. </p>
                         <div className="wrapper">
                             <ul className="iconos">
                                 <li className="github"><a href="https://www.github.com" target="_blank"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
