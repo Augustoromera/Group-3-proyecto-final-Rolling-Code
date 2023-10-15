@@ -17,7 +17,7 @@ import bannerMobile from '../assets/banner/bannerMobile.jpg';
 import bannerMobile1 from '../assets/banner/bannerMobile1.jpg';
 import bannerMobile2 from '../assets/banner/bannerMobile2.jpg';
 import bannerMobile3 from '../assets/banner/bannerMobile3.jpeg';
-import hamburguesaNosotros from '../assets/images/fondos/burguer.jpg';
+import hamburguesaNosotros from '../assets/images/nosotros/hamburguesa-nosotros-2.jpg';
 
 export const BodyHome = () => {
   const navigate = useNavigate();
