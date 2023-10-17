@@ -24,7 +24,6 @@ img {
 
 /* Header */
 .header-pedidos {
-	
 	padding-top: 106px !important;
 	display: flex;
 	justify-content: space-between;
@@ -72,7 +71,7 @@ img {
 	z-index: 999;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
-	color: #fff!important;
+	color: #fff !important;
 }
 
 .cart-product {
@@ -132,8 +131,8 @@ img {
 .total-pagar {
 	font-size: 20px;
 	font-weight: 900;
-	margin-left:-10px;
-	margin-top:-5px;
+	margin-left: -10px;
+	margin-top: -5px;
 }
 
 .hidden-cart {
@@ -158,56 +157,51 @@ img {
 	min-width: 100%;
 	margin-bottom: 10px !important;
 	margin-top: 10px !important;
-	color:#ffffff;
+	color: #ffffff;
 	background-color: black;
 	position: relative;
 	place-content: center;
 	place-items: center;
 	overflow: hidden;
-	box-shadow: 0 0 5px #fff700,
-    0 0 5px #fff700, 
-    0 0 5px #fff700,
-    0 0 5px #fff700;
-	
+	box-shadow:
+		0 0 5px #fff700,
+		0 0 5px #fff700,
+		0 0 5px #fff700,
+		0 0 5px #fff700;
 }
 
-
 .item::before {
-	content: '';
+	content: "";
 	position: absolute;
 	width: 100px;
 	background-image: linear-gradient(180deg, rgb(255, 247, 0), rgb(255, 77, 0));
 	height: 130%;
 	animation: rotBGimg 3s linear infinite;
 	transition: all 0.2s linear;
-	box-shadow: 0 0 5px #fff700,
-    0 0 25px #fff700, 
-    0 0 50px #fff700,
-    0 0 100px #fff700;
-  }
-  
-  @keyframes rotBGimg {
+	box-shadow:
+		0 0 5px #fff700,
+		0 0 25px #fff700,
+		0 0 50px #fff700,
+		0 0 100px #fff700;
+}
+
+@keyframes rotBGimg {
 	from {
-	  transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
-  
+
 	to {
-	  transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
-  }
-  
-  .item::after {
-	content: '';
+}
+
+.item::after {
+	content: "";
 	position: absolute;
 	background: black;
-	;
 	inset: 5px;
 	border-radius: 15px;
-  }  
-   
-
-
-
+}
 
 .img-menus {
 	min-width: 260px;
@@ -225,10 +219,9 @@ img {
 	z-index: 1;
 }
 
-.box-1-pedidos{
-	z-index: 1 !important; 
+.box-1-pedidos {
+	z-index: 1 !important;
 }
-
 
 .price {
 	font-size: 22px;
@@ -418,23 +411,23 @@ img {
 
 .title-pedidos {
 	font-size: 3em;
-    font-weight: 600;
-    color: #ffffff;
-    text-shadow: 0 0 5px #fff700,
-    0 0 25px #fff700, 
-    0 0 50px #fff700,
-    0 0 100px #fff700;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    transition: 1s;
+	font-weight: 600;
+	color: #ffffff;
+	text-shadow:
+		0 0 5px #fff700,
+		0 0 25px #fff700,
+		0 0 50px #fff700,
+		0 0 100px #fff700;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+	transition: 1s;
 	margin-bottom: 1.5em;
 	text-align: center;
 	width: 100%;
 	margin-left: 0.8em;
 }
 
-
-.unavailable-text{
+.unavailable-text {
 	color: rgb(255, 0, 0);
 }
 
@@ -512,7 +505,7 @@ img {
 .cart-buttons {
 	display: flex;
 	justify-content: center;
-	margin-top: 20px; 
+	margin-top: 20px;
 }
 .btn-clear-all {
 	background-color: #ffffff;
@@ -594,8 +587,6 @@ img {
 
 /* ----------Tarjetas laptop------------- */
 @media (min-width: 768px) and (max-width: 1024px) {
-
-
 	.img-menus {
 		max-width: 100%;
 		max-height: 100%;
@@ -626,7 +617,7 @@ img {
 	}
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 991px) {
 	.container-cart-icon {
 		position: fixed;
 		bottom: 15%;
@@ -654,8 +645,48 @@ img {
 	}
 }
 
-
-.container-cart-products{
+.container-cart-products {
 	background-image: linear-gradient(#e8d912, #ff6a00);
 }
 
+@media screen and (min-width: 981px) {
+	.menuContainer {
+		max-height: 200px; 
+		overflow-y: auto; 
+	}
+}
+.menuContainer::-webkit-scrollbar {
+	width: 12px; 
+	background-color: #1a1a1a; 
+}
+
+.menuContainer::-webkit-scrollbar-thumb {
+	background-color: #ffaa00; 
+	border-radius: 6px; 
+	border: 3px solid #1a1a1a; 
+}
+
+.menuContainer::-webkit-scrollbar-track {
+	background-color: #1a1a1a; 
+}
+
+.menuContainer::-webkit-scrollbar-thumb:hover {
+	background-color: #ffcc00; 
+}
+
+body::-webkit-scrollbar {
+	width: 12px; 
+	background-color: #1a1a1a;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #ffaa00;
+	border-radius: 6px; 
+	border: 3px solid #1a1a1a; 
+}
+body::-webkit-scrollbar-track {
+	background-color: #1a1a1a; 
+}
+body::-webkit-scrollbar-thumb:hover {
+	background-color: #ffcc00; 
+}
