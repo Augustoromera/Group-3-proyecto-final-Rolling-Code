@@ -186,41 +186,43 @@ export const Headers = ({
 							<div className='row-product p'>
 								<br />
 								<h2 className='title-pedido'>Pedido</h2>
-								{allProducts.map((product, index) => (
-									<div className='cart-product hd-cart' key={index}>
-										<div className='info-cart-product'>
-											<img
-												src={product.imagen}
-												alt={product.nombre}
-												className='product-image'
-											/>
-											<p className='titulo-producto-carrito'>
-												{product.nombre}
-											</p>
-											<span className='cantidad-producto-carrito'>
-												x{product.quantity}
-											</span>
-											<span className='precio-producto-carrito'>
-												${product.precio}
-											</span>
+								<div className="menuContainer">
+									{allProducts.map((product, index) => (
+										<div className='cart-product hd-cart' key={index}>
+											<div className='info-cart-product'>
+												<img
+													src={product.imagen}
+													alt={product.nombre}
+													className='product-image'
+												/>
+												<p className='titulo-producto-carrito'>
+													{product.nombre}
+												</p>
+												<span className='cantidad-producto-carrito'>
+													x{product.quantity}
+												</span>
+												<span className='precio-producto-carrito'>
+													${product.precio}
+												</span>
+											</div>
+											<svg
+												xmlns='http://www.w3.org/2000/svg'
+												fill='none'
+												viewBox='0 0 24 24'
+												strokeWidth='1.5'
+												stroke='currentColor'
+												className='icon-close'
+												onClick={() => onDeleteProduct(product)}
+											>
+												<path
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													d='M6 18L18 6M6 6l12 12'
+												/>
+											</svg>
 										</div>
-										<svg
-											xmlns='http://www.w3.org/2000/svg'
-											fill='none'
-											viewBox='0 0 24 24'
-											strokeWidth='1.5'
-											stroke='currentColor'
-											className='icon-close'
-											onClick={() => onDeleteProduct(product)}
-										>
-											<path
-												strokeLinecap='round'
-												strokeLinejoin='round'
-												d='M6 18L18 6M6 6l12 12'
-											/>
-										</svg>
-									</div>
-								))}
+									))}
+								</div>
 							</div>
 							<div className='cart-total p'>
 								<h3>Total:</h3>
