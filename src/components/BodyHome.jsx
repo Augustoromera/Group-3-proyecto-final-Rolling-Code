@@ -80,7 +80,7 @@ export const BodyHome = () => {
     navigate("/pedidos");
   };
   function iniciarSesionRedirect() {
-    Swal.fire({
+    const alert = Swal.fire({
       title: "Estás a un paso de comprar en Rapiburguers",
       text: "Accede con tu cuenta para continuar",
       icon: "info",
@@ -93,13 +93,18 @@ export const BodyHome = () => {
         confirmButton: 'custom-swal-confirm-button',
         cancelButton: 'custom-swal-cancel-button',
       },
-      showConfirmButton: false
+      showConfirmButton: false,
     });
+
+    setTimeout(() => {
+      alert.close();
+    }, 3800);
 
     setTimeout(() => {
       navigate("/login");
     }, 4000);
   }
+
   const bannerClass = `banner banner-${currentImageIndex}${isMobile ? ' mobile' : ''}`;
 
   const currentBannerImage = isMobile ? bannerImagesMini[currentImageIndex] : bannerImages[currentImageIndex];
