@@ -2,6 +2,7 @@ import React from 'react'
 import "../pages/styles/footer.css"
 import logofooter from "../assets/images/logo/logotipo.png"
 export const Footer = () => {
+    const currentYear = new Date().getFullYear();
     return (
         <>
             <footer className="pie-pagina">
@@ -30,7 +31,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="grupo-2">
-                    <small>&copy; 2023 <b>Rapiburguers</b> - Todos los Derechos Reservados.</small>
+                    <small>&copy; {currentYear} <b>Rapiburguers</b> - Todos los Derechos Reservados.</small>
                 </div>
             </footer>
         </>
