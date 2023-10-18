@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmitFormEditar, formDateEditar,  setEstadoCheckbox,  setFavoritoCheckbox }) => {
     const customStyles = {
-        overlay: {
+        overlay: {  
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
             backdropFilter: 'blur(3px)',
         },
@@ -102,6 +102,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                     <Form.Check
                                         type="checkbox"
                                         name="estado"
+                                        checked={formDateEditar.estado === 'Disponible'}
                                         label="Disponible"
                                         onChange={(e) => setEstadoCheckbox(e.target.checked)}
                                     />
@@ -111,6 +112,7 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
                                         type="checkbox"
                                         name="favorito"
                                         label="Se muestra en homescreen"
+                                        checked={formDateEditar.favorito}
                                         onChange={(e) => setFavoritoCheckbox(e.target.checked)}
                                     />
                                 </Form.Group>
