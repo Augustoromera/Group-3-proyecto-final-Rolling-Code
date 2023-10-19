@@ -193,7 +193,7 @@ export const AdminScreen = () => {
                 content: 'custom-swal-content',
                 confirmButton: 'custom-swal-confirm-button',
                 cancelButton: 'custom-swal-cancel-button',
-            },
+            }, 
         });
 
         setFormDate({
