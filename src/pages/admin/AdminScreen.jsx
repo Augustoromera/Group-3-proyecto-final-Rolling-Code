@@ -212,8 +212,8 @@ export const AdminScreen = () => {
         var { username, email, status, password, role } = formDateUser;
         //username=username.trim;
         const regexPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-        role = role ? role.toLocaleLowerCase() : "user";
-        status = status ? status.toLocaleLowerCase : "inactive";
+        role = role ? role.toLowerCase() : "user";
+        status = status ? status.toLowerCase() : "inactive";
         if (!username.trim() || !email.trim() || !password.trim()) {
             Swal.fire({
                 icon: 'error',
@@ -295,8 +295,8 @@ export const AdminScreen = () => {
     const handleSubmitFormUserEditar = async (e) => {
         e.preventDefault();
         var { _id, username, email, status, role } = formDateUserEditar;
-        role = role ? role.toLocaleLowerCase() : "user";
-        let statusModif = status ? status.toLocaleLowerCase() : "inactive";
+        role = role ? role.toLowerCase() : "user";
+        let statusModif = status ? "active" : "inactive";
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
