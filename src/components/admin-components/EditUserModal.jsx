@@ -66,7 +66,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                                 type="checkbox"
                                 name="status"
                                 label="Activo"
-                                checked={formDateUserEditar.status === "active"||formDateUserEditar.status}
+                                checked={formDateUserEditar.status === "active"||formDateUserEditar.status===true}
                                 onChange={(e) => handleChangeFormUserEditar(e)}
 
                             />
