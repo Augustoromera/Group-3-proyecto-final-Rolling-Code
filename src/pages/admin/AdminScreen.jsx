@@ -88,12 +88,20 @@ export const AdminScreen = () => {
 
     }
     const handleChangeFormUserEditar = (e) => {
-
-        const value = e.target.type === "checkbox" ? (e.target.checked ? "active" : "inactive") : e.target.value;
-        setFormDateUserEditar({
-            ...formDateUserEditar,
-            [e.target.name]: value,
-        })
+        const { value, type, checked } = e.target;
+        if (type === "checkbox") {
+            setFormDateUserEditar({
+                ...formDateUserEditar,
+                [e.target.name]: checked,
+            })
+        } else {
+            // Si es otro tipo de elemento de entrada (por ejemplo, un campo de texto), actualiza el estado normalmente
+            setFormDateUserEditar({
+                ...formDateUserEditar,
+                [e.target.name]: value,
+            });
+        }
+        console.log(formDateUserEditar);
     }
     const handleChangeFormEditar = (e) => {
         const { value, type, checked } = e.target;
@@ -587,7 +595,7 @@ export const AdminScreen = () => {
             console.log(error);
         }
     };
-    
+
 
     const cargarPedidosDB = async () => {
         try {

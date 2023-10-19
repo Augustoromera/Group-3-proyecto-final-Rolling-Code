@@ -132,3 +132,4 @@ const EditMenuModal = ({ isOpen, setIsOpen, handleChangeFormEditar, handleSubmit
 };
 
 export default EditMenuModal;
+
