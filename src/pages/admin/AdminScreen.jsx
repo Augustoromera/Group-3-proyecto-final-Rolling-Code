@@ -193,7 +193,7 @@ export const AdminScreen = () => {
                 content: 'custom-swal-content',
                 confirmButton: 'custom-swal-confirm-button',
                 cancelButton: 'custom-swal-cancel-button',
-            },
+            }, 
         });
 
         setFormDate({
@@ -1175,7 +1175,7 @@ export const AdminScreen = () => {
                                             <td>{pesoModif}</td>
                                             <td>
                                                 <button onClick={() => cambiarEstadoCick(pedido)}
-                                                    title={pedido.estado === "pendiente" ? "Cambiar a pedido" : "Cambiar a pendiente"}>
+                                                    title={pedido.estado === "pendiente" ? "Cambiar a completado" : "Cambiar a pendiente"}>
                                                     <i
                                                         className={`fa-solid ${pedido.estado === "pendiente" ? 'fa-circle-xmark fa-xl' : 'fa-circle-check fa-xl'}`}
                                                         style={{ color: pedido.estado === "pendiente" ? '#ff0000' : '#3f9240' }}
