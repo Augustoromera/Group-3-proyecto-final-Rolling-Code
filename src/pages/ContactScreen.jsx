@@ -23,7 +23,7 @@ export const ContactScreen = () => {
 //  ---------------------------Validaciones de campos--------------------------------
 
     // Validación para el campo de nombre
-    if (formData.firstName.trim() === '') {
+    if (formData.firstName.trim() === ''|| !/^[A-Za-z ]+$/.test(formData.firstName)) {
       Swal.fire({
         icon: 'error',
         title: 'Error en el nombre',
@@ -42,7 +42,7 @@ export const ContactScreen = () => {
     }
 
     // Validación para el campo de apellido
-    if (formData.lastName.trim() === '') {
+    if (formData.lastName.trim() === ''|| !/^[A-Za-z ]+$/.test(formData.lastName)) {
       Swal.fire({
         icon: 'error',
         title: 'Error en el apellido',
@@ -159,11 +159,19 @@ export const ContactScreen = () => {
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "firstName" || name === "lastName") {
+      const alphabeticRegex = /^[A-Za-z ]+$/;
+      if (!alphabeticRegex.test(value) && value !== "") {
+        return;
+      }
+    }
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value,
     });
   };
+  
 
   return (
     <>
@@ -205,7 +213,7 @@ export const ContactScreen = () => {
                         maxLength={50}
                         placeholder="Ingresa tu nombre"
                         value={formData.firstName}
-                        onChange={handleChange}
+                        onChange={(e)=>handleChange(e)}
                       />
                     </Form.Group>
                   </div>
@@ -220,7 +228,7 @@ export const ContactScreen = () => {
                         maxLength={50}
                         placeholder="Ingresa tu apellido"
                         value={formData.lastName}
-                        onChange={handleChange}
+                        onChange={(e)=>handleChange(e)}
                       />
                     </Form.Group>
                   </div>
@@ -235,7 +243,7 @@ export const ContactScreen = () => {
                         maxLength={50}
                         placeholder="Ingresa tu email"
                         value={formData.email}
-                        onChange={handleChange}
+                        onChange={(e)=>handleChange(e)}
                       />
                     </Form.Group>
                   </div>
@@ -248,7 +256,7 @@ export const ContactScreen = () => {
                         minLength={5}
                         maxLength={12}
                         value={formData.phone}
-                        onChange={handleChange}
+                        onChange={(e)=>handleChange(e)}
                       />
                     </Form.Group>
                   </div>
@@ -264,7 +272,7 @@ export const ContactScreen = () => {
                       required
                       placeholder="Ingresa un asunto"
                       value={formData.subject}
-                      onChange={handleChange}
+                      onChange={(e)=>handleChange(e)}
                     />
                   </Form.Group>
 
@@ -279,7 +287,7 @@ export const ContactScreen = () => {
                       maxLength={75}
                       placeholder="Escribe un mensaje"
                       value={formData.message}
-                      onChange={handleChange}
+                      onChange={(e)=>handleChange(e)}
                     />
                   </Form.Group>
                 </div>
