@@ -53,7 +53,6 @@ function LoginPage() {
                     navigate('/admin');
                 }
             } else {
-                console.log('Redirecting to home page');
                 navigate('/');
             }
         }
