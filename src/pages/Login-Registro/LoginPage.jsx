@@ -50,12 +50,10 @@ function LoginPage() {
         if (isAuthenticated) {
             if (user) {
                 if (user.role === 'admin') {
-                    console.log('Redirecting to admin page');
-                    navigate('/admin');
+                   navigate('/admin');
                 }
             } else {
-                console.log('Redirecting to home page');
-                navigate('/');
+               navigate('/');
             }
         }
     }, [isAuthenticated, user, navigate]);
