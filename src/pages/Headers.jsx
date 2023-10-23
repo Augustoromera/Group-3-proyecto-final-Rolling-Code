@@ -131,7 +131,6 @@ export const Headers = ({
 					User: JSON.stringify(user),
 				},
 			});
-			console.log(resp);
 		} catch (error) {
 			console.log(error)
 		}
