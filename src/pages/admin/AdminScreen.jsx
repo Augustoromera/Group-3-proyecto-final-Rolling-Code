@@ -101,7 +101,6 @@ export const AdminScreen = () => {
                 [e.target.name]: value,
             });
         }
-        console.log(formDateUserEditar);
     }
     const handleChangeFormEditar = (e) => {
         const { value, type, checked } = e.target;
@@ -493,7 +492,6 @@ export const AdminScreen = () => {
                     User: JSON.stringify(user),
                 },
             });
-            console.log(resp);
         } catch (error) {
             console.log(error)
         }
@@ -514,7 +512,6 @@ export const AdminScreen = () => {
                     User: JSON.stringify(user),
                 },
             });
-            console.log(resp);
         } catch (error) {
             console.log(error)
         }
@@ -532,7 +529,6 @@ export const AdminScreen = () => {
                     User: JSON.stringify(user),
                 },
             });
-            console.log(resp);
         } catch (error) {
             console.log(error)
         }
@@ -555,7 +551,6 @@ export const AdminScreen = () => {
                     User: JSON.stringify(user),
                 },
             });
-            console.log(resp);
         } catch (error) {
             console.log(error)
         }
@@ -575,7 +570,6 @@ export const AdminScreen = () => {
                     User: JSON.stringify(user),
                 },
             });
-            console.log(resp);
         } catch (error) {
             console.log(error)
         }
@@ -651,7 +645,6 @@ export const AdminScreen = () => {
                             User: JSON.stringify(user),
                         },
                     });
-                    console.log(resp);
                     Swal.fire({
                         icon: 'success',
                         title: '¡Producto Eliminado!',
@@ -797,7 +790,6 @@ export const AdminScreen = () => {
                             User: JSON.stringify(user),
                         },
                     });
-                    console.log(resp);
                     Swal.fire({
                         icon: 'success',
                         title: '¡Usuario Eliminado!',
