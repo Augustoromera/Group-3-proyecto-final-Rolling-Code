@@ -355,6 +355,13 @@ hr {
 		bottom: 24%;
 		z-index: 999;
 	}
+	.button-container-banner,.button-banner {
+		display: flex;
+		position: absolute;
+		justify-content: center;
+		bottom: 10%;
+		z-index: 1;
+	}
 	.banner-text1 {
 		text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 	}
