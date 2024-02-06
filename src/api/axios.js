@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const instance = axios.create({
-    baseURL:'https://backendrapiburgers.up.railway.app/api',
+    baseURL:'https://rc-grupo3-backend.onrender.com',
     withCredentials:true,
 })
 
