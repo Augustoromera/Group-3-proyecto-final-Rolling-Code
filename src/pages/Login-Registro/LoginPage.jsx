@@ -27,7 +27,7 @@ function LoginPage() {
                 title: 'Login incorrecto',
                 text: 'El correo electrónico no es válido',
                 background: 'black',
-                color:'white',
+                color: 'white',
                 customClass: {
                     container: 'custom-swal-container',
                     title: 'custom-swal-title',
@@ -50,11 +50,9 @@ function LoginPage() {
         if (isAuthenticated) {
             if (user) {
                 if (user.role === 'admin') {
-                    console.log('Redirecting to admin page');
                     navigate('/admin');
                 }
             } else {
-                console.log('Redirecting to home page');
                 navigate('/');
             }
         }

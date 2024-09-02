@@ -25,9 +25,9 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="name"
+                                name="username"
                                 value={formDateUserEditar.username}
-                                onChange={handleChangeFormUserEditar}
+                                onChange={(e) => handleChangeFormUserEditar(e)}
                                 placeholder="Ingrese el nombre del producto"
                                 minLength="3"
                                 maxLength="40"
@@ -41,7 +41,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                                 type="email"
                                 name="email"
                                 value={formDateUserEditar.email}
-                                onChange={handleChangeFormUserEditar}
+                                onChange={(e) => handleChangeFormUserEditar(e)}
                                 placeholder="Ingrese el email"
                                 required
                             />
@@ -50,6 +50,7 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                             <Form.Label>Rol</Form.Label>
                             <Form.Select
                                 name="role"
+                                value={formDateUserEditar.role}
                                 onChange={(e) => handleChangeFormUserEditar(e)}
                                 style={{ width: '100%' }}
                             >
@@ -65,8 +66,8 @@ const EditUserModal = ({ isOpen, setIsOpen, handleChangeFormUserEditar, handleSu
                                 type="checkbox"
                                 name="status"
                                 label="Activo"
-                                checked={formDateUserEditar.status === "active"}
-                                onChange={handleChangeFormUserEditar}
+                                checked={formDateUserEditar.status === "active"||formDateUserEditar.status===true}
+                                onChange={(e) => handleChangeFormUserEditar(e)}
 
                             />
                         </Form.Group>

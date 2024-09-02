@@ -20,41 +20,41 @@ export const ContactScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-//  ---------------------------Validaciones de campos--------------------------------
+    //  ---------------------------Validaciones de campos--------------------------------
 
     // Validación para el campo de nombre
-    if (formData.firstName.trim() === '') {
+    if (formData.firstName.trim() === '' || !/^[A-Za-z ]+$/.test(formData.firstName)) {
       Swal.fire({
         icon: 'error',
         title: 'Error en el nombre',
         text: 'Por favor, ingresa un nombre válido.',
         background: 'black',
-        color:'white',
+        color: 'white',
         customClass: {
-            container: 'custom-swal-container',
-            title: 'custom-swal-title',
-            content: 'custom-swal-content',
-            confirmButton: 'custom-swal-confirm-button',
-            cancelButton: 'custom-swal-cancel-button',
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
         },
       });
       return;
     }
 
     // Validación para el campo de apellido
-    if (formData.lastName.trim() === '') {
+    if (formData.lastName.trim() === '' || !/^[A-Za-z ]+$/.test(formData.lastName)) {
       Swal.fire({
         icon: 'error',
         title: 'Error en el apellido',
         text: 'Por favor, ingresa un apellido válido.',
         background: 'black',
-        color:'white',
+        color: 'white',
         customClass: {
-            container: 'custom-swal-container',
-            title: 'custom-swal-title',
-            content: 'custom-swal-content',
-            confirmButton: 'custom-swal-confirm-button',
-            cancelButton: 'custom-swal-cancel-button',
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
         },
       });
       return;
@@ -67,36 +67,38 @@ export const ContactScreen = () => {
         title: 'Error en el correo electrónico',
         text: 'Por favor, ingresa un correo electrónico válido.',
         background: 'black',
-        color:'white',
+        color: 'white',
         customClass: {
-            container: 'custom-swal-container',
-            title: 'custom-swal-title',
-            content: 'custom-swal-content',
-            confirmButton: 'custom-swal-confirm-button',
-            cancelButton: 'custom-swal-cancel-button',
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
         },
       });
       return;
     }
 
     // Validación para el campo de teléfono
-    if (formData.phone.trim() !== '' && !/^[0-9]+$/.test(formData.phone)) {
+    if (formData.phone.trim() !== '' && !/^(?:\d*\+?\d*)$/.test(formData.phone)) {
       Swal.fire({
         icon: 'error',
         title: 'Error en el teléfono',
         text: 'Por favor, ingresa un teléfono válido.',
         background: 'black',
-        color:'white',
+        color: 'white',
         customClass: {
-            container: 'custom-swal-container',
-            title: 'custom-swal-title',
-            content: 'custom-swal-content',
-            confirmButton: 'custom-swal-confirm-button',
-            cancelButton: 'custom-swal-cancel-button',
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
         },
       });
       return;
     }
+    
+    
 
     // Validación para el campo de asunto
     if (formData.subject.trim() === '') {
@@ -105,13 +107,13 @@ export const ContactScreen = () => {
         title: 'Error en el asunto',
         text: 'Por favor, ingresa un asunto.',
         background: 'black',
-        color:'white',
+        color: 'white',
         customClass: {
-            container: 'custom-swal-container',
-            title: 'custom-swal-title',
-            content: 'custom-swal-content',
-            confirmButton: 'custom-swal-confirm-button',
-            cancelButton: 'custom-swal-cancel-button',
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
         },
       });
       return;
@@ -124,13 +126,13 @@ export const ContactScreen = () => {
         title: 'Error en el mensaje',
         text: 'Por favor, escribe un mensaje.',
         background: 'black',
-        color:'white',
+        color: 'white',
         customClass: {
-            container: 'custom-swal-container',
-            title: 'custom-swal-title',
-            content: 'custom-swal-content',
-            confirmButton: 'custom-swal-confirm-button',
-            cancelButton: 'custom-swal-cancel-button',
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
         },
       });
       return;
@@ -143,13 +145,13 @@ export const ContactScreen = () => {
         html: 'Nuestro equipo recibió tu solicitud',
         showConfirmButton: false,
         background: 'black',
-        color:'white',
+        color: 'white',
         customClass: {
-            container: 'custom-swal-container',
-            title: 'custom-swal-title',
-            content: 'custom-swal-content',
-            confirmButton: 'custom-swal-confirm-button',
-            cancelButton: 'custom-swal-cancel-button',
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+          cancelButton: 'custom-swal-cancel-button',
         },
         timer: 3000,
       }).then(() => {
@@ -159,11 +161,26 @@ export const ContactScreen = () => {
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "firstName" || name === "lastName") {
+      const alphabeticRegex = /^[A-Za-z ]+$/;
+      if (!alphabeticRegex.test(value) && value !== "") {
+        return;
+      }
+    }
+    if (name === "phone") {
+      const numericRegex =/^[0-9+]+$/
+      ;
+      if (!numericRegex.test(value) && value !== "") {
+        return;
+      }
+    }
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value,
     });
   };
+
 
   return (
     <>
@@ -205,7 +222,7 @@ export const ContactScreen = () => {
                         maxLength={50}
                         placeholder="Ingresa tu nombre"
                         value={formData.firstName}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                       />
                     </Form.Group>
                   </div>
@@ -220,7 +237,7 @@ export const ContactScreen = () => {
                         maxLength={50}
                         placeholder="Ingresa tu apellido"
                         value={formData.lastName}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                       />
                     </Form.Group>
                   </div>
@@ -235,7 +252,7 @@ export const ContactScreen = () => {
                         maxLength={50}
                         placeholder="Ingresa tu email"
                         value={formData.email}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                       />
                     </Form.Group>
                   </div>
@@ -248,7 +265,7 @@ export const ContactScreen = () => {
                         minLength={5}
                         maxLength={12}
                         value={formData.phone}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                       />
                     </Form.Group>
                   </div>
@@ -264,7 +281,7 @@ export const ContactScreen = () => {
                       required
                       placeholder="Ingresa un asunto"
                       value={formData.subject}
-                      onChange={handleChange}
+                      onChange={(e) => handleChange(e)}
                     />
                   </Form.Group>
 
@@ -279,7 +296,7 @@ export const ContactScreen = () => {
                       maxLength={75}
                       placeholder="Escribe un mensaje"
                       value={formData.message}
-                      onChange={handleChange}
+                      onChange={(e) => handleChange(e)}
                     />
                   </Form.Group>
                 </div>

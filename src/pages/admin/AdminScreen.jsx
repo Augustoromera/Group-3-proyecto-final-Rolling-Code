@@ -88,12 +88,20 @@ export const AdminScreen = () => {
 
     }
     const handleChangeFormUserEditar = (e) => {
-
-        const value = e.target.type === "checkbox" ? (e.target.checked ? "active" : "inactive") : e.target.value;
-        setFormDateUserEditar({
-            ...formDateUserEditar,
-            [e.target.name]: value,
-        })
+        const { value, type, checked } = e.target;
+        if (type === "checkbox") {
+            setFormDateUserEditar({
+                ...formDateUserEditar,
+                [e.target.name]: checked,
+            })
+        } else {
+            // Si es otro tipo de elemento de entrada (por ejemplo, un campo de texto), actualiza el estado normalmente
+            setFormDateUserEditar({
+                ...formDateUserEditar,
+                [e.target.name]: value,
+            });
+        }
+        console.log(formDateUserEditar);
     }
     const handleChangeFormEditar = (e) => {
         const { value, type, checked } = e.target;
@@ -185,7 +193,7 @@ export const AdminScreen = () => {
                 content: 'custom-swal-content',
                 confirmButton: 'custom-swal-confirm-button',
                 cancelButton: 'custom-swal-cancel-button',
-            },
+            }, 
         });
 
         setFormDate({
@@ -204,8 +212,8 @@ export const AdminScreen = () => {
         var { username, email, status, password, role } = formDateUser;
         //username=username.trim;
         const regexPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-        role = role ? role.toLocaleLowerCase() : "user";
-        status = status ? status.toLocaleLowerCase : "inactive";
+        role = role ? role.toLowerCase() : "user";
+        status = status ? status.toLowerCase() : "inactive";
         if (!username.trim() || !email.trim() || !password.trim()) {
             Swal.fire({
                 icon: 'error',
@@ -287,8 +295,8 @@ export const AdminScreen = () => {
     const handleSubmitFormUserEditar = async (e) => {
         e.preventDefault();
         var { _id, username, email, status, role } = formDateUserEditar;
-        role = role ? role.toLocaleLowerCase() : "user";
-        let statusModif = status ? status.toLocaleLowerCase() : "inactive";
+        role = role ? role.toLowerCase() : "user";
+        let statusModif = status ? "active" : "inactive";
         if (!_id) {
             return Swal.fire({
                 icon: 'error',
@@ -587,7 +595,7 @@ export const AdminScreen = () => {
             console.log(error);
         }
     };
-    
+
 
     const cargarPedidosDB = async () => {
         try {
@@ -1167,7 +1175,7 @@ export const AdminScreen = () => {
                                             <td>{pesoModif}</td>
                                             <td>
                                                 <button onClick={() => cambiarEstadoCick(pedido)}
-                                                    title={pedido.estado === "pendiente" ? "Cambiar a pedido" : "Cambiar a pendiente"}>
+                                                    title={pedido.estado === "pendiente" ? "Cambiar a completado" : "Cambiar a pendiente"}>
                                                     <i
                                                         className={`fa-solid ${pedido.estado === "pendiente" ? 'fa-circle-xmark fa-xl' : 'fa-circle-check fa-xl'}`}
                                                         style={{ color: pedido.estado === "pendiente" ? '#ff0000' : '#3f9240' }}
