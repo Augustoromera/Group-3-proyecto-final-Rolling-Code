@@ -1,6 +1,6 @@
 import axios from './axios';
 
-export const API = 'https://backendrapiburgers.up.railway.app/api';
+export const API = 'https://rc-grupo3-backend.onrender.com/api';
 
 export const registerRequest = (user) => axios.post(`/register`, user);
 export const loginRequest = (user) => axios.post(`/login`, user);
