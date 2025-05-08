@@ -33,7 +33,7 @@ export const AboutUs = () => {
                             <img src={imgPaulo} alt="Paulo, integrante del grupo" className='imgAbout' />
                         </div>
                         <h2>Paulo Srur</h2>
-                        <p className="p-espacio1">Tengo 19 años, soy estudiante de licenciatura en informática en la UNT, un apasionado de la tecnología y la programación desde chico, nunca dejaré de aprender y uno de mis objetivos es convertir esta pasión en una carrera sólida. Full stack MERN en progreso. Se inglés y un poco de portugués. Mi hobbie es el fútbol y aguante Messi. </p>
+                        <p className="p-espacio1">Tengo 21 años, soy estudiante de Ingeniería en informática en la UNT, un apasionado de la tecnología y la programación desde chico, nunca dejaré de aprender y uno de mis objetivos es convertir esta pasión en una carrera sólida. Full stack MERN en progreso. Se inglés y un poco de portugués. Mi hobbie es el fútbol y aguante Messi. </p>
                         <div className="wrapper">
                             <ul className="iconos">
                                 <li className="github"><a href="https://www.github.com" target="_blank"><i className="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
